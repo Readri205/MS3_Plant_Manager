@@ -47,3 +47,5 @@ Happy coding!
 - All through the development phase of the project, commits have been made from the GitPod Repository to GitHub. The version control list below mirrors the GitHub Commit list. It is designed to provide a direct track on commits in the README file for easy access as to code status in GitPod.
 
 - V1.0 Initial Commit
+- V1.1 Add requirements.txt
+- V1.2 Add Procfile
