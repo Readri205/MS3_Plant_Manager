@@ -52,3 +52,4 @@ Happy coding!
 - V1.3 Add MONGO_URI config in heroku
 - V1.4 Add app.route for MongoDB connection
 - V1.5 Add plants.html collections.html
+- V1.6 Add materialize design link and scripts

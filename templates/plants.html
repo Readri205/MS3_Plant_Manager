@@ -1,13 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
 
-        {% for plant in plants %}
-            {{plant.collection_name}}
-            {{plant.common_name}}
-            {{plant.family_common_name}}
-            {{plant.genus}}
-            {{plant.family}}
-            {{plant.image_url}}
-        {% endfor %}
-
+<ul class="collapsible">
+{% for plant in plants %}
+    <li>
+      <div class="collapsible-header"><i class="material-icons">local_florist</i>
+      {{plant.collection_name}}
+      </div>
+      <div class="collapsible-body">
+        <span>Common Name:  </span><span>{{plant.common_name}}</span> <br>
+        <span>Family Common Name:   </span><span>{{plant.family_common_name}}</span> <br>
+        <span>Genus:    </span><span>{{plant.genus}}</span> <br>
+        <span>Family:   </span><span>{{plant.family}}</span> <br>
+        <span>Image:    </span><span>{{plant.image_url}}</span> <br>
+      </div>
+    </li>
+</ul>
+{% endfor %}
 {% endblock %}
