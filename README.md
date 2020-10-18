@@ -49,3 +49,4 @@ Happy coding!
 - V1.0 Initial Commit
 - V1.1 Add requirements.txt
 - V1.2 Add Procfile
+- V1.3 Add MONGO_URI config in heroku
