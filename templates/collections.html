@@ -1,10 +1,8 @@
-<html>
-    <head>
-    
-    </head>
-    <body>
+{% extends 'base.html' %}
+{% block content %}
+
         {% for collection in collections %}
-            {{collections.collection_name}}
+            {{collection.collection_name}}
         {% endfor %}
-    </body>
-</html>
+
+{% endblock %}
