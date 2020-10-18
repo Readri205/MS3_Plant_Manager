@@ -53,3 +53,4 @@ Happy coding!
 - V1.4 Add app.route for MongoDB connection
 - V1.5 Add plants.html collections.html
 - V1.6 Add materialize design link and scripts
+- V1.7 Add plants list in collections

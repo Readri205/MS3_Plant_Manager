@@ -5,7 +5,7 @@ from bson.objectid import ObjectId
 
 
 if os.path.exists("env.py"):
-  import env
+    import env
 
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'plant_manager'
@@ -18,13 +18,13 @@ mongo = PyMongo(app)
 @app.route("/get_plants")
 def get_plants():
     return render_template("plants.html",
-                            plants=mongo.db.plants.find())
+                           plants=mongo.db.plants.find())
 
 
 @app.route('/get_collections')
 def get_collections():
     return render_template("collections.html",
-                           collections=mongo.db.collections.find())
+                           plants=mongo.db.plants.find())
 
 
 if __name__ == "__main__":
