@@ -50,3 +50,4 @@ Happy coding!
 - V1.1 Add requirements.txt
 - V1.2 Add Procfile
 - V1.3 Add MONGO_URI config in heroku
+- V1.4 Add app.route for MongoDB connection

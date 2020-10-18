@@ -1,0 +1,15 @@
+<html>
+    <head>
+    
+    </head>
+    <body>
+        {% for plants in plants %}
+            {{plants.collection_name}}
+            {{plants.common_name}}
+            {{plants.family_common_name}}
+            {{plants.genus}}
+            {{plants.family}}
+            {{plants.image_url}}
+        {% endfor %}
+    </body>
+</html>
