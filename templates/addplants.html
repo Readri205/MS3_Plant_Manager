@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container">
+<h3>Add Plants</h3>
+<div class="row">
+    <form action="" method="POST" class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+            <i class="material-icons prefix">filter_vintage</i>
+            <input id="collection_name" name="collection_name" type="text" class="validate">
+            <label>Collection Name</label>
+        </div>
+        <div class="input-field col s12">
+          <i class="material-icons prefix">filter_vintage</i>
+          <input id="common_name" name="common_name" type="text" class="validate">
+          <label>Common Name</label>
+        </div>
+        <div class="input-field col s12">
+          <i class="material-icons prefix">filter_vintage</i>
+          <input id="family_common_name" name="family_common_name" type="text" class="validate">
+          <label>Family Common Name</label>
+        </div>
+        <div class="input-field col s12">
+          <i class="material-icons prefix">filter_vintage</i>
+          <input id="genus" name="genus" type="text" class="validate">
+          <label>Genus</label>
+        </div>
+        <div class="input-field col s12">
+          <i class="material-icons prefix">filter_vintage</i>
+          <input id="family" name="family" type="text" class="validate">
+          <label>Family</label>
+        </div>
+        <div class="input-field col s12">
+          <i class="material-icons prefix">filter_vintage</i>
+          <input id="image_url" name="image_url" type="text" class="validate">
+          <label>Image URL</label>
+        </div>
+      </div>
+    </form>
+  </div>
+  </div>
+{% endblock %}

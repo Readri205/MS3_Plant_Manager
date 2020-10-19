@@ -21,10 +21,16 @@ def get_plants():
                            plants=mongo.db.plants.find())
 
 
+@app.route("/add_plant")
+def add_plant():
+    return render_template("addplants.html",
+                           plants=mongo.db.plants.find())
+
+
 @app.route('/get_collections')
 def get_collections():
     return render_template("collections.html",
-                           plants=mongo.db.plants.find())
+                           collections=mongo.db.collections.find())
 
 
 if __name__ == "__main__":

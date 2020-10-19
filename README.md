@@ -54,3 +54,4 @@ Happy coding!
 - V1.5 Add plants.html collections.html
 - V1.6 Add materialize design link and scripts
 - V1.7 Add plants list in collections
+- V1.8 Add add_plant.html and update collectons.html
