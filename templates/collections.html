@@ -1,12 +1,27 @@
 {% extends 'base.html' %} {% block content %}
 
 <div class="container">
+<h4>My Collections</h4>
 <ul class="collapsible">
     <li>
         {% for collection in collections %}
-        <div class="collapsible-header"><i class="fas fa-spa"></i>
+        <div class="collapsible-header cap-text"><i class="fas fa-spa"></i>
         {{collection.collection_name}}
         </div>
+        
+		<li>
+            {% for plant in plants %}
+			<div class="collapsible-body">
+				<span><strong> Collection: </strong></span><span> {{plant.collection_name}}</span> <br>
+				<span><strong>Family Name: </strong></span><span> {{plant.family_common_name}}</span> <br>
+				<span><strong>Genus: </strong></span><span> {{plant.genus}}</span> <br>
+				<span><strong>Family: </strong></span><span> {{plant.family}}</span> <br>
+				<span><strong>Description: </strong></span><span> {{plant.description}}</span> <br>
+				<span><strong>Date Added: </strong></span><span> {{plant.date_added}}</span> <br>
+				<span><strong>Image: </strong></span><span> {{plant.image_url}}</span> <br>
+				</div>
+			{% endfor %}
+		</li>
         {% endfor %}
     </li>
 </ul>

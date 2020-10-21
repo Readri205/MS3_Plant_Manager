@@ -24,7 +24,7 @@ def get_plants():
 @app.route("/add_plant")
 def add_plant():
     return render_template("addplants.html",
-                           collections=mongo.db.collections.find())
+                           plants=mongo.db.plants.find())
 
 
 @app.route("/insert_plant", methods=["POST"])
@@ -34,10 +34,24 @@ def insert_plant():
     return redirect(url_for("get_plants"))
 
 
+@app.route("/add_collection")
+def add_collection():
+    return render_template("addcollections.html",
+                           collections=mongo.db.collections.find())
+
+
+@app.route("/insert_collection", methods=["POST"])
+def insert_collection():
+    collection = mongo.db.collections
+    collection.insert_one(request.form.to_dict())
+    return redirect(url_for("get_collections"))
+
+
 @app.route("/get_collections")
 def get_collections():
     return render_template("collections.html",
-                           collections=mongo.db.collections.find())
+                           collections=mongo.db.collections.find(),
+                           plants=mongo.db.plants.find())
 
 
 if __name__ == "__main__":

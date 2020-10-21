@@ -57,3 +57,4 @@ Happy coding!
 - V1.8 Add add_plant.html and update collectons.html
 - V1.9 Add additional fields to database, update add_plant.html
 - V2.0 Add insert_plant function in app.py
+- V2.1 Add insert_collection function, addcollections.html

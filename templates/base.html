@@ -10,10 +10,9 @@
 </head>
 <body>
     <div class="container">
-        <h1>RHC Garden Manager</h1>
+        <h3>RHC Garden Manager</h3>
     </div>
-    {% block content %}
-    {% endblock %}
+    {% block content %} {% endblock %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="https://kit.fontawesome.com/5fa1d9dfaf.js" crossorigin="anonymous"></script>
@@ -23,7 +22,6 @@
             $('select').material_select();
             $(".button-collapse").sideNav();
         });
-
         $('.datepicker').pickadate({
             selectMonths: true, // Creates a dropdown to control month
             selectYears: 15, // Creates a dropdown of 15 years to control year,
@@ -36,6 +34,9 @@
 	        e.stopPropagation();
         });
         document.getElementById("matfix1").addEventListener("click", function(e) {
+	        e.stopPropagation();
+        });
+        document.getElementById("matfix2").addEventListener("click", function(e) {
 	        e.stopPropagation();
         });
     </script>
