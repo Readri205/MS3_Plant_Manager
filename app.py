@@ -21,8 +21,8 @@ def get_plants():
                            plants=mongo.db.plants.find())
 
 
-@app.route("/add_plant")
-def add_plant():
+@app.route("/add_plants")
+def add_plants():
     return render_template("addplants.html",
                            plants=mongo.db.plants.find())
 
@@ -34,8 +34,14 @@ def insert_plant():
     return redirect(url_for("get_plants"))
 
 
-@app.route("/add_collection")
-def add_collection():
+@app.route("/get_collections")
+def get_collections():
+    return render_template("collections.html",
+                           collections=mongo.db.collections.find())
+
+
+@app.route("/add_collections")
+def add_collections():
     return render_template("addcollections.html",
                            collections=mongo.db.collections.find())
 
@@ -47,14 +53,7 @@ def insert_collection():
     return redirect(url_for("get_collections"))
 
 
-@app.route("/get_collections")
-def get_collections():
-    return render_template("collections.html",
-                           collections=mongo.db.collections.find(),
-                           plants=mongo.db.plants.find())
-
-
-if __name__ == "__main__":
-    app.run(host=os.environ.get("IP"),
-            port=int(os.environ.get("PORT")),
+if __name__ == '__main__':
+    app.run(host=os.environ.get('IP'),
+            port=int(os.environ.get('PORT')),
             debug=True)

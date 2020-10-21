@@ -58,3 +58,4 @@ Happy coding!
 - V1.9 Add additional fields to database, update add_plant.html
 - V2.0 Add insert_plant function in app.py
 - V2.1 Add insert_collection function, addcollections.html
+- V2.2 Add description, date added to collections.html, addcollections.html
