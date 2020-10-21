@@ -59,3 +59,4 @@ Happy coding!
 - V2.0 Add insert_plant function in app.py
 - V2.1 Add insert_collection function, addcollections.html
 - V2.2 Add description, date added to collections.html, addcollections.html
+- V2.3 Amend collections.html for drop down to show details and edit buttons
