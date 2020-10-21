@@ -24,7 +24,7 @@ def get_plants():
 @app.route("/add_plants")
 def add_plants():
     return render_template("addplants.html",
-                           plants=mongo.db.plants.find())
+                           collections=mongo.db.collections.find())
 
 
 @app.route("/insert_plant", methods=["POST"])

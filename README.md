@@ -61,3 +61,4 @@ Happy coding!
 - V2.2 Add description, date added to collections.html, addcollections.html
 - V2.3 Amend collections.html for drop down to show details and edit buttons
 - V2.4 Add drop down collection details to addcollections.html
+- V2.5 Amend '/addplants' to 'collections' from 'plants'
