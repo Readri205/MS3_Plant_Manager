@@ -24,10 +24,17 @@ def get_plants():
 @app.route("/add_plant")
 def add_plant():
     return render_template("addplants.html",
-                           plants=mongo.db.plants.find())
+                           collections=mongo.db.collections.find())
 
 
-@app.route('/get_collections')
+@app.route("/insert_plant", methods=["POST"])
+def insert_plant():
+    plants = mongo.db.plants
+    plants.insert_one(request.form.to_dict())
+    return redirect(url_for("get_plants"))
+
+
+@app.route("/get_collections")
 def get_collections():
     return render_template("collections.html",
                            collections=mongo.db.collections.find())
