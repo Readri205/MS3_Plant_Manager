@@ -63,4 +63,6 @@ Happy coding!
 - V2.4 Add drop down collection details to addcollections.html
 - V2.5 Amend '/addplants' to 'collections' from 'plants'
 - V2.6 Remove name='action' in addplants.html submit button
-_ V2.7 Add edit function to plants
+- V2.7 Add edit function to plants
+- V2.8 Add delete to plants, update and delete for collections
+

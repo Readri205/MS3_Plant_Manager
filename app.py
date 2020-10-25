@@ -59,6 +59,12 @@ def update_plant(plant_id):
     return redirect(url_for("get_plants"))
 
 
+@app.route('/delete_plant/<plant_id>')
+def delete_plant(plant_id):
+    mongo.db.plants.remove({"_id": ObjectId(plant_id)})
+    return redirect(url_for("get_plants"))
+
+
 @app.route("/get_collections")
 def get_collections():
     return render_template("collections.html",
@@ -77,6 +83,31 @@ def insert_collection():
     collection.insert_one(request.form.to_dict())
     return redirect(url_for("get_collections"))
 
+
+@app.route('/edit_collection/<collection_id>')
+def edit_collection(collection_id):
+    the_collection = mongo.db.collections.find_one({"_id": ObjectId(collection_id)})
+    all_collections = mongo.db.collections.find()
+    return render_template("editcollections.html", collection=the_collection,
+                            collections=all_collections)
+
+
+@app.route('/update_collection/<collection_id>', methods=["POST"])
+def update_collection(collection_id):
+    collections = mongo.db.collections
+    collections.update({"_id": ObjectId(collection_id)},
+    {
+        "collection_name": request.form.get("collection_name"),
+        "description": request.form.get("description"),
+        "date_added": request.form.get("date_added"),
+    })
+    return redirect(url_for("get_collections"))
+
+
+@app.route('/delete_collection/<collection_id>')
+def delete_collection(collection_id):
+    mongo.db.collections.remove({"_id": ObjectId(collection_id)})
+    return redirect(url_for("get_collections"))
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

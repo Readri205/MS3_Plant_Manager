@@ -17,8 +17,8 @@
             <span><strong>Description: </strong></span><span> {{collection.description}}</span> <br>
             <span><strong>Date Added: </strong></span><span> {{collection.date_added}}</span> <br>
             <div class="btn-css">
-		        <a class="waves-effect waves-light btn"><i class="material-icons"></i>Edit</a>
-		        <a class="waves-effect waves-light red darken-2 btn right"><i class="material-icons"></i>Delete</a>
+		        <a href="{{url_for('edit_collection', collection_id=collection._id)}}" class="waves-effect waves-light btn"><i class="material-icons"></i>Edit</a>
+		        <a href="{{url_for('delete_collection', collection_id=collection._id)}}" class="waves-effect waves-light red darken-2 btn right"><i class="material-icons"></i>Delete</a>
             </div>
         </div>
     </li>
