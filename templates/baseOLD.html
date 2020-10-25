@@ -21,12 +21,6 @@
                     <li><a href="{{url_for('add_collections')}}">Add Collections</a></li>
 				</ul>
 			</div>
-			<ul class="sidenav" id="mobile-demo">
-				<li><a href="{{url_for('get_plants')}}">Home</a></li>
-				<li><a href="{{url_for('get_collections')}}">Collections</a></li>
-				<li><a href="{{url_for('add_plants')}}">Add Plants</a></li>
-				<li><a href="{{url_for('add_collections')}}">Add Collections</a></li>
-			</ul>
 		</nav>
 	</header>
     <div class="container">
@@ -34,13 +28,13 @@
     </div>
     {% block content %} {% endblock %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://kit.fontawesome.com/5fa1d9dfaf.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             $('.collapsible').collapsible();
             $('select').material_select();
-            $('.sidenav').sidenav();
+            $('.button-collapse').sidenav();
         });
         $('.datepicker').pickadate({
             selectMonths: true, // Creates a dropdown to control month

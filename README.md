@@ -65,4 +65,5 @@ Happy coding!
 - V2.6 Remove name='action' in addplants.html submit button
 - V2.7 Add edit function to plants
 - V2.8 Add delete to plants, update and delete for collections
+- V2.9 Add navbar
 
