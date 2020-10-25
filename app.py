@@ -34,6 +34,31 @@ def insert_plant():
     return redirect(url_for("get_plants"))
 
 
+@app.route('/edit_plant/<plant_id>')
+def edit_plant(plant_id):
+    the_plant = mongo.db.plants.find_one({"_id": ObjectId(plant_id)})
+    all_collections = mongo.db.collections.find()
+    return render_template("editplants.html", plant=the_plant,
+                            collections=all_collections)
+
+
+@app.route('/update_plant/<plant_id>', methods=["POST"])
+def update_plant(plant_id):
+    plants = mongo.db.plants
+    plants.update({"_id": ObjectId(plant_id)},
+    {
+        "common_name": request.form.get("common_name"),
+        "collection_name": request.form.get("collection_name"),
+        "family_common_name": request.form.get("family_common_name"),
+        "genus": request.form.get("genus"),
+        "family": request.form.get("family"),
+        "description": request.form.get("description"),
+        "date_added": request.form.get("date_added"),
+        "image_url": request.form.get("image_url")
+    })
+    return redirect(url_for("get_plants"))
+
+
 @app.route("/get_collections")
 def get_collections():
     return render_template("collections.html",
