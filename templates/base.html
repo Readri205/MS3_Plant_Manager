@@ -8,18 +8,27 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
     <title>RHC Garden Manager</title>
 </head>
-<body>
+<body class="teal lighten-5">
 	<header>
 		<nav>
-			<div class="nav-wrapper">
-				<a href="{{url_for('get_plants')}}" class="brand-logo">RHC Garden Manager</a>
-				<ul id="nav-mobile" class="right hide-on-med-and-down">
+			<div class="nav-wrapper teal darken-3">
+            <div class="container">
+				<a href="{{url_for('get_plants')}}" class="brand-logo flow-text">Garden Manager</a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="fas fa-bars"></i></a>
+				<ul class="right hide-on-med-and-down">
 					<li><a href="{{url_for('get_plants')}}">Home</a></li>
 					<li><a href="{{url_for('get_collections')}}">Collections</a></li>
 					<li><a href="{{url_for('add_plants')}}">Add Plants</a></li>
-                    <li><a href="{{url_for('add_collections')}}">Add Collections</a></li>
+					<li><a href="{{url_for('add_collections')}}">Add Collections</a></li>
 				</ul>
-			</div>
+				<ul class="side-nav" id="mobile-demo">
+					<li><a href="{{url_for('get_plants')}}">Home</a></li>
+					<li><a href="{{url_for('get_collections')}}">Collections</a></li>
+					<li><a href="{{url_for('add_plants')}}">Add Plants</a></li>
+					<li><a href="{{url_for('add_collections')}}">Add Collections</a></li>
+				</ul>
+            </div>
+            </div>
 		</nav>
 	</header>
     <div class="container">
@@ -33,7 +42,7 @@
         $(document).ready(function() {
             $('.collapsible').collapsible();
             $('select').material_select();
-            $('.sidenav').sidenav();
+            $('.button-collapse').sideNav();
         });
         $('.datepicker').pickadate({
             selectMonths: true, // Creates a dropdown to control month

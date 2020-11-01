@@ -67,4 +67,5 @@ Happy coding!
 - V2.8 Add delete to plants, update and delete for collections
 - V2.9 Add navbar
 - V3.0 Adjust navbar for menu items
+- V3.1 Add hamburger menu for small screens
 
