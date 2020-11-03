@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
     <title>RHC Garden Manager</title>
@@ -11,21 +11,23 @@
 <body class="teal lighten-5">
 	<header>
 		<nav>
-			<div class="nav-wrapper teal darken-3">
+			<div class="nav-wrapper teal darken-4">
             <div class="container">
-				<a href="{{url_for('get_plants')}}" class="brand-logo flow-text">Garden Manager<i class="fad fa-seedling"></i></a>
+				<a href="{{url_for('get_plants')}}" class="brand-logo flow-text yellow-text text-darken-4">Garden Manager<i class="fad fa-seedling"></i></a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="fas fa-bars"></i></a>
 				<ul class="right hide-on-med-and-down">
-					<li><a href="{{url_for('get_plants')}}">Home</a></li>
-					<li><a href="{{url_for('get_collections')}}">Collections</a></li>
-					<li><a href="{{url_for('add_plants')}}">Add Plants</a></li>
-					<li><a href="{{url_for('add_collections')}}">Add Collections</a></li>
+					<li><a href="{{url_for('get_plants')}}" class="yellow-text text-darken-4">Home</a></li>
+					<li><a href="{{url_for('get_collections')}}" class="yellow-text text-darken-4">Collections</a></li>
+					<li><a href="{{url_for('add_plants')}}" class="yellow-text text-darken-4">Add Plants</a></li>
+					<li><a href="{{url_for('add_collections')}}" class="yellow-text text-darken-4">Add Collections</a></li>
+                    <li><a href="{{ url_for('register') }}" class="yellow-text text-darken-4">Register</a></li>
 				</ul>
-				<ul class="side-nav" id="mobile-demo">
-					<li><a href="{{url_for('get_plants')}}">Home</a></li>
-					<li><a href="{{url_for('get_collections')}}">Collections</a></li>
-					<li><a href="{{url_for('add_plants')}}">Add Plants</a></li>
-					<li><a href="{{url_for('add_collections')}}">Add Collections</a></li>
+				<ul class="side-nav teal darken-4" id="mobile-demo">
+					<li><a href="{{url_for('get_plants')}}" class="yellow-text text-darken-4">Home</a></li>
+					<li><a href="{{url_for('get_collections')}}" class="yellow-text text-darken-4">Collections</a></li>
+					<li><a href="{{url_for('add_plants')}}" class="yellow-text text-darken-4">Add Plants</a></li>
+					<li><a href="{{url_for('add_collections')}}" class="yellow-text text-darken-4">Add Collections</a></li>
+                    <li><a href="{{ url_for('register') }}" class="yellow-text text-darken-4">Register</a></li>
 				</ul>
             </div>
             </div>
@@ -35,7 +37,7 @@
         <h3></h3>
     </div>
     {% block content %} {% endblock %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="https://kit.fontawesome.com/ee9889d2bd.js" crossorigin="anonymous"></script>
     <script type="text/javascript">

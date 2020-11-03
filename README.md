@@ -69,3 +69,4 @@ Happy coding!
 - V3.0 Adjust navbar for menu items
 - V3.1 Add hamburger menu for small screens
 - V3.2 Add font awesome icons for menu
+- V3.3 Add css style js script pages user register page
