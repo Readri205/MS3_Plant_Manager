@@ -77,3 +77,4 @@ Happy coding!
 - V3.8 Add user profile page on registration and login
 - V3.9 Add user logout functionality
 - V4.0 Update hamburger menu to dark yellow colour
+- V4.1 Add icon in burger menu and menu text shadows
