@@ -3,18 +3,6 @@
 */
 
 $(document).ready(function () {
-    $(".sidenav").sidenav({edge: "right"});
-});
-/*
-    vanilla JavaScript for MaterializeCSS initialization
-*/
-
-// document.addEventListener('DOMContentLoaded', function () {
-//     let sidenavs = document.querySelectorAll(".sidenav");
-//     let sidenavsInstance = M.Sidenav.init(sidenavs, {edge: "right"});
-// });
-
-$(document).ready(function () {
     $('.collapsible').collapsible();
     $('select').material_select();
     $('.button-collapse').sideNav();
@@ -36,3 +24,7 @@ document.getElementById("matfix1").addEventListener("click", function (e) {
 document.getElementById("matfix2").addEventListener("click", function (e) {
     e.stopPropagation();
 });
+
+/*
+$(".sidenav").sidenav({edge: "right"});
+*/

@@ -73,3 +73,4 @@ Happy coding!
 - V3.4 Add secret key for user registration
 - V3.5 Add login for users
 - V3.6 Add flash messages on login and register
+- V3.7 Move js scripts to script file
