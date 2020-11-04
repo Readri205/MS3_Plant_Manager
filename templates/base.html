@@ -17,27 +17,34 @@
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="fas fa-bars"></i></a>
 				<ul class="right hide-on-med-and-down">
 					<li><a href="{{url_for('get_plants')}}" class="yellow-text text-darken-4">Home</a></li>
-					<li><a href="{{url_for('get_collections')}}" class="yellow-text text-darken-4">Collections</a></li>
-					<li><a href="{{url_for('add_plants')}}" class="yellow-text text-darken-4">Add Plants</a></li>
-					<li><a href="{{url_for('add_collections')}}" class="yellow-text text-darken-4">Add Collections</a></li>
-                    <li><a href="{{ url_for('profile', username=session['user']) }}" class="yellow-text text-darken-4">Profile</a></li>
-                    <li><a href="{{ url_for('login') }}" class="yellow-text text-darken-4">Log In</a></li>
-                    <li><a href="{{ url_for('register') }}" class="yellow-text text-darken-4">Register</a></li>
+                    {% if session.user %}
+					    <li><a href="{{url_for('get_collections')}}" class="yellow-text text-darken-4">Collections</a></li>
+					    <li><a href="{{url_for('add_plants')}}" class="yellow-text text-darken-4">Add Plants</a></li>
+					    <li><a href="{{url_for('add_collections')}}" class="yellow-text text-darken-4">Add Collections</a></li>
+                        <li><a href="{{ url_for('profile', username=session['user']) }}" class="yellow-text text-darken-4">Profile</a></li>
+                        <li><a href="{{ url_for('logout') }}" class="yellow-text text-darken-4">Logout</a></li>
+                    {% else %}
+                        <li><a href="{{ url_for('login') }}" class="yellow-text text-darken-4">Log In</a></li>
+                        <li><a href="{{ url_for('register') }}" class="yellow-text text-darken-4">Register</a></li>
+                    {% endif %}
 				</ul>
 				<ul class="side-nav teal darken-4" id="mobile-demo">
 					<li><a href="{{url_for('get_plants')}}" class="yellow-text text-darken-4">Home</a></li>
-					<li><a href="{{url_for('get_collections')}}" class="yellow-text text-darken-4">Collections</a></li>
-					<li><a href="{{url_for('add_plants')}}" class="yellow-text text-darken-4">Add Plants</a></li>
-					<li><a href="{{url_for('add_collections')}}" class="yellow-text text-darken-4">Add Collections</a></li>
-                    <li><a href="{{ url_for('profile', username=session['user']) }}" class="yellow-text text-darken-4">Profile</a></li>
-                    <li><a href="{{ url_for('login') }}" class="yellow-text text-darken-4">Log In</a></li>
-                    <li><a href="{{ url_for('register') }}" class="yellow-text text-darken-4">Register</a></li>
+                    {% if session.user %}
+					    <li><a href="{{url_for('get_collections')}}" class="yellow-text text-darken-4">Collections</a></li>
+					    <li><a href="{{url_for('add_plants')}}" class="yellow-text text-darken-4">Add Plants</a></li>
+					    <li><a href="{{url_for('add_collections')}}" class="yellow-text text-darken-4">Add Collections</a></li>
+                        <li><a href="{{ url_for('profile', username=session['user']) }}" class="yellow-text text-darken-4">Profile</a></li>
+                        <li><a href="{{ url_for('logout') }}" class="yellow-text text-darken-4">Logout</a></li>
+                    {% else %}
+                        <li><a href="{{ url_for('login') }}" class="yellow-text text-darken-4">Log In</a></li>
+                        <li><a href="{{ url_for('register') }}" class="yellow-text text-darken-4">Register</a></li>
+                    {% endif %}
 				</ul>
             </div>
             </div>
 		</nav>
 	</header>
-
     <section>
         <!-- flash messages -->
         {% with messages = get_flashed_messages() %}
@@ -50,12 +57,10 @@
             {% endif %}
         {% endwith %}
     </section>
-
     <main class="container">
         {% block content %}
         {% endblock %}
     </main>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="https://kit.fontawesome.com/ee9889d2bd.js" crossorigin="anonymous"></script>

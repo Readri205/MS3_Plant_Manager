@@ -75,3 +75,4 @@ Happy coding!
 - V3.6 Add flash messages on login and register
 - V3.7 Move js scripts to script file
 - V3.8 Add user profile page on registration and login
+- V3.9 Add user logout functionality
