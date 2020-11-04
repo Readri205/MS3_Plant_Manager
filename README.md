@@ -78,3 +78,4 @@ Happy coding!
 - V3.9 Add user logout functionality
 - V4.0 Update hamburger menu to dark yellow colour
 - V4.1 Add icon in burger menu and menu text shadows
+- V4.2 Remove container div on navbar for mobile screens
