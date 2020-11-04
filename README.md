@@ -72,3 +72,4 @@ Happy coding!
 - V3.3 Add css style js script pages user register page
 - V3.4 Add secret key for user registration
 - V3.5 Add login for users
+- V3.6 Add flash messages on login and register
