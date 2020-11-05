@@ -1,17 +1,19 @@
-$(document).ready(function () {
-    $(".sidenav").sidenav({edge: "right"});
-    $(".collapsible").collapsible();
-    $(".tooltipped").tooltip();
-    $("select").formSelect();
-    $(".datepicker").datepicker({
-        format: "dd mmmm, yyyy",
-        yearRange: 3,
-        showClearBtn: true,
-        i18n: {
-            done: "Select"
-        }
-    });
+/*
+    jQuery for MaterializeCSS initialization
+*/
 
+$(document).ready(function () {
+    $('.collapsible').collapsible();
+    $('select').material_select();
+    $('.button-collapse').sideNav();
+    $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 15, // Creates a dropdown of 15 years to control year,
+        today: 'Today',
+        clear: 'Clear',
+        close: 'Ok',
+        closeOnSelect: false // Close upon selecting a date,
+    });
     validateMaterializeSelect();
     function validateMaterializeSelect() {
         let classValid = { "border-bottom": "1px solid #4caf50", "box-shadow": "0 1px 0 0 #4caf50" };
@@ -40,3 +42,18 @@ $(document).ready(function () {
         });
     }
 });
+document.getElementById("matfix").addEventListener("click", function (e) {
+    e.stopPropagation();
+});
+document.getElementById("matfix1").addEventListener("click", function (e) {
+    e.stopPropagation();
+});
+
+
+/*
+$(".sidenav").sidenav({edge: "right"});
+$('select').material_select();
+document.getElementById("matfix2").addEventListener("click", function (e) {
+    e.stopPropagation();
+});
+*/

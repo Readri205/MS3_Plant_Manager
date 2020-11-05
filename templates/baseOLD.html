@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
     <title>RHC Garden Manager</title>
@@ -14,7 +14,7 @@
 			<div class="nav-wrapper">
             <div class="container">
 				<a href="{{url_for('get_plants')}}" class="brand-logo flow-text yellow-text text-darken-4"><i class="flow-text fad fa-seedling"></i> Garden Manager</a>
-                <a href="#" data-activates="mobile-demo" class="sidenav-trigger right yellow-text text-darken-4"><i class="flow-text fas fa-bars"></i></a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse right yellow-text text-darken-4"><i class="flow-text fas fa-bars"></i></a>
 				<ul class="right hide-on-med-and-down">
 					<li><a href="{{url_for('get_plants')}}" class="yellow-text text-darken-4">Home</a></li>
                     {% if session.user %}
@@ -32,7 +32,7 @@
             </div>
 		</nav> 
 
-		<ul class="sidenav teal darken-4 text-shadow" id="mobile-demo">
+		<ul class="side-nav teal darken-4 text-shadow" id="mobile-demo">
 			<li>
 				<h3 class="center-align yellow-text text-darken-4 flow-text"><i class="fad fa-seedling"></i> Garden Manager
 				</h3>
@@ -68,7 +68,7 @@
         {% endblock %}
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="https://kit.fontawesome.com/ee9889d2bd.js" crossorigin="anonymous"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     {% block scripts %}
