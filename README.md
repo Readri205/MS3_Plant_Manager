@@ -80,3 +80,4 @@ Happy coding!
 - V4.1 Add icon in burger menu and menu text shadows
 - V4.2 Remove container div on navbar for mobile screens
 - V4.3 Move burger menu to right and amend font size in burger menu
+- V4.4 Add user profile to plants added and edited plants

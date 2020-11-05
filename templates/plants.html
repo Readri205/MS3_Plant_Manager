@@ -21,6 +21,7 @@
         <span><strong>Description: </strong></span><span> {{plant.description}}</span> <br>
         <span><strong>Date Added: </strong></span><span> {{plant.date_added}}</span> <br>
         <span><strong>Image: </strong></span><span> {{plant.image_url}}</span> <br>
+        <span><strong>Created By: </strong></span><span> {{plant.created_by}}</span> <br>
         <div class="btn-css">
 		    <a href="{{url_for('edit_plant', plant_id=plant._id)}}" class="waves-effect waves-light btn"><i class="material-icons"></i>Edit</a>
 		    <a href="{{url_for('delete_plant', plant_id=plant._id)}}" class="waves-effect waves-light red darken-2 btn right"><i class="material-icons"></i>Delete</a>

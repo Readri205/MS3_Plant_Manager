@@ -31,11 +31,34 @@ def add_plants():
                            collections=mongo.db.collections.find())
 
 
-@app.route("/insert_plant", methods=["POST"])
-def insert_plant():
+@app.route("/deprecated_insert_plant", methods=["POST"])
+def deprecated_insert_plant():
     plants = mongo.db.plants
     plants.insert_one(request.form.to_dict())
+    plants = {"created_by": session["user"]}
+    flash("Plant Successfully Added")
     return redirect(url_for("get_plants"))
+
+
+@app.route("/insert_plant", methods=["GET", "POST"])
+def insert_plant():
+    plant = {
+        "common_name": request.form.get("common_name"),
+        "collection_name": request.form.get("collection_name"),
+        "family_common_name": request.form.get("family_common_name"),
+        "genus": request.form.get("genus"),
+        "family": request.form.get("family"),
+        "description": request.form.get("description"),
+        "date_added": request.form.get("date_added"),
+        "image_url": request.form.get("image_url"),
+        "created_by": session["user"]
+        }
+    mongo.db.plants.insert_one(plant)
+    flash("Plant Successfully Added")
+    return redirect(url_for("get_plants"))
+
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("add_task.html", categories=categories)
 
 
 @app.route('/edit_plant/<plant_id>')
@@ -58,8 +81,10 @@ def update_plant(plant_id):
         "family": request.form.get("family"),
         "description": request.form.get("description"),
         "date_added": request.form.get("date_added"),
-        "image_url": request.form.get("image_url")
+        "image_url": request.form.get("image_url"),
+        "created_by": session["user"]
     })
+    flash("Plant Successfully Edited!")
     return redirect(url_for("get_plants"))
 
 
