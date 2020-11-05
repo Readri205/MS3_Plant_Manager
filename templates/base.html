@@ -10,39 +10,46 @@
 </head>
 <body class="teal lighten-5">
 	<header>
-		<nav>
-			<div class="nav-wrapper teal darken-4">
-				<a href="{{url_for('get_plants')}}" class="brand-logo flow-text yellow-text text-darken-4 text-shadow">Garden Manager<i class="fad fa-seedling"></i></a>
-                <a href="#" data-activates="mobile-demo" class="button-collapse yellow-text text-darken-4"><i class="fas fa-bars"></i></a>
+		<nav class="teal darken-4 text-shadow">
+			<div class="nav-wrapper">
+            <div class="container">
+				<a href="{{url_for('get_plants')}}" class="brand-logo flow-text yellow-text text-darken-4"><i class="flow-text fad fa-seedling"></i> Garden Manager</a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse right yellow-text text-darken-4"><i class="flow-text fas fa-bars"></i></a>
 				<ul class="right hide-on-med-and-down">
-					<li><a href="{{url_for('get_plants')}}" class="yellow-text text-darken-4 text-shadow">Home</a></li>
+					<li><a href="{{url_for('get_plants')}}" class="yellow-text text-darken-4">Home</a></li>
                     {% if session.user %}
-					    <li><a href="{{url_for('get_collections')}}" class="yellow-text text-darken-4 text-shadow">Collections</a></li>
-					    <li><a href="{{url_for('add_plants')}}" class="yellow-text text-darken-4 text-shadow">Add Plants</a></li>
-					    <li><a href="{{url_for('add_collections')}}" class="yellow-text text-darken-4 text-shadow">Add Collections</a></li>
-                        <li><a href="{{ url_for('profile', username=session['user']) }}" class="yellow-text text-darken-4 text-shadow">Profile</a></li>
-                        <li><a href="{{ url_for('logout') }}" class="yellow-text text-darken-4 text-shadow">Logout</a></li>
+					    <li><a href="{{url_for('get_collections')}}" class="yellow-text text-darken-4">Collections</a></li>
+					    <li><a href="{{url_for('add_plants')}}" class="yellow-text text-darken-4">Add Plants</a></li>
+					    <li><a href="{{url_for('add_collections')}}" class="yellow-text text-darken-4">Add Collections</a></li>
+                        <li><a href="{{ url_for('profile', username=session['user']) }}" class="yellow-text text-darken-4">Profile</a></li>
+                        <li><a href="{{ url_for('logout') }}" class="yellow-text text-darken-4">Logout</a></li>
                     {% else %}
-                        <li><a href="{{ url_for('login') }}" class="yellow-text text-darken-4 text-shadow">Log In</a></li>
-                        <li><a href="{{ url_for('register') }}" class="yellow-text text-darken-4 text-shadow">Register</a></li>
-                    {% endif %}
-				</ul>
-				<ul class="side-nav teal darken-4" id="mobile-demo">
-                    <li><h4 class="center-align flow-text yellow-text text-darken-4 text-shadow"><i class="fad fa-seedling"></i> Garden Manager</h4></li>
-					<li><a href="{{url_for('get_plants')}}" class="yellow-text text-darken-4 text-shadow">Home</a></li>
-                    {% if session.user %}
-					    <li><a href="{{url_for('get_collections')}}" class="yellow-text text-darken-4 text-shadow">Collections</a></li>
-					    <li><a href="{{url_for('add_plants')}}" class="yellow-text text-darken-4 text-shadow">Add Plants</a></li>
-					    <li><a href="{{url_for('add_collections')}}" class="yellow-text text-darken-4 text-shadow">Add Collections</a></li>
-                        <li><a href="{{ url_for('profile', username=session['user']) }}" class="yellow-text text-darken-4 text-shadow">Profile</a></li>
-                        <li><a href="{{ url_for('logout') }}" class="yellow-text text-darken-4 text-shadow">Logout</a></li>
-                    {% else %}
-                        <li><a href="{{ url_for('login') }}" class="yellow-text text-darken-4 text-shadow">Log In</a></li>
-                        <li><a href="{{ url_for('register') }}" class="yellow-text text-darken-4 text-shadow">Register</a></li>
+                        <li><a href="{{ url_for('login') }}" class="yellow-text text-darken-4">Log In</a></li>
+                        <li><a href="{{ url_for('register') }}" class="yellow-text text-darken-4">Register</a></li>
                     {% endif %}
 				</ul>
             </div>
-		</nav>
+            </div>
+		</nav> 
+
+		<ul class="side-nav teal darken-4 text-shadow" id="mobile-demo">
+			<li>
+				<h3 class="center-align yellow-text text-darken-4 flow-text"><i class="fad fa-seedling"></i> Garden Manager
+				</h3>
+			</li>
+			<li><a href="{{url_for('get_plants')}}" class="yellow-text text-darken-4">Home</a></li>
+			{% if session.user %}
+			<li><a href="{{url_for('get_collections')}}" class="yellow-text text-darken-4">Collections</a></li>
+			<li><a href="{{url_for('add_plants')}}" class="yellow-text text-darken-4">Add Plants</a></li>
+			<li><a href="{{url_for('add_collections')}}" class="yellow-text text-darken-4">Add Collections</a></li>
+			<li><a href="{{ url_for('profile', username=session['user']) }}" class="yellow-text text-darken-4">Profile</a></li>
+			<li><a href="{{ url_for('logout') }}" class="yellow-text text-darken-4">Logout</a></li>
+			{% else %}
+			<li><a href="{{ url_for('login') }}" class="yellow-text text-darken-4">Log In</a></li>
+			<li><a href="{{ url_for('register') }}" class="yellow-text text-darken-4">Register</a></li>
+			{% endif %}
+		</ul>
+            
 	</header>
     <section>
         <!-- flash messages -->

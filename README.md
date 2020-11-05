@@ -79,3 +79,4 @@ Happy coding!
 - V4.0 Update hamburger menu to dark yellow colour
 - V4.1 Add icon in burger menu and menu text shadows
 - V4.2 Remove container div on navbar for mobile screens
+- V4.3 Move burger menu to right and amend font size in burger menu
