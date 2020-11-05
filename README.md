@@ -81,3 +81,4 @@ Happy coding!
 - V4.2 Remove container div on navbar for mobile screens
 - V4.3 Move burger menu to right and amend font size in burger menu
 - V4.4 Add user profile to plants added and edited plants
+- V4.5 Add user profile to collections and edited collections

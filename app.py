@@ -57,8 +57,8 @@ def insert_plant():
     flash("Plant Successfully Added")
     return redirect(url_for("get_plants"))
 
-    categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("add_task.html", categories=categories)
+    collections = mongo.db.collections.find().sort("collection_name", 1)
+    return render_template("addplants.html", collections=collections)
 
 
 @app.route('/edit_plant/<plant_id>')
@@ -106,11 +106,27 @@ def add_collections():
                            collections=mongo.db.collections.find())
 
 
-@app.route("/insert_collection", methods=["POST"])
-def insert_collection():
+@app.route("/deprecated_insert_collection", methods=["POST"])
+def deprecated_insert_collection():
     collection = mongo.db.collections
     collection.insert_one(request.form.to_dict())
     return redirect(url_for("get_collections"))
+
+
+@app.route("/insert_collection", methods=["GET", "POST"])
+def insert_collection():
+    collection = {
+        "collection_name": request.form.get("collection_name"),
+        "description": request.form.get("description"),
+        "date_added": request.form.get("date_added"),
+        "created_by": session["user"]
+        }
+    mongo.db.collections.insert_one(collection)
+    flash("Collection Successfully Added")
+    return redirect(url_for("get_collections"))
+
+    collections = mongo.db.collections.find().sort("collection_name", 1)
+    return render_template("addcollections.html", collections=collections)
 
 
 @app.route('/edit_collection/<collection_id>')
@@ -119,8 +135,8 @@ def edit_collection(collection_id):
         {"_id": ObjectId(collection_id)})
     all_collections = mongo.db.collections.find()
     return render_template("editcollections.html",
-                            collection=the_collection,
-                            collections=all_collections)
+                           collection=the_collection,
+                           collections=all_collections)
 
 
 @app.route('/update_collection/<collection_id>', methods=["POST"])
@@ -131,7 +147,9 @@ def update_collection(collection_id):
         "collection_name": request.form.get("collection_name"),
         "description": request.form.get("description"),
         "date_added": request.form.get("date_added"),
+        "created_by": session["user"]
     })
+    flash("Collection Successfully Edited!")
     return redirect(url_for("get_collections"))
 
 
