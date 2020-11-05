@@ -48,11 +48,12 @@ document.getElementById("matfix").addEventListener("click", function (e) {
 document.getElementById("matfix1").addEventListener("click", function (e) {
     e.stopPropagation();
 });
-document.getElementById("matfix2").addEventListener("click", function (e) {
-    e.stopPropagation();
-});
+
 
 /*
 $(".sidenav").sidenav({edge: "right"});
 $('select').material_select();
+document.getElementById("matfix2").addEventListener("click", function (e) {
+    e.stopPropagation();
+});
 */

@@ -84,3 +84,4 @@ Happy coding!
 - V4.5 Add user profile to collections and edited collections
 - V4.6 Update html pages with appropriate row structure
 - V4.7 Update editplants.html row structure
+- V4.8 Remove matfix2 materialize eventlistener
