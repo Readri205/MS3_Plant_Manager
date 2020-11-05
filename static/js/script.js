@@ -54,4 +54,5 @@ document.getElementById("matfix2").addEventListener("click", function (e) {
 
 /*
 $(".sidenav").sidenav({edge: "right"});
+$('select').material_select();
 */
