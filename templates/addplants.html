@@ -12,7 +12,7 @@
                 {% for coll in collections %}
                     <option value="{{coll.collection_name}}">{{coll.collection_name}}</option>
                 {% endfor %}
-            </select>
+                </select>
 				<label for="icon-prefix">Collection Name: </label>
 			</div>
 		</div>
@@ -22,37 +22,49 @@
 				<input id="common_name" name="common_name" type="text" class="validate">
 				<label for="common_name">Common Name: </label>
 			</div>
+        </div>
+        <div class="row">
 			<div class="input-field col s12">
 				<i class="fas fa-leaf prefix"></i>
 				<input id="family_common_name" name="family_common_name" type="text" class="validate">
 				<label for="family_common_name">Family Common Name: </label>
 			</div>
+        </div>
+        <div class="row">
 			<div class="input-field col s12">
 				<i class="fas fa-leaf prefix"></i>
 				<input id="genus" name="genus" type="text" class="validate">
 				<label for="genus">Genus: </label>
 			</div>
+        </div>
+        <div class="row">
 			<div class="input-field col s12">
 				<i class="fas fa-leaf prefix"></i>
 				<input id="family" name="family" type="text" class="validate">
 				<label for="family">Family: </label>
 			</div>
+        </div>
+        <div class="row">
 			<div class="input-field col s12">
 				<i class="material-icons prefix">subject</i>
 				<textarea id="description" name="description" class="materialize-textarea"></textarea>
 				<label for="description">Description: </label>
 			</div>
+        </div>
+        <div class="row">
 			<div id="matfix" class="input-field col s12">
 				<i class="material-icons prefix">today</i>
 				<input id="date_added" name="date_added" type="text" class="datepicker">
-				<label for="icon_prefix">Date Added: </label>
+				<label for="date_added">Date Added: </label>
 			</div>
+        </div>
+        <div class="row">
 			<div class="input-field col s12">
 				<i class="material-icons prefix">camera_alt</i>
 				<input id="image_url" name="image_url" type="text" class="validate">
 				<label for="image_url">Image URL: </label>
 			</div>
-            </div>
+        </div>
 		    <div class="row">
 		        <button class="btn waves-effect waves-light" type="submit">Add Plant
                     <i class="material-icons right">add</i>
