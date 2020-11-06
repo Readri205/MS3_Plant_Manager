@@ -7,7 +7,7 @@
 		<div class="row">
 			<div class="input-field col s12">
 				<i class="material-icons prefix">poll</i>
-				<select id="collections" name="collection_name">
+				<select id="collections" name="collection_name" class="validate" required>
                 <option value="" disabled selected>Choose Collection Name</option>
                 {% for coll in collections %}
                     <option value="{{coll.collection_name}}">{{coll.collection_name}}</option>
@@ -19,42 +19,42 @@
 		<div class="row">
 			<div class="input-field col s12">
 				<i class="fas fa-leaf prefix"></i>
-				<input id="common_name" name="common_name" type="text" class="validate">
+				<input id="common_name" name="common_name" type="text" class="validate" required>
 				<label for="common_name">Common Name: </label>
 			</div>
         </div>
         <div class="row">
 			<div class="input-field col s12">
 				<i class="fas fa-leaf prefix"></i>
-				<input id="family_common_name" name="family_common_name" type="text" class="validate">
+				<input id="family_common_name" name="family_common_name" type="text" class="validate" required>
 				<label for="family_common_name">Family Common Name: </label>
 			</div>
         </div>
         <div class="row">
 			<div class="input-field col s12">
 				<i class="fas fa-leaf prefix"></i>
-				<input id="genus" name="genus" type="text" class="validate">
+				<input id="genus" name="genus" type="text" class="validate" required>
 				<label for="genus">Genus: </label>
 			</div>
         </div>
         <div class="row">
 			<div class="input-field col s12">
 				<i class="fas fa-leaf prefix"></i>
-				<input id="family" name="family" type="text" class="validate">
+				<input id="family" name="family" type="text" class="validate" required>
 				<label for="family">Family: </label>
 			</div>
         </div>
         <div class="row">
 			<div class="input-field col s12">
 				<i class="material-icons prefix">subject</i>
-				<textarea id="description" name="description" class="materialize-textarea"></textarea>
+				<textarea id="description" name="description" class="materialize-textarea validate" required></textarea>
 				<label for="description">Description: </label>
 			</div>
         </div>
         <div class="row">
 			<div class="input-field col s12">
 				<i class="material-icons prefix">today</i>
-				<input id="date_added" name="date_added" type="text" class="datepicker">
+				<input id="date_added" name="date_added" type="text" class="datepicker validate" required>
 				<label for="date_added">Date Added: </label>
 			</div>
         </div>
