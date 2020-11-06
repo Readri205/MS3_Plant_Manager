@@ -19,6 +19,12 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
+@app.route("/get_home")
+def get_home():
+    return render_template("index.html",
+                           plants=mongo.db.plants.find())
+
+
 @app.route("/get_plants")
 def get_plants():
     return render_template("plants.html",
@@ -29,15 +35,6 @@ def get_plants():
 def add_plants():
     return render_template("addplants.html",
                            collections=mongo.db.collections.find())
-
-
-@app.route("/deprecated_insert_plant", methods=["POST"])
-def deprecated_insert_plant():
-    plants = mongo.db.plants
-    plants.insert_one(request.form.to_dict())
-    plants = {"created_by": session["user"]}
-    flash("Plant Successfully Added")
-    return redirect(url_for("get_plants"))
 
 
 @app.route("/insert_plant", methods=["GET", "POST"])
@@ -104,13 +101,6 @@ def get_collections():
 def add_collections():
     return render_template("addcollections.html",
                            collections=mongo.db.collections.find())
-
-
-@app.route("/deprecated_insert_collection", methods=["POST"])
-def deprecated_insert_collection():
-    collection = mongo.db.collections
-    collection.insert_one(request.form.to_dict())
-    return redirect(url_for("get_collections"))
 
 
 @app.route("/insert_collection", methods=["GET", "POST"])

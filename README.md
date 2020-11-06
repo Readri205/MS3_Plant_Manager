@@ -89,3 +89,4 @@ Happy coding!
 - V5.0 Remove matfix id's for materialize
 - V5.1 Update data-target in navbar for materialize 1.0.0
 - V5.2 Update for select dropdown validation code by timnelson @tim_ci
+- V5.3 Set up new Home landing page
