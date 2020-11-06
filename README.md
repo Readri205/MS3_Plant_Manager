@@ -92,3 +92,4 @@ Happy coding!
 - V5.3 Set up new Home landing page
 - V5.4 Add Register and Login buttons on Home page
 - V5.5 Restrict my plants list to list created by user
+- V5.6 Restrict my collections to list created by user
