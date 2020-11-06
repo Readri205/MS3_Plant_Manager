@@ -94,3 +94,4 @@ Happy coding!
 - V5.5 Restrict my plants list to list created by user
 - V5.6 Restrict my collections to list created by user
 - V5.7 Update home page with header image and remove plant lists
+- V5.8 Remove old base and script file and move image to body
