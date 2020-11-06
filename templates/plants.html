@@ -4,6 +4,7 @@
 <h5 class="teal-text text-darken-4">My Plants</h5>
 <ul class="collapsible" data-collapsible="accordion">
     {% for plant in plants %}
+    {% if session.user|lower == plant.created_by|lower %}
     <li>
     <div class="collapsible-header teal lighten-4">
         <div class="col s9 teal-text text-darken-4">
@@ -28,7 +29,14 @@
         </div>
     </div>
     </li>
+    {% endif %}
     {% endfor %}
 </ul>
+<div class="row">
+        <div class="btn-css">
+		    <a href="{{ url_for('add_plants') }}" class="waves-effect waves-light teal  darken-2 btn">Add Plants   <i class="fas fa-edit"></i></a>
+		    <a href="{{ url_for('add_collections') }}" class="waves-effect waves-light teal darken-2 btn right">Add Collections  <i class="fas fa-sign-in-alt"></i></a>
+        </div>
+    </div>
 </div>
 {% endblock %}
