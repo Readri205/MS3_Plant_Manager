@@ -101,3 +101,4 @@ Happy coding!
 - V6.2 Add card panels to home page
 - V6.3 Add fixed navbar
 - V6.4 Expand register details for names email and phone
+- V6.5 First update to show user profile details
