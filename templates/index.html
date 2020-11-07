@@ -1,7 +1,76 @@
 {% extends 'base.html' %} {% block content %}
 
 <div class="container">
-<h5 class="teal-text text-darken-4">Home</h5>
+<div class="row">
+    <h5 class="teal-text text-darken-4">Home</h5>
+</div>
+</div>
+    <div class="row">
+    <div class="col s12 m6 l3">
+      <div class="card teal lighten-4 large">
+        <div class="card-image">
+          <img src="static/images/geranium.jpg">
+          <span class="card-title teal-text text-darken-4 flow-text"><strong>My Collections</strong></span>
+        </div>
+        <div class="card-content">
+          <p>I am a very simple card. I am good at containing small bits of information.
+          I am convenient because I require little markup to use effectively.</p>
+        </div>
+        <div class="card-action">
+          <a href="#">This is a link</a>
+        </div>
+      </div>
+    </div>
+ 
+    <div class="col s12 m6 l3">
+      <div class="card teal lighten-4 large">
+        <div class="card-image">
+          <img src="static/images/daisy.jpg">
+          <span class="card-title">My Plants</span>
+        </div>
+        <div class="card-content">
+          <p>I am a very simple card. I am good at containing small bits of information.
+          I am convenient because I require little markup to use effectively.</p>
+        </div>
+        <div class="card-action">
+          <a href="#">This is a link</a>
+        </div>
+      </div>
+    </div>
+  
+    <div class="col s12 m6 l3">
+      <div class="card teal lighten-4 large">
+        <div class="card-image">
+          <img src="static/images/dahlia.jpg">
+          <span class="card-title">My Year</span>
+        </div>
+        <div class="card-content">
+          <p>I am a very simple card. I am good at containing small bits of information.
+          I am convenient because I require little markup to use effectively.</p>
+        </div>
+        <div class="card-action">
+          <a href="#">This is a link</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col s12 m6 l3">
+      <div class="card teal lighten-4 large">
+        <div class="card-image">
+          <img src="static/images/lilium.jpg">
+          <span class="card-title">Search for Plants</span>
+        </div>
+        <div class="card-content">
+          <p>I am a very simple card. I am good at containing small bits of information.
+          I am convenient because I require little markup to use effectively.</p>
+        </div>
+        <div class="card-action">
+          <a href="#">This is a link</a>
+        </div>
+      </div>
+    </div>
+
+    </div>
 
     <div class="row">
         <div class="btn-css">
@@ -9,5 +78,4 @@
 		    <a href="{{ url_for('login') }}" class="waves-effect waves-light teal darken-2 btn right">Login  <i class="fas fa-sign-in-alt"></i></a>
         </div>
     </div>
-</div>
 {% endblock %}
