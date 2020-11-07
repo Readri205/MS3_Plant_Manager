@@ -34,3 +34,23 @@ body {
 .flashes h4 {
     line-height: 2;
 }
+
+@media only screen and (max-width: 376px){
+nav .brand-logo {
+    font-size: 1.2rem;
+}
+nav .fad {
+    font-size: 1.2rem;
+    margin-top: 20px
+}
+}
+
+@media only screen and (max-width: 320px){
+nav .brand-logo {
+    font-size: 1rem;
+}
+nav .fad {
+    font-size: 1rem;
+    margin-top: 22px
+}
+}
