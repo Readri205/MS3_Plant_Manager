@@ -100,3 +100,4 @@ Happy coding!
 - V6.1 Remove brand-logo class on main menu
 - V6.2 Add card panels to home page
 - V6.3 Add fixed navbar
+- V6.4 Expand register details for names email and phone

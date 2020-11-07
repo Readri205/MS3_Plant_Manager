@@ -161,6 +161,10 @@ def register():
             return redirect(url_for("register"))
 
         register = {
+            "first_name": request.form.get("first_name").lower(),
+            "last_name": request.form.get("last_name").lower(),
+            "email": request.form.get("email").lower(),
+            "phone_number": request.form.get("phone_number").lower(),
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password"))
         }
