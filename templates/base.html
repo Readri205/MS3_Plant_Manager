@@ -11,9 +11,9 @@
 <body class="teal lighten-5 bg">
 	<header>
 		<nav class="teal darken-4 text-shadow">
-        <div class="container">
 			<div class="nav-wrapper">
-				<a href="{{url_for('get_home')}}" class="brand-logo flow-text yellow-text text-darken-4"><i class="fad fa-seedling"></i> Garden Manager</a>
+            <div class="container">
+				<a href="{{url_for('get_home')}}" class="center-align low-text yellow-text text-darken-4"><i class="fad fa-seedling"></i> Garden Manager</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right yellow-text text-darken-4"><i class="flow-text fas fa-bars"></i></a>
 				<ul class="right hide-on-med-and-down">
 					<li><a href="{{url_for('get_home')}}" class="yellow-text text-darken-4">Home</a></li>
@@ -34,7 +34,7 @@
 		</nav> 
 
 		<ul class="sidenav teal darken-4 text-shadow" id="mobile-demo">
-			<li><h3 class="center-align yellow-text text-darken-4 flow-text title1"><i class="fad fa-seedling"></i> Garden Manager</h3></li>
+			<li><h4 class="center-align yellow-text text-darken-4 flow-text title1"><i class="fad fa-seedling"></i> Garden Manager</h4></li>
 			<li><a href="{{url_for('get_home')}}" class="yellow-text text-darken-4">Home</a></li>
 			{% if session.user %}
             <li><a href="{{url_for('get_plants')}}" class="yellow-text text-darken-4">My Plants</a></li>

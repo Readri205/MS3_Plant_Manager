@@ -97,3 +97,4 @@ Happy coding!
 - V5.8 Remove old base and script file and move image to body
 - V5.9 Update mobile menu for home and my plants page
 - V6.0 Amend menu font size for small screens
+- V6.1 Remove brand-logo class on main menu 
