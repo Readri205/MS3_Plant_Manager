@@ -99,3 +99,4 @@ Happy coding!
 - V6.0 Amend menu font size for small screens
 - V6.1 Remove brand-logo class on main menu
 - V6.2 Add card panels to home page
+- V6.3 Add fixed navbar
