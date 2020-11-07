@@ -35,8 +35,9 @@
 
 		<ul class="sidenav teal darken-4 text-shadow" id="mobile-demo">
 			<li><h3 class="center-align yellow-text text-darken-4 flow-text"><i class="fad fa-seedling"></i> Garden Manager</h3></li>
-			<li><a href="{{url_for('get_plants')}}" class="yellow-text text-darken-4">Home</a></li>
+			<li><a href="{{url_for('get_home')}}" class="yellow-text text-darken-4">Home</a></li>
 			{% if session.user %}
+            <li><a href="{{url_for('get_plants')}}" class="yellow-text text-darken-4">My Plants</a></li>
 			<li><a href="{{url_for('get_collections')}}" class="yellow-text text-darken-4">Collections</a></li>
 			<li><a href="{{url_for('add_plants')}}" class="yellow-text text-darken-4">Add Plants</a></li>
 			<li><a href="{{url_for('add_collections')}}" class="yellow-text text-darken-4">Add Collections</a></li>
