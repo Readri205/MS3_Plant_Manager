@@ -102,3 +102,4 @@ Happy coding!
 - V6.3 Add fixed navbar
 - V6.4 Expand register details for names email and phone
 - V6.5 First update to show user profile details
+- V6.6 Add user details page

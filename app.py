@@ -173,7 +173,7 @@ def register():
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!")
-    return render_template("register.html")
+    return render_template("index.html")
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -213,7 +213,8 @@ def profile(username):
         {"username": session["user"]})["username"]
 
     if session["user"]:
-        return render_template("profile.html", username=username)
+        return render_template(
+            "profile.html", username=username)
 
     return redirect(url_for("login"))
 
@@ -224,6 +225,12 @@ def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
+
+
+@app.route("/get_users")
+def get_users():
+    return render_template("user_details.html",
+                           users=mongo.db.users.find())
 
 
 if __name__ == '__main__':

@@ -25,6 +25,7 @@
 					    <li><a href="{{url_for('add_collections')}}" class="yellow-text text-darken-4">Add Collections</a></li>
                         <li><a href="{{ url_for('profile', username=session['user']) }}" class="yellow-text text-darken-4">My Profile</a></li>
                         <li><a href="{{ url_for('logout') }}" class="yellow-text text-darken-4">Logout</a></li>
+                        <li><a href="{{ url_for('get_users') }}" class="yellow-text text-darken-4">User Details</a></li>
                     {% else %}
                         <li><a href="{{ url_for('login') }}" class="yellow-text text-darken-4">Log In</a></li>
                         <li><a href="{{ url_for('register') }}" class="yellow-text text-darken-4">Register</a></li>
@@ -43,8 +44,9 @@
 			<li><a href="{{url_for('get_collections')}}" class="yellow-text text-darken-4">Collections</a></li>
 			<li><a href="{{url_for('add_plants')}}" class="yellow-text text-darken-4">Add Plants</a></li>
 			<li><a href="{{url_for('add_collections')}}" class="yellow-text text-darken-4">Add Collections</a></li>
-			<li><a href="{{ url_for('profile', username=session['user']) }}" class="yellow-text text-darken-4">Profile</a></li>
+			<li><a href="{{ url_for('profile', username=session['user']) }}" class="yellow-text text-darken-4">My Profile</a></li>
 			<li><a href="{{ url_for('logout') }}" class="yellow-text text-darken-4">Logout</a></li>
+            <li><a href="{{ url_for('get_users') }}" class="yellow-text text-darken-4">User Details</a></li>
 			{% else %}
 			<li><a href="{{ url_for('login') }}" class="yellow-text text-darken-4">Log In</a></li>
 			<li><a href="{{ url_for('register') }}" class="yellow-text text-darken-4">Register</a></li>
