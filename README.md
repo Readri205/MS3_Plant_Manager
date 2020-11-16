@@ -120,3 +120,4 @@ Happy coding!
 - V8.1 Amend styles in html pages
 - V8.2 Add more styles to html pages
 - V8.3 Update Procfile for flask
+- V8.4 Revert Procfile change
