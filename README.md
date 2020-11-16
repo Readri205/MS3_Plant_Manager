@@ -109,3 +109,4 @@ Happy coding!
 - V7.0 Update Procfile and requirements.txt
 - V7.1 Update Procfile
 - V7.2 Update for home page
+- V7.3 Update env file for IP and PORT
