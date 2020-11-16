@@ -110,3 +110,4 @@ Happy coding!
 - V7.1 Update Procfile
 - V7.2 Update for home page
 - V7.3 Update env file for IP and PORT
+- V7.4 Update Heroku dynos
