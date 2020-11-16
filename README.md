@@ -114,3 +114,4 @@ Happy coding!
 - V7.5 Update for index home page
 - V7.6 Update for new requirements.txt
 - V7.7 Further update for requests module
+- V7.8 Update app.py take out print code

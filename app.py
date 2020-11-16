@@ -268,14 +268,14 @@ searches = species_filter.json()
 # print(type(plants['data']))
 
 
-for plant in plants['data']:
-    plant_id = plant['id']
-    name = plant['common_name']
-    family = plant['family']
-    family_common_name = plant['family_common_name']
-    image = plant['image_url']
-    links = plant['links']
-    print(f"Plant ID: {plant_id}\tName: {name}\tFamily:{family}\tFamily Common Name:{family_common_name}\tImage: {image}\n")
+# for plant in plants['data']:
+#    plant_id = plant['id']
+#    name = plant['common_name']
+#    family = plant['family']
+#    family_common_name = plant['family_common_name']
+#    image = plant['image_url']
+#    links = plant['links']
+#    print(f"Plant ID: {plant_id}\tName: {name}\tFamily:{family}\tFamily Common Name:{family_common_name}\tImage: {image}\n")
 
 
 # print(species_filter)
