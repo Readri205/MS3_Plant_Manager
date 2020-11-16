@@ -18,14 +18,6 @@ app.config["MONGO_DBNAME"] = 'plant_manager'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI')
 app.secret_key = os.environ.get("SECRET_KEY")
 
-ENDPOINT = "https://trefle.io/api/v1/plants?"
-YOUR_TREFLE_TOKEN = os.environ.get("YOUR_TREFLE_TOKEN")
-PAGE_NUMBER = "&page=1"
-
-ENDPOINT_SPECIES = "https://trefle.io/api/v1/species?"
-FILTER = "&filter[flower_color]=red"
-SEARCH = "&q=Sharon"
-
 mongo = PyMongo(app)
 
 
@@ -243,23 +235,21 @@ def get_users():
                            users=mongo.db.users.find())
 
 
-ENDPOINT = "https://trefle.io/api/v1/plants/search?"
+ENDPOINT = "https://trefle.io/api/v1/plants/search?token="
 YOUR_TREFLE_TOKEN = os.environ.get("YOUR_TREFLE_TOKEN")
-PAGE_NUMBER = "&page=20"
-
-
-ENDPOINT_SPECIES = "https://trefle.io/api/v1/species?"
-FILTER = "&filter[common_name]=coconut%20palm"
 STRG = "&q="
 SEARCH = "lily"
 
-r = requests.get(
-    f"{ENDPOINT}token={YOUR_TREFLE_TOKEN}{STRG}{SEARCH}")
+PAGE_NUMBER = "&page=20"
+
+
+ENDPOINT_SPECIES = "https://trefle.io/api/v1/species?token="
+FILTER = "&filter[common_name]=coconut%20palm"
+
 
 species_filter = requests.get(
-    f"{ENDPOINT_SPECIES}token={YOUR_TREFLE_TOKEN}{FILTER}")
+    f"{ENDPOINT_SPECIES}{YOUR_TREFLE_TOKEN}{FILTER}")
 
-plants = r.json()
 
 searches = species_filter.json()
 
@@ -282,6 +272,8 @@ searches = species_filter.json()
 
 @app.route("/get_trefle")
 def get_trefle():
+    plants = requests.get(
+    f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}").json()
     plant = plants['data']
     return render_template("trefle_plants.html", plants=plant)
 

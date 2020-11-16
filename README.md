@@ -115,3 +115,4 @@ Happy coding!
 - V7.6 Update for new requirements.txt
 - V7.7 Further update for requests module
 - V7.8 Update app.py take out print code
+- V7.9 Amend app for get trefle search
