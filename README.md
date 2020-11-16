@@ -104,3 +104,4 @@ Happy coding!
 - V6.5 First update to show user profile details
 - V6.6 Add user details page
 - V6.7 Add Trefle endpoints and token
+- V6.8 Add Trefle html and app route

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<ul class="row">
+    {% for plant in plants %}
+    <li>
+    <div class="col s6 m3">
+      <div class="card large">
+        <div class="card-image">
+            <img src="{{ plant.image_url }}">
+            
+        </div>
+		<div class="card-content">
+			<ul>
+                <li><i class="fas fa-spa teal-text text-lighten-2"></i>
+                <strong>{{ plant.common_name }}</strong></li>
+				<li>Plant ID: <em>{{ plant.id }}</em></li>
+				<li>Family Name: {{ plant.family }}</li>
+				<li>Family Common Name:<em>{{ plant.family_common_name }}</em></li>
+                <li>Genus: {{ plant.genus }}</li>
+			</ul>
+		</div>
+        <div class="card-action">
+          <a href="#">This is a link</a>
+        </div>
+      </div>
+    </div>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endblock %}
