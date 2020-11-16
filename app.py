@@ -270,11 +270,12 @@ searches = species_filter.json()
 
 # print(species_filter)
 
+
 @app.route("/get_trefle")
 def get_trefle():
-    plants = requests.get(
+    r = requests.get(
     f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}{PAGE}").json()
-    plant = plants['data']
+    plant = r["data"]
     return render_template("trefle_plants.html", plants=plant)
 
 
