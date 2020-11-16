@@ -112,4 +112,5 @@ Happy coding!
 - V7.3 Update env file for IP and PORT
 - V7.4 Update Heroku dynos
 - V7.5 Update for index home page
-_ V7.6 Update for new requirements.txt
+- V7.6 Update for new requirements.txt
+- V7.7 Further update for requests module
