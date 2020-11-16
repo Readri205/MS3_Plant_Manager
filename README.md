@@ -117,3 +117,4 @@ Happy coding!
 - V7.8 Update app.py take out print code
 - V7.9 Amend app for get trefle search
 - V8.0 Further amend app for search
+- V8.1 Amend styles in html pages
