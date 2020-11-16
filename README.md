@@ -106,3 +106,4 @@ Happy coding!
 - V6.7 Add Trefle endpoints and token
 - V6.8 Add Trefle html and app route
 - V6.9 Amend menu for logout last
+- V7.0 Update Procfile and requirements.txt
