@@ -25,8 +25,8 @@
 					    <li><a href="{{url_for('add_collections')}}" class="yellow-text text-darken-4">Add Collections</a></li>
                         <li><a href="{{url_for('get_trefle')}}" class="yellow-text text-darken-4">Trefle Search</a></li>
                         <li><a href="{{ url_for('profile', username=session['user']) }}" class="yellow-text text-darken-4">My Profile</a></li>
-                        <li><a href="{{ url_for('logout') }}" class="yellow-text text-darken-4">Logout</a></li>
                         <li><a href="{{ url_for('get_users') }}" class="yellow-text text-darken-4">User Details</a></li>
+                        <li><a href="{{ url_for('logout') }}" class="yellow-text text-darken-4">Logout</a></li>
                     {% else %}
                         <li><a href="{{ url_for('login') }}" class="yellow-text text-darken-4">Log In</a></li>
                         <li><a href="{{ url_for('register') }}" class="yellow-text text-darken-4">Register</a></li>
@@ -47,8 +47,8 @@
 			<li><a href="{{url_for('add_collections')}}" class="yellow-text text-darken-4">Add Collections</a></li>
             <li><a href="{{url_for('get_trefle')}}" class="yellow-text text-darken-4">Trefle Search</a></li>
 			<li><a href="{{ url_for('profile', username=session['user']) }}" class="yellow-text text-darken-4">My Profile</a></li>
-			<li><a href="{{ url_for('logout') }}" class="yellow-text text-darken-4">Logout</a></li>
             <li><a href="{{ url_for('get_users') }}" class="yellow-text text-darken-4">User Details</a></li>
+            <li><a href="{{ url_for('logout') }}" class="yellow-text text-darken-4">Logout</a></li>
 			{% else %}
 			<li><a href="{{ url_for('login') }}" class="yellow-text text-darken-4">Log In</a></li>
 			<li><a href="{{ url_for('register') }}" class="yellow-text text-darken-4">Register</a></li>

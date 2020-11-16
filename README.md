@@ -105,3 +105,4 @@ Happy coding!
 - V6.6 Add user details page
 - V6.7 Add Trefle endpoints and token
 - V6.8 Add Trefle html and app route
+- V6.9 Amend menu for logout last
