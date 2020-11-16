@@ -240,7 +240,7 @@ YOUR_TREFLE_TOKEN = os.environ.get("YOUR_TREFLE_TOKEN")
 STRG = "&q="
 SEARCH = "lily"
 
-PAGE_NUMBER = "&page=20"
+PAGE = "&page=1"
 
 
 ENDPOINT_SPECIES = "https://trefle.io/api/v1/species?token="
@@ -273,7 +273,7 @@ searches = species_filter.json()
 @app.route("/get_trefle")
 def get_trefle():
     plants = requests.get(
-    f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}").json()
+    f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}{PAGE}").json()
     plant = plants['data']
     return render_template("trefle_plants.html", plants=plant)
 
