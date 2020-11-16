@@ -108,3 +108,4 @@ Happy coding!
 - V6.9 Amend menu for logout last
 - V7.0 Update Procfile and requirements.txt
 - V7.1 Update Procfile
+- V7.2 Update for home page
