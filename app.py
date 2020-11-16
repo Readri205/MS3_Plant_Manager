@@ -1,4 +1,6 @@
 import os
+import json
+import requests
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -14,6 +16,14 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'plant_manager'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI')
 app.secret_key = os.environ.get("SECRET_KEY")
+
+ENDPOINT = "https://trefle.io/api/v1/plants?"
+YOUR_TREFLE_TOKEN = os.environ.get("YOUR_TREFLE_TOKEN")
+PAGE_NUMBER = "&page=1"
+
+ENDPOINT_SPECIES = "https://trefle.io/api/v1/species?"
+FILTER = "&filter[flower_color]=red"
+SEARCH = "&q=Sharon"
 
 mongo = PyMongo(app)
 
@@ -237,4 +247,3 @@ if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
             debug=True)
-
