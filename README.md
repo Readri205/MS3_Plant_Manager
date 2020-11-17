@@ -128,4 +128,5 @@ Happy coding!
 - V8.9 Redirect register page on front menu
 - V9.0 Amend style in base navbar title
 - V9.1 Start App for pagination on search
-- V9.2 Update search in trefle search
+- V9.2 Update drop down icons for duo tone
+- V9.3 Collapse type updates from repositories
