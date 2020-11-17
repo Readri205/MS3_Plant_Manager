@@ -240,8 +240,12 @@ def get_users():
 ENDPOINT = "https://trefle.io/api/v1/plants/search?token="
 YOUR_TREFLE_TOKEN = os.environ.get("YOUR_TREFLE_TOKEN")
 STRG = "&q="
+<<<<<<< HEAD
 SEARCH = "rose"
 SEARCH_SPECIES = "coconut"
+=======
+SEARCH = "rose of sharon"
+>>>>>>> 8be34e693830fa35be9cb60d09c3c5d11fe3f825
 
 PAGE = "&page=1"
 
