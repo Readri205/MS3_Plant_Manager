@@ -238,7 +238,7 @@ def get_users():
 ENDPOINT = "https://trefle.io/api/v1/plants/search?token="
 YOUR_TREFLE_TOKEN = os.environ.get("YOUR_TREFLE_TOKEN")
 STRG = "&q="
-SEARCH = "lily"
+SEARCH = "rose of sharon"
 
 PAGE = "&page=1"
 
@@ -253,7 +253,7 @@ species_filter = requests.get(
 
 searches = species_filter.json()
 
-print(searches['links'])
+print(searches['meta'])
 # print(len(plants['data']))
 
 # print(type(plants['data']))
