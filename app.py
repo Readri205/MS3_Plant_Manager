@@ -240,22 +240,32 @@ def get_users():
 ENDPOINT = "https://trefle.io/api/v1/plants/search?token="
 YOUR_TREFLE_TOKEN = os.environ.get("YOUR_TREFLE_TOKEN")
 STRG = "&q="
-SEARCH = "lily"
+SEARCH = "rose"
+SEARCH_SPECIES = "coconut"
 
 PAGE = "&page=1"
 
 
-ENDPOINT_SPECIES = "https://trefle.io/api/v1/species?token="
-FILTER = "&filter[common_name]=coconut%20palm"
+ENDPOINT_SPECIES = "https://trefle.io/api/v1/species/search?token="
+FILTER = "&filter[common_name]=coconut"
 
 
 species_filter = requests.get(
-    f"{ENDPOINT_SPECIES}{YOUR_TREFLE_TOKEN}{FILTER}")
+    f"{ENDPOINT_SPECIES}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH_SPECIES}")
 
 
 searches = species_filter.json()
 
 print(searches['links'])
+print(searches['meta'])
+
+
+for i in searches['data']:
+    name = i['common_name']
+    ID = i['id']
+    print(f"Common Name: {name}\tPlant ID: {ID}")
+
+
 # print(len(plants['data']))
 
 # print(type(plants['data']))
