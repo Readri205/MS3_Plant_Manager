@@ -127,5 +127,9 @@ Happy coding!
 - V8.8 Amend navbar style on burger menu
 - V8.9 Redirect register page on front menu
 - V9.0 Amend style in base navbar title
+<<<<<<< HEAD
 - V9.1 Start App for pagination on search
 - V9.2 Update drop down icons for duo tone
+=======
+- V9.1 Start App for pagination on search
+>>>>>>> 32e71298e768b86d7451b21c8cee071e8749361a
