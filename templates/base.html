@@ -20,11 +20,11 @@
 				<ul class="right hide-on-med-and-down">
 					<li><a href="{{url_for('get_home')}}" class="yellow-text text-darken-4">Home</a></li>
                     {% if session.user %}
-                        <li><a class="dropdown-trigger yellow-text text-darken-4" href="#!" data-target="dropdown1">My Plants<i class="fas fa-caret-down"></i></a></li>
-                        <li><a class="dropdown-trigger yellow-text text-darken-4" href="#!" data-target="dropdown2">My Collections<i class="fas fa-caret-down"></i></a></li>
-                        <li><a class="dropdown-trigger yellow-text text-darken-4" href="#!" data-target="dropdown3">My Year<i class="fas fa-caret-down"></i></a></li>
-                        <li><a class="dropdown-trigger yellow-text text-darken-4" href="#!" data-target="dropdown4">Search<i class="fas fa-caret-down"></i></a></li>
-                        <li><a class="dropdown-trigger yellow-text text-darken-4" href="#!" data-target="dropdown5">My Details<i class="fas fa-caret-down"></i></a></li>
+                        <li><a class="dropdown-trigger yellow-text text-darken-4" href="#!" data-target="dropdown1">My Plants<i class="fad fa-caret-down"></i></a></li>
+                        <li><a class="dropdown-trigger yellow-text text-darken-4" href="#!" data-target="dropdown2">My Collections<i class="fad fa-caret-down"></i></a></li>
+                        <li><a class="dropdown-trigger yellow-text text-darken-4" href="#!" data-target="dropdown3">My Year<i class="fad fa-caret-down"></i></a></li>
+                        <li><a class="dropdown-trigger yellow-text text-darken-4" href="#!" data-target="dropdown4">Search<i class="fad fa-caret-down"></i></a></li>
+                        <li><a class="dropdown-trigger yellow-text text-darken-4" href="#!" data-target="dropdown5">My Details<i class="fad fa-caret-down"></i></a></li>
                         <li><a href="{{ url_for('logout') }}" class="yellow-text text-darken-4">Logout</a></li>
                     {% else %}
                         <li><a href="{{ url_for('login') }}" class="yellow-text text-darken-4">Log In</a></li>
@@ -39,16 +39,16 @@
 			<li><h4 class="center-align yellow-text text-darken-4 flow-text title1"><i class="fad fa-seedling"></i> Garden Manager</h4></li>
 			<li><a href="{{url_for('get_home')}}" class="yellow-text text-darken-4">Home</a></li>
 			{% if session.user %}
-			<li><a class="dropdown-trigger yellow-text text-darken-4" href="#!" data-target="dropdown6"><i class="fas fa-caret-down"></i>My
+			<li><a class="dropdown-trigger yellow-text text-darken-4" href="#!" data-target="dropdown6"><i class="fad fa-caret-down"></i>My
 					Plants</a></li>
 			<li><a class="dropdown-trigger yellow-text text-darken-4" href="#!" data-target="dropdown7">My
-					Collections<i class="fas fa-caret-down"></i></a></li>
+					Collections<i class="fad fa-caret-down"></i></a></li>
 			<li><a class="dropdown-trigger yellow-text text-darken-4" href="#!" data-target="dropdown8">My
-					Year<i class="fas fa-caret-down"></i></a></li>
+					Year<i class="fad fa-caret-down"></i></a></li>
 			<li><a class="dropdown-trigger yellow-text text-darken-4" href="#!"
-					data-target="dropdown9">Search<i class="fas fa-caret-down"></i></a></li>
+					data-target="dropdown9">Search<i class="fad fa-caret-down"></i></a></li>
 			<li><a class="dropdown-trigger yellow-text text-darken-4" href="#!"
-					data-target="dropdown10">My Details<i class="fas fa-caret-down"></i></a></li>
+					data-target="dropdown10">My Details<i class="fad fa-caret-down"></i></a></li>
 			<li><a href="{{ url_for('logout') }}" class="yellow-text text-darken-4">Logout</a></li>
 			{% else %}
 			<li><a href="{{ url_for('login') }}" class="yellow-text text-darken-4">Log In</a></li>
