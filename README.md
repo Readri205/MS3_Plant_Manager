@@ -122,3 +122,4 @@ Happy coding!
 - V8.3 Update Procfile for flask
 - V8.4 Revert Procfile change
 - V8.5 Updadte get trefle search page
+- V8.6 Amend Procfile python3 to python
