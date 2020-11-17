@@ -253,6 +253,7 @@ species_filter = requests.get(
 
 searches = species_filter.json()
 
+print(searches['links'])
 # print(len(plants['data']))
 
 # print(type(plants['data']))
@@ -267,7 +268,6 @@ searches = species_filter.json()
 #    links = plant['links']
 #    print(f"Plant ID: {plant_id}\tName: {name}\tFamily:{family}\tFamily Common Name:{family_common_name}\tImage: {image}\n")
 
-
 # print(species_filter)
 
 
@@ -276,7 +276,8 @@ def get_trefle():
     r = requests.get(
     f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}{PAGE}").json()
     plant = r["data"]
-    return render_template("trefle_plants.html", plants=plant)
+    return render_template(
+        "trefle_plants.html", plants=plant)
 
 
 # print(plants)
