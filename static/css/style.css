@@ -16,9 +16,23 @@ body {
 .fa-leaf {
     color: darkgreen;
 }
- .fa-spa {
+.fa-spa {
     color: darkgreen;
 }
+
+
+.fa-caret-down {
+    padding-left: 5px;
+    margin-left: 0px;
+    font-size: 15px;
+    margin: 0px;
+}
+
+.sidenav li>a>i, .sidenav li>a>[class^="mdi-"], .sidenav li>a li>a>[class*="mdi-"], .sidenav li>a>i.material-icons {
+    margin-right: 0px;
+}
+
+
 .btn-css {
     margin-top: 20px;
 }

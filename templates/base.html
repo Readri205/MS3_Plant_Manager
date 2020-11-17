@@ -19,13 +19,11 @@
 				<ul class="right hide-on-med-and-down">
 					<li><a href="{{url_for('get_home')}}" class="yellow-text text-darken-4">Home</a></li>
                     {% if session.user %}
-                        <li><a href="{{url_for('get_plants')}}" class="yellow-text text-darken-4">My Plants</a></li>
-					    <li><a href="{{url_for('get_collections')}}" class="yellow-text text-darken-4">My Collections</a></li>
-					    <li><a href="{{url_for('add_plants')}}" class="yellow-text text-darken-4">Add Plants</a></li>
-					    <li><a href="{{url_for('add_collections')}}" class="yellow-text text-darken-4">Add Collections</a></li>
-                        <li><a href="{{url_for('get_trefle')}}" class="yellow-text text-darken-4">Trefle Search</a></li>
-                        <li><a href="{{ url_for('profile', username=session['user']) }}" class="yellow-text text-darken-4">My Profile</a></li>
-                        <li><a href="{{ url_for('get_users') }}" class="yellow-text text-darken-4">User Details</a></li>
+                        <li><a class="dropdown-trigger yellow-text text-darken-4" href="#!" data-target="dropdown1">My Plants<i class="fas fa-caret-down"></i></a></li>
+                        <li><a class="dropdown-trigger yellow-text text-darken-4" href="#!" data-target="dropdown2">My Collections<i class="fas fa-caret-down"></i></a></li>
+                        <li><a class="dropdown-trigger yellow-text text-darken-4" href="#!" data-target="dropdown3">My Year<i class="fas fa-caret-down"></i></a></li>
+                        <li><a class="dropdown-trigger yellow-text text-darken-4" href="#!" data-target="dropdown4">Search<i class="fas fa-caret-down"></i></a></li>
+                        <li><a class="dropdown-trigger yellow-text text-darken-4" href="#!" data-target="dropdown5">My Details<i class="fas fa-caret-down"></i></a></li>
                         <li><a href="{{ url_for('logout') }}" class="yellow-text text-darken-4">Logout</a></li>
                     {% else %}
                         <li><a href="{{ url_for('login') }}" class="yellow-text text-darken-4">Log In</a></li>
@@ -36,25 +34,63 @@
         </div>
 		</nav> 
         </div>
-
 		<ul class="sidenav teal darken-4 text-shadow" id="mobile-demo">
 			<li><h4 class="center-align yellow-text text-darken-4 flow-text title1"><i class="fad fa-seedling"></i> Garden Manager</h4></li>
 			<li><a href="{{url_for('get_home')}}" class="yellow-text text-darken-4">Home</a></li>
 			{% if session.user %}
-            <li><a href="{{url_for('get_plants')}}" class="yellow-text text-darken-4">My Plants</a></li>
-			<li><a href="{{url_for('get_collections')}}" class="yellow-text text-darken-4">Collections</a></li>
-			<li><a href="{{url_for('add_plants')}}" class="yellow-text text-darken-4">Add Plants</a></li>
-			<li><a href="{{url_for('add_collections')}}" class="yellow-text text-darken-4">Add Collections</a></li>
-            <li><a href="{{url_for('get_trefle')}}" class="yellow-text text-darken-4">Trefle Search</a></li>
-			<li><a href="{{ url_for('profile', username=session['user']) }}" class="yellow-text text-darken-4">My Profile</a></li>
-            <li><a href="{{ url_for('get_users') }}" class="yellow-text text-darken-4">User Details</a></li>
-            <li><a href="{{ url_for('logout') }}" class="yellow-text text-darken-4">Logout</a></li>
+			<li><a class="dropdown-trigger yellow-text text-darken-4" href="#!" data-target="dropdown6"><i class="fas fa-caret-down"></i>My
+					Plants</a></li>
+			<li><a class="dropdown-trigger yellow-text text-darken-4" href="#!" data-target="dropdown7">My
+					Collections<i class="fas fa-caret-down"></i></a></li>
+			<li><a class="dropdown-trigger yellow-text text-darken-4" href="#!" data-target="dropdown8">My
+					Year<i class="fas fa-caret-down"></i></a></li>
+			<li><a class="dropdown-trigger yellow-text text-darken-4" href="#!"
+					data-target="dropdown9">Search<i class="fas fa-caret-down"></i></a></li>
+			<li><a class="dropdown-trigger yellow-text text-darken-4" href="#!"
+					data-target="dropdown10">My Details<i class="fas fa-caret-down"></i></a></li>
+			<li><a href="{{ url_for('logout') }}" class="yellow-text text-darken-4">Logout</a></li>
 			{% else %}
 			<li><a href="{{ url_for('login') }}" class="yellow-text text-darken-4">Log In</a></li>
 			<li><a href="{{ url_for('register') }}" class="yellow-text text-darken-4">Register</a></li>
 			{% endif %}
 		</ul>
+
+		<ul id="dropdown1" class="dropdown-content teal darken-4">
+			<li><a href="{{url_for('get_plants')}}" class="yellow-text text-darken-4">My Plants</a></li>
+			<li><a href="{{url_for('add_plants')}}" class="yellow-text text-darken-4">Add Plants</a></li>
+		</ul>
+        <ul id="dropdown2" class="dropdown-content teal darken-4">
+			<li><a href="{{url_for('get_collections')}}" class="yellow-text text-darken-4">My Collections</a></li>
+			<li><a href="{{url_for('add_collections')}}" class="yellow-text text-darken-4">Add Collections</a></li>
+		</ul>
+        <ul id="dropdown3" class="dropdown-content teal darken-4">
             
+		</ul>
+		<ul id="dropdown4" class="dropdown-content teal darken-4">
+			<li><a href="{{url_for('get_trefle')}}" class="yellow-text text-darken-4">Trefle Search</a></li>
+		</ul>
+        <ul id="dropdown5" class="dropdown-content teal darken-4">
+			<li><a href="{{ url_for('profile', username=session['user']) }}" class="yellow-text text-darken-4">My Profile</a></li>
+            <li><a href="{{url_for('get_users')}}" class="yellow-text text-darken-4">My Details</a></li>
+		</ul>
+        <ul id="dropdown6" class="dropdown-content teal darken-4">
+			<li><a href="{{url_for('get_plants')}}" class="yellow-text text-darken-4">My Plants</a></li>
+			<li><a href="{{url_for('add_plants')}}" class="yellow-text text-darken-4">Add Plants</a></li>
+		</ul>
+        <ul id="dropdown7" class="dropdown-content teal darken-4">
+			<li><a href="{{url_for('get_collections')}}" class="yellow-text text-darken-4">My Collections</a></li>
+			<li><a href="{{url_for('add_collections')}}" class="yellow-text text-darken-4">Add Collections</a></li>
+		</ul>
+        <ul id="dropdown8" class="dropdown-content teal darken-4">
+            
+		</ul>
+		<ul id="dropdown9" class="dropdown-content teal darken-4">
+			<li><a href="{{url_for('get_trefle')}}" class="yellow-text text-darken-4">Trefle Search</a></li>
+		</ul>
+        <ul id="dropdown10" class="dropdown-content teal darken-4">
+			<li><a href="{{ url_for('profile', username=session['user']) }}" class="yellow-text text-darken-4">My Profile</a></li>
+            <li><a href="{{url_for('get_users')}}" class="yellow-text text-darken-4">My Details</a></li>
+		</ul>
 	</header>
     <section>
         <!-- flash messages -->
