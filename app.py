@@ -239,7 +239,7 @@ def get_users():
 ENDPOINT = "https://trefle.io/api/v1/plants/search?token="
 YOUR_TREFLE_TOKEN = os.environ.get("YOUR_TREFLE_TOKEN")
 STRG = "&q="
-SEARCH = "lily"
+SEARCH = "nettle"
 SEARCH_SPECIES = "lily"
 
 PAGE = "&page=3"
