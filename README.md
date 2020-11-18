@@ -139,5 +139,6 @@ Happy coding!
 - V10.0 Amend card size on card search large screen
 - V10.1 Add page links and styles to trefle search page
 - V10.2 Amend card size trefle search
+- V10.3 Add pagination function
 
 

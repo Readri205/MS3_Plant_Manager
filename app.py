@@ -239,10 +239,10 @@ def get_users():
 ENDPOINT = "https://trefle.io/api/v1/plants/search?token="
 YOUR_TREFLE_TOKEN = os.environ.get("YOUR_TREFLE_TOKEN")
 STRG = "&q="
-SEARCH = "nettle"
+SEARCH = "oak"
 SEARCH_SPECIES = "lily"
 
-PAGE = "&page=3"
+PAGE = "&page=1"
 
 
 ENDPOINT_SPECIES = "https://trefle.io/api/v1/species/search?token="
@@ -288,27 +288,28 @@ def get_trefle():
     links = plants['links']
     first = links['first']
     prev = links['prev']
-    current = links['self']
-    next = links['next']
+    nexts = links['next']
     last = links['last']
     meta = plants['meta']
     total = meta['total']
     return render_template(
         "trefle_plants.html", plants=plant,
-        first=first, prev=prev, current=current,
-        next=next, last=last, total=total)
+        first=first, prev=prev, next=nexts,
+        last=last, total=total)
 
 plants = requests.get(
     f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}{PAGE}").json()
 links = plants['links']
-first = links['first']
-prev = links['prev']
-current = links['self']
-next = links['next']
-last = links['last']
-meta = plants['meta']
-total = meta['total']
-print(f"{first}\n{prev}\n{current}\n{next}\n{last}\n{total}")
+# first = links['first']
+# prev = links['prev']
+# current = links['self']
+# nexts = links['next']
+print(links['next'])
+#   last = links['last']
+#   meta = plants['meta']
+#   total = meta['total']
+#   print(f"{first}\n{prev}\n{current}\n{nexts}\n{last}\n{total}")
+
 
 
 # print(plants)
