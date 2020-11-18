@@ -134,3 +134,4 @@ Happy coding!
 - V9.5 Amend syntax in app file
 - V9.6 Redeploy to GitHub on lockup
 - V9.7 Redeploy to Heroku
+- V9.8 Add function to extract pages and total

@@ -239,10 +239,10 @@ def get_users():
 ENDPOINT = "https://trefle.io/api/v1/plants/search?token="
 YOUR_TREFLE_TOKEN = os.environ.get("YOUR_TREFLE_TOKEN")
 STRG = "&q="
-SEARCH = "rose"
+SEARCH = "lily"
 SEARCH_SPECIES = "lily"
 
-PAGE = "&page=1"
+PAGE = "&page=3"
 
 
 ENDPOINT_SPECIES = "https://trefle.io/api/v1/species/search?token="
@@ -282,11 +282,23 @@ searches = species_filter.json()
 
 @app.route("/get_trefle")
 def get_trefle():
-    r = requests.get(
+    plants = requests.get(
     f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}{PAGE}").json()
-    plant = r["data"]
+    plant = plants["data"]
     return render_template(
         "trefle_plants.html", plants=plant)
+
+plants = requests.get(
+    f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}{PAGE}").json()
+links = plants['links']
+first = links['first']
+prev = links['prev']
+self = links['self']
+next = links['next']
+last = links['last']
+meta = plants['meta']
+total = meta['total']
+print(f"{first}\n{prev}\n{self}\n{next}\n{last}\n{total}")
 
 
 # print(plants)
