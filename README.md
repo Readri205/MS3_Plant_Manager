@@ -141,5 +141,6 @@ Happy coding!
 - V10.2 Amend card size trefle search
 - V10.3 Add pagination function
 - V10.4 Adjust to page=2 for trefle search
+- V10.5 Amend card size for trefle search
 
 
