@@ -136,3 +136,4 @@ Happy coding!
 - V9.7 Redeploy to Heroku
 - V9.8 Add function to extract pages and total
 - V9.9 Amend card size in trefle search
+- V10.0 Amend card size on card search large screen
