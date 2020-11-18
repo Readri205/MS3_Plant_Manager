@@ -285,20 +285,30 @@ def get_trefle():
     plants = requests.get(
     f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}{PAGE}").json()
     plant = plants["data"]
+    links = plants['links']
+    first = links['first']
+    prev = links['prev']
+    current = links['self']
+    next = links['next']
+    last = links['last']
+    meta = plants['meta']
+    total = meta['total']
     return render_template(
-        "trefle_plants.html", plants=plant)
+        "trefle_plants.html", plants=plant,
+        first=first, prev=prev, current=current,
+        next=next, last=last, total=total)
 
 plants = requests.get(
     f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}{PAGE}").json()
 links = plants['links']
 first = links['first']
 prev = links['prev']
-self = links['self']
+current = links['self']
 next = links['next']
 last = links['last']
 meta = plants['meta']
 total = meta['total']
-print(f"{first}\n{prev}\n{self}\n{next}\n{last}\n{total}")
+print(f"{first}\n{prev}\n{current}\n{next}\n{last}\n{total}")
 
 
 # print(plants)

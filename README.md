@@ -137,3 +137,6 @@ Happy coding!
 - V9.8 Add function to extract pages and total
 - V9.9 Amend card size in trefle search
 - V10.0 Amend card size on card search large screen
+- V10.1 Add page links and styles to trefle search page
+
+
