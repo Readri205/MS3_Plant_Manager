@@ -15,7 +15,6 @@ if os.path.exists("env.py"):
 app = Flask(__name__)
 
 
-
 app.config["MONGO_DBNAME"] = 'plant_manager'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI')
 app.secret_key = os.environ.get("SECRET_KEY")
@@ -192,10 +191,10 @@ def login():
             if check_password_hash(
                 existing_user["password"], request.form.get(
                     "password")):
-                    session["user"] = request.form.get(
+                session["user"] = request.form.get(
                         "username").lower()
-                    flash("Welcome, {}".format(request.form.get("username")))
-                    return redirect(url_for(
+                flash("Welcome, {}".format(request.form.get("username")))
+                return redirect(url_for(
                         "profile", username=session["user"]))
             else:
                 # invalid password match
@@ -241,13 +240,13 @@ ENDPOINT = "https://trefle.io/api/v1/plants/search?token="
 YOUR_TREFLE_TOKEN = os.environ.get("YOUR_TREFLE_TOKEN")
 STRG = "&q="
 SEARCH = "rose"
-SEARCH_SPECIES = "coconut"
+SEARCH_SPECIES = "lily"
 
 PAGE = "&page=1"
 
 
 ENDPOINT_SPECIES = "https://trefle.io/api/v1/species/search?token="
-FILTER = "&filter[common_name]=coconut"
+FILTER = "&filter[common_name]=rose"
 
 
 species_filter = requests.get(
@@ -255,15 +254,13 @@ species_filter = requests.get(
 
 
 searches = species_filter.json()
+# plants = searches['data']
+# print(searches)
+# print(searches['meta'])
 
-print(searches['links'])
-print(searches['meta'])
-
-
-for i in searches['data']:
-    name = i['common_name']
-    ID = i['id']
-    print(f"Common Name: {name}\tPlant ID: {ID}")
+#for item in plants:
+#    link = item
+#    print(link)
 
 
 # print(len(plants['data']))
@@ -293,6 +290,7 @@ def get_trefle():
 
 
 # print(plants)
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

@@ -132,3 +132,4 @@ Happy coding!
 - V9.3 Collapse type updates from repositories
 - V9.4 Add testbed for API pagination
 - V9.5 Amend syntax in app file
+- V9.6 Redeploy to GitHub on lockup
