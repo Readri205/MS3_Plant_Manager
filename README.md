@@ -131,3 +131,4 @@ Happy coding!
 - V9.2 Update drop down icons for duo tone
 - V9.3 Collapse type updates from repositories
 - V9.4 Add testbed for API pagination
+- V9.5 Amend syntax in app file
