@@ -140,5 +140,6 @@ Happy coding!
 - V10.1 Add page links and styles to trefle search page
 - V10.2 Amend card size trefle search
 - V10.3 Add pagination function
+- V10.4 Adjust to page=2 for trefle search
 
 

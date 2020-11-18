@@ -242,7 +242,7 @@ STRG = "&q="
 SEARCH = "oak"
 SEARCH_SPECIES = "lily"
 
-PAGE = "&page=1"
+PAGE = "&page=2"
 
 
 ENDPOINT_SPECIES = "https://trefle.io/api/v1/species/search?token="
