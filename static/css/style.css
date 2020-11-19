@@ -31,7 +31,12 @@
     overflow: hidden;
 }
 .page-box {
-    background: rgba(76, 175, 80, 0.3)
+    background: rgba(1, 48, 25, 0.4);
+    padding: 10px;
+    border-radius: 15px;
+    z-index: -2;
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 /*.sidenav li>a>i, .sidenav li>a>[class^="mdi-"], .sidenav li>a li>a>[class*="mdi-"], .sidenav li>a>i.material-icons {
     margin-right: 0px;
