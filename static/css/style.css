@@ -26,6 +26,9 @@ body {
     font-size: 15px;
     margin: 0px;
 }
+.footer-margin {
+    margin-bottom: 0px;
+}
 
 /*.sidenav li>a>i, .sidenav li>a>[class^="mdi-"], .sidenav li>a li>a>[class*="mdi-"], .sidenav li>a>i.material-icons {
     margin-right: 0px;
