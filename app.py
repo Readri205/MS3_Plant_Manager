@@ -304,12 +304,12 @@ def get_trefle():
 
 plants = requests.get(
     f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}{PAGE}").json()
-links = plants['links']
+# links = plants['links']
 # first = links['first']
 # prev = links['prev']
 # current = links['self']
 # nexts = links['next']
-print(links['next'])
+# print(links['next'], nexts)
 #   last = links['last']
 #   meta = plants['meta']
 #   total = meta['total']

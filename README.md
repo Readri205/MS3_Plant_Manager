@@ -146,5 +146,6 @@ Happy coding!
 - V10.7 Amend home card style two cards large screens
 - V10.8 Add search box and style changes
 - V10.9 Add style to search and page box
+- V11.0 Add style to contact box link
 
 
