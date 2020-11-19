@@ -1,6 +1,3 @@
-body {
-    background-color: ivory;
-}
 .bg {
 	background-image: url("../images/perennial254287.jpg");
 	background-position: center;
@@ -29,7 +26,13 @@ body {
 .footer-margin {
     margin-bottom: 0px;
 }
-
+.card-image{
+    height: 250px; /* Your height here */
+    overflow: hidden;
+}
+.page-box {
+    background: rgba(76, 175, 80, 0.3)
+}
 /*.sidenav li>a>i, .sidenav li>a>[class^="mdi-"], .sidenav li>a li>a>[class*="mdi-"], .sidenav li>a>i.material-icons {
     margin-right: 0px;
 }*/

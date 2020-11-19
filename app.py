@@ -239,7 +239,7 @@ def get_users():
 ENDPOINT = "https://trefle.io/api/v1/plants/search?token="
 YOUR_TREFLE_TOKEN = os.environ.get("YOUR_TREFLE_TOKEN")
 STRG = "&q="
-SEARCH = "oak"
+SEARCH = "rose"
 SEARCH_SPECIES = "lily"
 
 PAGE = "&page=2"
@@ -278,6 +278,11 @@ searches = species_filter.json()
 #    print(f"Plant ID: {plant_id}\tName: {name}\tFamily:{family}\tFamily Common Name:{family_common_name}\tImage: {image}\n")
 
 # print(species_filter)
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    tasks = list(mongo.db.tasks.find({"$text": {"$search": query}}))
+    return render_template("trefle_plants.html", tasks=tasks)
 
 
 @app.route("/get_trefle")
