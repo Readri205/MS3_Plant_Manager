@@ -242,8 +242,9 @@ STRG = "&q="
 SEARCH = "black"
 SEARCH_SPECIES = "lily"
 PAGE = "&page="
-NUMBER = 17
-NEXTNUMBER = NUMBER + 1
+NUMBER = 1
+NUM = 18
+# NEXTNUMBER = NUMBER + 1
 
 
 ENDPOINT_SPECIES = "https://trefle.io/api/v1/species/search?token="
@@ -268,7 +269,7 @@ searches = species_filter.json()
 
 # print(type(plants['data']))
 plants = requests.get(
-    f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}{PAGE}{NUMBER}").json()
+    f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}{PAGE}{NUM}").json()
 
 for plant in plants['data']:
     plant_id = plant['id']
@@ -303,10 +304,10 @@ def get_trefle():
         "trefle_plants.html", plants=plant,
         first=first, last=last, total=total)
 
-plants = requests.get(
-    f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}{PAGE}{NUMBER}").json()
-links = plants['links']
-plant = plants['data']
+# plants = requests.get(
+#    f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}{PAGE}{NUM}").json()
+# links = plants['links']
+# plant = plants['data']
 # first = links['first']
 # prev = links['prev']
 # current = links['self']
@@ -324,7 +325,7 @@ total_results = []
 
 # Grab the search results
 # print("Downloading the original search results")
-results = requests.get(f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}{PAGE}{NUMBER}").json()
+results = requests.get(f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}{PAGE}{NUM}").json()
 links = results['links']
 meta = results['meta']
 current = links['self']
@@ -354,20 +355,23 @@ for plant in results['data']:
 
 # While data['next'] isn't empty, let's download the next page, too
 # for current in links:
-if current != last:
-    # print("Next page found, downloading", nexts)
-    response = requests.get(f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}{PAGE}{NEXTNUMBER}").json()
-    for plant in response['data']:
-        name = plant['common_name']
-        total_results.append(name)
-        print(f"{name}\t")
-        # plants = response['data']
-    # Store the current page of results
-        # total_results = total_results + plants
-else:
-    print("No more pages!")
+for current in links['self']:
+    if current != last:
+        NUM = NUM + 1
+        # print("Next page found, downloading", nexts)
+        response = requests.get(f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}{PAGE}{NUM}").json()
+        for plant in response['data']:
+            name = plant['common_name']
+            total_results.append(name)
+            print(f"{name}\t")
+            print(len(total_results))
+            # plants = response['data']
+            # Store the current page of results
+            # total_results = total_results + plants
+    else:
+        print("No more pages!")
 
-print("We have", len(total_results), "total results")
+print("We have", len(total_results), "total results", (NUM))
 # print(total_results)
 
 

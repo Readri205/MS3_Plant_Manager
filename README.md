@@ -150,6 +150,6 @@ Happy coding!
 - V11.1 Add pagination function test
 - V11.2 Update search function
 - V11.3 Update pagination search function
-
+- V11.4 Amend pagination search function
 
 
