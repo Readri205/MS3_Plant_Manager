@@ -239,10 +239,10 @@ def get_users():
 ENDPOINT = "https://trefle.io/api/v1/plants/search?token="
 YOUR_TREFLE_TOKEN = os.environ.get("YOUR_TREFLE_TOKEN")
 STRG = "&q="
-SEARCH = "black"
+SEARCH = "rose of sharon"
 SEARCH_SPECIES = "lily"
 PAGE = "&page="
-NUMBER = 18
+NUMBER = 1
 NEXTNUMBER = NUMBER + 1
 
 
@@ -293,29 +293,29 @@ def get_trefle():
     plant = plants["data"]
     links = plants['links']
     first = links['first']
-    prev = links['prev']
-    nexts = links['next']
+    # prev = links['prev']
+    # nexts = links['next']
     last = links['last']
     meta = plants['meta']
     total = meta['total']
     return render_template(
         "trefle_plants.html", plants=plant,
-        first=first, prev=prev, next=nexts,
-        last=last, total=total)
+        first=first, last=last, total=total)
 
 plants = requests.get(
     f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}{PAGE}{NUMBER}").json()
 links = plants['links']
+plant = plants['data']
 # first = links['first']
 # prev = links['prev']
-# current = links['self']
+current = links['self']
 # nexts = links['next']
 # print(links['next'], nexts)
 last = links['last']
 #   meta = plants['meta']
 #   total = meta['total']
 #   print(f"{first}\n{prev}\n{current}\n{nexts}\n{last}\n{total}")
-print(last)
+# print(current, last)
 
 
 # Start with an empty list
@@ -326,25 +326,34 @@ total_results = []
 results = requests.get(f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}{PAGE}{NUMBER}").json()
 plants = results['data']
 links = results['links']
+meta = results['meta']
+total = meta['total']
 first = links['first']
-nexts = links['next']
+current = links['self']
+# nexts = links['next']
 # print(first, nexts)
 # links = data['links']
 # first = links['first']
 # nexts = links['next']
+for plants in results['data']:
+    common_name = plants['common_name']
+print(common_name)
+print(total)
 
 # Store the first page of results
-total_results.append(plants)
+# total_results = total_results + plants
 # print(total_results)
 
 # While data['next'] isn't empty, let's download the next page, too
-# while nexts is not None:
-# print("Next page found, downloading", nexts)
-response = requests.get(f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}{PAGE}{NEXTNUMBER}").json()
-plants = response['data']
-# Store the current page of results
-total_results = total_results + plants
-print(total_results)
+for current in links:
+    if current != last:
+    # print("Next page found, downloading", nexts)
+        response = requests.get(f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}{PAGE}{NUMBER}").json()
+        plants = response['data']
+    # Store the current page of results
+        total_results = total_results + plants
+    else:
+        print("No more pages!")
 
 print("We have", len(total_results), "total results")
 

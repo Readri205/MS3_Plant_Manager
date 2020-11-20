@@ -148,5 +148,7 @@ Happy coding!
 - V10.9 Add style to search and page box
 - V11.0 Add style to contact box link
 - V11.1 Add pagination function test
+- V11.2 Update search function
+
 
 
