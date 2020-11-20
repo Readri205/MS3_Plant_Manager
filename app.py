@@ -243,7 +243,7 @@ SEARCH = "black"
 SEARCH_SPECIES = "lily"
 PAGE = "&page="
 NUMBER = 1
-NUM = 18
+NUM = 1
 # NEXTNUMBER = NUMBER + 1
 
 
@@ -268,16 +268,16 @@ searches = species_filter.json()
 # print(len(plants['data']))
 
 # print(type(plants['data']))
-plants = requests.get(
-    f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}{PAGE}{NUM}").json()
+# plants = requests.get(
+#    f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}{PAGE}{NUM}").json()
 
-for plant in plants['data']:
-    plant_id = plant['id']
-    name = plant['common_name']
-    family = plant['family']
-    family_common_name = plant['family_common_name']
-    image = plant['image_url']
-    links = plant['links']
+# for plant in plants['data']:
+#    plant_id = plant['id']
+#    name = plant['common_name']
+#    family = plant['family']
+#    family_common_name = plant['family_common_name']
+#    image = plant['image_url']
+#    links = plant['links']
 #    print(f"Plant ID: {plant_id}\tName: {name}\tFamily:{family}\tFamily Common Name:{family_common_name}\tImage: {image}\n")
 
 # print(species_filter)
@@ -304,75 +304,37 @@ def get_trefle():
         "trefle_plants.html", plants=plant,
         first=first, last=last, total=total)
 
-# plants = requests.get(
-#    f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}{PAGE}{NUM}").json()
-# links = plants['links']
+
+plants = []
+total_plants = []
+
+data = requests.get(
+    f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}{PAGE}{NUM}").json()
+links = data['links']
+current = links['self']
+last = links['last']
+print(current, last)
+NUM = NUM + 1
+for current in links:
+    num = NUM + 1
+    data = requests.get(
+    f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}{PAGE}{NUM}").json()
+    if current != last:
+        for plant in data['data']:
+            name = plant['common_name']
+            total_plants.append(name)
+    else:
+        print("No more pages!")
+print(len(total_plants), NUM)
+
 # plant = plants['data']
 # first = links['first']
 # prev = links['prev']
-# current = links['self']
 # nexts = links['next']
 # print(links['next'], nexts)
-# last = links['last']
 #   meta = plants['meta']
 #   total = meta['total']
 #   print(f"{first}\n{prev}\n{current}\n{nexts}\n{last}\n{total}")
-# print(current, last)
-
-
-# Start with an empty list
-total_results = []
-
-# Grab the search results
-# print("Downloading the original search results")
-results = requests.get(f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}{PAGE}{NUM}").json()
-links = results['links']
-meta = results['meta']
-current = links['self']
-last = links['last']
-# meta = results['meta']
-total = meta['total']
-# first = links['first']
-# current = links['self']
-# nexts = links['next']
-# print(first, nexts)
-# links = data['links']
-# first = links['first']
-# nexts = links['next']
-for plant in results['data']:
-    name = plant['common_name']
-    total_results.append(name)
-    print(f"{name}\t")
-#    ID = plants['id']
-#    common_name = plants['common_name']
-#    print(ID, common_name)
-# print(f'{common_name}')
-
-# Store the first page of results
-# print(results)
-# print(len(total_results))
-# print(total_results)
-
-# While data['next'] isn't empty, let's download the next page, too
-# for current in links:
-for current in links['self']:
-    if current != last:
-        NUM = NUM + 1
-        # print("Next page found, downloading", nexts)
-        response = requests.get(f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}{PAGE}{NUM}").json()
-        for plant in response['data']:
-            name = plant['common_name']
-            total_results.append(name)
-            print(f"{name}\t")
-            print(len(total_results))
-            # plants = response['data']
-            # Store the current page of results
-            # total_results = total_results + plants
-    else:
-        print("No more pages!")
-
-print("We have", len(total_results), "total results", (NUM))
-# print(total_results)
 
 
 if __name__ == '__main__':
