@@ -239,10 +239,10 @@ def get_users():
 ENDPOINT = "https://trefle.io/api/v1/plants/search?token="
 YOUR_TREFLE_TOKEN = os.environ.get("YOUR_TREFLE_TOKEN")
 STRG = "&q="
-SEARCH = "rose of sharon"
+SEARCH = "black"
 SEARCH_SPECIES = "lily"
 PAGE = "&page="
-NUMBER = 1
+NUMBER = 17
 NEXTNUMBER = NUMBER + 1
 
 
@@ -267,15 +267,16 @@ searches = species_filter.json()
 # print(len(plants['data']))
 
 # print(type(plants['data']))
+plants = requests.get(
+    f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}{PAGE}{NUMBER}").json()
 
-
-# for plant in plants['data']:
-#    plant_id = plant['id']
-#    name = plant['common_name']
-#    family = plant['family']
-#    family_common_name = plant['family_common_name']
-#    image = plant['image_url']
-#    links = plant['links']
+for plant in plants['data']:
+    plant_id = plant['id']
+    name = plant['common_name']
+    family = plant['family']
+    family_common_name = plant['family_common_name']
+    image = plant['image_url']
+    links = plant['links']
 #    print(f"Plant ID: {plant_id}\tName: {name}\tFamily:{family}\tFamily Common Name:{family_common_name}\tImage: {image}\n")
 
 # print(species_filter)
@@ -308,10 +309,10 @@ links = plants['links']
 plant = plants['data']
 # first = links['first']
 # prev = links['prev']
-current = links['self']
+# current = links['self']
 # nexts = links['next']
 # print(links['next'], nexts)
-last = links['last']
+# last = links['last']
 #   meta = plants['meta']
 #   total = meta['total']
 #   print(f"{first}\n{prev}\n{current}\n{nexts}\n{last}\n{total}")
@@ -324,38 +325,50 @@ total_results = []
 # Grab the search results
 # print("Downloading the original search results")
 results = requests.get(f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}{PAGE}{NUMBER}").json()
-plants = results['data']
 links = results['links']
 meta = results['meta']
-total = meta['total']
-first = links['first']
 current = links['self']
+last = links['last']
+# meta = results['meta']
+total = meta['total']
+# first = links['first']
+# current = links['self']
 # nexts = links['next']
 # print(first, nexts)
 # links = data['links']
 # first = links['first']
 # nexts = links['next']
-for plants in results['data']:
-    common_name = plants['common_name']
-print(common_name)
-print(total)
+for plant in results['data']:
+    name = plant['common_name']
+    total_results.append(name)
+    print(f"{name}\t")
+#    ID = plants['id']
+#    common_name = plants['common_name']
+#    print(ID, common_name)
+# print(f'{common_name}')
 
 # Store the first page of results
-# total_results = total_results + plants
+# print(results)
+# print(len(total_results))
 # print(total_results)
 
 # While data['next'] isn't empty, let's download the next page, too
-for current in links:
-    if current != last:
+# for current in links:
+if current != last:
     # print("Next page found, downloading", nexts)
-        response = requests.get(f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}{PAGE}{NUMBER}").json()
-        plants = response['data']
+    response = requests.get(f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}{PAGE}{NEXTNUMBER}").json()
+    for plant in response['data']:
+        name = plant['common_name']
+        total_results.append(name)
+        print(f"{name}\t")
+        # plants = response['data']
     # Store the current page of results
-        total_results = total_results + plants
-    else:
-        print("No more pages!")
+        # total_results = total_results + plants
+else:
+    print("No more pages!")
 
 print("We have", len(total_results), "total results")
+# print(total_results)
 
 
 if __name__ == '__main__':
