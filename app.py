@@ -239,10 +239,11 @@ def get_users():
 ENDPOINT = "https://trefle.io/api/v1/plants/search?token="
 YOUR_TREFLE_TOKEN = os.environ.get("YOUR_TREFLE_TOKEN")
 STRG = "&q="
-SEARCH = "rose"
+SEARCH = "black"
 SEARCH_SPECIES = "lily"
-
-PAGE = "&page=2"
+PAGE = "&page="
+NUMBER = 18
+NEXTNUMBER = NUMBER + 1
 
 
 ENDPOINT_SPECIES = "https://trefle.io/api/v1/species/search?token="
@@ -288,7 +289,7 @@ def search():
 @app.route("/get_trefle")
 def get_trefle():
     plants = requests.get(
-    f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}{PAGE}").json()
+    f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}{PAGE}{NUMBER}").json()
     plant = plants["data"]
     links = plants['links']
     first = links['first']
@@ -303,21 +304,49 @@ def get_trefle():
         last=last, total=total)
 
 plants = requests.get(
-    f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}{PAGE}").json()
-# links = plants['links']
+    f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}{PAGE}{NUMBER}").json()
+links = plants['links']
 # first = links['first']
 # prev = links['prev']
 # current = links['self']
 # nexts = links['next']
 # print(links['next'], nexts)
-#   last = links['last']
+last = links['last']
 #   meta = plants['meta']
 #   total = meta['total']
 #   print(f"{first}\n{prev}\n{current}\n{nexts}\n{last}\n{total}")
+print(last)
 
 
+# Start with an empty list
+total_results = []
 
-# print(plants)
+# Grab the search results
+# print("Downloading the original search results")
+results = requests.get(f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}{PAGE}{NUMBER}").json()
+plants = results['data']
+links = results['links']
+first = links['first']
+nexts = links['next']
+# print(first, nexts)
+# links = data['links']
+# first = links['first']
+# nexts = links['next']
+
+# Store the first page of results
+total_results.append(plants)
+# print(total_results)
+
+# While data['next'] isn't empty, let's download the next page, too
+# while nexts is not None:
+# print("Next page found, downloading", nexts)
+response = requests.get(f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}{PAGE}{NEXTNUMBER}").json()
+plants = response['data']
+# Store the current page of results
+total_results = total_results + plants
+print(total_results)
+
+print("We have", len(total_results), "total results")
 
 
 if __name__ == '__main__':
