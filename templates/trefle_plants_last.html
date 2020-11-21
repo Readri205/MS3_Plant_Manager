@@ -47,10 +47,17 @@
     </li>
     {% endfor %}
 </ul>
-<ul>
+<ul class="page-box">
 	<div class="row">
-		<li class="col page-box l3 center-align yellow-text text-darken-4 text-shadow">Total number of plants in search: <em>{{ total }}</em></li>
-        <li class="col l9"></li>
+		<li class="col l12 yellow-text text-darken-4 text-shadow">Total number of plants in search: <em>{{ total }}</em></li>
+	</div>
+	<div class="row">
+		<div class="col l3">
+			<li><a href="{{ first }}" class="yellow-text text-darken-4 text-shadow">First Page</a></li>
+		</div>
+		<div class="col l3">
+			<li><a href="{{ prev }}" class="yellow-text text-darken-4 text-shadow">Previous Page</a></li>
+		</div>
 	</div>
 </ul>
   {% endblock %}

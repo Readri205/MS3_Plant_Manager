@@ -241,10 +241,10 @@ HTTPS = "https://trefle.io"
 YOUR_TREFLE_TOKEN = os.environ.get("YOUR_TREFLE_TOKEN")
 TOK = "token="
 STRG = "&q="
-SEARCH = "rose of sharon"
+SEARCH = "black"
 SEARCH_SPECIES = "lily"
 PAGE = "&page="
-NUMBER = 1
+NUMBER = 19
 
 # NEXTNUMBER = NUMBER + 1
 
@@ -319,17 +319,28 @@ def get_trefle_many():
     last = links['last']
     meta = plants['meta']
     total = meta['total']
-    if current != last:
-        prev = links['prev']
+    if current != last and current == first:
         nexts = links['next']
         return render_template(
-            "trefle_plants_many.html", plants=plant,
+            "trefle_plants_first.html", plants=plant,
+            first=first, nexts=nexts,
+            current=current, last=last, total=total)
+    if current != first and current != last:
+        nexts = links['next']
+        prev = links['prev']
+        return render_template(
+            "trefle_plants_prev.html", plants=plant,
             first=first, prev=prev, nexts=nexts,
             current=current, last=last, total=total)
+    if current != first and current == last:
+        prev = links['prev']
+        return render_template(
+            "trefle_plants_last.html", plants=plant,
+            first=first, prev=prev,
+            current=current, total=total)
     return render_template(
             "trefle_plants.html", plants=plant,
-            first=first, current=current,
-            last=last, total=total)
+            total=total)
 
 
 NUM = 1

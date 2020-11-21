@@ -153,4 +153,5 @@ Happy coding!
 - V11.4 Amend pagination search function
 - V11.5 Update pagination search function
 - V11.6 Amend pagination search function
-- V11.7 Add terfle_many get function test
+- V11.7 Add trefle_many get function test
+- V11.8 Add trefle searches pages htmls
