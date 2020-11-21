@@ -297,6 +297,7 @@ def get_trefle():
     plant = plants["data"]
     links = plants['links']
     first = links['first']
+    current = links['self']
     last = links['last']
     meta = plants['meta']
     total = meta['total']
@@ -304,10 +305,33 @@ def get_trefle():
     # nexts = links['next']
     return render_template(
         "trefle_plants.html", plants=plant,
-        first=first, last=last, total=total)
+        first=first, current=current, last=last, total=total)
 
 
-#Discover API url filtered to movies >= 2004 and containing Drama genre_ID: 18
+@app.route("/get_trefle_many")
+def get_trefle_many():
+    plants = requests.get(
+    f"{ENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{NUMBER}{STRG}{SEARCH}").json()
+    plant = plants["data"]
+    links = plants['links']
+    first = links['first']
+    current = links['self']
+    last = links['last']
+    meta = plants['meta']
+    total = meta['total']
+    if current != last:
+        prev = links['prev']
+        nexts = links['next']
+        return render_template(
+            "trefle_plants_many.html", plants=plant,
+            first=first, prev=prev, nexts=nexts,
+            current=current, last=last, total=total)
+    return render_template(
+            "trefle_plants.html", plants=plant,
+            first=first, current=current,
+            last=last, total=total)
+
+
 NUM = 1
 data = requests.get(f"{ENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{NUM}{STRG}{SEARCH}").json()
 plants = data["data"]
