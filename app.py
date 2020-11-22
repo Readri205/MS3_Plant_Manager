@@ -237,6 +237,7 @@ def get_users():
 
 
 ENDPOINT = "https://trefle.io/api/v1/plants/search?"
+ALLPLANTSENDPOINT = "https://trefle.io/api/v1/plants?"
 HTTPS = "https://trefle.io"
 YOUR_TREFLE_TOKEN = os.environ.get("YOUR_TREFLE_TOKEN")
 TOK = "token="
@@ -244,7 +245,7 @@ STRG = "&q="
 SEARCH = "black"
 SEARCH_SPECIES = "lily"
 PAGE = "&page="
-NUMBER = 19
+NUMBER = 1
 
 # NEXTNUMBER = NUMBER + 1
 
@@ -258,54 +259,13 @@ species_filter = requests.get(
 
 
 searches = species_filter.json()
-# plants = searches['data']
-# print(searches)
-# print(searches['meta'])
-
-#for item in plants:
-#    link = item
-#    print(link)
 
 
-# print(len(plants['data']))
-
-# print(type(plants['data']))
-# plants = requests.get(
-#    f"{ENDPOINT}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}{PAGE}{NUM}").json()
-
-# for plant in plants['data']:
-#    plant_id = plant['id']
-#    name = plant['common_name']
-#    family = plant['family']
-#    family_common_name = plant['family_common_name']
-#    image = plant['image_url']
-#    links = plant['links']
-#    print(f"Plant ID: {plant_id}\tName: {name}\tFamily:{family}\tFamily Common Name:{family_common_name}\tImage: {image}\n")
-
-# print(species_filter)
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
     tasks = list(mongo.db.tasks.find({"$text": {"$search": query}}))
     return render_template("trefle_plants.html", tasks=tasks)
-
-
-@app.route("/get_trefle")
-def get_trefle():
-    plants = requests.get(
-    f"{ENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{NUMBER}{STRG}{SEARCH}").json()
-    plant = plants["data"]
-    links = plants['links']
-    first = links['first']
-    current = links['self']
-    last = links['last']
-    meta = plants['meta']
-    total = meta['total']
-    # prev = links['prev']
-    # nexts = links['next']
-    return render_template(
-        "trefle_plants.html", plants=plant,
-        first=first, current=current, last=last, total=total)
 
 
 @app.route("/get_trefle_many")
@@ -343,32 +303,71 @@ def get_trefle_many():
             total=total)
 
 
+@app.route("/get_trefle_next")
+def get_trefle_next():
+    plants = requests.get(f"{ENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{NUMBER + 1}{STRG}{SEARCH}").json()
+    plant = plants["data"]
+    links = plants['links']
+    first = links['first']
+    current = links['self']
+    last = links['last']
+    meta = plants['meta']
+    total = meta['total']
+    if current != first and current != last:
+        prev = links['prev']
+        nexts = links['next']
+        return render_template(
+            "trefle_plants_prev.html", plants=plant,
+            first=first, prev=prev, nexts=nexts,
+            current=current, last=last, total=total)
+    return render_template(
+            "trefle_plants_last.html", plants=plant,
+            first=first, prev=prev,
+            current=current, total=total)
+
+
+
+
+
+TEST = "black"
 NUM = 1
-data = requests.get(f"{ENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{NUM}{STRG}{SEARCH}").json()
+data = requests.get(f"{ENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{NUM}{STRG}{TEST}").json()
 plants = data["data"]
 pages = data['links']
 current = pages['self']
 last = pages['last']
 total = data['meta']
-print(pages, current, last, total)
+print(current, last, total)
 if current != last:
     nexts = pages['next']
     newnext = nexts[27:]
     newlast = last[27:]
-    NUM = NUM + 1
     data = requests.get(f"{ENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{newnext}").json()
-    print(newlast, newnext)
+    print(newnext, newlast)
 else:
     if current == last:
         print("This are no more pages!")
 
-# for page in range(2, data["total_pages"]+1):
-#    discover_api = requests.get(discover_api_url + f"&page={page}").json()
-#    most_popular_films.extend(discover_api["results"])
 
-#printing movie_id and movie_title by popularity desc
-# for i, film in enumerate(most_popular_films):
-#    print(i, film['id'], film['title'])
+PAGENO = "page="
+data = requests.get(f"{ALLPLANTSENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}").json()
+plants = data["data"]
+pages = data['links']
+nexts = pages['next']
+last = pages['last']
+nextpage = nexts[20:]
+pagerange = 19
+all_plants = []
+# while pages["next"]:
+#    data = requests.get(f"{ALLPLANTSENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGENO}{nextpage}").json()
+#    data = requests.get(f"{ALLPLANTSENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}").json()
+#    plants = data['data']
+#    all_plants.extend(plants)
+
+# printing movie_id and movie_title by popularity desc
+for i, film in enumerate(all_plants):
+    print(i, film['id'], film['title'])
+print(pages, last, pagerange)
 
 
 # plant = plants['data']
