@@ -326,18 +326,40 @@ def get_trefle_next():
             current=current, total=total)
 
 
-
+@app.route("/get_trefle_last")
+def get_trefle_last():
+    plants = requests.get(f"{ENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{NUMBER}{STRG}{SEARCH}").json()
+    plant = plants["data"]
+    links = plants['links']
+    first = links['first']
+    current = links['self']
+    last = links['last']
+    meta = plants['meta']
+    total = meta['total']
+    golast = last[20:]
+    plants = requests.get(f"{ENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{golast}{STRG}{SEARCH}").json()
+    if current != first and current == last:
+        prev = links['prev']
+        nexts = links['next']
+        return render_template(
+            "trefle_plants_prev.html", plants=plant,
+            first=first, prev=prev, nexts=nexts,
+            current=current, last=last, total=total)
+    return render_template(
+            "trefle_plants_last.html", plants=plant,
+            first=first,
+            current=current, last=last, total=total)
 
 
 TEST = "black"
-NUM = 1
+NUM = 19
 data = requests.get(f"{ENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{NUM}{STRG}{TEST}").json()
 plants = data["data"]
 pages = data['links']
 current = pages['self']
 last = pages['last']
 total = data['meta']
-print(current, last, total)
+print(current, last, total, data)
 if current != last:
     nexts = pages['next']
     newnext = nexts[27:]

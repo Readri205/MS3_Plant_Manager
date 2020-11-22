@@ -156,3 +156,4 @@ Happy coding!
 - V11.7 Add trefle_many get function test
 - V11.8 Add trefle searches pages htmls
 - V11.9 Add get_next first test
+- V12.0 Update search test
