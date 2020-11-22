@@ -243,7 +243,7 @@ HTTPS = "https://trefle.io"
 YOUR_TREFLE_TOKEN = os.environ.get("YOUR_TREFLE_TOKEN")
 TOK = "token="
 STRG = "&q="
-SEARCH = "rose"
+SEARCH = "black"
 SEARCH_SPECIES = "lily"
 PAGE = "&page="
 NUMBER = 1
@@ -257,11 +257,17 @@ trefle_plants = trefle['data']
 trefle_links = trefle['links']
 trefle_total = trefle['meta']
 trefle_first = trefle_links['first']
+trefle_current = trefle_links['self']
+trefle_next = trefle_links['next']
+trefle_next_page = trefle_next[27:]
 trefle_last = trefle_links['last']
 trefle_last_page = trefle_last[27:]
-if trefle_first != trefle_last:
-    trefle_next = trefle_links['next']
-    trefle_next_page = trefle_next[27:]
+trefle_end = requests.get(
+    f"{ENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{trefle_last_page}").json()
+trefle_end_links = trefle_end['links']
+trefle_prev = trefle_end_links['prev']
+trefle_prev_page = trefle_prev[27:]
+
 
 species_filter = requests.get(
     f"{ENDPOINT_SPECIES}{TOK}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH_SPECIES}")
@@ -335,6 +341,29 @@ def get_trefle_next():
             current=current, total=total)
 
 
+@app.route("/get_trefle_prev")
+def get_trefle_prev():
+    plants = requests.get(f"{ENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{trefle_prev_page}").json()
+    plant = plants["data"]
+    links = plants['links']
+    first = links['first']
+    current = links['self']
+    last = links['last']
+    meta = plants['meta']
+    total = meta['total']
+    if current != first and current != last:
+        prev = links['prev']
+        nexts = links['next']
+        return render_template(
+            "trefle_plants_prev.html", plants=plant,
+            first=first, prev=prev, nexts=nexts,
+            current=current, last=last, total=total)
+    return render_template(
+            "trefle_plants_first.html", plants=plant,
+            last=last, nexts=next,
+            current=current, total=total)
+
+
 @app.route("/get_trefle_last")
 def get_trefle_last():
     plants = requests.get(f"{ENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{trefle_last_page}").json()
@@ -357,60 +386,37 @@ def get_trefle_last():
             current=current, last=last, total=total)
 
 
-TEST = "black"
-NUM = 1
-data = requests.get(f"{ENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{NUM}{STRG}{TEST}").json()
-plants = data["data"]
-pages = data['links']
-current = pages['self']
-last = pages['last']
-lastnumber = last[27:]
-total = data['meta']
-# print(current, last, total, data)
-if current != last:
-    nexts = pages['next']
-    newnext = nexts[27:]
-    newlast = last[27:]
-    data = requests.get(f"{ENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{newnext}").json()
-#    print(newnext, newlast)
-else:
-    if current == last:
-        print("This are no more pages!")
+@app.route("/get_plant_id")
+def get_plant_id():
+    # encode image to base64
+    with open("static/images/daisy.jpg", "rb") as file:
+        images = [base64.b64encode(file.read()).decode("ascii")]
 
+    your_api_key = "MgTIdDPkZpcC3NyLcl0wUfNYp6n24cRoKbc6MeyAIAqs4qW7EQ"
+    json_data = {
+        "images": images,
+        "modifiers": ["similar_images"],
+        "plant_details": ["common_names",
+            "url", "wiki_description", "taxonomy"]
+    }
 
-PAGENO = "page="
+    response = requests.post(
+        "https://api.plant.id/v2/identify", json=json_data,
+        headers={
+            "Content-Type": "application/json",
+            "Api-Key": "MgTIdDPkZpcC3NyLcl0wUfNYp6n24cRoKbc6MeyAIAqs4qW7EQ"
+                }).json()
 
-data = requests.get(f"{ENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{lastnumber}").json()
-# print(data)
-# plants = data["data"]
-# pages = data['links']
-# nexts = pages['next']
-# last = pages['last']
-# lastpage = last[20:]
-# nextpage = nexts[20:]
-# all_plants = []
-# the_last_page = requests.get(f"{ALLPLANTSENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGENO}{nextpage}").json()
+    for suggestion in response["suggestions"]:
+        print(suggestion["plant_name"])    # Taraxacum officinale
+        print(suggestion["plant_details"]["common_names"])    # ["Dandelion"]
+        print(suggestion["plant_details"]["url"])    # https://en.wikipedia.org/wiki/Taraxacum_officinale
+        plant_name = suggestion["plant_name"]
+        plant_details = suggestion["plant_details"]["common_names"]
+        url_plant_details = suggestion["plant_details"]["url"]
 
-# while pages["next"]:
-#data = requests.get(f"{ALLPLANTSENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGENO}{nextpage}").json()
-#    data = requests.get(f"{ALLPLANTSENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}").json()
-#    plants = data['data']
-#    all_plants.extend(plants)
-
-# printing movie_id and movie_title by popularity desc
-# for i, film in enumerate(all_plants):
-#    print(i, film['id'], film['title'])
-# print(pages, last, last[20:])
-
-
-# plant = plants['data']
-# first = links['first']
-# prev = links['prev']
-# nexts = links['next']
-# print(links['next'], nexts)
-#   meta = plants['meta']
-#   total = meta['total']
-#   print(f"{first}\n{prev}\n{current}\n{nexts}\n{last}\n{total}")
+    return render_template("plant_id.html", response=response,
+            plant_name=plant_name, plant_details=plant_details, url_plant_details=url_plant_details)
 
 
 if __name__ == '__main__':

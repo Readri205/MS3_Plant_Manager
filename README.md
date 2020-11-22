@@ -158,3 +158,4 @@ Happy coding!
 - V11.9 Add get_next first test
 - V12.0 Update search test
 - V12.1 Update search for first and last page
+- V12.2 Add PlantID to search function
