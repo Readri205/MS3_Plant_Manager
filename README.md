@@ -157,3 +157,4 @@ Happy coding!
 - V11.8 Add trefle searches pages htmls
 - V11.9 Add get_next first test
 - V12.0 Update search test
+- V12.1 Update search for first and last page

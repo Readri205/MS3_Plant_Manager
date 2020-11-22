@@ -1,6 +1,7 @@
 import os
 import requests
 import json
+import base64
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -237,22 +238,30 @@ def get_users():
 
 
 ENDPOINT = "https://trefle.io/api/v1/plants/search?"
-ALLPLANTSENDPOINT = "https://trefle.io/api/v1/plants?"
+ALLPLANTSENDPOINT = "https://trefle.io/api/v1/plants?page=18879"
 HTTPS = "https://trefle.io"
 YOUR_TREFLE_TOKEN = os.environ.get("YOUR_TREFLE_TOKEN")
 TOK = "token="
 STRG = "&q="
-SEARCH = "black"
+SEARCH = "rose"
 SEARCH_SPECIES = "lily"
 PAGE = "&page="
 NUMBER = 1
 
-# NEXTNUMBER = NUMBER + 1
-
-
 ENDPOINT_SPECIES = "https://trefle.io/api/v1/species/search?"
 FILTER = "&filter[common_name]=rose"
 
+trefle = requests.get(
+    f"{ENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{NUMBER}{STRG}{SEARCH}").json()
+trefle_plants = trefle['data']
+trefle_links = trefle['links']
+trefle_total = trefle['meta']
+trefle_first = trefle_links['first']
+trefle_last = trefle_links['last']
+trefle_last_page = trefle_last[27:]
+if trefle_first != trefle_last:
+    trefle_next = trefle_links['next']
+    trefle_next_page = trefle_next[27:]
 
 species_filter = requests.get(
     f"{ENDPOINT_SPECIES}{TOK}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH_SPECIES}")
@@ -272,7 +281,7 @@ def search():
 def get_trefle_many():
     plants = requests.get(
     f"{ENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{NUMBER}{STRG}{SEARCH}").json()
-    plant = plants["data"]
+    plant = plants['data']
     links = plants['links']
     first = links['first']
     current = links['self']
@@ -305,7 +314,7 @@ def get_trefle_many():
 
 @app.route("/get_trefle_next")
 def get_trefle_next():
-    plants = requests.get(f"{ENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{NUMBER + 1}{STRG}{SEARCH}").json()
+    plants = requests.get(f"{ENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{trefle_next_page}").json()
     plant = plants["data"]
     links = plants['links']
     first = links['first']
@@ -328,7 +337,7 @@ def get_trefle_next():
 
 @app.route("/get_trefle_last")
 def get_trefle_last():
-    plants = requests.get(f"{ENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{NUMBER}{STRG}{SEARCH}").json()
+    plants = requests.get(f"{ENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{trefle_last_page}").json()
     plant = plants["data"]
     links = plants['links']
     first = links['first']
@@ -336,60 +345,62 @@ def get_trefle_last():
     last = links['last']
     meta = plants['meta']
     total = meta['total']
-    golast = last[20:]
-    plants = requests.get(f"{ENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{golast}{STRG}{SEARCH}").json()
     if current != first and current == last:
         prev = links['prev']
-        nexts = links['next']
         return render_template(
-            "trefle_plants_prev.html", plants=plant,
-            first=first, prev=prev, nexts=nexts,
+            "trefle_plants_last.html", plants=plant,
+            first=first, prev=prev,
             current=current, last=last, total=total)
     return render_template(
-            "trefle_plants_last.html", plants=plant,
+            "trefle_plants_first.html", plants=plant,
             first=first,
             current=current, last=last, total=total)
 
 
 TEST = "black"
-NUM = 19
+NUM = 1
 data = requests.get(f"{ENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{NUM}{STRG}{TEST}").json()
 plants = data["data"]
 pages = data['links']
 current = pages['self']
 last = pages['last']
+lastnumber = last[27:]
 total = data['meta']
-print(current, last, total, data)
+# print(current, last, total, data)
 if current != last:
     nexts = pages['next']
     newnext = nexts[27:]
     newlast = last[27:]
     data = requests.get(f"{ENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{newnext}").json()
-    print(newnext, newlast)
+#    print(newnext, newlast)
 else:
     if current == last:
         print("This are no more pages!")
 
 
 PAGENO = "page="
-data = requests.get(f"{ALLPLANTSENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}").json()
-plants = data["data"]
-pages = data['links']
-nexts = pages['next']
-last = pages['last']
-nextpage = nexts[20:]
-pagerange = 19
-all_plants = []
+
+data = requests.get(f"{ENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{lastnumber}").json()
+# print(data)
+# plants = data["data"]
+# pages = data['links']
+# nexts = pages['next']
+# last = pages['last']
+# lastpage = last[20:]
+# nextpage = nexts[20:]
+# all_plants = []
+# the_last_page = requests.get(f"{ALLPLANTSENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGENO}{nextpage}").json()
+
 # while pages["next"]:
-#    data = requests.get(f"{ALLPLANTSENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGENO}{nextpage}").json()
+#data = requests.get(f"{ALLPLANTSENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGENO}{nextpage}").json()
 #    data = requests.get(f"{ALLPLANTSENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}").json()
 #    plants = data['data']
 #    all_plants.extend(plants)
 
 # printing movie_id and movie_title by popularity desc
-for i, film in enumerate(all_plants):
-    print(i, film['id'], film['title'])
-print(pages, last, pagerange)
+# for i, film in enumerate(all_plants):
+#    print(i, film['id'], film['title'])
+# print(pages, last, last[20:])
 
 
 # plant = plants['data']
