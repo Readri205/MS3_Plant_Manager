@@ -159,3 +159,4 @@ Happy coding!
 - V12.0 Update search test
 - V12.1 Update search for first and last page
 - V12.2 Add PlantID to search function
+- V12.3 Add target blank redirect in url wiki search
