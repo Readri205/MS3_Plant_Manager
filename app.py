@@ -392,7 +392,7 @@ def get_plant_id():
     with open("static/images/daisy.jpg", "rb") as file:
         images = [base64.b64encode(file.read()).decode("ascii")]
 
-    your_api_key = "MgTIdDPkZpcC3NyLcl0wUfNYp6n24cRoKbc6MeyAIAqs4qW7EQ"
+    your_api_key = os.environ.get("your_api_key")
     json_data = {
         "images": images,
         "modifiers": ["similar_images"],
@@ -404,7 +404,7 @@ def get_plant_id():
         "https://api.plant.id/v2/identify", json=json_data,
         headers={
             "Content-Type": "application/json",
-            "Api-Key": "MgTIdDPkZpcC3NyLcl0wUfNYp6n24cRoKbc6MeyAIAqs4qW7EQ"
+            "Api-Key": your_api_key
                 }).json()
 
     for suggestion in response["suggestions"]:
