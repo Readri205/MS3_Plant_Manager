@@ -233,7 +233,7 @@ def logout():
 
 @app.route("/get_users")
 def get_users():
-    return render_template("user_details.html",
+    return render_template("user_details_card.html",
                            users=mongo.db.users.find())
 
 

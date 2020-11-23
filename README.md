@@ -164,3 +164,4 @@ Happy coding!
 - V12.5 Add home page content, similar images PlantID
 - V12.6 Update home page content
 - V12.7 Move logout to my details drop down
+- V12.8 Add carousel to user details page
