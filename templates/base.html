@@ -25,7 +25,6 @@
                         <li><a class="dropdown-trigger yellow-text text-darken-4" href="#!" data-target="dropdown3">My Year<i class="fad fa-caret-down"></i></a></li>
                         <li><a class="dropdown-trigger yellow-text text-darken-4" href="#!" data-target="dropdown4">Search<i class="fad fa-caret-down"></i></a></li>
                         <li><a class="dropdown-trigger yellow-text text-darken-4" href="#!" data-target="dropdown5">My Details<i class="fad fa-caret-down"></i></a></li>
-                        <li><a href="{{ url_for('logout') }}" class="yellow-text text-darken-4">Logout</a></li>
                     {% else %}
                         <li><a href="{{ url_for('login') }}" class="yellow-text text-darken-4">Log In</a></li>
                         <li><a href="{{ url_for('register') }}" class="yellow-text text-darken-4">Register</a></li>
@@ -49,7 +48,6 @@
 					data-target="dropdown9">Search<i class="fad fa-caret-down"></i></a></li>
 			<li><a class="dropdown-trigger yellow-text text-darken-4" href="#!"
 					data-target="dropdown10">My Details<i class="fad fa-caret-down"></i></a></li>
-			<li><a href="{{ url_for('logout') }}" class="yellow-text text-darken-4">Logout</a></li>
 			{% else %}
 			<li><a href="{{ url_for('login') }}" class="yellow-text text-darken-4">Log In</a></li>
 			<li><a href="{{ url_for('register') }}" class="yellow-text text-darken-4">Register</a></li>
@@ -74,6 +72,7 @@
         <ul id="dropdown5" class="dropdown-content teal darken-4">
 			<li><a href="{{ url_for('profile', username=session['user']) }}" class="yellow-text text-darken-4">My Profile</a></li>
             <li><a href="{{url_for('get_users')}}" class="yellow-text text-darken-4">My Details</a></li>
+            <li><a href="{{ url_for('logout') }}" class="yellow-text text-darken-4">Logout</a></li>
 		</ul>
         <ul id="dropdown6" class="dropdown-content teal darken-4">
 			<li><a href="{{url_for('get_plants')}}" class="yellow-text text-darken-4">My Plants</a></li>
@@ -93,6 +92,7 @@
         <ul id="dropdown10" class="dropdown-content teal darken-4">
 			<li><a href="{{ url_for('profile', username=session['user']) }}" class="yellow-text text-darken-4">My Profile</a></li>
             <li><a href="{{url_for('get_users')}}" class="yellow-text text-darken-4">My Details</a></li>
+            <li><a href="{{ url_for('logout') }}" class="yellow-text text-darken-4">Logout</a></li>
 		</ul>
 	</header>
     <section>
