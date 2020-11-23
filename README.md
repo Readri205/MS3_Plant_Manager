@@ -161,3 +161,4 @@ Happy coding!
 - V12.2 Add PlantID to search function
 - V12.3 Add target blank redirect in url wiki search
 - V12.4 Move plantID key to env variables
+- V12.5 Add home page content, similar images PlantID

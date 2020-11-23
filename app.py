@@ -411,12 +411,14 @@ def get_plant_id():
         print(suggestion["plant_name"])    # Taraxacum officinale
         print(suggestion["plant_details"]["common_names"])    # ["Dandelion"]
         print(suggestion["plant_details"]["url"])    # https://en.wikipedia.org/wiki/Taraxacum_officinale
+        print(suggestion["similar_images"])
         plant_name = suggestion["plant_name"]
         plant_details = suggestion["plant_details"]["common_names"]
         url_plant_details = suggestion["plant_details"]["url"]
+        similar_images = suggestion["similar_images"]
 
     return render_template("plant_id.html", response=response,
-            plant_name=plant_name, plant_details=plant_details, url_plant_details=url_plant_details)
+            plant_name=plant_name, plant_details=plant_details, url_plant_details=url_plant_details, similar_images=similar_images)
 
 
 if __name__ == '__main__':
