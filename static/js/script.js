@@ -4,10 +4,7 @@ $(document).ready(function () {
     $(".tooltipped").tooltip();
     $("select").formSelect();
     $(".dropdown-trigger").dropdown();
-    $('.carousel.carousel-slider').carousel({
-        fullWidth: true
-        }
-    );
+    $('.carousel').carousel();
     $(".datepicker").datepicker({
         format: "dd mmmm, yyyy",
         yearRange: 3,

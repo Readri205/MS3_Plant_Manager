@@ -166,3 +166,4 @@ Happy coding!
 - V12.7 Move logout to my details drop down
 - V12.8 Add carousel to user details page
 - V12.9 Amend text in home page
+- V13.0 Amend carousel in user details page
