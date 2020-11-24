@@ -171,3 +171,4 @@ Happy coding!
 - V13.2 Add carousel to base, autoplay and images
 - V13.2 Amend footer styles
 - V13.3 Amend background image and opacity
+- V13.4 Amend carousel image height
