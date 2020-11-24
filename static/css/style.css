@@ -46,11 +46,17 @@
 .fa-spa {
     color: darkgreen;
 }
+.fa-seedling {
+    padding-left: 25px;
+}
 .fa-caret-down {
     padding-left: 5px;
     margin-left: 0px;
     font-size: 15px;
     margin: 0px;
+}
+.menu-right {
+    padding-right: 25px;
 }
 .footer-margin {
     margin-bottom: 0px;
@@ -96,6 +102,26 @@
     line-height: 2;
 }
 
+.footer-text i {
+	padding-left: 5px;
+}
+.social-networks {
+	text-align: center;
+}
+.social-networks li {
+	display: inline;
+}
+.social-networks i {
+	font-size: 110%;
+	padding: 0 10px;
+	color: #fff;
+}
+.footer-text i:hover {
+	color: #316833;
+}
+.social-networks i:hover {
+	color: #316833;
+}
 @media only screen and (max-width: 376px){
 nav .brand-logo {
     font-size: 1.2rem;
