@@ -5,7 +5,8 @@ $(document).ready(function () {
     $("select").formSelect();
     $(".dropdown-trigger").dropdown();
     $('.carousel.carousel-slider').carousel({
-    fullWidth: true
+    fullWidth: true,
+    indicators: true
     });
     $(".datepicker").datepicker({
         format: "dd mmmm, yyyy",
@@ -18,7 +19,7 @@ $(document).ready(function () {
     autoplay();
     function autoplay(){
         $('.carousel').carousel('next');
-        setTimeout(autoplay, 3000);
+        setTimeout(autoplay, 5000);
     }
 
     validateMaterializeSelect();

@@ -168,3 +168,4 @@ Happy coding!
 - V12.9 Amend text in home page
 - V13.0 Amend carousel in user details page
 - V13.1 Amend carousel to full width
+- V13.2 Add carousel to base, autoplay and images
