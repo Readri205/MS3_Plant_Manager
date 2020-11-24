@@ -4,7 +4,9 @@ $(document).ready(function () {
     $(".tooltipped").tooltip();
     $("select").formSelect();
     $(".dropdown-trigger").dropdown();
-    $('.carousel').carousel();
+    $('.carousel.carousel-slider').carousel({
+    fullWidth: true
+    });
     $(".datepicker").datepicker({
         format: "dd mmmm, yyyy",
         yearRange: 3,
@@ -13,6 +15,11 @@ $(document).ready(function () {
             done: "Select"
         }
     });
+    autoplay();
+    function autoplay(){
+        $('.carousel').carousel('next');
+        setTimeout(autoplay, 3000);
+    }
 
     validateMaterializeSelect();
     function validateMaterializeSelect() {
