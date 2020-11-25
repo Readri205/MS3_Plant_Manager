@@ -276,12 +276,47 @@ species_filter = requests.get(
 searches = species_filter.json()
 
 
-@app.route("/search", methods=["GET", "POST"])
-def search():
-    query = request.form.get("query")
-    tasks = list(mongo.db.tasks.find({"$text": {"$search": query}}))
-    return render_template("trefle_plants.html", tasks=tasks)
+# @app.route("/search", methods=["GET", "POST"])
+# def search():
+#     query = request.form.get("query")
+#     tasks = list(mongo.db.tasks.find({"$text": {"$search": query}}))
+#     return render_template("trefle_plants.html", tasks=tasks)
 
+
+@app.route("/search_trefle", methods=["GET", "POST"])
+def search_trefle():
+    query = request.form.get("query")
+    plants = requests.get(
+    f"{ENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{NUMBER}{STRG}{query}").json()
+    plant = plants['data']
+    links = plants['links']
+    first = links['first']
+    current = links['self']
+    last = links['last']
+    meta = plants['meta']
+    total = meta['total']
+    if current != last and current == first:
+        nexts = links['next']
+        return render_template(
+            "trefle_plants_first.html", plants=plant,
+            first=first, nexts=nexts,
+            current=current, last=last, total=total)
+    if current != first and current != last:
+        nexts = links['next']
+        prev = links['prev']
+        return render_template(
+            "trefle_plants_prev.html", plants=plant,
+            first=first, prev=prev, nexts=nexts,
+            current=current, last=last, total=total)
+    if current != first and current == last:
+        prev = links['prev']
+        return render_template(
+            "trefle_plants_last.html", plants=plant,
+            first=first, prev=prev,
+            current=current, total=total)
+    return render_template(
+            "trefle_plants.html", plants=plant,
+            total=total)
 
 @app.route("/get_trefle_many")
 def get_trefle_many():
