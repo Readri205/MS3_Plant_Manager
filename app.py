@@ -240,11 +240,14 @@ def get_users():
 ENDPOINT = "https://trefle.io/api/v1/plants/search?"
 ALLPLANTSENDPOINT = "https://trefle.io/api/v1/plants?"
 HTTPS = "https://trefle.io"
-ALLPLANTS = "/api/v1/plants?"
-PLANTSEARCH = "/api/v1/plants/search?"
+ALLPLANTS = "/api/v1/species?"
+PLANTSEARCH = "/api/v1/species/search?"
 YOUR_TREFLE_TOKEN = os.environ.get("YOUR_TREFLE_TOKEN")
 TOK = "token="
 STRG = "&q="
+FILTER1 = "&filter"
+EDIBLEPART = "[edible_part]="
+FILTERSEARCH = "roots,leaves"
 SEARCH = "black"
 SEARCH_SPECIES = "lily"
 PAGE = "&page="
@@ -266,9 +269,9 @@ trefle_last = trefle_links['last']
 trefle_last_page = trefle_last[27:]
 trefle_end = requests.get(
     f"{HTTPS}{PLANTSEARCH}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{trefle_last_page}").json()
-trefle_end_links = trefle_end['links']
-trefle_prev = trefle_end_links['prev']
-trefle_prev_page = trefle_prev[27:]
+# trefle_end_links = trefle_end['links']
+# trefle_prev = trefle_end_links['prev']
+# trefle_prev_page = trefle_prev[27:]
 # print(trefle_end_links)
 
 species_filter = requests.get(
@@ -276,13 +279,14 @@ species_filter = requests.get(
 
 
 searches = species_filter.json()
+# f"{HTTPS}{ALLPLANTS}{TOK}{YOUR_TREFLE_TOKEN}{FILTER}{EDIBLEPART}{FILTERSEARCH}").json()
 
-trefle_all = requests.get(
-    f"{HTTPS}{ALLPLANTS}{TOK}{YOUR_TREFLE_TOKEN}").json()
-NUMBER = NUMBER + 1
-trefle_all = requests.get(
-    f"{HTTPS}{ALLPLANTS}{TOK}{YOUR_TREFLE_TOKEN}").json()
-# print(trefle_all['links'])
+trefle_all = requests.get(f"{HTTPS}{ALLPLANTS}{TOK}{YOUR_TREFLE_TOKEN}{FILTER1}{EDIBLEPART}{FILTERSEARCH}").json()
+plants = trefle_all['data']
+print(plants)
+for plant in plants:
+    print(plant['common_name'])
+
 
 # @app.route("/search", methods=["GET", "POST"])
 # def search():
@@ -339,7 +343,7 @@ def search_trefle():
     last = links['last']
     meta = plants['meta']
     total = meta['total']
-    print(selfs, first, last)
+    # print(plant, selfs, first, last)
     if first != last:
         nexts = links['next']
         return render_template(

@@ -177,3 +177,4 @@ Happy coding!
 - V13.7 Update first Trefle API page
 - V13.8 Amends to Trefle search
 - V13.9 Amend search and remove webmanifest favicon
+- V14.0 Update Trefle filter searches
