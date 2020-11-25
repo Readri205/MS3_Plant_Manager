@@ -175,3 +175,4 @@ Happy coding!
 - V13.5 Upload favicon image
 - V13.6 Add Trefle API search function
 - V13.7 Update first Trefle API page
+- V13.8 Amends to Trefle search

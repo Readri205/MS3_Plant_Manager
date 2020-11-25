@@ -240,19 +240,21 @@ def get_users():
 ENDPOINT = "https://trefle.io/api/v1/plants/search?"
 ALLPLANTSENDPOINT = "https://trefle.io/api/v1/plants?"
 HTTPS = "https://trefle.io"
+ALLPLANTS = "/api/v1/plants?"
+PLANTSEARCH = "/api/v1/plants/search?"
 YOUR_TREFLE_TOKEN = os.environ.get("YOUR_TREFLE_TOKEN")
 TOK = "token="
 STRG = "&q="
 SEARCH = "black"
 SEARCH_SPECIES = "lily"
 PAGE = "&page="
-NUMBER = 1
+NUMBER = 2
 
 ENDPOINT_SPECIES = "https://trefle.io/api/v1/species/search?"
 FILTER = "&filter[common_name]=rose"
 
 trefle = requests.get(
-    f"{ENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{NUMBER}{STRG}{SEARCH}").json()
+    f"{HTTPS}{PLANTSEARCH}{TOK}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}").json()
 trefle_plants = trefle['data']
 trefle_links = trefle['links']
 trefle_total = trefle['meta']
@@ -263,11 +265,11 @@ trefle_next_page = trefle_next[27:]
 trefle_last = trefle_links['last']
 trefle_last_page = trefle_last[27:]
 trefle_end = requests.get(
-    f"{ENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{trefle_last_page}").json()
+    f"{HTTPS}{PLANTSEARCH}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{trefle_last_page}").json()
 trefle_end_links = trefle_end['links']
 trefle_prev = trefle_end_links['prev']
 trefle_prev_page = trefle_prev[27:]
-
+print(trefle_end_links)
 
 species_filter = requests.get(
     f"{ENDPOINT_SPECIES}{TOK}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH_SPECIES}")
@@ -275,6 +277,12 @@ species_filter = requests.get(
 
 searches = species_filter.json()
 
+trefle_all = requests.get(
+    f"{HTTPS}{ALLPLANTS}{TOK}{YOUR_TREFLE_TOKEN}").json()
+NUMBER = NUMBER + 1
+trefle_all = requests.get(
+    f"{HTTPS}{ALLPLANTS}{TOK}{YOUR_TREFLE_TOKEN}").json()
+# print(trefle_all['links'])
 
 # @app.route("/search", methods=["GET", "POST"])
 # def search():
@@ -287,9 +295,10 @@ searches = species_filter.json()
 def search_trefle():
     query = request.form.get("query")
     plants = requests.get(
-    f"{ENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{NUMBER}{STRG}{query}").json()
+    f"{HTTPS}{PLANTSEARCH}{TOK}{YOUR_TREFLE_TOKEN}{STRG}{query}").json()
     plant = plants['data']
     links = plants['links']
+    selfs = links['self']
     first = links['first']
     current = links['self']
     last = links['last']
@@ -299,29 +308,30 @@ def search_trefle():
         nexts = links['next']
         return render_template(
             "trefle_plants_first.html", plants=plant,
-            first=first, nexts=nexts,
+            self=selfs, first=first, nexts=nexts,
             current=current, last=last, total=total)
     if current != first and current != last:
         nexts = links['next']
-        prev = links['prev']
+        # prev = links['prev']
         return render_template(
             "trefle_plants_prev.html", plants=plant,
-            first=first, prev=prev, nexts=nexts,
+            selfs=selfs, first=first, nexts=nexts,
             current=current, last=last, total=total)
     if current != first and current == last:
         prev = links['prev']
         return render_template(
             "trefle_plants_last.html", plants=plant,
-            first=first, prev=prev,
+            selfs=selfs, first=first, prev=prev,
             current=current, total=total)
     return render_template(
             "trefle_plants.html", plants=plant,
-            total=total)
+            selfs=selfs, total=total)
+
 
 @app.route("/get_trefle_many")
 def get_trefle_many():
     plants = requests.get(
-    f"{ALLPLANTSENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}").json()
+    f"{HTTPS}{ALLPLANTS}{TOK}{YOUR_TREFLE_TOKEN}").json()
     plant = plants['data']
     links = plants['links']
     first = links['first']
@@ -355,7 +365,7 @@ def get_trefle_many():
 
 @app.route("/get_trefle_next")
 def get_trefle_next():
-    plants = requests.get(f"{ENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{trefle_next_page}").json()
+    plants = requests.get(f"{HTTPS}{PLANTSEARCH}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{trefle_next_page}").json()
     plant = plants["data"]
     links = plants['links']
     first = links['first']
@@ -378,7 +388,7 @@ def get_trefle_next():
 
 @app.route("/get_trefle_prev")
 def get_trefle_prev():
-    plants = requests.get(f"{ENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{trefle_prev_page}").json()
+    plants = requests.get(f"{HTTPS}{PLANTSEARCH}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{trefle_prev_page}").json()
     plant = plants["data"]
     links = plants['links']
     first = links['first']
@@ -401,7 +411,7 @@ def get_trefle_prev():
 
 @app.route("/get_trefle_last")
 def get_trefle_last():
-    plants = requests.get(f"{ENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{trefle_last_page}").json()
+    plants = requests.get(f"{HTTPS}{PLANTSEARCH}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{trefle_last_page}").json()
     plant = plants["data"]
     links = plants['links']
     first = links['first']
