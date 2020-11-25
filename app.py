@@ -238,7 +238,7 @@ def get_users():
 
 
 ENDPOINT = "https://trefle.io/api/v1/plants/search?"
-ALLPLANTSENDPOINT = "https://trefle.io/api/v1/plants?page=18879"
+ALLPLANTSENDPOINT = "https://trefle.io/api/v1/plants?"
 HTTPS = "https://trefle.io"
 YOUR_TREFLE_TOKEN = os.environ.get("YOUR_TREFLE_TOKEN")
 TOK = "token="
@@ -321,7 +321,7 @@ def search_trefle():
 @app.route("/get_trefle_many")
 def get_trefle_many():
     plants = requests.get(
-    f"{ENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{NUMBER}{STRG}{SEARCH}").json()
+    f"{ALLPLANTSENDPOINT}{TOK}{YOUR_TREFLE_TOKEN}").json()
     plant = plants['data']
     links = plants['links']
     first = links['first']
@@ -337,10 +337,10 @@ def get_trefle_many():
             current=current, last=last, total=total)
     if current != first and current != last:
         nexts = links['next']
-        prev = links['prev']
+        # prev = links['prev']
         return render_template(
             "trefle_plants_prev.html", plants=plant,
-            first=first, prev=prev, nexts=nexts,
+            first=first, nexts=nexts,
             current=current, last=last, total=total)
     if current != first and current == last:
         prev = links['prev']

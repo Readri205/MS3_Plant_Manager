@@ -174,3 +174,4 @@ Happy coding!
 - V13.4 Amend carousel image height
 - V13.5 Upload favicon image
 - V13.6 Add Trefle API search function
+- V13.7 Update first Trefle API page
