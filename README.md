@@ -179,3 +179,4 @@ Happy coding!
 - V13.9 Amend search and remove webmanifest favicon
 - V14.0 Update Trefle filter searches
 - V14.1 Upload favicon images and links
+- V14.2 Update favicons
