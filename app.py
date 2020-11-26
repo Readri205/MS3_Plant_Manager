@@ -246,15 +246,29 @@ YOUR_TREFLE_TOKEN = os.environ.get("YOUR_TREFLE_TOKEN")
 TOK = "token="
 STRG = "&q="
 FILTER1 = "&filter"
-EDIBLEPART = "[edible_part]="
-FILTERSEARCH = "roots,leaves"
-SEARCH = "black"
+RANGE1 = "&range"
+FILTERCRITERIA1 = "[common_name]="
+FILTERSEARCH1 = "orchid"
+RANGECRITERIA1 = "[light]="
+RANGESEARCH1 = ",9"
+SEARCH = "brown orchid"
 SEARCH_SPECIES = "lily"
 PAGE = "&page="
-NUMBER = 2
+NUMBER = 1
 
 ENDPOINT_SPECIES = "https://trefle.io/api/v1/species/search?"
 FILTER = "&filter[common_name]=rose"
+
+
+NUMBER = 1
+trefle_all = requests.get(f"{HTTPS}{PLANTSEARCH}{TOK}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}").json()
+plants = trefle_all['data']
+pages = trefle_all['links']
+total = trefle_all['meta']
+print(pages, total['total'])
+for plant in plants:
+    print(plant['common_name'], plant['id'])
+
 
 trefle = requests.get(
     f"{HTTPS}{PLANTSEARCH}{TOK}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}").json()
@@ -263,8 +277,8 @@ trefle_links = trefle['links']
 trefle_total = trefle['meta']
 trefle_first = trefle_links['first']
 trefle_current = trefle_links['self']
-trefle_next = trefle_links['next']
-trefle_next_page = trefle_next[27:]
+# trefle_next = trefle_links['next']
+# trefle_next_page = trefle_next[27:]
 trefle_last = trefle_links['last']
 trefle_last_page = trefle_last[27:]
 trefle_end = requests.get(
@@ -280,12 +294,6 @@ species_filter = requests.get(
 
 searches = species_filter.json()
 # f"{HTTPS}{ALLPLANTS}{TOK}{YOUR_TREFLE_TOKEN}{FILTER}{EDIBLEPART}{FILTERSEARCH}").json()
-
-trefle_all = requests.get(f"{HTTPS}{ALLPLANTS}{TOK}{YOUR_TREFLE_TOKEN}{FILTER1}{EDIBLEPART}{FILTERSEARCH}").json()
-plants = trefle_all['data']
-print(plants)
-for plant in plants:
-    print(plant['common_name'])
 
 
 # @app.route("/search", methods=["GET", "POST"])
