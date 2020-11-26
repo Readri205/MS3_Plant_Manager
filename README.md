@@ -181,3 +181,4 @@ Happy coding!
 - V14.1 Upload favicon images and links
 - V14.2 Update favicons
 - V14.3 Update to search function
+- V14.4 Test for filter function

@@ -468,6 +468,25 @@ def get_plant_id():
             plant_name=plant_name, plant_details=plant_details, url_plant_details=url_plant_details, similar_images=similar_images)
 
 
+@app.route("/add_filters")
+def add_filters():
+    return render_template("plants_filter.html",
+                           filters=mongo.db.filters.find())
+
+
+@app.route("/insert_filter", methods=["GET", "POST"])
+def insert_filter():
+    filter = {
+        "edible_part": request.form.get("edible_part"),
+        "flower_color": request.form.get("flower_color"),
+        }
+    mongo.db.plants.insert_one(filter)
+    flash("Filter Successfully Added")
+    return redirect(url_for("add_filters"))
+
+    filters = mongo.db.filters.find().sort("filter", 1)
+    return render_template("plants_filter.html", filters=filters)
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
