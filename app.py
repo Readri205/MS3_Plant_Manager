@@ -454,6 +454,8 @@ def get_plant_id():
             "Api-Key": your_api_key
                 }).json()
 
+    print(response['suggestions'])
+
     for suggestion in response["suggestions"]:
         print(suggestion["plant_name"])    # Taraxacum officinale
         print(suggestion["plant_details"]["common_names"])    # ["Dandelion"]
