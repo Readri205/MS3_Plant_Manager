@@ -247,8 +247,8 @@ TOK = "token="
 STRG = "&q="
 FILTER1 = "&filter"
 RANGE1 = "&range"
-FILTERCRITERIA1 = "[common_name]="
-FILTERSEARCH1 = "orchid"
+FILTERCRITERIA1 = "[flower_color]="
+FILTERSEARCH1 = "blue"
 RANGECRITERIA1 = "[light]="
 RANGESEARCH1 = ",9"
 SEARCH = "brown orchid"
@@ -261,7 +261,7 @@ FILTER = "&filter[common_name]=rose"
 
 
 NUMBER = 1
-trefle_all = requests.get(f"{HTTPS}{PLANTSEARCH}{TOK}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}").json()
+trefle_all = requests.get(f"{HTTPS}{ALLPLANTS}{TOK}{YOUR_TREFLE_TOKEN}{FILTER1}{FILTERCRITERIA1}{FILTERSEARCH1}").json()
 plants = trefle_all['data']
 pages = trefle_all['links']
 total = trefle_all['meta']
