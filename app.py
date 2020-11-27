@@ -240,7 +240,9 @@ def get_users():
 ENDPOINT = "https://trefle.io/api/v1/plants/search?"
 ALLPLANTSENDPOINT = "https://trefle.io/api/v1/plants?"
 HTTPS = "https://trefle.io"
+FORWARD = "/"
 ALLPLANTS = "/api/v1/species?"
+ONESPECIES = "/api/v1/species/"
 PLANTSEARCH = "/api/v1/species/search?"
 YOUR_TREFLE_TOKEN = os.environ.get("YOUR_TREFLE_TOKEN")
 TOK = "token="
@@ -261,14 +263,31 @@ FILTER = "&filter[common_name]=rose"
 
 
 NUMBER = 1
+ID = '183086'
 trefle_all = requests.get(f"{HTTPS}{ALLPLANTS}{TOK}{YOUR_TREFLE_TOKEN}{FILTER1}{FILTERCRITERIA1}{FILTERSEARCH1}").json()
-plants = trefle_all['data']
-pages = trefle_all['links']
-total = trefle_all['meta']
-print(pages, total['total'])
-for plant in plants:
-    print(plant['common_name'], plant['id'])
 
+# trefle_specie = requests.get(f"{HTTPS}{TOK}{YOUR_TREFLE_TOKEN} + /api/v1/species/glechoma-hederacea").json()
+
+trefle_data = json.dumps(trefle_all, indent=2)
+# print(trefle_data)
+
+
+# https://trefle.io/api/v1/species/{183086}
+# plants = trefle_all['data']
+# pages = trefle_all['links']
+# total = trefle_all['meta']
+
+# print(pages, total['total'])
+# for plant in plants:
+#    print(plant['common_name'], plant['id'])
+# payload = {'username': 'dyckie', 'password': 'dyckie'}
+# r = requests.post("https://httpbin.org/post", data=payload)
+
+
+#with open('mountain.png', 'wb') as f:
+#    f.write(r.content)
+# r.dict = r.json()
+# print(r.dict['form'])
 
 trefle = requests.get(
     f"{HTTPS}{PLANTSEARCH}{TOK}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}").json()
@@ -488,6 +507,35 @@ def insert_filter():
 
     filters = mongo.db.filters.find().sort("filter", 1)
     return render_template("plants_filter.html", filters=filters)
+
+
+with open("static/images/daisy.jpg", "rb") as file:
+        images = [base64.b64encode(file.read()).decode("ascii")]
+
+your_api_key = os.environ.get("your_api_key")
+json_data = {
+        "images": images,
+        "modifiers": ["similar_images"],
+        "plant_details": ["common_names",
+            "url", "wiki_description", "taxonomy"]
+    }
+
+response = requests.post(
+        "https://api.plant.id/v2/identify", json=json_data,
+        headers={
+            "Content-Type": "application/json",
+            "Api-Key": your_api_key
+                }).json()
+# suggestions = response['suggestions']
+suggestion = json.dumps(response['suggestions'], indent=2)
+for plant in response['suggestions']:
+    plant_name = plant['plant_name']
+    common_names = plant['plant_details']['common_names']
+    similar_images = plant['similar_images']
+    url = plant['plant_details']['url']
+    wiki_description = plant['plant_details']['wiki_description']
+    print(f"{plant_name}\n{common_names}\n{similar_images}\n{url}\n{wiki_description}\n")
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
