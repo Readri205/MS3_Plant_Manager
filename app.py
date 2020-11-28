@@ -8,6 +8,7 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from PIL import Image
 
 
 if os.path.exists("env.py"):
@@ -264,12 +265,23 @@ FILTER = "&filter[common_name]=rose"
 
 NUMBER = 1
 ID = '183086'
-trefle_all = requests.get(f"{HTTPS}{ALLPLANTS}{TOK}{YOUR_TREFLE_TOKEN}{FILTER1}{FILTERCRITERIA1}{FILTERSEARCH1}").json()
+# trefle_all = requests.get(f"{HTTPS}{ALLPLANTS}{TOK}{YOUR_TREFLE_TOKEN}{FILTER1}{FILTERCRITERIA1}{FILTERSEARCH1}").json()
 
 # trefle_specie = requests.get(f"{HTTPS}{TOK}{YOUR_TREFLE_TOKEN} + /api/v1/species/glechoma-hederacea").json()
 
-trefle_data = json.dumps(trefle_all, indent=2)
-# print(trefle_data)
+# trefle_data = json.dumps(trefle_all, indent=2)
+# first_one = trefle_data[0]
+# print(first_one
+
+# for plant in response['suggestions']:
+#    plant_name = plant['plant_name']
+#    common_names = plant['plant_details']['common_names']
+#    for names in common_names:
+#        print(names)
+#    similar_images = plant['similar_images']
+#    url = plant['plant_details']['url']
+#    wiki_description = plant['plant_details']['wiki_description']
+#    print(f"{plant_name}\n{common_names}\n{similar_images}\n{url}\n{wiki_description}\n")
 
 
 # https://trefle.io/api/v1/species/{183086}
@@ -452,6 +464,36 @@ def get_trefle_last():
             current=current, last=last, total=total)
 
 
+#@app.route("/upload_image1")
+def upload_image1():
+    if 'search_image' in request.files:
+        search_image = request.files['search_image']
+        mongo.save_file(search_image.filename, search_image)
+        mongo.db.images.insert_one()
+    image = {
+        "image_name": request.form.get("image_name"),
+        "description": request.form.get("description"),
+        "date_added": request.form.get("date_added"),
+        "created_by": session["user"]
+        }
+    mongo.db.images.insert_one(image)
+    flash("Image Successfully Added")
+    return redirect(url_for("upload_image"))
+
+    images = mongo.db.images.find().sort("image_name", 1)
+    return render_template("my_images.html", images=images)
+
+
+@app.route("/upload_image")
+def upload_image():
+    if 'search_image' in request.files:
+        search_image = request.files['search_image']
+        mongo.save_file(search_image.filename, search_image)
+        mongo.db.images.insert_one()
+    images = mongo.db.images.find().sort("image_name", 1)
+    return render_template("my_images.html", images=images)
+
+
 @app.route("/get_plant_id")
 def get_plant_id():
     # encode image to base64
@@ -512,29 +554,35 @@ def insert_filter():
 with open("static/images/daisy.jpg", "rb") as file:
         images = [base64.b64encode(file.read()).decode("ascii")]
 
-your_api_key = os.environ.get("your_api_key")
-json_data = {
+
+def plant_id():
+    your_api_key = os.environ.get("your_api_key")
+    json_data = {
         "images": images,
         "modifiers": ["similar_images"],
         "plant_details": ["common_names",
             "url", "wiki_description", "taxonomy"]
     }
 
-response = requests.post(
+    response = requests.post(
         "https://api.plant.id/v2/identify", json=json_data,
         headers={
             "Content-Type": "application/json",
             "Api-Key": your_api_key
                 }).json()
-# suggestions = response['suggestions']
-suggestion = json.dumps(response['suggestions'], indent=2)
-for plant in response['suggestions']:
-    plant_name = plant['plant_name']
-    common_names = plant['plant_details']['common_names']
-    similar_images = plant['similar_images']
-    url = plant['plant_details']['url']
-    wiki_description = plant['plant_details']['wiki_description']
-    print(f"{plant_name}\n{common_names}\n{similar_images}\n{url}\n{wiki_description}\n")
+    suggestions = response['suggestions']
+    suggestion = json.dumps(suggestions, indent=2)
+    print(suggestion)
+    for plant in response['suggestions']:
+        plant_name = plant['plant_name']
+        common_names = plant['plant_details']['common_names']
+        similar_images = plant['similar_images']
+        url = plant['plant_details']['url']
+        wiki_description = plant['plant_details']['wiki_description']
+        print(f"{plant_name}\n{common_names}\n{similar_images}\n{url}\n{wiki_description}\n")
+
+
+# plant_id()
 
 
 if __name__ == '__main__':
