@@ -1,0 +1,50 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container">
+<h4>Edit User</h4>
+<div class="row">
+{% for user in users %}
+{% if session.user|lower == user.username|lower %}
+	<form action="{{ url_for('update_user', user_id=user._id) }}" method="POST" class="col s12">
+		<div class="row">
+			<div class="input-field col s12">
+				<i class="material-icons prefix">subject</i>
+				<textarea id="first_name" name="first_name" class="materialize-textarea">{{user.first_name}}</textarea>
+				<label for="first_name">First Name: </label>
+			</div>
+        </div>
+        <div class="row">
+			<div class="input-field col s12">
+				<i class="material-icons prefix">subject</i>
+				<textarea id="last_name" name="last_name" class="materialize-textarea">{{user.last_name}}</textarea>
+				<label for="last_name">Last Name: </label>
+			</div>
+        </div>
+        <div class="row">
+			<div class="input-field col s12">
+				<i class="material-icons prefix">subject</i>
+				<textarea id="email" name="email" class="materialize-textarea">{{user.email}}</textarea>
+				<label for="email">Email: </label>
+			</div>
+        </div>
+        <div class="row">
+			<div class="input-field col s12">
+				<i class="material-icons prefix">subject</i>
+				<textarea id="phone_number" name="phone_number" class="materialize-textarea">{{user.phone_number}}</textarea>
+				<label for="phone_number">Phone Number: </label>
+			</div>
+        </div>
+        <div class="row">
+            <h3>Unfortunately you can't update your username!</h3>
+        </div>
+		    <div class="row">
+		        <button class="btn waves-effect waves-light" type="submit">Update User Details
+                    <i class="material-icons right"></i>
+                </button>
+            </div>
+	</form>
+ {% endif %}
+ {% endfor %}
+</div>
+</div>
+{% endblock %}

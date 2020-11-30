@@ -74,7 +74,7 @@ def edit_plant(plant_id):
 @app.route('/update_plant/<plant_id>', methods=["POST"])
 def update_plant(plant_id):
     plants = mongo.db.plants
-    plants.update({"_id": ObjectId(plant_id)},
+    plants.update_one({"_id": ObjectId(plant_id)},
     {
         "common_name": request.form.get("common_name"),
         "collection_name": request.form.get("collection_name"),
@@ -137,7 +137,7 @@ def edit_collection(collection_id):
 @app.route('/update_collection/<collection_id>', methods=["POST"])
 def update_collection(collection_id):
     collections = mongo.db.collections
-    collections.update({"_id": ObjectId(collection_id)},
+    collections.update_one({"_id": ObjectId(collection_id)},
     {
         "collection_name": request.form.get("collection_name"),
         "description": request.form.get("description"),
@@ -234,8 +234,39 @@ def logout():
 
 @app.route("/get_users")
 def get_users():
-    return render_template("user_details_card.html",
+    return render_template("user_details.html",
                            users=mongo.db.users.find())
+
+
+@app.route('/edit_user/<user_id>')
+def edit_user(user_id):
+    the_user = mongo.db.users.find_one(
+        {"_id": ObjectId(user_id)})
+    all_users = mongo.db.users.find()
+    return render_template("edituser.html",
+                           user=the_user,
+                           users=all_users)
+
+
+@app.route('/update_user/<user_id>', methods=["POST"])
+def update_user(user_id):
+    users = mongo.db.users
+    users.update_one({"_id": ObjectId(user_id)},
+    {
+        "first_name": request.form.get("first_name"),
+        "last_name": request.form.get("last_name"),
+        "username": request.form.get("username"),
+        "email": request.form.get("email"),
+        "phone_number": request.form.get("phone_number")
+    })
+    flash("User Successfully Edited!")
+    return redirect(url_for("get_users"))
+
+
+@app.route('/delete_user/<user_id>')
+def delete_user(user_id):
+    mongo.db.users.remove({"_id": ObjectId(user_id)})
+    return redirect(url_for("logout"))
 
 
 ENDPOINT = "https://trefle.io/api/v1/plants/search?"
@@ -484,12 +515,13 @@ def upload_image1():
     return render_template("my_images.html", images=images)
 
 
-@app.route("/upload_image")
+@app.route("/upload_image", methods=["GET", "POST"])
 def upload_image():
     if 'search_image' in request.files:
         search_image = request.files['search_image']
         mongo.save_file(search_image.filename, search_image)
-        mongo.db.images.insert_one()
+        mongo.db.images.insert_one({"image_name": search_image.filename})
+
     images = mongo.db.images.find().sort("image_name", 1)
     return render_template("my_images.html", images=images)
 
