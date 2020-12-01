@@ -74,7 +74,7 @@ def edit_plant(plant_id):
 @app.route('/update_plant/<plant_id>', methods=["POST"])
 def update_plant(plant_id):
     plants = mongo.db.plants
-    plants.update_one({"_id": ObjectId(plant_id)},
+    plants.update({"_id": ObjectId(plant_id)},
     {
         "common_name": request.form.get("common_name"),
         "collection_name": request.form.get("collection_name"),
@@ -137,7 +137,7 @@ def edit_collection(collection_id):
 @app.route('/update_collection/<collection_id>', methods=["POST"])
 def update_collection(collection_id):
     collections = mongo.db.collections
-    collections.update_one({"_id": ObjectId(collection_id)},
+    collections.update({"_id": ObjectId(collection_id)},
     {
         "collection_name": request.form.get("collection_name"),
         "description": request.form.get("description"),
@@ -251,13 +251,14 @@ def edit_user(user_id):
 @app.route('/update_user/<user_id>', methods=["POST"])
 def update_user(user_id):
     users = mongo.db.users
-    users.update_one({"_id": ObjectId(user_id)},
+    users.update({"_id": ObjectId(user_id)},
     {
         "first_name": request.form.get("first_name"),
         "last_name": request.form.get("last_name"),
         "username": request.form.get("username"),
         "email": request.form.get("email"),
-        "phone_number": request.form.get("phone_number")
+        "phone_number": request.form.get("phone_number"),
+        "password": request.form.get("password")
     })
     flash("User Successfully Edited!")
     return redirect(url_for("get_users"))
@@ -285,7 +286,7 @@ FILTERCRITERIA1 = "[flower_color]="
 FILTERSEARCH1 = "blue"
 RANGECRITERIA1 = "[light]="
 RANGESEARCH1 = ",9"
-SEARCH = "brown orchid"
+SEARCH = "stinging nettle"
 SEARCH_SPECIES = "lily"
 PAGE = "&page="
 NUMBER = 1
@@ -302,7 +303,7 @@ ID = '183086'
 
 # trefle_data = json.dumps(trefle_all, indent=2)
 # first_one = trefle_data[0]
-# print(first_one
+# print(first_one)
 
 # for plant in response['suggestions']:
 #    plant_name = plant['plant_name']
@@ -343,6 +344,8 @@ trefle_current = trefle_links['self']
 # trefle_next_page = trefle_next[27:]
 trefle_last = trefle_links['last']
 trefle_last_page = trefle_last[27:]
+for plant in trefle_plants:
+    print(plant['common_name'], plant['image_url'])
 trefle_end = requests.get(
     f"{HTTPS}{PLANTSEARCH}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{trefle_last_page}").json()
 # trefle_end_links = trefle_end['links']
@@ -495,7 +498,7 @@ def get_trefle_last():
             current=current, last=last, total=total)
 
 
-#@app.route("/upload_image1")
+# @app.route("/upload_image1")
 def upload_image1():
     if 'search_image' in request.files:
         search_image = request.files['search_image']

@@ -1,28 +1,30 @@
 {% extends 'base.html' %} {% block content %}
 
 <div class="container teal lighten-4 teal-text text-darken-4">
-<h4>My Details</h4>
-<ul class="collapsible" data-collapsible="accordion">
+    <h4>My Details</h4>
+<ul>
     {% for user in users %}
     {% if session.user|lower == user.username|lower %}
     <li>
-        <div class="collapsible-header cap-text teal lighten-4">
-            <div class="col s9">
-                <i class="fas fa-spa"></i>{{user.first_name}} {{user.last_name}}
-            </div>
+        <div class="card-panel teal lighten-4">
             <div class="col s3">
-                <i class="material-icons">expand_more</i>
+              <img src="{{user.profile_image}}" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
             </div>
-        </div>
-        <div class="collapsible-body teal lighten-4">
+            <div class="col s6">
+                <i class="fas fa-spa"></i>{{user.first_name.title()}} {{user.last_name.title()}}
+            </div>
+        
+        <div class=" card-panel teal lighten-4">
             <span><strong>First Name: </strong></span><span> {{user.first_name.title()}}</span> <br>
             <span><strong>Last Name: </strong></span><span> {{user.last_name.title()}}</span> <br>
             <span><strong>Email: </strong></span><span> {{user.email}}</span> <br>
             <span><strong>Phone Number: </strong></span><span> {{user.phone_number}}</span> <br>
             <span><strong>User Name: </strong></span><span> {{user.username}}</span> <br>
+            <span><strong>Profile Image: </strong></span><span> {{user.profile_image}}</span> <br>
             <div class="btn-css">
-		        <a href="{{url_for('edit_user', user_id=user._id)}}" class="waves-effect waves-light btn"><i class="material-icons"></i>Edit</a>
+		        <a href="{{ url_for('edit_user', user_id=user._id) }}" class="waves-effect waves-light btn"><i class="material-icons"></i>Edit</a>
             </div>
+        </div>
         </div>
     </li>
     {% endif %}
