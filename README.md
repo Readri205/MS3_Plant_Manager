@@ -188,3 +188,4 @@ Happy coding!
 - V14.8 Add image upload test
 - V14.9 Add edit user - part
 - V15.0 Add edituser amends
+- V15.1 Remove PIL

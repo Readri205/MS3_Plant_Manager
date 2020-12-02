@@ -8,7 +8,6 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
-from PIL import Image
 
 
 if os.path.exists("env.py"):
@@ -258,6 +257,7 @@ def update_user(user_id):
         "username": request.form.get("username"),
         "email": request.form.get("email"),
         "phone_number": request.form.get("phone_number"),
+        "profile_image": request.form.get("profile_image"),
         "password": request.form.get("password")
     })
     flash("User Successfully Edited!")
