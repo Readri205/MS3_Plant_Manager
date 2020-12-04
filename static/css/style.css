@@ -132,6 +132,19 @@
 .social-networks i:hover {
 	color: #316833;
 }
+.cloudinary-buttons {
+    background-color: #004d40;
+    color: #f57f17;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 28px;
+    height: 28x;
+    cursor: pointer;
+    font-weight: normal;
+    display: inline-block;
+    border-radius: 4px;
+    padding: 10px 14px;
+}
 @media only screen and (max-width: 376px){
 nav .brand-logo {
     font-size: 1.2rem;
