@@ -586,48 +586,21 @@ def insert_filter():
     return render_template("plants_filter.html", filters=filters)
 
 
-with open("static/images/daisy.jpg", "rb") as file:
-        images = [base64.b64encode(file.read()).decode("ascii")]
-
-
-def plant_id():
-    your_api_key = os.environ.get("your_api_key")
-    json_data = {
-        "images": images,
-        "modifiers": ["similar_images"],
-        "plant_details": ["common_names",
-            "url", "wiki_description", "taxonomy"]
-    }
-
-    response = requests.post(
-        "https://api.plant.id/v2/identify", json=json_data,
-        headers={
-            "Content-Type": "application/json",
-            "Api-Key": your_api_key
-                }).json()
-    suggestions = response['suggestions']
-    suggestion = json.dumps(suggestions, indent=2)
-    print(suggestion)
-    for plant in response['suggestions']:
-        plant_name = plant['plant_name']
-        common_names = plant['plant_details']['common_names']
-        similar_images = plant['similar_images']
-        url = plant['plant_details']['url']
-        wiki_description = plant['plant_details']['wiki_description']
-        print(f"{plant_name}\n{common_names}\n{similar_images}\n{url}\n{wiki_description}\n")
-
-
-# plant_id()
-
-def cloudinary_resources():
+@app.route("/cloudinary_images")
+def cloudinary_images():
     cloudinary = requests.get(f"https://{CLOUDINARY_API_KEY}:{CLOUDINARY_API_SECRET}@api.cloudinary.com/v1_1/{CLOUDINARY_CLOUD_NAME}/resources/image").json()
-    for resource in cloudinary['resources']:
-        asset = resource['public_id']
+    resources = cloudinary['resources']
+    # resource = json.dumps(resources, indent=2)
+    # print(resource)
+    for resource in resources:
+        asset_id = resource['asset_id']
         secure_url = resource['secure_url']
-        print(asset, secure_url)
+        print(asset_id, secure_url)
+
+    return render_template("my_images.html", asset_id=resource['asset_id'], secure_url=resource['secure_url'])
 
 
-# cloudinary_resources()
+# cloudinary_images()
 
 
 if __name__ == '__main__':
