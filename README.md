@@ -190,3 +190,4 @@ Happy coding!
 - V15.0 Add edituser amends
 - V15.1 Remove PIL
 - V15.2 Add cloudinary db and file upload
+- V15.3 Amend image route path for plant id

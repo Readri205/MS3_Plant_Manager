@@ -19,6 +19,10 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'plant_manager'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI')
 app.secret_key = os.environ.get("SECRET_KEY")
+# Cloudinary API call details
+CLOUDINARY_CLOUD_NAME = os.environ.get('my_cloud_name')
+CLOUDINARY_API_KEY = os.environ.get('api_key')
+CLOUDINARY_API_SECRET = os.environ.get('api_secret')
 
 mongo = PyMongo(app)
 
@@ -339,7 +343,7 @@ trefle_current = trefle_links['self']
 # trefle_next_page = trefle_next[27:]
 trefle_last = trefle_links['last']
 trefle_last_page = trefle_last[27:]
-print(trefle_links)
+# print(trefle_links)
 # for plant in trefle_plants:
 #    print(plant['common_name'], plant['image_url'])
 trefle_end = requests.get(
@@ -528,7 +532,7 @@ def upload_image():
 @app.route("/get_plant_id")
 def get_plant_id():
     # encode image to base64
-    with open("static/image/daisy.jpg", "rb") as file:
+    with open("static/images/daisy.jpg", "rb") as file:
         images = [base64.b64encode(file.read()).decode("ascii")]
 
     your_api_key = os.environ.get("your_api_key")
@@ -614,6 +618,14 @@ def plant_id():
 
 
 # plant_id()
+
+def cloudinary_resources():
+    cloudinary = requests.get(f"https://{CLOUDINARY_API_KEY}:{CLOUDINARY_API_SECRET}@api.cloudinary.com/v1_1/{CLOUDINARY_CLOUD_NAME}/resources/image").json()
+
+    print(cloudinary)
+
+
+cloudinary_resources()
 
 
 if __name__ == '__main__':
