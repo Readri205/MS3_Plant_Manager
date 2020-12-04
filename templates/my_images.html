@@ -1,21 +1,13 @@
 {% extends 'base.html' %} {% block content %}
 
-<div class="row card-panel teal lighten-5">
-        <form action="/upload" method="post" enctype="multipart/form-data" class="col s12">
-            <div class="row valign-wrapper center-align">
-                <div class="input-field col s12 m8">
-                    <i class="fas fa-search prefix teal-text text-darken-4"></i>
-                    <input type="file" name="search-image" id="search-image">
-                </div>
-                <div class="col s12 m6">
-                    <a href="{{url_for('get_plant_id')}}" class="red btn text-shadow">Reset</a>
-                    <button type="submit" class="teal darken-1 btn text-shadow">
-                        <i class="fas fa-search left"></i> Upload
-                    </button>
-                </div>
-            </div>
-        </form>
+<div class="row col s12 card-panel teal lighten-5">
+    <div class="col s6">
+        <p>Upload your image file here to search plant suggestions:</p>
     </div>
+    <div class="col s6">
+        <button id="upload_widget" class="cloudinary-button">Upload files</button>
+    </div>
+</div>
 
 <div class="container teal lighten-4 teal-text text-darken-4">
 <h4>My Images</h4>

@@ -621,8 +621,10 @@ def plant_id():
 
 def cloudinary_resources():
     cloudinary = requests.get(f"https://{CLOUDINARY_API_KEY}:{CLOUDINARY_API_SECRET}@api.cloudinary.com/v1_1/{CLOUDINARY_CLOUD_NAME}/resources/image").json()
-
-    print(cloudinary)
+    for resource in cloudinary['resources']:
+        asset = resource['public_id']
+        secure_url = resource['secure_url']
+        print(asset, secure_url)
 
 
 cloudinary_resources()
