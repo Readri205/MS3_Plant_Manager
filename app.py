@@ -627,7 +627,7 @@ def cloudinary_resources():
         print(asset, secure_url)
 
 
-cloudinary_resources()
+# cloudinary_resources()
 
 
 if __name__ == '__main__':

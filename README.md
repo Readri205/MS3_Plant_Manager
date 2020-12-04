@@ -193,3 +193,4 @@ Happy coding!
 - V15.3 Amend image route path for plant id
 - V15.4 Add tests to cloudinary image db
 - V15.5 Update config variables in heroku
+- V15.6 Update heroku with line 630 amend
