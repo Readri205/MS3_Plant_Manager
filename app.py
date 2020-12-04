@@ -8,7 +8,6 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
-from PIL import Image
 
 
 if os.path.exists("env.py"):
@@ -116,7 +115,7 @@ def insert_collection():
         "date_added": request.form.get("date_added"),
         "created_by": session["user"]
         }
-    mongo.db.collections.insert_one(collection)
+    mongo.db.collections.insert_one(collection).lower()
     flash("Collection Successfully Added")
     return redirect(url_for("get_collections"))
 
@@ -258,6 +257,7 @@ def update_user(user_id):
         "username": request.form.get("username"),
         "email": request.form.get("email"),
         "phone_number": request.form.get("phone_number"),
+        "profile_image": request.form.get("profile_image"),
         "password": request.form.get("password")
     })
     flash("User Successfully Edited!")
@@ -286,7 +286,7 @@ FILTERCRITERIA1 = "[flower_color]="
 FILTERSEARCH1 = "blue"
 RANGECRITERIA1 = "[light]="
 RANGESEARCH1 = ",9"
-SEARCH = "stinging nettle"
+SEARCH = "black"
 SEARCH_SPECIES = "lily"
 PAGE = "&page="
 NUMBER = 1
@@ -328,11 +328,6 @@ ID = '183086'
 # r = requests.post("https://httpbin.org/post", data=payload)
 
 
-#with open('mountain.png', 'wb') as f:
-#    f.write(r.content)
-# r.dict = r.json()
-# print(r.dict['form'])
-
 trefle = requests.get(
     f"{HTTPS}{PLANTSEARCH}{TOK}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}").json()
 trefle_plants = trefle['data']
@@ -344,8 +339,9 @@ trefle_current = trefle_links['self']
 # trefle_next_page = trefle_next[27:]
 trefle_last = trefle_links['last']
 trefle_last_page = trefle_last[27:]
-for plant in trefle_plants:
-    print(plant['common_name'], plant['image_url'])
+print(trefle_links)
+# for plant in trefle_plants:
+#    print(plant['common_name'], plant['image_url'])
 trefle_end = requests.get(
     f"{HTTPS}{PLANTSEARCH}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{trefle_last_page}").json()
 # trefle_end_links = trefle_end['links']
@@ -532,7 +528,7 @@ def upload_image():
 @app.route("/get_plant_id")
 def get_plant_id():
     # encode image to base64
-    with open("static/images/daisy.jpg", "rb") as file:
+    with open("static/image/daisy.jpg", "rb") as file:
         images = [base64.b64encode(file.read()).decode("ascii")]
 
     your_api_key = os.environ.get("your_api_key")
