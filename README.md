@@ -198,3 +198,4 @@ Happy coding!
 - V15.8 Update style cloudinary image upload button
 - V15.9 Update my_images page for cloudinary images
 - V16.0 Amend for my_images test errors
+- V16.1 Amend for my_images errors
