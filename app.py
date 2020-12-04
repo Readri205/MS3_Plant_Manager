@@ -590,14 +590,14 @@ def insert_filter():
 def cloudinary_images():
     cloudinary = requests.get(f"https://{CLOUDINARY_API_KEY}:{CLOUDINARY_API_SECRET}@api.cloudinary.com/v1_1/{CLOUDINARY_CLOUD_NAME}/resources/image").json()
     resources = cloudinary['resources']
-    # resource = json.dumps(resources, indent=2)
-    # print(resource)
-    for resource in resources:
-        asset_id = resource['asset_id']
-        secure_url = resource['secure_url']
-        print(asset_id, secure_url)
+    resource = json.dumps(resources, indent=2)
+    print(resource)
+    # for resource in resources:
+    #    asset_id = resource['asset_id']
+    #    secure_url = resource['secure_url']
+    #    print(asset_id, secure_url)
 
-    return render_template("my_images.html", asset_id=resource['asset_id'], secure_url=resource['secure_url'])
+    return render_template("my_images.html")
 
 
 # cloudinary_images()

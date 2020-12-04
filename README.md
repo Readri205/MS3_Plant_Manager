@@ -197,3 +197,4 @@ Happy coding!
 - V15.7 Add cloudinary script file to my images
 - V15.8 Update style cloudinary image upload button
 - V15.9 Update my_images page for cloudinary images
+- V16.0 Amend for my_images test errors
