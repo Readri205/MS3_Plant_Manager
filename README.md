@@ -208,3 +208,4 @@ Happy coding!
 - V16.8 Remove upload flask code
 - V16.9 Amend cloudinary api code
 - V17.0 Further amend to api code
+- V17.1 Further amend to api code
