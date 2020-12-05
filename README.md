@@ -209,3 +209,4 @@ Happy coding!
 - V16.9 Amend cloudinary api code
 - V17.0 Further amend to api code
 - V17.1 Further amend to api code
+- V17.2 Add cloudinary to requirements
