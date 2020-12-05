@@ -560,7 +560,7 @@ def cloudinary_images():
     images = requests.get(f"https://{cloudinary_api_key}:{cloudinary_api_secret}@api.cloudinary.com/v1_1/{cloudinary_cloud_name}/resources/image").json()
 #    image = images["resources"]
 #    next_cursor = images["next_cursor"]
-    return render_template("my_images.html", images=images, next_cursor=images['next_cursor'])
+    return render_template("my_images.html", images=images)
 
 
 # cloudinary_images()
