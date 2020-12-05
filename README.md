@@ -212,3 +212,4 @@ Happy coding!
 - V17.2 Add cloudinary to requirements
 - V17.3 Amend for import requests
 - V17.4 Add requests to requirements file
+- V17.5 Update requests version
