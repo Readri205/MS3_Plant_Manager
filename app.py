@@ -498,37 +498,6 @@ def get_trefle_last():
             current=current, last=last, total=total)
 
 
-# @app.route("/upload_image1")
-def upload_image1():
-    if 'search_image' in request.files:
-        search_image = request.files['search_image']
-        mongo.save_file(search_image.filename, search_image)
-        mongo.db.images.insert_one()
-    image = {
-        "image_name": request.form.get("image_name"),
-        "description": request.form.get("description"),
-        "date_added": request.form.get("date_added"),
-        "created_by": session["user"]
-        }
-    mongo.db.images.insert_one(image)
-    flash("Image Successfully Added")
-    return redirect(url_for("upload_image"))
-
-    images = mongo.db.images.find().sort("image_name", 1)
-    return render_template("my_images.html", images=images)
-
-
-@app.route("/upload_image", methods=["GET", "POST"])
-def upload_image():
-    if 'search_image' in request.files:
-        search_image = request.files['search_image']
-        mongo.save_file(search_image.filename, search_image)
-        mongo.db.images.insert_one({"image_name": search_image.filename})
-
-    images = mongo.db.images.find().sort("image_name", 1)
-    return render_template("my_images.html", images=images)
-
-
 @app.route("/get_plant_id")
 def get_plant_id():
     # encode image to base64
