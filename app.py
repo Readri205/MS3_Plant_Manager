@@ -1,6 +1,6 @@
 import os
-import requests
 import json
+import requests
 import base64
 import cloudinary
 import cloudinary.uploader
