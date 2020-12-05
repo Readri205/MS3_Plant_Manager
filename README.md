@@ -199,4 +199,5 @@ Happy coding!
 - V15.9 Update my_images page for cloudinary images
 - V16.0 Amend for my_images test errors
 - V16.1 Amend for my_images errors
-- V16.2 Fix cloudinary images in my_images 
+- V16.2 Fix cloudinary images in my_images
+- V16.3 Move cloudinary widget to js file
