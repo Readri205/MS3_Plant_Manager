@@ -20,9 +20,9 @@ app.config["MONGO_DBNAME"] = 'plant_manager'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI')
 app.secret_key = os.environ.get("SECRET_KEY")
 # Cloudinary API call details
-CLOUDINARY_CLOUD_NAME = os.environ.get('my_cloud_name')
-CLOUDINARY_API_KEY = os.environ.get('api_key')
-CLOUDINARY_API_SECRET = os.environ.get('api_secret')
+cloudinary_cloud_name = os.environ.get('my_cloud_name')
+cloudinary_api_key = os.environ.get('api_key')
+cloudinary_api_secret = os.environ.get('api_secret')
 
 mongo = PyMongo(app)
 
@@ -588,19 +588,18 @@ def insert_filter():
 
 @app.route("/cloudinary_images")
 def cloudinary_images():
-    images = requests.get(f"https://{CLOUDINARY_API_KEY}:{CLOUDINARY_API_SECRET}@api.cloudinary.com/v1_1/{CLOUDINARY_CLOUD_NAME}/resources/image").json()
+    data = requests.get(f"https://{cloudinary_api_key}:{cloudinary_api_secret}@api.cloudinary.com/v1_1/{cloudinary_cloud_name}/resources/image").json()
 #    image = images['resources']
-#    image = json.dumps(images['resources'], indent=2)
-#    print(images)
-    resources = images['resources']
+    all_data = json.dumps(data, indent=2)
+    print(all_data)
+    resources = data['resources']
+    next_cursor = data['next_cursor']
     for image in resources:
         public_id = image['public_id']
         secure_url = image['secure_url']
 #        print(f"{public_id}{secure_url}")
 
-    return render_template("my_images.html", resources=resources,
-        images=images, public_id=public_id,
-        secure_url=secure_url)
+    return render_template("my_images.html", resources=resources,                   next_cursor=next_cursor, public_id=public_id, secure_url=secure_url)
 
 
 # cloudinary_images()

@@ -13,8 +13,8 @@
 <ul class="row">
 {% for image in resources %}    
     <li>
-    <div class="col s12 m4">
-      <div class="card medium teal lighten-4">
+    <div class="col s12 m3">
+      <div class="card teal lighten-4">
         <div class="card-image">
             <img src="{{ image.secure_url }}" alt="">
             
@@ -35,6 +35,10 @@
 {% endfor %}
 </ul>
 <ul>
+    <div class="row col s6">
+        <li class="col page-box s6 yellow-text text-darken-4 text-shadow">Next Images: <em>{{ next_cursor }}</em></li>
+        <li class="col l9"></li>
+    </div>
 	<div class="row">
 		<li class="col page-box l3 center-align yellow-text text-darken-4 text-shadow">Total number of plants in search: <em></em></li>
         <li class="col l9"></li>
