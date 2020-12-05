@@ -550,9 +550,9 @@ def get_plant_id():
             "Api-Key": your_api_key
                 }).json()
 
-    print(response['suggestions'])
+    # print(response['suggestions'])
 
-    for suggestion in response["suggestions"]:
+    for suggestion in response['suggestions']:
         print(suggestion["plant_name"])    # Taraxacum officinale
         print(suggestion["plant_details"]["common_names"])    # ["Dandelion"]
         print(suggestion["plant_details"]["url"])    # https://en.wikipedia.org/wiki/Taraxacum_officinale
@@ -588,16 +588,17 @@ def insert_filter():
 
 @app.route("/cloudinary_images")
 def cloudinary_images():
-    cloudinary = requests.get(f"https://{CLOUDINARY_API_KEY}:{CLOUDINARY_API_SECRET}@api.cloudinary.com/v1_1/{CLOUDINARY_CLOUD_NAME}/resources/image").json()
-    #resources = cloudinary['resources']
-    #resource = json.dumps(resources, indent=2)
-    #print(resource)
-    # for resource in resources:
-    #    asset_id = resource['asset_id']
-    #    secure_url = resource['secure_url']
-    #    print(asset_id, secure_url)
+    images = requests.get(f"https://{CLOUDINARY_API_KEY}:{CLOUDINARY_API_SECRET}@api.cloudinary.com/v1_1/{CLOUDINARY_CLOUD_NAME}/resources/image").json()
+    image = images['resources']
+    # images = json.dumps(resources, indent=2)
+    # print(images)
+    for image in images['resources']:
+        public_id = image['public_id']
+        secure_url = image['secure_url']
+        print(f"{public_id}{secure_url}")
 
-    return render_template("my_images.html")
+    return render_template("my_images.html", images=images, public_id=public_id,
+        secure_url=secure_url)
 
 
 # cloudinary_images()

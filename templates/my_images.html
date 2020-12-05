@@ -11,18 +11,18 @@
     </div>
 
 <ul class="row">
-    
+{% for image in images['resources'] %}    
     <li>
     <div class="col s12 m4">
       <div class="card medium teal lighten-4">
         <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?ixid=MXwxMjA3fDB8MHxzZWFyY2h8OHx8Zmxvd2Vyc3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" alt="">
+            <img src="{{ image['secure_url'] }}" alt="">
             
         </div>
 		<div class="card-content">
 			<ul>
                 <li><i class="fas fa-spa teal-text text-lighten-2"></i>
-                <strong>Image Name: </strong>Name</li>
+                <strong>Image Name: </strong>{{ image['public_name'] }}</li>
                 <li>Image Description: <em>description</em></li>
 			</ul>
 		</div>
@@ -32,7 +32,7 @@
       </div>
     </div>
     </li>
-
+{% endfor %}
 </ul>
 <ul>
 	<div class="row">

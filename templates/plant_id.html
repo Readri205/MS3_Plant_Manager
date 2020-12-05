@@ -11,7 +11,7 @@
     </div>
 
 <ul class="row">
-    {% for suggestion in response["suggestions"] %}
+    {% for suggestion in response['suggestions'] %}
     <li>
     <div class="col s12 m4">
       <div class="card large teal lighten-4">
@@ -22,7 +22,7 @@
 		<div class="card-content">
 			<ul>
                 <li><i class="fas fa-spa teal-text text-lighten-2"></i>
-                <strong>{{ suggestion["plant_name"] }}</strong></li>
+                <strong>{{ suggestion['plant_name'] }}</strong></li>
 				<li>Plant Details: <em>{{ suggestion["plant_details"]["common_names"] }}</em></li>
                 <li>Similar Images: {{ suggestion["similar_images"] }}</li>
 			</ul>
