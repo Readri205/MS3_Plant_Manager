@@ -202,3 +202,4 @@ Happy coding!
 - V16.2 Fix cloudinary images in my_images
 - V16.3 Move cloudinary widget to js file
 - V16.4 Remove test script from heroku deployment
+- V16.5 Amend cloudinary code for efficiency

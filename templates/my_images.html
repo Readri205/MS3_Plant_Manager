@@ -11,18 +11,18 @@
     </div>
 
 <ul class="row">
-{% for image in images['resources'] %}    
+{% for image in resources %}    
     <li>
     <div class="col s12 m4">
       <div class="card medium teal lighten-4">
         <div class="card-image">
-            <img src="{{ image['secure_url'] }}" alt="">
+            <img src="{{ image.secure_url }}" alt="">
             
         </div>
 		<div class="card-content">
 			<ul>
                 <li><i class="fas fa-spa teal-text text-lighten-2"></i>
-                <strong>Image Name: </strong>{{ image['public_id'] }}</li>
+                <strong>Image Name: </strong>{{ image.public_id }}</li>
                 <li>Image Description: <em>description</em></li>
 			</ul>
 		</div>
