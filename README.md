@@ -211,3 +211,4 @@ Happy coding!
 - V17.1 Further amend to api code
 - V17.2 Add cloudinary to requirements
 - V17.3 Amend for import requests
+- V17.4 Add requests to requirements file
