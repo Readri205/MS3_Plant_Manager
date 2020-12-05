@@ -589,9 +589,9 @@ def insert_filter():
 @app.route("/cloudinary_images")
 def cloudinary_images():
     images = requests.get(f"https://{CLOUDINARY_API_KEY}:{CLOUDINARY_API_SECRET}@api.cloudinary.com/v1_1/{CLOUDINARY_CLOUD_NAME}/resources/image").json()
-    image = images['resources']
-    image = json.dumps(images, indent=2)
-    print(image)
+#    image = images['resources']
+#    image = json.dumps(images, indent=2)
+#    print(image)
     for image in images['resources']:
         public_id = image['public_id']
         secure_url = image['secure_url']
