@@ -560,11 +560,11 @@ def insert_filter():
 
 @app.route("/cloudinary_images")
 def cloudinary_images():
-    resources = requests.get(f"https://{cloudinary_api_key}:{cloudinary_api_secret}@api.cloudinary.com/v1_1/{cloudinary_cloud_name}/resources/image").json()
-    images = resources["resources"]
-    next_cursor = resources["next_cursor"]
+    data = requests.get(f"https://{cloudinary_api_key}:{cloudinary_api_secret}@api.cloudinary.com/v1_1/{cloudinary_cloud_name}/resources/image").json()
+    images = data["resources"]
+    next_cursor = data["next_cursor"]
     return render_template(
-        "my_images.html", resources=resources, images=images,
+        "my_images.html", data=data, images=images,
         next_cursor=next_cursor)
 
 
