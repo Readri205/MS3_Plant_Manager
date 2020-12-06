@@ -563,6 +563,8 @@ def cloudinary_images():
     data = requests.get(f"https://{cloudinary_api_key}:{cloudinary_api_secret}@api.cloudinary.com/v1_1/{cloudinary_cloud_name}/resources/image").json()
     images = data["resources"]
     next_cursor = data["next_cursor"]
+    print(json.dumps(images, indent=2))
+    print(json.dumps(next_cursor, indent=2))
     return render_template(
         "my_images.html", data=data, images=images,
         next_cursor=next_cursor)
