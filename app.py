@@ -564,7 +564,7 @@ def cloudinary_images():
     images = resources["resources"]
     next_cursor = resources["next_cursor"]
     return render_template(
-        "my_images.html", images=images,
+        "my_images.html", resources=resources, images=images,
         next_cursor=next_cursor)
 
 

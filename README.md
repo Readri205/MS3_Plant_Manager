@@ -214,3 +214,4 @@ Happy coding!
 - V17.4 Add requests to requirements file
 - V17.5 Update requests version
 - V17.6 Further update cloudinary heroku test
+- V17.7 Further amend cloudinary heroku test
