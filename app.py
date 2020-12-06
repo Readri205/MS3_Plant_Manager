@@ -23,7 +23,7 @@ app.config["MONGO_DBNAME"] = 'plant_manager'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI')
 app.secret_key = os.environ.get("SECRET_KEY")
 # Cloudinary API call details
-cloudinary_cloud_name = os.environ.get('my_cloud_name')
+cloudinary_cloud_name = os.environ.get('cloud_name')
 cloudinary_api_key = os.environ.get('api_key')
 cloudinary_api_secret = os.environ.get('api_secret')
 
