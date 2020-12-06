@@ -564,8 +564,8 @@ def cloudinary_images():
 #    images = data["resources"]
 #    next_cursor = data["next_cursor"]
     print(json.dumps(data, indent=2))
-    print(json.dumps(data['resources'], indent=2))
     print(json.dumps(data['next_cursor'], indent=2))
+    print(json.dumps(data['resources'], indent=2))
     return render_template(
         "my_images.html", data=data)
 
