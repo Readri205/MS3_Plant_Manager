@@ -18,6 +18,12 @@ if os.path.exists("env.py"):
 
 app = Flask(__name__)
 
+# Cloudinary settings using python code. Run before pycloudinary is used.
+cloudinary.config(
+  cloud_name=os.environ.get('cloud_name'),
+  api_key=os.environ.get('api_key'),
+  api_secret=os.environ.get('api_secret')
+)
 
 app.config["MONGO_DBNAME"] = 'plant_manager'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI')
@@ -59,7 +65,7 @@ def insert_plant():
         "description": request.form.get("description"),
         "date_added": request.form.get("date_added"),
         "image_url": request.form.get("image_url"),
-        "created_by": session["user"]
+        "created_by": session["user"],
         }
     mongo.db.plants.insert_one(plant)
     flash("Plant Successfully Added")
@@ -560,12 +566,40 @@ def insert_filter():
 
 @app.route("/cloudinary_images")
 def cloudinary_images():
-    data = requests.get(f"https://{cloudinary_api_key}:{cloudinary_api_secret}@api.cloudinary.com/v1_1/{cloudinary_cloud_name}/resources/image").json()
+    data = cloudinary.api.resources()
+#    data = requests.get(f"https://{cloudinary_api_key}:{cloudinary_api_secret}#@api.cloudinary.com/v1_1/{cloudinary_cloud_name}/resources/image").json()
     images = data["resources"]
     next_cursor = data["next_cursor"]
 #    print(data)
     return render_template(
         "my_images.html", data=data, images=images, next_cursor=next_cursor)
+
+
+@app.route("/search_cloudinary_images")
+def search_cloudinary_images():
+    data = requests.get(f"https://{cloudinary_api_key}:{cloudinary_api_secret}@api.cloudinary.com/v1_1/{cloudinary_cloud_name}/resources/search").json()
+#    images = data["resources"]
+#    next_cursor = data["next_cursor"]
+    print(data)
+
+
+def cloudinary_upload():
+    cloudinary.uploader.upload("https://images.unsplash.com/photo-1595024982636-aeda377cb449?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTV8fG9sZCUyMG1hbnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+        width = 200,
+        height = 400,
+        crop = "fill",
+        gravity = "face")
+
+
+#cloudinary_upload()
+
+
+def cloudinary_search():
+    data = cloudinary.api.resources()
+    print(json.dumps(data, indent=2))
+
+
+#cloudinary_search()
 
 
 if __name__ == '__main__':
