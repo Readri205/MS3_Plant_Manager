@@ -529,7 +529,6 @@ def get_plant_id():
                 }).json()
 
     # print(response['suggestions'])
-
     for suggestion in response['suggestions']:
         print(suggestion["plant_name"])    # Taraxacum officinale
         print(suggestion["plant_details"]["common_names"])    # ["Dandelion"]
@@ -544,58 +543,38 @@ def get_plant_id():
             plant_name=plant_name, plant_details=plant_details, url_plant_details=url_plant_details, similar_images=similar_images)
 
 
-@app.route("/add_filters")
-def add_filters():
-    return render_template("plants_filter.html",
-                           filters=mongo.db.filters.find())
+@app.route("/upload_cloudinary_images")
+def upload_cloudinary_images():
+    cloudinary.uploader.upload("https://images.unsplash.com/photo-1595024982636-aeda377cb449?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTV8fG9sZCUyMG1hbnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+        width=200,
+        height=400,
+        crop="fill",
+        gravity="face")
 
 
-@app.route("/insert_filter", methods=["GET", "POST"])
-def insert_filter():
-    filter = {
-        "edible_part": request.form.get("edible_part"),
-        "flower_color": request.form.get("flower_color"),
-        }
-    mongo.db.plants.insert_one(filter)
-    flash("Filter Successfully Added")
-    return redirect(url_for("add_filters"))
-
-    filters = mongo.db.filters.find().sort("filter", 1)
-    return render_template("plants_filter.html", filters=filters)
+#upload_cloudinary_images()
 
 
 @app.route("/cloudinary_images")
 def cloudinary_images():
-    data = cloudinary.api.resources()
-#    data = requests.get(f"https://{cloudinary_api_key}:{cloudinary_api_secret}#@api.cloudinary.com/v1_1/{cloudinary_cloud_name}/resources/image").json()
+    data = cloudinary.api.resources(
+        max_results='100',
+        resource_type='image',
+        type='upload',
+        prefix='mygardenmanager',
+        next_cursor='')
     images = data["resources"]
-    next_cursor = data["next_cursor"]
+#    next_cursor = data["next_cursor"]
 #    print(data)
     return render_template(
-        "my_images.html", data=data, images=images, next_cursor=next_cursor)
+        "my_images.html", data=data, images=images)
 
 
 @app.route("/search_cloudinary_images")
-def search_cloudinary_images():
-    data = requests.get(f"https://{cloudinary_api_key}:{cloudinary_api_secret}@api.cloudinary.com/v1_1/{cloudinary_cloud_name}/resources/search").json()
-#    images = data["resources"]
-#    next_cursor = data["next_cursor"]
-    print(data)
-
-
-def cloudinary_upload():
-    cloudinary.uploader.upload("https://images.unsplash.com/photo-1595024982636-aeda377cb449?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTV8fG9sZCUyMG1hbnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-        width = 200,
-        height = 400,
-        crop = "fill",
-        gravity = "face")
-
-
-#cloudinary_upload()
-
-
 def cloudinary_search():
-    data = cloudinary.api.resources()
+    data = cloudinary.Search()\
+        .expression('mygardenmanager')\
+        .execute()
     print(json.dumps(data, indent=2))
 
 
