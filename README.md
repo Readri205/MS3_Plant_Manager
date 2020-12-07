@@ -227,3 +227,4 @@ Happy coding!
 - V18.7 CI heroku test commit 9
 - V18.8 Cloudinary api syntax heroku test
 - V18.9 Remove redundant filters, add cloudinary functions
+- V19.0 Update cloudinary functions

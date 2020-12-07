@@ -555,30 +555,86 @@ def upload_cloudinary_images():
 #upload_cloudinary_images()
 
 
+#@app.route("/cloudinary_resources")
+#def cloudinary_resources():
+#    data = cloudinary.api.resources(
+#        max_results='100',
+#        resource_type='image',
+#        type='upload',
+#        prefix='mygardenmanager',
+#        next_cursor='')
+#    images = data["resources"]
+#    next_cursor = data["next_cursor"]
+#    print(data)
+#    return render_template(
+#        "my_images.html", data=data, images=images)
+
+
 @app.route("/cloudinary_images")
 def cloudinary_images():
+    data = cloudinary.Search()\
+        .expression('mygardenmanager')\
+        .max_results('30')\
+        .with_field('tags')\
+        .execute()
+    images = data["resources"]
+    print(json.dumps(data, indent=2))
+    return render_template(
+        "my_images.html", data=data, images=images)
+
+#cloudinary_images()
+
+
+@app.route("/cloudinary_resources")
+def cloudinary_resources():
     data = cloudinary.api.resources(
         max_results='100',
         resource_type='image',
         type='upload',
-        prefix='mygardenmanager',
-        next_cursor='')
-    images = data["resources"]
-#    next_cursor = data["next_cursor"]
-#    print(data)
-    return render_template(
-        "my_images.html", data=data, images=images)
+        prefix='mygardenmanager/',)
+    image = data["resources"]
+    print(json.dumps(image, indent=2))
 
 
-@app.route("/search_cloudinary_images")
-def cloudinary_search():
-    data = cloudinary.Search()\
-        .expression('mygardenmanager')\
-        .execute()
+#cloudinary_resources()
+
+
+@app.route("/cloudinary_update")
+def cloudinary_update():
+    data = cloudinary.api.update('mygardenmanager/water plant',
+        tags='water lily')
     print(json.dumps(data, indent=2))
 
 
-#cloudinary_search()
+#cloudinary_update()
+
+
+@app.route("/cloudinary_rename")
+def cloudinary_rename():
+    data = cloudinary.uploader.rename('mygardenmanager/photo-1445962125599-30f582ac21f4_md2g6w', 'mygardenmanager/grass')
+#    print(json.dumps(data, indent=2))
+
+
+#cloudinary_rename()
+
+
+
+@app.route("/cloudinary_delete")
+def cloudinary_delete():
+    data = cloudinary.api.delete_resources('')
+    print(json.dumps(data, indent=2))
+
+
+#cloudinary_delete()
+
+
+@app.route("/cloudinary_destroy")
+def cloudinary_destroy():
+    data = cloudinary.uploader.destroy('mygardenmanager/nozzsydu3adml9j36i4k')
+    print(json.dumps(data, indent=2))
+
+
+#cloudinary_destroy()
 
 
 if __name__ == '__main__':
