@@ -15,12 +15,11 @@
             </div>
         
         <div class=" card-panel teal lighten-4">
+            <span><strong>Username: </strong></span><span> {{user.username.title()}}</span> <br>
             <span><strong>First Name: </strong></span><span> {{user.first_name.title()}}</span> <br>
             <span><strong>Last Name: </strong></span><span> {{user.last_name.title()}}</span> <br>
             <span><strong>Email: </strong></span><span> {{user.email}}</span> <br>
             <span><strong>Phone Number: </strong></span><span> {{user.phone_number}}</span> <br>
-            <span><strong>User Name: </strong></span><span> {{user.username}}</span> <br>
-            <span><strong>User ID: </strong></span><span> {{user._id}}</span> <br>
             <span><strong>Profile Image: </strong></span><span> {{user.profile_image}}</span> <br>
             <div class="btn-css">
 		        <a href="{{ url_for('edit_user', user_id=user._id) }}" class="waves-effect waves-light btn"><i class="material-icons"></i>Edit</a>

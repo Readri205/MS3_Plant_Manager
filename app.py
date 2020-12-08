@@ -56,6 +56,7 @@ def add_plants():
 
 @app.route("/insert_plant", methods=["GET", "POST"])
 def insert_plant():
+    user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
     plant = {
         "common_name": request.form.get("common_name"),
         "collection_name": request.form.get("collection_name"),
@@ -66,6 +67,7 @@ def insert_plant():
         "date_added": request.form.get("date_added"),
         "image_url": request.form.get("image_url"),
         "created_by": session["user"],
+        "users": user_id
         }
     mongo.db.plants.insert_one(plant)
     flash("Plant Successfully Added")
@@ -78,13 +80,15 @@ def insert_plant():
 @app.route('/edit_plant/<plant_id>')
 def edit_plant(plant_id):
     the_plant = mongo.db.plants.find_one({"_id": ObjectId(plant_id)})
-    all_collections = mongo.db.collections.find()
+    all_collections = mongo.db.collections.find(
+        {"created_by": session["user"]})
     return render_template("editplants.html", plant=the_plant,
                             collections=all_collections)
 
 
 @app.route('/update_plant/<plant_id>', methods=["POST"])
 def update_plant(plant_id):
+    user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
     plants = mongo.db.plants
     plants.update({"_id": ObjectId(plant_id)},
     {
@@ -96,7 +100,8 @@ def update_plant(plant_id):
         "description": request.form.get("description"),
         "date_added": request.form.get("date_added"),
         "image_url": request.form.get("image_url"),
-        "created_by": session["user"]
+        "created_by": session["user"],
+        "users": user_id
     })
     flash("Plant Successfully Edited!")
     return redirect(url_for("get_plants"))
@@ -122,13 +127,15 @@ def add_collections():
 
 @app.route("/insert_collection", methods=["GET", "POST"])
 def insert_collection():
+    user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
     collection = {
         "collection_name": request.form.get("collection_name"),
         "description": request.form.get("description"),
         "date_added": request.form.get("date_added"),
-        "created_by": session["user"]
+        "created_by": session["user"],
+        "users": user_id
         }
-    mongo.db.collections.insert_one(collection).lower()
+    mongo.db.collections.insert_one(collection)
     flash("Collection Successfully Added")
     return redirect(url_for("get_collections"))
 
@@ -140,7 +147,8 @@ def insert_collection():
 def edit_collection(collection_id):
     the_collection = mongo.db.collections.find_one(
         {"_id": ObjectId(collection_id)})
-    all_collections = mongo.db.collections.find()
+    all_collections = mongo.db.collections.find(
+        {"created_by": session["user"]})
     return render_template("editcollections.html",
                            collection=the_collection,
                            collections=all_collections)
@@ -148,13 +156,16 @@ def edit_collection(collection_id):
 
 @app.route('/update_collection/<collection_id>', methods=["POST"])
 def update_collection(collection_id):
+    # grab the session user's username from db
+    user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
     collections = mongo.db.collections
     collections.update({"_id": ObjectId(collection_id)},
     {
         "collection_name": request.form.get("collection_name"),
         "description": request.form.get("description"),
         "date_added": request.form.get("date_added"),
-        "created_by": session["user"]
+        "created_by": session["user"],
+        "users": user_id
     })
     flash("Collection Successfully Edited!")
     return redirect(url_for("get_collections"))
@@ -164,6 +175,24 @@ def update_collection(collection_id):
 def delete_collection(collection_id):
     mongo.db.collections.remove({"_id": ObjectId(collection_id)})
     return redirect(url_for("get_collections"))
+
+
+def mongo_collections():
+    collections = mongo.db.collections
+    for collection in collections.find():
+        print(collection['collection_name'], collection['users_id'])
+
+
+#mongo_collections()
+
+
+def mongo_users():
+    users = mongo.db.users.find()
+    for user in users:
+        print(user['_id'], user['username'])
+
+
+#mongo_users()
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -228,7 +257,6 @@ def profile(username):
     # grab the session user's username from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-
     if session["user"]:
         return render_template(
             "profile.html", username=username)
@@ -263,16 +291,14 @@ def edit_user(user_id):
 @app.route('/update_user/<user_id>', methods=["POST"])
 def update_user(user_id):
     users = mongo.db.users
-    users.update({"_id": ObjectId(user_id)},
-    {
+    users.update({"_id": ObjectId(user_id)}, {"$set": {
         "first_name": request.form.get("first_name"),
         "last_name": request.form.get("last_name"),
-        "username": request.form.get("username"),
         "email": request.form.get("email"),
         "phone_number": request.form.get("phone_number"),
-        "profile_image": request.form.get("profile_image"),
-        "password": request.form.get("password")
-    })
+        "profile_image": request.form.get("profile_image")
+        }
+        })
     flash("User Successfully Edited!")
     return redirect(url_for("get_users"))
 
@@ -552,11 +578,11 @@ def upload_cloudinary_images():
         gravity="face")
 
 
-#upload_cloudinary_images()
+# upload_cloudinary_images()
 
 
-#@app.route("/cloudinary_resources")
-#def cloudinary_resources():
+# @app.route("/cloudinary_resources")
+# def cloudinary_resources():
 #    data = cloudinary.api.resources(
 #        max_results='100',
 #        resource_type='image',
@@ -582,7 +608,7 @@ def cloudinary_images():
     return render_template(
         "my_images.html", data=data, images=images)
 
-#cloudinary_images()
+# cloudinary_images()
 
 
 @app.route("/cloudinary_resources")
@@ -596,7 +622,7 @@ def cloudinary_resources():
     print(json.dumps(image, indent=2))
 
 
-#cloudinary_resources()
+# cloudinary_resources()
 
 
 @app.route("/cloudinary_update")
@@ -606,7 +632,7 @@ def cloudinary_update():
     print(json.dumps(data, indent=2))
 
 
-#cloudinary_update()
+# cloudinary_update()
 
 
 @app.route("/cloudinary_rename")
@@ -615,7 +641,7 @@ def cloudinary_rename():
 #    print(json.dumps(data, indent=2))
 
 
-#cloudinary_rename()
+# cloudinary_rename()
 
 
 
@@ -625,7 +651,7 @@ def cloudinary_delete():
     print(json.dumps(data, indent=2))
 
 
-#cloudinary_delete()
+# cloudinary_delete()
 
 
 @app.route("/cloudinary_destroy")
@@ -634,7 +660,7 @@ def cloudinary_destroy():
     print(json.dumps(data, indent=2))
 
 
-#cloudinary_destroy()
+# cloudinary_destroy()
 
 
 if __name__ == '__main__':

@@ -228,3 +228,4 @@ Happy coding!
 - V18.8 Cloudinary api syntax heroku test
 - V18.9 Remove redundant filters, add cloudinary functions
 - V19.0 Update cloudinary functions
+- V19.1 Update mongo user update and referencing
