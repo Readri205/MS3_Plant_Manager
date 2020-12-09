@@ -238,3 +238,4 @@ Happy coding!
 - V19.8 Adjust image height for small screens
 - V19.9 Adjust card size for small screens
 - V20.0 Amend styles for wiki links and profile page
+- V20.1 Amend search row size on trefle search
