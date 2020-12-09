@@ -535,8 +535,10 @@ def get_trefle_last():
 
 @app.route("/get_plant_id")
 def get_plant_id():
+
+
     # encode image to base64
-    with open("static/images/daisy.jpg", "rb") as file:
+    with open("static/images/lilium.jpg", "rb") as file:
         images = [base64.b64encode(file.read()).decode("ascii")]
 
     your_api_key = os.environ.get("your_api_key")
@@ -544,7 +546,7 @@ def get_plant_id():
         "images": images,
         "modifiers": ["similar_images"],
         "plant_details": ["common_names",
-            "url", "wiki_description", "taxonomy"]
+                          "url", "wiki_description", "taxonomy"]
     }
 
     response = requests.post(
@@ -558,24 +560,21 @@ def get_plant_id():
     for suggestion in response['suggestions']:
         print(suggestion["plant_name"])    # Taraxacum officinale
         print(suggestion["plant_details"]["common_names"])    # ["Dandelion"]
-        print(suggestion["plant_details"]["url"])    # https://en.wikipedia.org/wiki/Taraxacum_officinale
+        # https://en.wikipedia.org/wiki/Taraxacum_officinale
+        print(suggestion["plant_details"]["url"])
         print(suggestion["similar_images"])
         plant_name = suggestion["plant_name"]
         plant_details = suggestion["plant_details"]["common_names"]
         url_plant_details = suggestion["plant_details"]["url"]
         similar_images = suggestion["similar_images"]
 
-    return render_template("plant_id.html", response=response,
-            plant_name=plant_name, plant_details=plant_details, url_plant_details=url_plant_details, similar_images=similar_images)
+    return render_template("plant_id.html", response=response,                      plant_name=plant_name, plant_details=plant_details,                         url_plant_details=url_plant_details,                                        similar_images=similar_images)
 
 
 @app.route("/upload_cloudinary_images")
 def upload_cloudinary_images():
-    cloudinary.uploader.upload("https://images.unsplash.com/photo-1595024982636-aeda377cb449?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTV8fG9sZCUyMG1hbnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-        width=200,
-        height=400,
-        crop="fill",
-        gravity="face")
+    cloudinary.uploader.upload("", width=200, height=400,
+                               crop="fill", gravity="face")
 
 
 # upload_cloudinary_images()
@@ -604,11 +603,29 @@ def cloudinary_images():
         .with_field('tags')\
         .execute()
     images = data["resources"]
-    print(json.dumps(data, indent=2))
+#     print(json.dumps(data, indent=2))
     return render_template(
         "my_images.html", data=data, images=images)
 
 # cloudinary_images()
+
+
+@app.route("/cloudinary_search")
+def cloudinary_search():
+    data = cloudinary.Search()\
+        .expression('mygardenmanager/am2g3l0tszbsbjjf7wpd')\
+        .max_results('30')\
+        .with_field('tags')\
+        .execute()
+    images = data["resources"]
+    for image in images:
+        url = image['secure_url']
+        with open(url, "rb") as file:
+            txt_image = [base64.b64encode(file.read()).decode("ascii")]
+            print(txt_image)
+
+
+# cloudinary_search()
 
 
 @app.route("/cloudinary_resources")
@@ -637,12 +654,12 @@ def cloudinary_update():
 
 @app.route("/cloudinary_rename")
 def cloudinary_rename():
-    data = cloudinary.uploader.rename('mygardenmanager/photo-1445962125599-30f582ac21f4_md2g6w', 'mygardenmanager/grass')
-#    print(json.dumps(data, indent=2))
+    data = cloudinary.uploader.rename(
+        '', '')
+    print(json.dumps(data, indent=2))
 
 
 # cloudinary_rename()
-
 
 
 @app.route("/cloudinary_delete")
