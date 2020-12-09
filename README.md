@@ -231,3 +231,4 @@ Happy coding!
 - V19.1 Update mongo user update and referencing
 - V19.2 Update cloudinary upload widget scheme
 - V19.3 Amend pages to follow same name structure sequence
+- V19.4 Amend card text font and image sizes

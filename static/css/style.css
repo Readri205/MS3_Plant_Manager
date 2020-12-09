@@ -71,9 +71,20 @@
 .footer-margin {
     margin-bottom: 0px;
 }
-.card-image{
+.card-image {
     height: 300px; /* Your height here */
     overflow: hidden;
+}
+.card-content {
+    font-size: 13px;
+}
+.btn {
+    font-size: 11px;
+    height: 25px;
+    line-height: 25px;
+}
+.btn i {
+    font-size: 0.9rem;
 }
 .page-box {
     background: rgba(1, 48, 25, 0.35);
