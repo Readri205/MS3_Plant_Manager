@@ -234,3 +234,4 @@ Happy coding!
 - V19.4 Amend card text font and image sizes
 - V19.5 Add scientific name to plant cards
 - V19.6 Add wiki links to cards
+= V19.7 Title update GLM
