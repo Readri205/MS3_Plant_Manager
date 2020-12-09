@@ -236,3 +236,4 @@ Happy coding!
 - V19.6 Add wiki links to cards
 - V19.7 Title update GLM
 - V19.8 Adjust image height for small screens
+- V19.9 Adjust card size for small screens
