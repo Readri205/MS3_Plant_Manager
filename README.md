@@ -237,3 +237,4 @@ Happy coding!
 - V19.7 Title update GLM
 - V19.8 Adjust image height for small screens
 - V19.9 Adjust card size for small screens
+- V20.0 Amend styles for wiki links and profile page
