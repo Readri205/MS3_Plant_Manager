@@ -23,7 +23,7 @@
 <ul class="row">
     {% for plant in plants %}
     <li>
-    <div class="col s12 m4">
+    <div class="col s12 m3">
       <div class="card large teal lighten-4">
         <div class="card-image">
             <img src="{{ plant.image_url }}">
@@ -31,12 +31,12 @@
 		<div class="card-content">
 			<ul>
                 <li><i class="fas fa-spa teal-text text-lighten-2"></i>
-                <strong>{{ plant.common_name }}</strong>   <em>  id: {{ plant.id }}</em></li>
+                <strong>{{ plant.common_name.title() }}</strong>   <em>  id: {{ plant.id }}</em></li>
                 <li>Family Common Name: <em>{{ plant.family_common_name }}</em></li>
                 <li>Scientific Name: <em>{{ plant.scientific_name }}</em></li>
 				<li>Family Name: {{ plant.family }}</li>
                 <li>Genus: {{ plant.genus }}</li>
-                <li>Observations:<em>{{ plant.observations }}</em></li>
+                <li><a class="wiki-text" href="https://en.wikipedia.org/wiki/{{plant.common_name}}" target="_blank">Wiki Link to {{plant.common_name.title()}}</a></li>
 			</ul>
 		</div>
         <div class="card-action btn-css">

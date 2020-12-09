@@ -50,8 +50,7 @@ def get_plants():
 
 @app.route("/add_plants")
 def add_plants():
-    return render_template("addplants.html",
-                           collections=mongo.db.collections.find({"created_by": session["user"]}))
+    return render_template("addplants.html", collections=mongo.db.collections.find({"created_by": session["user"]}))
 
 
 @app.route("/insert_plant", methods=["GET", "POST"])
@@ -61,8 +60,9 @@ def insert_plant():
         "common_name": request.form.get("common_name"),
         "collection_name": request.form.get("collection_name"),
         "family_common_name": request.form.get("family_common_name"),
-        "genus": request.form.get("genus"),
+        "scientific_name": request.form.get("scientific_name"),
         "family": request.form.get("family"),
+        "genus": request.form.get("genus"),
         "description": request.form.get("description"),
         "date_added": request.form.get("date_added"),
         "image_url": request.form.get("image_url"),
@@ -96,8 +96,9 @@ def update_plant(plant_id):
         "common_name": request.form.get("common_name"),
         "collection_name": request.form.get("collection_name"),
         "family_common_name": request.form.get("family_common_name"),
-        "genus": request.form.get("genus"),
+        "scientific_name": request.form.get("scientific_name"),
         "family": request.form.get("family"),
+        "genus": request.form.get("genus"),
         "description": request.form.get("description"),
         "date_added": request.form.get("date_added"),
         "image_url": request.form.get("image_url"),
@@ -415,8 +416,8 @@ def get_trefle_many():
     last = links['last']
     meta = plants['meta']
     total = meta['total']
-    print(json.dumps(plant, indent=2))
-    if current != last and current == first:
+#    print(json.dumps(plants, indent=2))
+    if first != last:
         nexts = links['next']
         return render_template(
             "trefle_plants_first.html", plants=plant,
@@ -447,22 +448,21 @@ def search_trefle():
         f"{HTTPS}{PLANTSEARCH}{TOK}{YOUR_TREFLE_TOKEN}{STRG}{query}").json()
     plant = plants['data']
     links = plants['links']
-    selfs = links['self']
     first = links['first']
     current = links['self']
     last = links['last']
     meta = plants['meta']
     total = meta['total']
-    # print(plant, selfs, first, last)
+    print(json.dumps(plants, indent=2))
     if first != last:
         nexts = links['next']
         return render_template(
             "trefle_plants_first.html", plants=plant,
-            self=selfs, first=first, nexts=nexts,
+            first=first, nexts=nexts,
             current=current, last=last, total=total)
     return render_template(
             "trefle_plants.html", plants=plant,
-            selfs=selfs, total=total)
+            total=total)
 
 
 @app.route("/get_trefle_next")
@@ -535,10 +535,15 @@ def get_trefle_last():
             current=current, last=last, total=total)
 
 
+@app.route("/add_trefle_plant", methods=["GET", "POST"])
+def add_trefle_plant():
+    query = request.form.get("query")
+    plants = requests.get(
+        f"{HTTPS}{PLANTSEARCH}{TOK}{YOUR_TREFLE_TOKEN}{STRG}{query}").json()
+        
+
 @app.route("/get_plant_id")
 def get_plant_id():
-
-
     # encode image to base64
     with open("static/images/lilium.jpg", "rb") as file:
         images = [base64.b64encode(file.read()).decode("ascii")]
@@ -570,7 +575,7 @@ def get_plant_id():
         url_plant_details = suggestion["plant_details"]["url"]
         similar_images = suggestion["similar_images"]
 
-    return render_template("plant_id.html", response=response,                      plant_name=plant_name, plant_details=plant_details,                         url_plant_details=url_plant_details,                                        similar_images=similar_images)
+    return render_template("plant_id.html", response=response,                      plant_name=plant_name, plant_details=plant_details,                         url_plant_details=url_plant_details, similar_images=similar_images)
 
 
 @app.route("/upload_cloudinary_images")

@@ -72,11 +72,15 @@
     margin-bottom: 0px;
 }
 .card-image {
-    height: 300px; /* Your height here */
+    height: 280px; /* Your height here */
     overflow: hidden;
 }
 .card-content {
     font-size: 13px;
+}
+.wiki-text {
+    color: #004d40;
+    text-decoration: underline;
 }
 .btn {
     font-size: 11px;
