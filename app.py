@@ -415,6 +415,7 @@ def get_trefle_many():
     last = links['last']
     meta = plants['meta']
     total = meta['total']
+    print(json.dumps(plant, indent=2))
     if current != last and current == first:
         nexts = links['next']
         return render_template(

@@ -232,3 +232,4 @@ Happy coding!
 - V19.2 Update cloudinary upload widget scheme
 - V19.3 Amend pages to follow same name structure sequence
 - V19.4 Amend card text font and image sizes
+- V19.5 Add scientific name to plant cards
