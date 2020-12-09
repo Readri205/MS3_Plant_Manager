@@ -230,3 +230,4 @@ Happy coding!
 - V19.0 Update cloudinary functions
 - V19.1 Update mongo user update and referencing
 - V19.2 Update cloudinary upload widget scheme
+- V19.3 Amend pages to follow same name structure sequence

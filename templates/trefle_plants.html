@@ -27,16 +27,16 @@
       <div class="card large teal lighten-4">
         <div class="card-image">
             <img src="{{ plant.image_url }}">
-            
         </div>
 		<div class="card-content">
 			<ul>
                 <li><i class="fas fa-spa teal-text text-lighten-2"></i>
                 <strong>{{ plant.common_name }}</strong></li>
 				<li>Plant ID: <em>{{ plant.id }}</em></li>
+                <li>Family Common Name:<em>{{ plant.family_common_name }}</em></li>
 				<li>Family Name: {{ plant.family }}</li>
-				<li>Family Common Name:<em>{{ plant.family_common_name }}</em></li>
                 <li>Genus: {{ plant.genus }}</li>
+                <li>Observations:<em>{{ plant.observations }}</em></li>
 			</ul>
 		</div>
         <div class="card-action">

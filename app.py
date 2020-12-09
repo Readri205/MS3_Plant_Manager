@@ -51,7 +51,7 @@ def get_plants():
 @app.route("/add_plants")
 def add_plants():
     return render_template("addplants.html",
-                           collections=mongo.db.collections.find())
+                           collections=mongo.db.collections.find({"created_by": session["user"]}))
 
 
 @app.route("/insert_plant", methods=["GET", "POST"])
@@ -73,7 +73,8 @@ def insert_plant():
     flash("Plant Successfully Added")
     return redirect(url_for("get_plants"))
 
-    collections = mongo.db.collections.find().sort("collection_name", 1)
+    collections = mongo.db.collections.find(
+        {"created_by": session["user"]}).sort("collection_name", 1)
     return render_template("addplants.html", collections=collections)
 
 
