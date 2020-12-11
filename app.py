@@ -587,21 +587,6 @@ def upload_cloudinary_images():
 # upload_cloudinary_images()
 
 
-# @app.route("/cloudinary_resources")
-# def cloudinary_resources():
-#    data = cloudinary.api.resources(
-#        max_results='100',
-#        resource_type='image',
-#        type='upload',
-#        prefix='mygardenmanager',
-#        next_cursor='')
-#    images = data["resources"]
-#    next_cursor = data["next_cursor"]
-#    print(data)
-#    return render_template(
-#        "my_images.html", data=data, images=images)
-
-
 @app.route("/cloudinary_images")
 def cloudinary_images():
     data = cloudinary.Search()\
@@ -612,7 +597,8 @@ def cloudinary_images():
     images = data["resources"]
 #     print(json.dumps(data, indent=2))
     return render_template(
-        "my_images.html", data=data, images=images)
+        "my_images.html", data=data,
+        images=images)
 
 # cloudinary_images()
 
@@ -620,16 +606,23 @@ def cloudinary_images():
 @app.route("/cloudinary_search")
 def cloudinary_search():
     data = cloudinary.Search()\
-        .expression('mygardenmanager/am2g3l0tszbsbjjf7wpd')\
+        .expression('folder:mygardenmanager')\
         .max_results('30')\
         .with_field('tags')\
         .execute()
     images = data["resources"]
+    urlfirst = "http://res.cloudinary.com/rmc-ltd/image/upload/"
+    print(json.dumps(images, indent=2))
     for image in images:
-        url = image['secure_url']
-        with open(url, "rb") as file:
-            txt_image = [base64.b64encode(file.read()).decode("ascii")]
-            print(txt_image)
+        urlbase = image['secure_url']
+        urlimage = urlbase[47:]
+        image_transform = "w_auto%2Cc_scale"
+        transformed_image = urlfirst + image_transform + urlimage
+        print(f"{transformed_image}")
+#    print(url)
+#    with open(url, "rb") as file:
+#        txt_image = [base64.b64encode(file.read()).decode("ascii")]
+#        print(txt_image)
 
 
 # cloudinary_search()
@@ -641,9 +634,11 @@ def cloudinary_resources():
         max_results='100',
         resource_type='image',
         type='upload',
-        prefix='mygardenmanager/',)
-    image = data["resources"]
-    print(json.dumps(image, indent=2))
+        prefix='mygardenmanager/')
+    images = data["resources"]
+    print(json.dumps(images, indent=2))
+#    return render_template(
+#        "my_images.html", data=data, images=images)
 
 
 # cloudinary_resources()
@@ -661,9 +656,10 @@ def cloudinary_update():
 
 @app.route("/cloudinary_rename")
 def cloudinary_rename():
-    data = cloudinary.uploader.rename(
-        '', '')
-    print(json.dumps(data, indent=2))
+    cloudinary.uploader.rename(
+        'mygardenmanager/vvshquurn8x9bqlmfibr',
+        'mygardenmanager/Contemplation')
+#    print(json.dumps(data, indent=2))
 
 
 # cloudinary_rename()
@@ -680,7 +676,7 @@ def cloudinary_delete():
 
 @app.route("/cloudinary_destroy")
 def cloudinary_destroy():
-    data = cloudinary.uploader.destroy('mygardenmanager/nozzsydu3adml9j36i4k')
+    data = cloudinary.uploader.destroy('mygardenmanager/aazrk6a2i3jqwc7vryob')
     print(json.dumps(data, indent=2))
 
 

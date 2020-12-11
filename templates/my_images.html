@@ -16,8 +16,7 @@
     <div class="col s12 m4">
       <div class="card teal lighten-4">
         <div class="card-image">
-            <img src="{{ image.secure_url }}" alt="">
-            
+            <img src="http://res.cloudinary.com/rmc-ltd/image/upload/w_auto,c_scale{{ image.secure_url[47:] }}" alt="">
         </div>
 		<div class="card-content">
 			<ul>
@@ -28,7 +27,7 @@
 			</ul>
 		</div>
         <div class="card-action teal darken-4 yellow-text text-darken-4 text-shadow">
-          <a href="" target="_blank">Plant Details URL</a>
+          <a href="{{ image.secure_url }}" target="_blank">Image Link</a>
         </div>
       </div>
     </div>

@@ -240,3 +240,4 @@ Happy coding!
 - V20.0 Amend styles for wiki links and profile page
 - V20.1 Amend search row size on trefle search
 - V20.2 Amend site title
+- V20.3 Amend cloudinary image upload styles
