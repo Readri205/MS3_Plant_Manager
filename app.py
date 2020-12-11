@@ -322,12 +322,13 @@ YOUR_TREFLE_TOKEN = os.environ.get("YOUR_TREFLE_TOKEN")
 TOK = "token="
 STRG = "&q="
 FILTER1 = "&filter"
+FILTERNOT = "&filter_not[common_name]=None"
 RANGE1 = "&range"
 FILTERCRITERIA1 = "[flower_color]="
 FILTERSEARCH1 = "blue"
 RANGECRITERIA1 = "[light]="
 RANGESEARCH1 = ",9"
-SEARCH = "black"
+SEARCH = "yarrow"
 SEARCH_SPECIES = "lily"
 PAGE = "&page="
 NUMBER = 1
@@ -381,8 +382,8 @@ trefle_current = trefle_links['self']
 trefle_last = trefle_links['last']
 trefle_last_page = trefle_last[27:]
 # print(trefle_links)
-# for plant in trefle_plants:
-#    print(plant['common_name'], plant['image_url'])
+for plant in trefle_plants:
+    print(plant['common_name'], plant['image_url'])
 trefle_end = requests.get(
     f"{HTTPS}{PLANTSEARCH}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{trefle_last_page}").json()
 # trefle_end_links = trefle_end['links']
@@ -453,7 +454,7 @@ def search_trefle():
     last = links['last']
     meta = plants['meta']
     total = meta['total']
-    print(json.dumps(plants, indent=2))
+#    print(json.dumps(plants, indent=2))
     if first != last:
         nexts = links['next']
         return render_template(
