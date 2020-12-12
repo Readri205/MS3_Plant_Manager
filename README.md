@@ -242,3 +242,4 @@ Happy coding!
 - V20.2 Amend site title
 - V20.3 Amend cloudinary image upload styles
 - V20.4 Update wiki plant links in trefle search
+- V20.5 Update for cloudinary destroy method

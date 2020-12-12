@@ -24,10 +24,12 @@
                 <strong>Image Name: </strong>{{ image.filename }}</li>
                 <li>Image Description: <em>description</em></li>
                 <li>Tags: <em>{{image.tags}}</em></li>
+                <li><a href="{{ image.secure_url }}" target="_blank">Image Link</a></li>
 			</ul>
 		</div>
-        <div class="card-action teal darken-4 yellow-text text-darken-4 text-shadow">
-          <a href="{{ image.secure_url }}" target="_blank">Image Link</a>
+        <div class="card-action btn-css teal darken-4 yellow-text text-darken-4 text-shadow">
+		    <a href="" class="waves-effect waves-light btn"><i class="material-icons"></i>Edit</a>
+		    <a href="{{url_for('cloudinary_destroy', public_id=image.public_id)}}" class="waves-effect waves-light red darken-2 btn right"><i class="material-icons"></i>Delete</a>
         </div>
       </div>
     </div>

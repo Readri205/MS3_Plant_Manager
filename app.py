@@ -382,8 +382,8 @@ trefle_current = trefle_links['self']
 trefle_last = trefle_links['last']
 trefle_last_page = trefle_last[27:]
 # print(trefle_links)
-for plant in trefle_plants:
-    print(plant['common_name'], plant['image_url'])
+#for plant in trefle_plants:
+#    print(plant['common_name'], plant['image_url'])
 trefle_end = requests.get(
     f"{HTTPS}{PLANTSEARCH}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{trefle_last_page}").json()
 # trefle_end_links = trefle_end['links']
@@ -612,21 +612,14 @@ def cloudinary_search():
         .with_field('tags')\
         .execute()
     images = data["resources"]
-    urlfirst = "http://res.cloudinary.com/rmc-ltd/image/upload/"
     print(json.dumps(images, indent=2))
-    for image in images:
-        urlbase = image['secure_url']
-        urlimage = urlbase[47:]
-        image_transform = "w_auto%2Cc_scale"
-        transformed_image = urlfirst + image_transform + urlimage
-        print(f"{transformed_image}")
 #    print(url)
 #    with open(url, "rb") as file:
 #        txt_image = [base64.b64encode(file.read()).decode("ascii")]
 #        print(txt_image)
 
 
-# cloudinary_search()
+cloudinary_search()
 
 
 @app.route("/cloudinary_resources")
@@ -647,7 +640,8 @@ def cloudinary_resources():
 
 @app.route("/cloudinary_update")
 def cloudinary_update():
-    data = cloudinary.api.update('mygardenmanager/water plant',
+    data = cloudinary.api.update(
+        'mygardenmanager/water plant',
         tags='water lily')
     print(json.dumps(data, indent=2))
 
@@ -675,10 +669,12 @@ def cloudinary_delete():
 # cloudinary_delete()
 
 
-@app.route("/cloudinary_destroy")
-def cloudinary_destroy():
-    data = cloudinary.uploader.destroy('mygardenmanager/aazrk6a2i3jqwc7vryob')
+@app.route("/cloudinary_destroy/<public_id>")
+def cloudinary_destroy(public_id):
+    data = cloudinary.uploader.destroy({'public_id'})
     print(json.dumps(data, indent=2))
+    return redirect(url_for(
+        "cloudinary_images"))
 
 
 # cloudinary_destroy()
