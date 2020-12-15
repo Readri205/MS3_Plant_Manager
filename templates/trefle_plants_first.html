@@ -26,7 +26,7 @@
     <div class="col s12 m4">
       <div class="card teal lighten-4">
         <div class="card-image">
-            <img src="{{ plant.image_url }}">
+            <img src="{{ plant.image_url }}" alt="">
         </div>
 		<div class="card-content">
 			<ul>
@@ -53,11 +53,12 @@
 		<li class="col l12 yellow-text text-darken-4 text-shadow">Total number of plants in search: <em>{{ total }}</em></li>
 	</div>
 	<div class="row">
-		<div class="col l3">
-			<li><a href="{{url_for('get_trefle_next')}}" class="right yellow-text text-darken-4 text-shadow">Next Page</a></li>
+
+        <div class="col l3">
+			<li><a href="{{url_for('next_url', page=page_no )}}" class="right yellow-text text-darken-4 text-shadow">{{next_page}}</a></li>
 		</div>
 		<div class="col l3">
-			<li><a href="{{url_for('get_trefle_last')}}" class="right yellow-text text-darken-4 text-shadow">Last Page</a></li>
+			<li><a href="{{url_for('get_trefle_last')}}" class="right yellow-text text-darken-4 text-shadow">Last Page {{last}}</a></li>
 		</div>
 	</div>
 </ul>
