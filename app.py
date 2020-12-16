@@ -458,9 +458,9 @@ def search_trefle():
     query = request.form.get("query")
     global search
     search = STRG + str(query)
-    page_no = request.args.get('page_no', 1, type=int)
+    page = request.args.get('page', 1, type=int)
     plants = requests.get(
-        url_page_no + page_url + str(page_no) + search).json()
+        url_page_no + page_url + str(page) + search).json()
     plant = plants['data']
     total = plants['meta']['total']
     links = plants['links']
@@ -474,23 +474,17 @@ def search_trefle():
     last_net_adjust = last_many - adjust
     last_no_pages = last[:last_net_adjust]
     all_pages = list(range(int(first_no_pages), int(last_no_pages)+1))
-    for page_no in all_pages:
-        print(page_no)
     if 'next' in links:
-        next_page = page_no + 1
-        next_url = links['next']
         nexts = links['next'][28:]
-        next_page_no = links['next'][23:]
         nexts_many = len(nexts)
         nexts_net_adjust = nexts_many - adjust
         nexts_no_pages = nexts[:nexts_net_adjust]
         print(first_no_pages, nexts_no_pages, last_no_pages)
         return render_template(
-            "trefle_plants_first.html", nexts=nexts, plants=plant,
-            first=first, nexts_no_pages=nexts_no_pages,
-            last_no_pages=last_no_pages, last=last, next_page=next_page,
-            next_page_no=next_page_no, total=total,
-            all_pages=all_pages, page_no=page_no, next_url=next_url)
+            "trefle_plants_first.html", plants=plant,
+            last_no_pages=last_no_pages,
+            nexts_no_pages=nexts_no_pages,
+            all_pages=all_pages, page=page)
 #    print(json.dumps(links, indent=2))
 #    print(next_page_no, query_adjust)
     return render_template(
@@ -504,31 +498,33 @@ def search_trefle():
 @app.route("/next_url")
 # @app.route("/search_trefle")
 def next_url():
-    page_no = request.args.get('page_no', 1, type=int)
+    page = request.args.get('page_no', 1, type=int)
     plants = requests.get(
-        url_page_no + page_url + str(page_no) + search).json()
+        url_page_no + page_url + str(page) + search).json()
     plant = plants['data']
     total = plants['meta']['total']
     links = plants['links']
     adjust = len(search)
+    first = links['first'][28:]
+    first_many = len(first)
+    first_net_adjust = first_many - adjust
+    first_no_pages = first[:first_net_adjust]
     last = links['last'][28:]
-    last_len = len(last)
-    last_page_adjust = last_len - adjust
-    last_page = last[:last_page_adjust]
-    print(last_page)
+    last_many = len(last)
+    last_net_adjust = last_many - adjust
+    last_no_pages = last[:last_net_adjust]
+    all_pages = list(range(int(first_no_pages), int(last_no_pages)+1))
 #    print(plants['links']['self'])
     if 'next' in links:
-        next_url = links['next']
         nexts = links['next'][28:]
-        next_len = len(nexts)
-        next_page_adjust = next_len - adjust
-        next_page = nexts[:next_page_adjust]
-        print(next_page)
+        nexts_many = len(nexts)
+        nexts_net_adjust = nexts_many - adjust
+        nexts_no_pages = nexts[:nexts_net_adjust]
         return render_template(
-            "trefle_plants_first.html", nexts=nexts, plants=plant,
-            next_page=next_page, last_page=last_page, total=total,
-            page_no=page_no, next_url=next_url)
-    print(json.dumps(links, indent=2))
+            "trefle_plants_first.html", plants=plant,
+            last_no_pages=last_no_pages,
+            nexts_no_pages=nexts_no_pages,
+            all_pages=all_pages, page=page)
     return render_template(
             "trefle_plants.html", plants=plant,
             total=total)

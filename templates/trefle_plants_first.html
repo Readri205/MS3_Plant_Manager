@@ -54,8 +54,8 @@
     </div>
     <p class="center-align teal darken-4 yellow-text text-darken-4 text-shadow">Click on a Page: </p>
     <div class="row center-align">
-    {% for page_no in all_pages %}
-			<a href="{{url_for('next_url', page=page_no )}}" class="btn teal darken-4 yellow-text text-darken-4 text-shadow">{{page_no}}</a>
+    {% for page in all_pages %}
+			<a href="{{url_for('next_url', page=page )}}" class="btn teal darken-4 yellow-text text-darken-4 text-shadow">{{page}}</a>
     {% endfor %}
     </div>
 </div>
