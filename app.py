@@ -417,7 +417,7 @@ page_url = "&page="
 
 @app.route("/get_trefle_many")
 def get_trefle_many():
-    page_no = request.args.get('page_no', 1, type=int)
+    page = request.args.get('page', 1, type=int)
     plants = requests.get(
         f"{HTTPS}{ALLPLANTS}{TOK}{YOUR_TREFLE_TOKEN}").json()
     plant = plants['data']
@@ -433,7 +433,7 @@ def get_trefle_many():
         nexts = links['next'][28:]
         return render_template(
             "trefle_plants_first.html", plants=plant,
-            first=first, nexts=nexts, page_no=page_no,
+            first=first, nexts=nexts, page=page,
             current=current, lasts=lasts, total=total)
 #    if current != first and current != last:
 #        nexts = links['next']
@@ -479,10 +479,10 @@ def search_trefle():
         nexts_many = len(nexts)
         nexts_net_adjust = nexts_many - adjust
         nexts_no_pages = nexts[:nexts_net_adjust]
-        print(first_no_pages, nexts_no_pages, last_no_pages)
+#        print(first_no_pages, nexts_no_pages, last_no_pages)
         return render_template(
             "trefle_plants_first.html", plants=plant,
-            last_no_pages=last_no_pages,
+            last_no_pages=last_no_pages, total=total,
             nexts_no_pages=nexts_no_pages,
             all_pages=all_pages, page=page)
 #    print(json.dumps(links, indent=2))
@@ -498,7 +498,7 @@ def search_trefle():
 @app.route("/next_url")
 # @app.route("/search_trefle")
 def next_url():
-    page = request.args.get('page_no', 1, type=int)
+    page = request.args.get('page', type=int)
     plants = requests.get(
         url_page_no + page_url + str(page) + search).json()
     plant = plants['data']
@@ -514,7 +514,7 @@ def next_url():
     last_net_adjust = last_many - adjust
     last_no_pages = last[:last_net_adjust]
     all_pages = list(range(int(first_no_pages), int(last_no_pages)+1))
-#    print(plants['links']['self'])
+    print(all_pages)
     if 'next' in links:
         nexts = links['next'][28:]
         nexts_many = len(nexts)
@@ -522,7 +522,7 @@ def next_url():
         nexts_no_pages = nexts[:nexts_net_adjust]
         return render_template(
             "trefle_plants_first.html", plants=plant,
-            last_no_pages=last_no_pages,
+            last_no_pages=last_no_pages, total=total,
             nexts_no_pages=nexts_no_pages,
             all_pages=all_pages, page=page)
     return render_template(

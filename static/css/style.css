@@ -71,12 +71,13 @@
 .footer-margin {
     margin-bottom: 0px;
 }
+.card .card-content {
+    margin-bottom: 0rem;
+    font-size: 13px;
+}
 .card-image {
     height: 300px; /* Your height here */
     overflow: hidden;
-}
-.card-content {
-    font-size: 13px;
 }
 .wiki-text {
     border-radius:3px;
