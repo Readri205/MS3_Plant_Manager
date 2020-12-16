@@ -48,18 +48,15 @@
     </li>
     {% endfor %}
 </ul>
-<ul class="page-box">
+<div class="page-box">
 	<div class="row">
-		<li class="col l12 yellow-text text-darken-4 text-shadow">Total number of plants in search: <em>{{ total }}</em></li>
-	</div>
-	<div class="row">
-
-        <div class="col l3">
-			<li><a href="{{url_for('next_url', page=page_no )}}" class="right yellow-text text-darken-4 text-shadow">{{next_page}}</a></li>
-		</div>
-		<div class="col l3">
-			<li><a href="{{url_for('get_trefle_last')}}" class="right yellow-text text-darken-4 text-shadow">Last Page {{last}}</a></li>
-		</div>
-	</div>
-</ul>
+		<p class="col teal darken-4 yellow-text text-darken-4 text-shadow">Total number of plants in search: <em>{{ total }}</em></p>
+    </div>
+    <p class="center-align teal darken-4 yellow-text text-darken-4 text-shadow">Click on a Page: </p>
+    <div class="row center-align">
+    {% for page_no in all_pages %}
+			<a href="{{url_for('next_url', page=page_no )}}" class="btn teal darken-4 yellow-text text-darken-4 text-shadow">{{page_no}}</a>
+    {% endfor %}
+    </div>
+</div>
   {% endblock %}

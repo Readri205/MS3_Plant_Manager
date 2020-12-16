@@ -245,3 +245,4 @@ Happy coding!
 - V20.5 Update for cloudinary destroy method
 - V20.6 Update for next_page testing
 - V20.7 Amend wiki links to scientific names
+- V20.8 Add page iteration test code

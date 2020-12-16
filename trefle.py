@@ -38,17 +38,18 @@ RANGESEARCH1 = ",9"
 SEARCH = "yarrow"
 SEARCH_SPECIES = "lily"
 PAGE = "&page="
-NUMBER = "2"
+NUMBER = 7
 STRG = "&q="
 query = "yarrow"
+search = STRG + query
 
 ENDPOINT_SPECIES = "https://trefle.io/api/v1/species/search?"
 FILTER = "&filter[common_name]=rose"
 ID = '183086'
 
 url = HTTPS + PLANTSEARCH + TOK + YOUR_TREFLE_TOKEN + STRG + query
-url_page_no = HTTPS + PLANTSEARCH + TOK + YOUR_TREFLE_TOKEN + "&"
-url_test = HTTPS + PLANTSEARCH + TOK + YOUR_TREFLE_TOKEN + PAGE + NUMBER + STRG + query
+url_page_no = HTTPS + PLANTSEARCH + TOK + YOUR_TREFLE_TOKEN
+# url_test = HTTPS + PLANTSEARCH + TOK + YOUR_TREFLE_TOKEN + PAGE + str(NUMBER) + STRG + query
 url_search = HTTPS + PLANTSEARCH + TOK + YOUR_TREFLE_TOKEN + PAGE
 
 next_page = False
@@ -115,30 +116,41 @@ def trefle_while():
 
 
 def trefle_pages():
-    plants = requests.get(url).json()
+    plants = requests.get(url_page_no + PAGE + str(NUMBER) + search).json()
     links = plants['links']
     first = links['first'][28:]
     first_many = len(first)
     query_adjust = len(query) + 3
     first_net_adjust = first_many - query_adjust
     first_no_pages = first[:first_net_adjust]
+    last = links['last'][28:]
+    last_many = len(last)
+    last_net_adjust = last_many - query_adjust
+    last_no_pages = last[:last_net_adjust]
+    all_pages = list(range(int(first_no_pages), int(last_no_pages)+1))
+    for page_no in all_pages:
+        print(page_no)
     if 'next' in links:
         nexts = links['next'][23:]
         nexts_many = len(nexts)
         nexts_net_adjust = nexts_many - query_adjust
         nexts_no_pages = nexts[:nexts_net_adjust]
-        last = links['last'][28:]
-        last_many = len(last)
-        last_net_adjust = last_many - query_adjust
-        last_no_pages = last[:last_net_adjust]
-        print(nexts, first_no_pages, nexts_no_pages, last_no_pages)
-        results = requests.get(url_page_no + nexts).json()
-        print(json.dumps(results['links'], indent=2))
+        print(first_no_pages, nexts_no_pages, last_no_pages)
+        plants = requests.get(url_page_no + "&" + nexts).json()
+        print(json.dumps(plants['links'], indent=2))
+    if 'prev' in links:
+        prev = links['prev'][23:]
+        prev_many = len(prev)
+        prev_net_adjust = prev_many - query_adjust
+        prev_no_pages = prev[:prev_net_adjust]
+        print(first_no_pages, prev_no_pages, last_no_pages)
+        plants = requests.get(url_page_no + "&" + prev).json()
+        print(json.dumps(plants['links'], indent=2))
     else:
-        print(first_no_pages)
+        print(first_no_pages, last_no_pages)
 
 
-# trefle_pages()
+trefle_pages()
 
 
 if __name__ == '__main__':

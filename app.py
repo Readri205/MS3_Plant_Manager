@@ -408,16 +408,18 @@ searches = species_filter.json()
 #     tasks = list(mongo.db.tasks.find({"$text": {"$search": query}}))
 #     return render_template("trefle_plants.html", tasks=tasks)
 url = HTTPS + PLANTSEARCH + TOK + YOUR_TREFLE_TOKEN + STRG
-url_page_no = HTTPS + PLANTSEARCH + TOK + YOUR_TREFLE_TOKEN + "&"
-query = []
+url_page_no = HTTPS + PLANTSEARCH + TOK + YOUR_TREFLE_TOKEN
+search = []
 next_page_no = []
+# page_no = 1
+page_url = "&page="
 
 
 @app.route("/get_trefle_many")
 def get_trefle_many():
+    page_no = request.args.get('page_no', 1, type=int)
     plants = requests.get(
         f"{HTTPS}{ALLPLANTS}{TOK}{YOUR_TREFLE_TOKEN}").json()
-    page_no = 1
     plant = plants['data']
     links = plants['links']
     first = links['first']
@@ -454,39 +456,43 @@ def get_trefle_many():
 @app.route("/search_trefle", methods=["GET", "POST"])
 def search_trefle():
     query = request.form.get("query")
-    page_no = 1
-    plants = requests.get(f"{url}{query}").json()
-    print(json.dumps(plants['links'], indent=2))
+    global search
+    search = STRG + str(query)
+    page_no = request.args.get('page_no', 1, type=int)
+    plants = requests.get(
+        url_page_no + page_url + str(page_no) + search).json()
     plant = plants['data']
     total = plants['meta']['total']
     links = plants['links']
+    adjust = len(search)
     first = links['first'][28:]
     first_many = len(first)
-    query_adjust = len(query) + 3
-    first_net_adjust = first_many - query_adjust
+    first_net_adjust = first_many - adjust
     first_no_pages = first[:first_net_adjust]
+    last = links['last'][28:]
+    last_many = len(last)
+    last_net_adjust = last_many - adjust
+    last_no_pages = last[:last_net_adjust]
+    all_pages = list(range(int(first_no_pages), int(last_no_pages)+1))
+    for page_no in all_pages:
+        print(page_no)
     if 'next' in links:
         next_page = page_no + 1
         next_url = links['next']
         nexts = links['next'][28:]
-        global next_page_no
         next_page_no = links['next'][23:]
         nexts_many = len(nexts)
-        nexts_net_adjust = nexts_many - query_adjust
+        nexts_net_adjust = nexts_many - adjust
         nexts_no_pages = nexts[:nexts_net_adjust]
-        last = links['last'][28:]
-        last_many = len(last)
-        last_net_adjust = last_many - query_adjust
-        last_no_pages = last[:last_net_adjust]
-        print(next_url, first_no_pages, next_page_no,
-            nexts_no_pages, last_no_pages)
+        print(first_no_pages, nexts_no_pages, last_no_pages)
         return render_template(
             "trefle_plants_first.html", nexts=nexts, plants=plant,
             first=first, nexts_no_pages=nexts_no_pages,
             last_no_pages=last_no_pages, last=last, next_page=next_page,
             next_page_no=next_page_no, total=total,
-            page_no=page_no, next_url=next_url)
-    print(json.dumps(links, indent=2))
+            all_pages=all_pages, page_no=page_no, next_url=next_url)
+#    print(json.dumps(links, indent=2))
+#    print(next_page_no, query_adjust)
     return render_template(
             "trefle_plants.html", plants=plant,
             total=total)
@@ -496,24 +502,31 @@ def search_trefle():
 
 
 @app.route("/next_url")
+# @app.route("/search_trefle")
 def next_url():
-    page = "page="
-    page_no = 7
-    next_page = page_no + 1
-    query = "&q=yarrow"
-    plants = requests.get(url_page_no + page + str(next_page) + query).json()
+    page_no = request.args.get('page_no', 1, type=int)
+    plants = requests.get(
+        url_page_no + page_url + str(page_no) + search).json()
+    plant = plants['data']
+    total = plants['meta']['total']
     links = plants['links']
+    adjust = len(search)
+    last = links['last'][28:]
+    last_len = len(last)
+    last_page_adjust = last_len - adjust
+    last_page = last[:last_page_adjust]
+    print(last_page)
 #    print(plants['links']['self'])
     if 'next' in links:
-        plant = plants['data']
-        total = plants['meta']['total']
         next_url = links['next']
         nexts = links['next'][28:]
-        last = links['last'][28:]
-        print(next_url, next_page_no)
+        next_len = len(nexts)
+        next_page_adjust = next_len - adjust
+        next_page = nexts[:next_page_adjust]
+        print(next_page)
         return render_template(
             "trefle_plants_first.html", nexts=nexts, plants=plant,
-            next_page=next_page, last=last, total=total,
+            next_page=next_page, last_page=last_page, total=total,
             page_no=page_no, next_url=next_url)
     print(json.dumps(links, indent=2))
     return render_template(
