@@ -50,13 +50,16 @@ def get_plants():
 
 @app.route("/add_plants")
 def add_plants():
-    return render_template("addplants.html", collections=mongo.db.collections.find({"created_by": session["user"]}))
+    return render_template(
+        "addplants.html", collections=mongo.db.collections.find(
+            {"created_by": session["user"]}))
 
 
 @app.route("/insert_plant", methods=["GET", "POST"])
 def insert_plant():
     user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
     plant = {
+        "trefle_id": request.form.get("trefle_id"),
         "common_name": request.form.get("common_name"),
         "collection_name": request.form.get("collection_name"),
         "family_common_name": request.form.get("family_common_name"),
@@ -83,8 +86,8 @@ def edit_plant(plant_id):
     the_plant = mongo.db.plants.find_one({"_id": ObjectId(plant_id)})
     all_collections = mongo.db.collections.find(
         {"created_by": session["user"]})
-    return render_template("editplants.html", plant=the_plant,
-                            collections=all_collections)
+    return render_template(
+        "editplants.html", plant=the_plant, collections=all_collections)
 
 
 @app.route('/update_plant/<plant_id>', methods=["POST"])
@@ -93,6 +96,7 @@ def update_plant(plant_id):
     plants = mongo.db.plants
     plants.update({"_id": ObjectId(plant_id)},
     {
+        "trefle_id": request.form.get("trefle_id"),
         "common_name": request.form.get("common_name"),
         "collection_name": request.form.get("collection_name"),
         "family_common_name": request.form.get("family_common_name"),
@@ -339,76 +343,19 @@ NEXTPAGE = "/api/v1/species/search?page=2&q=yarrow"
 ENDPOINT_SPECIES = "https://trefle.io/api/v1/species/search?"
 FILTER = "&filter[common_name]=rose"
 
-
 NUMBER = "1"
 ID = '183086'
-# trefle_all = requests.get(f"{HTTPS}{ALLPLANTS}{TOK}{YOUR_TREFLE_TOKEN}{FILTER1}{FILTERCRITERIA1}{FILTERSEARCH1}").json()
-
-# trefle_specie = requests.get(f"{HTTPS}{TOK}{YOUR_TREFLE_TOKEN} + /api/v1/species/glechoma-hederacea").json()
-
-# trefle_data = json.dumps(trefle_all, indent=2)
-# first_one = trefle_data[0]
-# print(first_one)
-
-# for plant in response['suggestions']:
-#    plant_name = plant['plant_name']
-#    common_names = plant['plant_details']['common_names']
-#    for names in common_names:
-#        print(names)
-#    similar_images = plant['similar_images']
-#    url = plant['plant_details']['url']
-#    wiki_description = plant['plant_details']['wiki_description']
-#    print(f"{plant_name}\n{common_names}\n{similar_images}\n{url}\n{wiki_description}\n")
-
-
-# https://trefle.io/api/v1/species/{183086}
-# plants = trefle_all['data']
-# pages = trefle_all['links']
-# total = trefle_all['meta']
-
-# print(pages, total['total'])
-# for plant in plants:
-#    print(plant['common_name'], plant['id'])
-# payload = {'username': 'dyckie', 'password': 'dyckie'}
-# r = requests.post("https://httpbin.org/post", data=payload)
-
-
-trefle = requests.get(
-    f"{HTTPS}{PLANTSEARCH}{TOK}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH}").json()
-trefle_plants = trefle['data']
-trefle_links = trefle['links']
-trefle_total = trefle['meta']
-trefle_first = trefle_links['first']
-trefle_current = trefle_links['self']
-# trefle_next = trefle_links['next']
-# trefle_next_page = trefle_next[27:]
-trefle_last = trefle_links['last']
-trefle_last_page = trefle_last[27:]
-# print(trefle_links)
-#for plant in trefle_plants:
-#    print(plant['common_name'], plant['image_url'])
-trefle_end = requests.get(
-    f"{HTTPS}{PLANTSEARCH}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{trefle_last_page}").json()
-# trefle_end_links = trefle_end['links']
-# trefle_prev = trefle_end_links['prev']
-# trefle_prev_page = trefle_prev[27:]
-# print(trefle_end_links)
 
 species_filter = requests.get(
     f"{ENDPOINT_SPECIES}{TOK}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH_SPECIES}")
 
-
 searches = species_filter.json()
-# f"{HTTPS}{ALLPLANTS}{TOK}{YOUR_TREFLE_TOKEN}{FILTER}{EDIBLEPART}{FILTERSEARCH}").json()
 
-
-# @app.route("/search", methods=["GET", "POST"])
-# def search():
-#     query = request.form.get("query")
-#     tasks = list(mongo.db.tasks.find({"$text": {"$search": query}}))
-#     return render_template("trefle_plants.html", tasks=tasks)
 url = HTTPS + PLANTSEARCH + TOK + YOUR_TREFLE_TOKEN + STRG
 url_page_no = HTTPS + PLANTSEARCH + TOK + YOUR_TREFLE_TOKEN
+url_one_species = HTTPS + ONESPECIES
+url_all_plants = HTTPS + ALLPLANTS + TOK + YOUR_TREFLE_TOKEN
+headers = {'Authorization': 'Token ' + YOUR_TREFLE_TOKEN}
 search = []
 next_page_no = []
 # page_no = 1
@@ -418,36 +365,26 @@ page_url = "&page="
 @app.route("/get_trefle_many")
 def get_trefle_many():
     page = request.args.get('page', 1, type=int)
-    plants = requests.get(
-        f"{HTTPS}{ALLPLANTS}{TOK}{YOUR_TREFLE_TOKEN}").json()
+    plants = requests.get(url_all_plants + page_url + str(page)).json()
     plant = plants['data']
+    total = plants['meta']['total']
     links = plants['links']
-    first = links['first']
-    current = links['self']
-    last = links['last']
-    lasts = links['last'][28:]
-    meta = plants['meta']
-    total = meta['total']
-#    print(json.dumps(links, indent=2))
-    if first != last:
-        nexts = links['next'][28:]
+    first_page = links['first'][21:]
+    last_page = links['last'][21:]
+#    print(links)
+    if 'next' in links:
+        next_page = links['next'][21:]
+#        print(next_page)
         return render_template(
             "trefle_plants_first.html", plants=plant,
-            first=first, nexts=nexts, page=page,
-            current=current, lasts=lasts, total=total)
-#    if current != first and current != last:
-#        nexts = links['next']
-        # prev = links['prev']
-#        return render_template(
-#            "trefle_plants_prev.html", plants=plant,
-#            first=first, nexts=nexts,
-#            current=current, last=last, total=total)
-#    if current != first and current == last:
-#        prev = links['prev']
-#        return render_template(
-#            "trefle_plants_last.html", plants=plant,
-#            first=first, prev=prev,
-#            current=current, total=total)
+            last_page=last_page, total=total, page=page,
+            next_page=next_page, first_page=first_page)
+    if 'prev' in links:
+        prev_page = links['next'][21:]
+        return render_template(
+            "trefle_plants_first.html", plants=plant,
+            last_page=last_page, total=total, page=page,
+            prev_page=prev_page, first_page=first_page)
     return render_template(
             "trefle_plants.html", plants=plant,
             total=total)
@@ -468,22 +405,22 @@ def search_trefle():
     first = links['first'][28:]
     first_many = len(first)
     first_net_adjust = first_many - adjust
-    first_no_pages = first[:first_net_adjust]
+    first_page = first[:first_net_adjust]
     last = links['last'][28:]
     last_many = len(last)
     last_net_adjust = last_many - adjust
-    last_no_pages = last[:last_net_adjust]
-    all_pages = list(range(int(first_no_pages), int(last_no_pages)+1))
+    last_page = last[:last_net_adjust]
+    all_pages = list(range(int(first_page)+1, int(last_page)))
     if 'next' in links:
         nexts = links['next'][28:]
         nexts_many = len(nexts)
         nexts_net_adjust = nexts_many - adjust
-        nexts_no_pages = nexts[:nexts_net_adjust]
-#        print(first_no_pages, nexts_no_pages, last_no_pages)
+        next_page = nexts[:nexts_net_adjust]
+#        print(first_no_pages, next_page, last_no_pages)
         return render_template(
             "trefle_plants_first.html", plants=plant,
-            last_no_pages=last_no_pages, total=total,
-            nexts_no_pages=nexts_no_pages,
+            last_page=last_page, total=total,
+            next_page=next_page, first_page=first_page,
             all_pages=all_pages, page=page)
 #    print(json.dumps(links, indent=2))
 #    print(next_page_no, query_adjust)
@@ -508,23 +445,29 @@ def next_url():
     first = links['first'][28:]
     first_many = len(first)
     first_net_adjust = first_many - adjust
-    first_no_pages = first[:first_net_adjust]
+    first_page = first[:first_net_adjust]
+    selfs = links['self'][28:]
+    selfs_many = len(selfs)
+    selfs_net_adjust = selfs_many - adjust
+    selfs_page = selfs[:selfs_net_adjust]
     last = links['last'][28:]
     last_many = len(last)
     last_net_adjust = last_many - adjust
-    last_no_pages = last[:last_net_adjust]
-    all_pages = list(range(int(first_no_pages), int(last_no_pages)+1))
-    print(all_pages)
+    last_page = last[:last_net_adjust]
+    all_pages = list(range(int(first_page)+1, int(last_page)))
+#    print(selfs_page, page)
     if 'next' in links:
         nexts = links['next'][28:]
         nexts_many = len(nexts)
         nexts_net_adjust = nexts_many - adjust
-        nexts_no_pages = nexts[:nexts_net_adjust]
+        next_page = nexts[:nexts_net_adjust]
+#        print(next_page)
         return render_template(
             "trefle_plants_first.html", plants=plant,
-            last_no_pages=last_no_pages, total=total,
-            nexts_no_pages=nexts_no_pages,
-            all_pages=all_pages, page=page)
+            last_page=last_page, total=total,
+            next_page=next_page, first_page=first_page,
+            all_pages=all_pages, page=page,
+            selfs_page=selfs_page)
     return render_template(
             "trefle_plants.html", plants=plant,
             total=total)
@@ -533,84 +476,38 @@ def next_url():
 # next_url()
 
 
-@app.route("/get_trefle_next")
-def get_trefle_next():
-    query = "yarrow"
-    results = requests.get(f"{url}{query}").json()
-    print(json.dumps(results['links']))
-    plant = results['data']
-    total = results['meta']['total']
-    links = results['links']
-    if 'next' in links:
-        nexts = links['next'][23:]
-        results = requests.get(url_page_no + nexts).json()
-        plant = results['data']
-        total = results['meta']['total']
-#        print(json.dumps(nexts, indent=2))
-        return render_template(
-            "trefle_plants_first.html",
-            plants=plant, nexts=nexts, total=total)
-#    print(next_page)
+@app.route("/add_trefle_plant/<id>", methods=["GET", "POST"])
+def add_trefle_plant(id):
+    the_plant = requests.get(
+        url_one_species + id, headers=headers).json()
+    all_collections = mongo.db.collections.find(
+        {"created_by": session["user"]})
+#    print(json.dumps(the_plant, indent=2))
+#    print(json.dumps(the_plant['data'], indent=2))
+    trefle_id = the_plant['data']['id']
+    common_name = the_plant['data']['common_name']
+    scientific_name = the_plant['data']['scientific_name']
+    family_name = the_plant['data']['family']
+    family_common_name = the_plant['data']['family_common_name']
+    genus = the_plant['data']['genus']
+    image_url = the_plant['data']['image_url']
+#    for id in the_plant['data']:
+#        print(id)
+#    data = the_plant['data']
+#    print(data)
     return render_template(
-        "trefle_plants.html", plants=plant)
+        "add_trefle_plant.html", plant=the_plant,
+        common_name=common_name, collections=all_collections,
+        scientific_name=scientific_name, genus=genus,
+        family_common_name=family_common_name,
+        image_url=image_url, family_name=family_name,
+        trefle_id=trefle_id)
 
-
-@app.route("/get_trefle_prev")
-def get_trefle_prev():
-    plants = requests.get(f"{HTTPS}{PLANTSEARCH}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{trefle_prev_page}").json()
-    plant = plants["data"]
-    links = plants['links']
-    first = links['first']
-    current = links['self']
-    last = links['last']
-    meta = plants['meta']
-    total = meta['total']
-    if current != first and current != last:
-        prev = links['prev']
-        nexts = links['next']
-        return render_template(
-            "trefle_plants_prev.html", plants=plant,
-            first=first, prev=prev, nexts=nexts,
-            current=current, last=last, total=total)
-    return render_template(
-            "trefle_plants_first.html", plants=plant,
-            last=last, nexts=next,
-            current=current, total=total)
-
-
-@app.route("/get_trefle_last")
-def get_trefle_last():
-    plants = requests.get(
-        f"{HTTPS}{PLANTSEARCH}{TOK}{YOUR_TREFLE_TOKEN}{PAGE}{trefle_last_page}").json()
-    plant = plants["data"]
-    links = plants['links']
-    first = links['first']
-    current = links['self']
-    last = links['last']
-    meta = plants['meta']
-    total = meta['total']
-    if current != first and current == last:
-        prev = links['prev']
-        return render_template(
-            "trefle_plants_last.html", plants=plant,
-            first=first, prev=prev,
-            current=current, last=last, total=total)
-    return render_template(
-            "trefle_plants_first.html", plants=plant,
-            first=first,
-            current=current, last=last, total=total)
-
-
-@app.route("/add_trefle_plant", methods=["GET", "POST"])
-def add_trefle_plant():
-    query = request.form.get("query")
-    plants = requests.get(
-        f"{HTTPS}{PLANTSEARCH}{TOK}{YOUR_TREFLE_TOKEN}{STRG}{query}").json()
-        
 
 @app.route("/get_plant_id")
 def get_plant_id():
     # encode image to base64
+
     with open("static/images/lilium.jpg", "rb") as file:
         images = [base64.b64encode(file.read()).decode("ascii")]
 
@@ -631,17 +528,24 @@ def get_plant_id():
 
     # print(response['suggestions'])
     for suggestion in response['suggestions']:
-        print(suggestion["plant_name"])    # Taraxacum officinale
-        print(suggestion["plant_details"]["common_names"])    # ["Dandelion"]
+#        print(suggestion["plant_name"])
+#        print(suggestion["plant_details"]["common_names"])
         # https://en.wikipedia.org/wiki/Taraxacum_officinale
-        print(suggestion["plant_details"]["url"])
-        print(suggestion["similar_images"])
+#        print(suggestion["plant_details"]["url"])
+#        print(suggestion["similar_images"])
         plant_name = suggestion["plant_name"]
         plant_details = suggestion["plant_details"]["common_names"]
         url_plant_details = suggestion["plant_details"]["url"]
         similar_images = suggestion["similar_images"]
+        for similar in similar_images:
+            url = similar['url']
+            print(json.dumps(url, indent=2))
 
-    return render_template("plant_id.html", response=response,                      plant_name=plant_name, plant_details=plant_details,                         url_plant_details=url_plant_details, similar_images=similar_images)
+    return render_template(
+            "plant_id.html", response=response, plant_name=plant_name,
+            plant_details=plant_details,
+            url_plant_details=url_plant_details,
+            similar_images=similar_images, url=url)
 
 
 @app.route("/upload_cloudinary_images")
@@ -736,8 +640,8 @@ def cloudinary_delete():
 
 @app.route("/cloudinary_destroy")
 def cloudinary_destroy():
-    result = cloudinary.uploader.destroy('public_id')
-    print(json.dumps(result, indent=2))
+    cloudinary.uploader.destroy('mygardenmanager/Daisy')
+#    print(result)
     return redirect(url_for(
         "cloudinary_images"))
 

@@ -248,3 +248,4 @@ Happy coding!
 - V20.8 Add page iteration test code
 - V20.9 Update for page iteration test
 - V21.0 Update css styles on cards
+- V21.1 Add direct trefle plant upload
