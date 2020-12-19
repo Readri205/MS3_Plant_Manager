@@ -250,3 +250,4 @@ Happy coding!
 - V21.0 Update css styles on cards
 - V21.1 Add direct trefle plant upload
 - V21.2 Amend add trefle plant descriptors
+- V21.3 Add plant details search in app

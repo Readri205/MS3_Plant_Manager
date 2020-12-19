@@ -189,7 +189,7 @@ def mongo_collections():
         print(collection['collection_name'], collection['users_id'])
 
 
-#mongo_collections()
+# mongo_collections()
 
 
 def mongo_users():
@@ -198,7 +198,7 @@ def mongo_users():
         print(user['_id'], user['username'])
 
 
-#mongo_users()
+# mongo_users()
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -352,9 +352,9 @@ species_filter = requests.get(
 searches = species_filter.json()
 
 url = HTTPS + PLANTSEARCH + TOK + YOUR_TREFLE_TOKEN + STRG
-url_page_no = HTTPS + PLANTSEARCH + TOK + YOUR_TREFLE_TOKEN
+url_page_no = HTTPS + PLANTSEARCH
 url_one_species = HTTPS + ONESPECIES
-url_all_plants = HTTPS + ALLPLANTS + TOK + YOUR_TREFLE_TOKEN
+url_all_plants = HTTPS + ALLPLANTS
 headers = {'Authorization': 'Token ' + YOUR_TREFLE_TOKEN}
 search = []
 next_page_no = []
@@ -365,7 +365,8 @@ page_url = "&page="
 @app.route("/get_trefle_many")
 def get_trefle_many():
     page = request.args.get('page', 1, type=int)
-    plants = requests.get(url_all_plants + page_url + str(page)).json()
+    plants = requests.get(
+        url_all_plants + page_url + str(page), headers=headers).json()
     plant = plants['data']
     total = plants['meta']['total']
     links = plants['links']
@@ -397,7 +398,7 @@ def search_trefle():
     search = STRG + str(query)
     page = request.args.get('page', 1, type=int)
     plants = requests.get(
-        url_page_no + page_url + str(page) + search).json()
+        url_page_no + page_url + str(page) + search, headers=headers).json()
     plant = plants['data']
     total = plants['meta']['total']
     links = plants['links']
@@ -437,7 +438,7 @@ def search_trefle():
 def next_url():
     page = request.args.get('page', type=int)
     plants = requests.get(
-        url_page_no + page_url + str(page) + search).json()
+        url_page_no + page_url + str(page) + search, headers=headers).json()
     plant = plants['data']
     total = plants['meta']['total']
     links = plants['links']
@@ -493,8 +494,20 @@ def add_trefle_plant(id):
     image_url = the_plant['data']['image_url']
 #    for id in the_plant['data']:
 #        print(id)
-#    data = the_plant['data']
-#    print(data)
+    flower = the_plant['data']['flower']
+    foliage = the_plant['data']['foliage']
+    fruit_or_seed = the_plant['data']['fruit_or_seed']
+    specifications = the_plant['data']['specifications']
+    growth = the_plant['data']['growth']
+    bloom_months = growth['bloom_months']
+    for deets in growth:
+        print(deets)
+    print(json.dumps(flower, indent=2))
+    print(json.dumps(foliage, indent=2))
+    print(json.dumps(fruit_or_seed, indent=2))
+    print(json.dumps(specifications, indent=2))
+    print(json.dumps(growth, indent=2))
+    print(json.dumps(bloom_months, indent=2))
     return render_template(
         "add_trefle_plant.html", plant=the_plant,
         common_name=common_name, collections=all_collections,
