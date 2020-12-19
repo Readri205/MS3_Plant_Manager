@@ -252,3 +252,4 @@ Happy coding!
 - V21.2 Amend add trefle plant descriptors
 - V21.3 Add plant details search in app
 - V21.4 Amend add trefle plant for collections input
+- V21.5 Amend page numbers on search

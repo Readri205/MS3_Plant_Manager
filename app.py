@@ -25,9 +25,13 @@ cloudinary.config(
   api_secret=os.environ.get('api_secret')
 )
 
+# MongoDb access
 app.config["MONGO_DBNAME"] = 'plant_manager'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI')
 app.secret_key = os.environ.get("SECRET_KEY")
+# Trefle API call details
+YOUR_TREFLE_TOKEN = os.environ.get("YOUR_TREFLE_TOKEN")
+headers = {'Authorization': 'Token ' + YOUR_TREFLE_TOKEN}
 # Cloudinary API call details
 cloudinary_cloud_name = os.environ.get('cloud_name')
 cloudinary_api_key = os.environ.get('api_key')
@@ -315,18 +319,7 @@ def delete_user(user_id):
     return redirect(url_for("logout"))
 
 
-ENDPOINT = "https://trefle.io/api/v1/plants/search?"
-
-ALLPLANTSENDPOINT = "https://trefle.io/api/v1/plants?"
-HTTPS = "https://trefle.io"
-FORWARD = "/"
-ALLPLANTS = "/api/v1/species?"
-ONESPECIES = "/api/v1/species/"
 PLANTSEARCH = "/api/v1/species/search?"
-YOUR_TREFLE_TOKEN = os.environ.get("YOUR_TREFLE_TOKEN")
-TOK = "token="
-SPECIESENDPOINT = "https://trefle.io/api/v1/species/search?" + TOK + YOUR_TREFLE_TOKEN + "&q="
-STRG = "&q="
 FILTER1 = "&filter"
 FILTERNOT = "&filter_not[common_name]=None"
 RANGE1 = "&range"
@@ -334,31 +327,16 @@ FILTERCRITERIA1 = "[flower_color]="
 FILTERSEARCH1 = "blue"
 RANGECRITERIA1 = "[light]="
 RANGESEARCH1 = ",9"
-SEARCH = "yarrow"
-SEARCH_SPECIES = "lily"
-# query = "yarrow"
-PAGE = "page=2"
-NEXTPAGE = "/api/v1/species/search?page=2&q=yarrow"
-
-ENDPOINT_SPECIES = "https://trefle.io/api/v1/species/search?"
 FILTER = "&filter[common_name]=rose"
 
-NUMBER = "1"
-ID = '183086'
-
-species_filter = requests.get(
-    f"{ENDPOINT_SPECIES}{TOK}{YOUR_TREFLE_TOKEN}{STRG}{SEARCH_SPECIES}")
-
-searches = species_filter.json()
-
-url = HTTPS + PLANTSEARCH + TOK + YOUR_TREFLE_TOKEN + STRG
+HTTPS = "https://trefle.io"
+ALLPLANTS = "/api/v1/species?"
+ONESPECIES = "/api/v1/species/"
 url_page_no = HTTPS + PLANTSEARCH
 url_one_species = HTTPS + ONESPECIES
 url_all_plants = HTTPS + ALLPLANTS
-headers = {'Authorization': 'Token ' + YOUR_TREFLE_TOKEN}
 search = []
-next_page_no = []
-# page_no = 1
+STRG = "&q="
 page_url = "&page="
 
 
@@ -371,6 +349,8 @@ def get_trefle_many():
     total = plants['meta']['total']
     links = plants['links']
     first_page = links['first'][21:]
+    prev_page = 0
+    selfs_page = links['self'][21:]
     last_page = links['last'][21:]
 #    print(links)
     if 'next' in links:
@@ -379,7 +359,8 @@ def get_trefle_many():
         return render_template(
             "trefle_plants_first.html", plants=plant,
             last_page=last_page, total=total, page=page,
-            next_page=next_page, first_page=first_page)
+            next_page=next_page, first_page=first_page,
+            prev_page=prev_page, selfs_page=selfs_page)
     if 'prev' in links:
         prev_page = links['next'][21:]
         return render_template(
@@ -407,11 +388,17 @@ def search_trefle():
     first_many = len(first)
     first_net_adjust = first_many - adjust
     first_page = first[:first_net_adjust]
+    prev_page = 0
+    selfs = links['self'][28:]
+    selfs_many = len(selfs)
+    selfs_net_adjust = selfs_many - adjust
+    selfs_page = selfs[:selfs_net_adjust]
     last = links['last'][28:]
     last_many = len(last)
     last_net_adjust = last_many - adjust
     last_page = last[:last_net_adjust]
     all_pages = list(range(int(first_page)+1, int(last_page)))
+    print(first_page, prev_page, selfs_page, last_page)
     if 'next' in links:
         nexts = links['next'][28:]
         nexts_many = len(nexts)
@@ -422,11 +409,12 @@ def search_trefle():
             "trefle_plants_first.html", plants=plant,
             last_page=last_page, total=total,
             next_page=next_page, first_page=first_page,
-            all_pages=all_pages, page=page)
+            all_pages=all_pages, page=page,
+            selfs_page=selfs_page, prev_page=prev_page)
 #    print(json.dumps(links, indent=2))
 #    print(next_page_no, query_adjust)
     return render_template(
-            "trefle_plants.html", plants=plant,
+            "trefle_plants_first.html", plants=plant,
             total=total)
 
 
@@ -456,7 +444,7 @@ def next_url():
     last_net_adjust = last_many - adjust
     last_page = last[:last_net_adjust]
     all_pages = list(range(int(first_page)+1, int(last_page)))
-#    print(selfs_page, page)
+    print(selfs_page, page)
     if 'next' in links:
         nexts = links['next'][28:]
         nexts_many = len(nexts)
