@@ -249,3 +249,4 @@ Happy coding!
 - V20.9 Update for page iteration test
 - V21.0 Update css styles on cards
 - V21.1 Add direct trefle plant upload
+- V21.2 Amend add trefle plant descriptors

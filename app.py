@@ -64,7 +64,7 @@ def insert_plant():
         "collection_name": request.form.get("collection_name"),
         "family_common_name": request.form.get("family_common_name"),
         "scientific_name": request.form.get("scientific_name"),
-        "family": request.form.get("family"),
+        "family_name": request.form.get("family_name"),
         "genus": request.form.get("genus"),
         "description": request.form.get("description"),
         "date_added": request.form.get("date_added"),
