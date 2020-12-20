@@ -395,37 +395,29 @@ def search_trefle():
     selfs_net_adjust = selfs_many - adjust
     selfs_page = selfs[:selfs_net_adjust]
     prev_page = int(selfs_page) - 1
-    next_page = int(selfs_page) - 1
+    next_page = int(selfs_page) + 1
     last = links['last'][28:]
     last_many = len(last)
     last_net_adjust = last_many - adjust
     last_page = last[:last_net_adjust]
-    all_pages = list(range(int(first_page)+1, int(last_page)))
-    print(first_page, prev_page, selfs_page, last_page)
-    if 'next' in links:
-        nexts = links['next'][28:]
-        nexts_many = len(nexts)
-        nexts_net_adjust = nexts_many - adjust
-        next_page = nexts[:nexts_net_adjust]
-#        print(first_no_pages, next_page, last_no_pages)
+    all_pages = list(range(int(first_page), int(last_page)+1))
+    print(all_pages)
+    if int(last_page) <= 3:
         return render_template(
-            "trefle_plants.html", plants=plant,
+            "trefle_plants_three.html", plants=plant,
             last_page=last_page, total=total,
             next_page=next_page, first_page=first_page,
             all_pages=all_pages, page=page,
-            selfs_page=selfs_page, prev_page=prev_page)
-#    print(json.dumps(links, indent=2))
-#    print(next_page_no, query_adjust)
+            prev_page=prev_page, selfs_page=selfs_page)
     return render_template(
-            "trefle_plants.html", plants=plant,
-            total=total)
-
-
-# trefle_pages()
+        "trefle_plants.html", plants=plant,
+        last_page=last_page, total=total,
+        next_page=next_page, first_page=first_page,
+        all_pages=all_pages, page=page,
+        selfs_page=selfs_page, prev_page=prev_page)
 
 
 @app.route("/next_url")
-# @app.route("/search_trefle")
 def next_url():
     page = request.args.get('page', type=int)
     plants = requests.get(
@@ -448,38 +440,21 @@ def next_url():
     last_many = len(last)
     last_net_adjust = last_many - adjust
     last_page = last[:last_net_adjust]
-    all_pages = list(range(int(first_page)+1, int(last_page)))
-    print(selfs_page, page)
-    if 'next' in links:
-        nexts = links['next'][28:]
-        nexts_many = len(nexts)
-        nexts_net_adjust = nexts_many - adjust
-        next_page = nexts[:nexts_net_adjust]
-#        print(next_page)
+    all_pages = list(range(int(first_page), int(last_page)+1))
+    print(selfs_page, page, all_pages)
+    if int(last_page) <= 3:
         return render_template(
-            "trefle_plants.html", plants=plant,
-            last_page=last_page, total=total,
-            next_page=next_page, first_page=first_page,
-            all_pages=all_pages, page=page,
-            prev_page=prev_page, selfs_page=selfs_page)
-    if 'prev' in links:
-        prev = links['prev'][28:]
-        prev_many = len(prev)
-        prev_net_adjust = prev_many - adjust
-        prev_page = prev[:prev_net_adjust]
-#        print(next_page)
-        return render_template(
-            "trefle_plants.html", plants=plant,
+            "trefle_plants_three.html", plants=plant,
             last_page=last_page, total=total,
             next_page=next_page, first_page=first_page,
             all_pages=all_pages, page=page,
             prev_page=prev_page, selfs_page=selfs_page)
     return render_template(
-            "trefle_plants.html", plants=plant,
-            total=total)
-
-
-# next_url()
+        "trefle_plants.html", plants=plant,
+        last_page=last_page, total=total,
+        next_page=next_page, first_page=first_page,
+        all_pages=all_pages, page=page,
+        prev_page=prev_page, selfs_page=selfs_page)
 
 
 @app.route("/add_trefle_plant/<id>", methods=["GET", "POST"])
