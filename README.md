@@ -258,3 +258,4 @@ Happy coding!
 - V21.8 Add cloudinary delete image function
 - V21.9 Amend cloudinary delete function syntax
 - V22.0 Update cloudinary image tags
+- V22.1 Amend cloudinary image tag style

@@ -25,8 +25,9 @@
                 <li>Image Description: <em>description</em></li>
                     <li>Tags: 
                         {% for i in image.tags %}
-                        <em>{{i}}</em></li>
+                        <em>{{i}}, </em>
                         {% endfor %}
+                    </li>
                 <li><a class="hoverable teal-text text-darken-4 wiki-text" href="{{ image.secure_url }}" target="_blank">Image Link to {{image.filename.title()}}</a></li>
 			</ul>
 		</div>
