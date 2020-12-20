@@ -636,7 +636,7 @@ def cloudinary_delete():
 def cloudinary_destroy():
     public_id = request.args.get('public_id', type=str)
     params = str(public_id)
-    result = cloudinary.uploader.destroy(params)
+    cloudinary.uploader.destroy(params)
 #    print(result)
     return redirect(url_for(
         "cloudinary_images"))

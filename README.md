@@ -256,3 +256,4 @@ Happy coding!
 - V21.6 Amend page number structure for search
 - V21.7 Amend page numbers for 3 pages and less
 - V21.8 Add cloudinary delete image function
+- V21.9 Amend cloudinary delete function syntax
