@@ -259,3 +259,4 @@ Happy coding!
 - V21.9 Amend cloudinary delete function syntax
 - V22.0 Update cloudinary image tags
 - V22.1 Amend cloudinary image tag style
+- V22.2 Delete old trefle html pages
