@@ -64,19 +64,15 @@
             <a href="{{url_for('next_url', page=first_page )}}" class="btn yellow darken-4 teal-text text-darken-4 text-shadow">{{first_page}}</a>
             <a href="{{url_for('next_url', page=next_page )}}" class="btn teal darken-4 yellow-text text-darken-4 text-shadow">{{next_page}}</a>
             <a href="{{url_for('next_url', page=last_page )}}" class="btn teal darken-4 yellow-text text-darken-4 text-shadow">{{last_page}}</a>
-
-            {% elif selfs_page == last_page %}            
-            <a href="{{url_for('next_url', page=first_page )}}" class="btn teal darken-4 yellow-text text-darken-4 text-shadow">{{first_page}}</a>
-            <a href="{{url_for('next_url', page=prev_page )}}" class="btn teal darken-4 yellow-text text-darken-4 text-shadow">{{prev_page}}</a>
-            <a href="{{url_for('next_url', page=last_page )}}" class="btn yellow darken-4 teal-text text-darken-4 text-shadow">{{last_page}}</a>
-            {% elif next_page == last_page %} 
-            <a href="{{url_for('next_url', page=first_page )}}" class="btn teal darken-4 yellow-text text-darken-4 text-shadow">{{first_page}}</a>
-            <a href="{{url_for('next_url', page=prev_page )}}" class="btn teal darken-4 yellow-text text-darken-4 text-shadow">{{prev_page}}</a>
-            <a href="{{url_for('next_url', page=last_page )}}" class="btn yellow darken-4 teal-text text-darken-4 text-shadow">{{last_page}}</a>
             {% elif prev_page == 1 %} 
             <a href="{{url_for('next_url', page=first_page )}}" class="btn teal darken-4 yellow-text text-darken-4 text-shadow">{{first_page}}</a>
             <a href="{{url_for('next_url', page=selfs_page )}}" class="btn yellow darken-4 teal-text text-darken-4 text-shadow">{{selfs_page}}</a>
             <a href="{{url_for('next_url', page=next_page )}}" class="btn teal darken-4 yellow-text text-darken-4 text-shadow">{{next_page}}</a>
+            <a href="{{url_for('next_url', page=last_page )}}" class="btn teal darken-4 yellow-text text-darken-4 text-shadow">{{last_page}}</a>
+            {% elif last_page == next_page %}            
+            <a href="{{url_for('next_url', page=first_page )}}" class="btn teal darken-4 yellow-text text-darken-4 text-shadow">{{first_page}}</a>
+            <a href="{{url_for('next_url', page=prev_page )}}" class="btn teal darken-4 yellow-text text-darken-4 text-shadow">{{prev_page}}</a>
+            <a href="{{url_for('next_url', page=selfs_page )}}" class="btn yellow darken-4 teal-text text-darken-4 text-shadow">{{selfs_page}}</a>
             <a href="{{url_for('next_url', page=last_page )}}" class="btn teal darken-4 yellow-text text-darken-4 text-shadow">{{last_page}}</a>
             {% else %}
             <a href="{{url_for('next_url', page=first_page )}}" class="btn teal darken-4 yellow-text text-darken-4 text-shadow">{{first_page}}</a>

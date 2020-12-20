@@ -11,6 +11,7 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from PIL import Image
 
 
 if os.path.exists("env.py"):
@@ -441,7 +442,7 @@ def next_url():
     last_net_adjust = last_many - adjust
     last_page = last[:last_net_adjust]
     all_pages = list(range(int(first_page), int(last_page)+1))
-    print(selfs_page, page, all_pages)
+    print(selfs_page, page, all_pages, next_page, last_page)
     if int(last_page) <= 3:
         return render_template(
             "trefle_plants_three.html", plants=plant,
@@ -541,10 +542,10 @@ def get_plant_id():
             similar_images=similar_images, url=url)
 
 
-@app.route("/upload_cloudinary_images")
-def upload_cloudinary_images():
-    cloudinary.uploader.upload("", width=200, height=400,
-                               crop="fill", gravity="face")
+# @app.route("/upload_cloudinary_images")
+# def upload_cloudinary_images():
+#    cloudinary.uploader.upload("", width=200, height=400,
+#                               crop="fill", gravity="face")
 
 
 # upload_cloudinary_images()
@@ -558,7 +559,7 @@ def cloudinary_images():
         .with_field('tags')\
         .execute()
     images = data["resources"]
-#     print(json.dumps(data, indent=2))
+#    print(json.dumps(data, indent=2))
     return render_template(
         "my_images.html", data=data,
         images=images)
@@ -633,7 +634,9 @@ def cloudinary_delete():
 
 @app.route("/cloudinary_destroy")
 def cloudinary_destroy():
-    cloudinary.uploader.destroy('mygardenmanager/Daisy')
+    public_id = request.args.get('public_id', type=str)
+    params = str(public_id)
+    result = cloudinary.uploader.destroy(params)
 #    print(result)
     return redirect(url_for(
         "cloudinary_images"))
@@ -641,6 +644,14 @@ def cloudinary_destroy():
 
 # cloudinary_destroy()
 
+
+for f in os.listdir('static/images/.'):
+    if f.endswith('jpg'):
+        fn, fext = os.path.splitext(f)
+#        print(fn)
+
+# image1 = Image.open('static/images/daisy.jpg')
+# image1.save('static/images/daisy.png')
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
