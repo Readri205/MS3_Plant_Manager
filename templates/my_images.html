@@ -23,7 +23,10 @@
                 <li><i class="fas fa-spa teal-text text-lighten-2"></i>
                 <strong>Image Name: </strong>{{ image.filename.title() }}</li>
                 <li>Image Description: <em>description</em></li>
-                <li>Tags: <em>{{image.tags}}</em></li>
+                    <li>Tags: 
+                        {% for i in image.tags %}
+                        <em>{{i}}</em></li>
+                        {% endfor %}
                 <li><a class="hoverable teal-text text-darken-4 wiki-text" href="{{ image.secure_url }}" target="_blank">Image Link to {{image.filename.title()}}</a></li>
 			</ul>
 		</div>

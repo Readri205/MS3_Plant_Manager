@@ -559,10 +559,15 @@ def cloudinary_images():
         .with_field('tags')\
         .execute()
     images = data["resources"]
-#    print(json.dumps(data, indent=2))
+    for tags in images:
+        tag = tags['tags']
+#        for i in tag:
+#            print(i)
+#        print(tag)
+#    print(json.dumps(images, indent=2))
     return render_template(
         "my_images.html", data=data,
-        images=images)
+        images=images, tag=tag)
 
 # cloudinary_images()
 
@@ -575,7 +580,10 @@ def cloudinary_search():
         .with_field('tags')\
         .execute()
     images = data["resources"]
-    print(json.dumps(images, indent=2))
+    for tags in images:
+        tag = tags['tags']
+        print(tag)
+    print(json.dumps(tags, indent=2))
 #    print(url)
 #    with open(url, "rb") as file:
 #        txt_image = [base64.b64encode(file.read()).decode("ascii")]
