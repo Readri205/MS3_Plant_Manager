@@ -253,3 +253,4 @@ Happy coding!
 - V21.3 Add plant details search in app
 - V21.4 Amend add trefle plant for collections input
 - V21.5 Amend page numbers on search
+- V21.6 Amend page number structure for search

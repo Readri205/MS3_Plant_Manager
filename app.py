@@ -336,6 +336,8 @@ url_page_no = HTTPS + PLANTSEARCH
 url_one_species = HTTPS + ONESPECIES
 url_all_plants = HTTPS + ALLPLANTS
 search = []
+next_page = []
+prev_page = []
 STRG = "&q="
 page_url = "&page="
 
@@ -349,22 +351,22 @@ def get_trefle_many():
     total = plants['meta']['total']
     links = plants['links']
     first_page = links['first'][21:]
-    prev_page = 0
     selfs_page = links['self'][21:]
     last_page = links['last'][21:]
+    prev_page = int(selfs_page) - 1
 #    print(links)
     if 'next' in links:
         next_page = links['next'][21:]
 #        print(next_page)
         return render_template(
-            "trefle_plants_first.html", plants=plant,
+            "trefle_plants.html", plants=plant,
             last_page=last_page, total=total, page=page,
             next_page=next_page, first_page=first_page,
             prev_page=prev_page, selfs_page=selfs_page)
     if 'prev' in links:
         prev_page = links['next'][21:]
         return render_template(
-            "trefle_plants_first.html", plants=plant,
+            "trefle_plants.html", plants=plant,
             last_page=last_page, total=total, page=page,
             prev_page=prev_page, first_page=first_page)
     return render_template(
@@ -388,11 +390,12 @@ def search_trefle():
     first_many = len(first)
     first_net_adjust = first_many - adjust
     first_page = first[:first_net_adjust]
-    prev_page = 0
     selfs = links['self'][28:]
     selfs_many = len(selfs)
     selfs_net_adjust = selfs_many - adjust
     selfs_page = selfs[:selfs_net_adjust]
+    prev_page = int(selfs_page) - 1
+    next_page = int(selfs_page) - 1
     last = links['last'][28:]
     last_many = len(last)
     last_net_adjust = last_many - adjust
@@ -406,7 +409,7 @@ def search_trefle():
         next_page = nexts[:nexts_net_adjust]
 #        print(first_no_pages, next_page, last_no_pages)
         return render_template(
-            "trefle_plants_first.html", plants=plant,
+            "trefle_plants.html", plants=plant,
             last_page=last_page, total=total,
             next_page=next_page, first_page=first_page,
             all_pages=all_pages, page=page,
@@ -414,7 +417,7 @@ def search_trefle():
 #    print(json.dumps(links, indent=2))
 #    print(next_page_no, query_adjust)
     return render_template(
-            "trefle_plants_first.html", plants=plant,
+            "trefle_plants.html", plants=plant,
             total=total)
 
 
@@ -439,6 +442,8 @@ def next_url():
     selfs_many = len(selfs)
     selfs_net_adjust = selfs_many - adjust
     selfs_page = selfs[:selfs_net_adjust]
+    next_page = int(selfs_page) + 1
+    prev_page = int(selfs_page) - 1
     last = links['last'][28:]
     last_many = len(last)
     last_net_adjust = last_many - adjust
@@ -452,11 +457,23 @@ def next_url():
         next_page = nexts[:nexts_net_adjust]
 #        print(next_page)
         return render_template(
-            "trefle_plants_first.html", plants=plant,
+            "trefle_plants.html", plants=plant,
             last_page=last_page, total=total,
             next_page=next_page, first_page=first_page,
             all_pages=all_pages, page=page,
-            selfs_page=selfs_page)
+            prev_page=prev_page, selfs_page=selfs_page)
+    if 'prev' in links:
+        prev = links['prev'][28:]
+        prev_many = len(prev)
+        prev_net_adjust = prev_many - adjust
+        prev_page = prev[:prev_net_adjust]
+#        print(next_page)
+        return render_template(
+            "trefle_plants.html", plants=plant,
+            last_page=last_page, total=total,
+            next_page=next_page, first_page=first_page,
+            all_pages=all_pages, page=page,
+            prev_page=prev_page, selfs_page=selfs_page)
     return render_template(
             "trefle_plants.html", plants=plant,
             total=total)
