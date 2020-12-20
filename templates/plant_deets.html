@@ -1,0 +1,37 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container teal lighten-4">
+<h4>Trefle Plant Details: </h4>
+<div class="row">
+    <ul>
+        <div class="row">
+            <li>Trefle ID: {{trefle_id}}</li>
+            <li>Common Name: {{common_name.title() if plant.common_name != None else 'None'}}</li>
+            <li>Family Common Name: {{family_common_name}}</li>
+            <li>Scientific Name: {{scientific_name}}</li>
+            <li>Family Name: {{family_name}}</li>
+            <li>Genus: {{genus}}</li>
+            <li>Image: {{image_url}}</li>
+            <li>Flower: {{flower}} <br>
+                Color: {{flower.color}} <br>
+                Conspicuous: {{flower.conspicuous}}</li>
+            <li>Foliage: {{foliage}}</li>
+            <li>Fruit or seed: {{fruit_or_seed}}</li>
+            <li>Specifications: {{specifications}}</li>
+            <li>Growth: {{growth}}</li>
+            <li>Bloom Months: {{bloom_months}}
+                
+            </li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </div>
+    </ul>
+
+		    <div class="row">
+		        <button class="btn waves-effect waves-light" type="submit">Add Plant Details
+                    <i class="material-icons right"></i>
+                </button>
+            </div>
+</div>
+</div>
+{% endblock %}

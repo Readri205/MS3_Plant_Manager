@@ -402,7 +402,7 @@ def search_trefle():
     last_net_adjust = last_many - adjust
     last_page = last[:last_net_adjust]
     all_pages = list(range(int(first_page), int(last_page)+1))
-    print(all_pages)
+#    print(all_pages)
     if int(last_page) <= 3:
         return render_template(
             "trefle_plants_three.html", plants=plant,
@@ -442,7 +442,7 @@ def next_url():
     last_net_adjust = last_many - adjust
     last_page = last[:last_net_adjust]
     all_pages = list(range(int(first_page), int(last_page)+1))
-    print(selfs_page, page, all_pages, next_page, last_page)
+#    print(selfs_page, page, all_pages, next_page, last_page)
     if int(last_page) <= 3:
         return render_template(
             "trefle_plants_three.html", plants=plant,
@@ -475,7 +475,31 @@ def add_trefle_plant(id):
     image_url = the_plant['data']['image_url']
 #    for id in the_plant['data']:
 #        print(id)
+    return render_template(
+        "add_trefle_plant.html", plant=the_plant,
+        common_name=common_name, collections=all_collections,
+        scientific_name=scientific_name, genus=genus,
+        family_common_name=family_common_name,
+        image_url=image_url, family_name=family_name,
+        trefle_id=trefle_id)
+
+
+@app.route("/get_trefle_deets/<id>", methods=["GET"])
+def get_trefle_deets(id):
+    the_plant = requests.get(
+        url_one_species + id, headers=headers).json()
+    trefle_id = the_plant['data']['id']
+    common_name = the_plant['data']['common_name']
+    scientific_name = the_plant['data']['scientific_name']
+    family_name = the_plant['data']['family']
+    family_common_name = the_plant['data']['family_common_name']
+    genus = the_plant['data']['genus']
+    image_url = the_plant['data']['image_url']
+#    for id in the_plant['data']:
+#        print(id)
     flower = the_plant['data']['flower']
+    color = flower['color']
+    conspicuous = flower['conspicuous']
     foliage = the_plant['data']['foliage']
     fruit_or_seed = the_plant['data']['fruit_or_seed']
     specifications = the_plant['data']['specifications']
@@ -490,12 +514,19 @@ def add_trefle_plant(id):
     print(json.dumps(growth, indent=2))
     print(json.dumps(bloom_months, indent=2))
     return render_template(
-        "add_trefle_plant.html", plant=the_plant,
-        common_name=common_name, collections=all_collections,
+        "plant_deets.html", plant=the_plant,
+        common_name=common_name, flower=flower,
         scientific_name=scientific_name, genus=genus,
         family_common_name=family_common_name,
         image_url=image_url, family_name=family_name,
-        trefle_id=trefle_id)
+        trefle_id=trefle_id, foliage=foliage,
+        fruit_or_seed=fruit_or_seed,
+        color=color, conspicuous=conspicuous,
+        specifications=specifications,
+        bloom_months=bloom_months, growth=growth)
+
+
+# get_trefle_deets()
 
 
 @app.route("/get_plant_id")
@@ -653,13 +684,21 @@ def cloudinary_destroy():
 # cloudinary_destroy()
 
 
-for f in os.listdir('static/images/.'):
-    if f.endswith('jpg'):
-        fn, fext = os.path.splitext(f)
-#        print(fn)
+# for image in os.listdir('static/images/.'):
+#    if image.endswith('jpg'):
+#        print(image)
 
-# image1 = Image.open('static/images/daisy.jpg')
+# image1 = Image.open('static/images/perennial254287.jpg')
+# print(image1.size)
 # image1.save('static/images/daisy.png')
+
+# image = Image.open('static/images/perennial254287.jpg')
+# image.thumbnail((400, 400))
+# image.save('static/images/uploads/image_thumbnail.jpg')
+
+
+# print(image.size)  # Output: (400, 267)
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
