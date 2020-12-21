@@ -499,6 +499,8 @@ def get_trefle_deets(id):
 #        print(id)
     flower = the_plant['data']['flower']
     color = flower['color']
+#    for i in color:
+#        print(i)
     conspicuous = flower['conspicuous']
     foliage = the_plant['data']['foliage']
     fruit_or_seed = the_plant['data']['fruit_or_seed']
@@ -590,6 +592,11 @@ def cloudinary_images():
         .with_field('tags')\
         .execute()
     images = data["resources"]
+    for k in images:
+        version = k['version']
+        filename = k['filename']
+#        print(version, filename)
+#    print(json.dumps(images, indent=2))
     for tags in images:
         tag = tags['tags']
 #        for i in tag:
