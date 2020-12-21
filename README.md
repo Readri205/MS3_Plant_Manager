@@ -264,3 +264,4 @@ Happy coding!
 - V22.4 Add plant detail styles to html page
 - V22.5 Update plant detail styles
 - V22.6 Update styles on plant details
+- V22.7 Remove duplicate bloom months in details
