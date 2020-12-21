@@ -265,3 +265,4 @@ Happy coding!
 - V22.5 Update plant detail styles
 - V22.6 Update styles on plant details
 - V22.7 Remove duplicate bloom months in details
+- V22.8 Amend spelling and plant detail styles
