@@ -698,13 +698,14 @@ def cloudinary_destroy():
 # image1 = Image.open('static/images/perennial254287.jpg')
 # print(image1.size)
 # image1.save('static/images/daisy.png')
+first_image = ('static/images/uploads/english_oak.jpeg')
+image1 = Image.open(
+    first_image)
+image1.thumbnail((300, 300))
+image1.save('static/images/uploads/image_thumbnail.jpg')
 
-# image = Image.open('static/images/perennial254287.jpg')
-# image.thumbnail((400, 400))
-# image.save('static/images/uploads/image_thumbnail.jpg')
 
-
-# print(image.size)  # Output: (400, 267)
+print(image1.size)  # Output: (400, 267)
 
 
 if __name__ == '__main__':

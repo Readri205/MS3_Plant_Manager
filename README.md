@@ -262,3 +262,4 @@ Happy coding!
 - V22.2 Delete old trefle html pages
 - V22.3 Add plant details html page
 - V22.4 Add plant detail styles to html page
+- V22.5 Update plant detail styles
