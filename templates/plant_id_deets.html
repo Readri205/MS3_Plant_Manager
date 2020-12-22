@@ -2,30 +2,34 @@
 {% block content %}
 <h3 class="yellow-text text-shadow text-darken-4 center-align">Search Plant.ID Plants</h3>
     <div class="row col s12 card-panel teal lighten-4">
-    <div class="col s9">
-    <p>Upload your image file here to search plant suggestions:</p>
-    </div>
-    <div class="col s3">
-    <button id="upload_widget" class="cloudinary-buttons">Upload image</button>
-    </div>
+        <div class="col s9">
+            <p>Upload your image file here to search plant suggestions:</p>
+        </div>
+        <div class="col s3">
+            <button id="upload_widget" class="cloudinary-buttons">Upload image</button>
+        </div>
+        <div class="row col s12"><img src="static/images/uploads/thumbnail.jpg" alt=""></div>
     </div>
 
 <ul class="row">
     {% for suggestion in response['suggestions'] %}
     <li>
     <div class="col s12 m4">
-      <div class="card large teal lighten-4">
-        <div class="card-image">
-
-            <img src="static/images/lilium.jpg" alt="">
-            
-        </div>
+      <div class="teal lighten-4">
 		<div class="card-content">
 			<ul>
                 <li><i class="fas fa-spa teal-text text-lighten-2"></i>
-                <strong>{{ suggestion['plant_details']['common_names'] }}</strong></li>
+                <strong>Common Names: </strong>
+                {% for common_names in suggestion['plant_details']['common_names'] %}
+                    {{ common_names.title() }},
+                {% endfor %}    
+                </li>
 				<li>Plant Details: <em>{{ suggestion["plant_name"] }}</em></li>
-                <li>Similar Images: {{ suggestion["similar_images"] }}</li>
+                <li>Similar Images: 
+                        {% for similarity in similar_images %}
+                            {{ similarity.similarity }}
+                        {% endfor %}
+                </li>
 			</ul>
 		</div>
         <div class="card-action teal darken-4 yellow-text text-darken-4 text-shadow">

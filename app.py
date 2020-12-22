@@ -12,6 +12,7 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from PIL import Image
+import urllib.request
 
 
 if os.path.exists("env.py"):
@@ -515,6 +516,7 @@ def get_trefle_deets(id):
     print(json.dumps(specifications, indent=2))
     print(json.dumps(growth, indent=2))
     print(json.dumps(bloom_months, indent=2))
+    print(image_url)
     return render_template(
         "plant_deets.html", plant=the_plant,
         common_name=common_name, flower=flower,
@@ -534,8 +536,7 @@ def get_trefle_deets(id):
 @app.route("/get_plant_id")
 def get_plant_id():
     # encode image to base64
-
-    with open("static/images/lilium.jpg", "rb") as file:
+    with open("static/images/uploads/thumbnail.jpg", "rb") as file:
         images = [base64.b64encode(file.read()).decode("ascii")]
 
     your_api_key = os.environ.get("your_api_key")
@@ -564,15 +565,18 @@ def get_plant_id():
         plant_details = suggestion["plant_details"]["common_names"]
         url_plant_details = suggestion["plant_details"]["url"]
         similar_images = suggestion["similar_images"]
+        print(json.dumps(suggestion, indent=2))
         for similar in similar_images:
             url = similar['url']
-            print(json.dumps(url, indent=2))
+            similarity = similar['similarity']
+#            print(json.dumps(url, indent=2))
 
     return render_template(
-            "plant_id.html", response=response, plant_name=plant_name,
+            "plant_id_deets.html", response=response, plant_name=plant_name,
             plant_details=plant_details,
             url_plant_details=url_plant_details,
-            similar_images=similar_images, url=url)
+            similar_images=similar_images, url=url,
+            similarity=similarity)
 
 
 # @app.route("/upload_cloudinary_images")
@@ -592,9 +596,9 @@ def cloudinary_images():
         .with_field('tags')\
         .execute()
     images = data["resources"]
-    for k in images:
-        version = k['version']
-        filename = k['filename']
+#    for k in images:
+#        version = k['version']
+#        filename = k['filename']
 #        print(version, filename)
 #    print(json.dumps(images, indent=2))
     for tags in images:
@@ -690,19 +694,41 @@ def cloudinary_destroy():
 
 # cloudinary_destroy()
 
+# def get_image(url, file_path, file_name):
+
+# with urllib.request.urlopen('https://bs.floristic.org/image/o/1a03948baf0300da25558c2448f086d39b41ca30') as response:
+#     url = response.read()
+
+
+def get_image():
+    response = requests.get("https://bs.floristic.org/image/o/1a03948baf0300da25558c2448f086d39b41ca30")
+
+    file = open("static/images/uploads/my_image.jpg", "wb")
+    file.write(response.content)
+    file.close()
+
+    image1 = Image.open('static/images/uploads/my_image.jpg')
+    image1.thumbnail((300, 300))
+    image1.save('static/images/uploads/thumbnail.jpg')
+
+
+# get_image()
+
+
+# print(html)
 
 # for image in os.listdir('static/images/.'):
 #    if image.endswith('jpg'):
 #        print(image)
 
-# image1 = Image.open('static/images/perennial254287.jpg')
+# image1 = Image.open('static/images/uploads/plant_image.jpg')
 # print(image1.size)
 # image1.save('static/images/daisy.png')
 # first_image = ('static/images/daisy.png')
 # image1 = Image.open(
 #    first_image)
 # image1.thumbnail((300, 300))
-# image1.save('static/images/daisy.jpg')
+# image1.save('static/images/uploads/thumbnail.jpg')
 
 
 # print(image1.size)  # Output: (400, 267)

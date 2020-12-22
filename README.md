@@ -267,3 +267,4 @@ Happy coding!
 - V22.7 Remove duplicate bloom months in details
 - V22.8 Amend spelling and plant detail styles
 - V22.9 Amend home page image to daisy
+- V23.0 Switch url direction from Plant ID page
