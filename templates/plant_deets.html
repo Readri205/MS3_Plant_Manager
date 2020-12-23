@@ -7,8 +7,12 @@
         <div class="row">
             <div class="col s0.5"></div>
             <div>
+            {% if image_url != None %}    
                 <img class="col s3" src="/static/images/uploads/thumbnail_trefle_detail.jpg" alt="">
+            {% else %}
+            {% endif %}
             </div>
+
             <div class="col s8.5">
                 <li><strong> Trefle ID:</strong> {{trefle_id}}</li>
                 <li><strong> Common Name:</strong> {{common_name.title() if plant.common_name != None else 'None'}}</li>

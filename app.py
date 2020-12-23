@@ -514,17 +514,18 @@ def get_trefle_deets(id):
     growth = the_plant['data']['growth']
     bloom_months = growth['bloom_months']
 
-    def get_image():
-        response = requests.get(image_url)
+    if image_url != None:
+        def get_image():
+            response = requests.get(image_url)
 
-        file = open("static/images/uploads/my_image.jpg", "wb")
-        file.write(response.content)
-        file.close()
-        image1 = Image.open('static/images/uploads/my_image.jpg')
-        image1.thumbnail((300, 300))
-        image1.save('static/images/uploads/thumbnail_trefle_detail.jpg')
+            file = open("static/images/uploads/my_image.jpg", "wb")
+            file.write(response.content)
+            file.close()
+            image1 = Image.open('static/images/uploads/my_image.jpg')
+            image1.thumbnail((300, 300))
+            image1.save('static/images/uploads/thumbnail_trefle_detail.jpg')
 
-    get_image()
+        get_image()
 
     return render_template(
         "plant_deets.html", plant=the_plant,
