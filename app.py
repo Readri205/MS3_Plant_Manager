@@ -341,6 +341,7 @@ url_all_plants = HTTPS + ALLPLANTS
 search = []
 next_page = []
 prev_page = []
+color_filter = []
 STRG = "&q="
 page_url = "&page="
 filter_not = "filter_not"
@@ -407,7 +408,7 @@ def search_trefle():
     last_net_adjust = last_many - adjust
     last_page = last[:last_net_adjust]
     all_pages = list(range(int(first_page), int(last_page)+1))
-#    print(all_pages)
+#    print(links)
     if int(last_page) <= 3:
         return render_template(
             "trefle_plants_three.html", plants=plant,
@@ -598,11 +599,12 @@ def trefle_filter():
 #        print(colors)
         include = "filter"
         filters = "flower_color"
-        query = ''.join(colors)
+        global color_filter
+        color_filter = ''.join(colors)
         page = request.args.get('page', 1, type=int)
         plants = requests.get(
             url_all_plants + include + pre + filters
-            + after + query + "&" + str(page),
+            + after + color_filter + "&" + str(page),
             headers=headers).json()
         print(json.dumps(plants['links'], indent=2))
         plant = plants['data']
@@ -617,7 +619,7 @@ def trefle_filter():
         next_page = page + 1
         last_page = links['last'][int(adjust_page):]
         all_pages = list(range(int(first_page), int(last_page)+1))
-#        print(all_pages)
+        print(selfs_page, first_page, next_page, last_page, prev_page)
         if int(last_page) <= 3:
             return render_template(
                 "filter_plants_three.html", plants=plant,
@@ -630,6 +632,44 @@ def trefle_filter():
             last_page=last_page, total=total,
             next_page=next_page, selfs_page=selfs_page,
             first_page=first_page, all_pages=all_pages)
+
+
+@app.route("/next_filter")
+def next_filter():
+    include = "filter"
+    filters = "flower_color"
+    query = color_filter
+    page = request.args.get('page', type=int)
+    plants = requests.get(
+        url_all_plants + include + pre + filters
+        + after + query + "&" + str(page),
+        headers=headers).json()
+    print(json.dumps(plants['links'], indent=2))
+    plant = plants['data']
+    total = plants['meta']['total']
+    links = plants['links']
+    selfs = links['self']
+    adjust_page = len(selfs) + 6
+#    print(adjust_page)
+    first_page = links['first'][int(adjust_page):]
+    selfs_page = page
+    prev_page = page - 1
+    next_page = page + 1
+    last_page = links['last'][int(adjust_page):]
+    all_pages = list(range(int(first_page), int(last_page)+1))
+    print(selfs_page, first_page, next_page, last_page, prev_page)
+    if int(last_page) <= 3:
+        return render_template(
+            "filter_plants_three.html", plants=plant,
+            last_page=last_page, total=total,
+            next_page=next_page, first_page=first_page,
+            all_pages=all_pages, page=page,
+            prev_page=prev_page, selfs_page=selfs_page)
+    return render_template(
+        "filter_plants.html", plants=plant,
+        last_page=last_page, total=total,
+        next_page=next_page, selfs_page=selfs_page,
+        first_page=first_page, all_pages=all_pages)
 
 
 @app.route("/get_plant_id")
@@ -792,13 +832,15 @@ def cloudinary_destroy():
 
 # def get_image(url, file_path, file_name):
 
-# with urllib.request.urlopen('https://bs.floristic.org/image/o/1a03948baf0300da25558c2448f086d39b41ca30') as response:
+# with urllib.request.urlopen(
+# 'https://bs.floristic.org/
+# image/o/1a03948baf0300da25558c2448f086d39b41ca30') as response:
 #     url = response.read()
 
 
 def get_image():
     image = "https://bs.floristic.org/image/o/c6d9a5222b6ef0e3a7bdef3350278718d3097bce"
-    
+
     response = requests.get(image)
 
     file = open("static/images/uploads/my_image.jpg", "wb")
@@ -808,28 +850,6 @@ def get_image():
     image1 = Image.open('static/images/uploads/my_image.jpg')
     image1.thumbnail((300, 300))
     image1.save('static/images/uploads/thumbnail.jpg')
-
-
-# get_image()
-
-
-# print(html)
-
-# for image in os.listdir('static/images/.'):
-#    if image.endswith('jpg'):
-#        print(image)
-
-# image1 = Image.open('static/images/uploads/plant_image.jpg')
-# print(image1.size)
-# image1.save('static/images/daisy.png')
-# first_image = ('static/images/daisy.png')
-# image1 = Image.open(
-#    first_image)
-# image1.thumbnail((300, 300))
-# image1.save('static/images/uploads/thumbnail.jpg')
-
-
-# print(image1.size)  # Output: (400, 267)
 
 
 if __name__ == '__main__':

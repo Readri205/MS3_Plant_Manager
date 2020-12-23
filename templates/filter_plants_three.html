@@ -69,7 +69,7 @@
     <div class="row">
         <div class="col s2">
             {% for page in all_pages %}
-                <a href="{{url_for('next_url', page=page )}}" class="btn teal darken-4 yellow-text text-darken-4 text-shadow">{{page}}</a>
+                <a href="{{url_for('next_filter', page=page )}}" class="btn teal darken-4 yellow-text text-darken-4 text-shadow">{{page}}</a>
             {% endfor %}
         </div>
     </div>

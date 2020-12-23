@@ -269,3 +269,4 @@ Happy coding!
 - V22.9 Amend home page image to daisy
 - V23.0 Switch url direction from Plant ID page
 - V23.1 Add trefle filter searches
+- V23.2 Update trefle filter search
