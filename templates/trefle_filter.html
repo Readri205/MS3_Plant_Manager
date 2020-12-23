@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container teal-text text-darken-4">
+    <div class="row center-align">
+<h4>Filter search</h4>
+</div>
+<div class="row teal lighten-4">
+	<form action="{{ url_for('trefle_filter') }}" method="POST" class="col s12">
+        <span>
+        <label>
+            <input type="checkbox" name="Red" id="Red"/>
+            <span>Red</span>
+        </label>
+    </span>
+        <span>
+        <label>
+            <input type="checkbox" name="Yellow" id="Yellow"/>
+            <span>Yellow</span>
+        </label>
+    </span>
+        <span>
+        <label>
+            <input type="checkbox" name="Blue" id="Blue" />
+            <span>Blue</span>
+        </label>
+    </span>
+    <div class="row col s12">
+    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+    <i class="material-icons right">send</i>
+  </button>
+  </div>
+	</form>
+</div>
+</div>
+{% endblock %}

@@ -128,7 +128,8 @@ def delete_plant(plant_id):
 @app.route("/get_collections")
 def get_collections():
     return render_template("collections.html",
-                           collections=mongo.db.collections.find())
+                           collections=mongo.db.collections.find(),
+                           plants=mongo.db.plants.find())
 
 
 @app.route("/add_collections")
@@ -342,6 +343,9 @@ next_page = []
 prev_page = []
 STRG = "&q="
 page_url = "&page="
+filter_not = "filter_not"
+pre = "%5B"
+after = "%5D="
 
 
 @app.route("/get_trefle_many")
@@ -508,15 +512,19 @@ def get_trefle_deets(id):
     specifications = the_plant['data']['specifications']
     growth = the_plant['data']['growth']
     bloom_months = growth['bloom_months']
-    for deets in growth:
-        print(deets)
-    print(json.dumps(flower, indent=2))
-    print(json.dumps(foliage, indent=2))
-    print(json.dumps(fruit_or_seed, indent=2))
-    print(json.dumps(specifications, indent=2))
-    print(json.dumps(growth, indent=2))
-    print(json.dumps(bloom_months, indent=2))
-    print(image_url)
+
+    def get_image():
+        response = requests.get(image_url)
+
+        file = open("static/images/uploads/my_image.jpg", "wb")
+        file.write(response.content)
+        file.close()
+        image1 = Image.open('static/images/uploads/my_image.jpg')
+        image1.thumbnail((300, 300))
+        image1.save('static/images/uploads/thumbnail_trefle_detail.jpg')
+
+    get_image()
+
     return render_template(
         "plant_deets.html", plant=the_plant,
         common_name=common_name, flower=flower,
@@ -530,7 +538,98 @@ def get_trefle_deets(id):
         bloom_months=bloom_months, growth=growth)
 
 
-# get_trefle_deets()
+def trefle_edibles():
+    filters = "edible_part"
+    exclude_null = "null"
+    the_plant = requests.get(
+        url_all_plants + filter_not + pre + filters
+        + after + exclude_null + "&",
+        headers=headers).json()
+    print(json.dumps(the_plant, indent=2))
+
+
+# trefle_edibles()
+
+
+def trefle_filters():
+    include = "filter"
+    filters = "flower_color"
+    query = "red"
+    the_plant = requests.get(
+        url_all_plants + include + pre + filters
+        + after + query + "&",
+        headers=headers).json()
+    print(json.dumps(the_plant, indent=2))
+
+
+# trefle_filters()
+
+
+def trefle_range():
+    ranges = "range"
+    filters = "maximum_height_cm"
+    initial = "5"
+    end_one = "20"
+    the_plant = requests.get(
+        url_all_plants + ranges + pre + filters
+        + after + initial + "%2C" + end_one + "&",
+        headers=headers).json()
+    print(json.dumps(the_plant, indent=2))
+
+
+# trefle_range()
+
+
+@app.route("/filter_search")
+def filter_search():
+    return render_template("trefle_filter.html")
+
+
+@app.route("/trefle_filter", methods=["GET", "POST"])
+def trefle_filter():
+    colors = []
+    if request.method == "POST":
+        if request.form.get('Red') == 'on':
+            colors.append('red,')
+        if request.form.get('Yellow') == 'on':
+            colors.append('yellow')
+        if request.form.get('Blue') == 'on':
+            colors.append('blue,')
+#        print(colors)
+        include = "filter"
+        filters = "flower_color"
+        query = ''.join(colors)
+        page = request.args.get('page', 1, type=int)
+        plants = requests.get(
+            url_all_plants + include + pre + filters
+            + after + query + "&" + str(page),
+            headers=headers).json()
+        print(json.dumps(plants['links'], indent=2))
+        plant = plants['data']
+        total = plants['meta']['total']
+        links = plants['links']
+        selfs = links['self']
+        adjust_page = len(selfs) + 6
+#        print(adjust_page)
+        first_page = links['first'][int(adjust_page):]
+        selfs_page = page
+        prev_page = page - 1
+        next_page = page + 1
+        last_page = links['last'][int(adjust_page):]
+        all_pages = list(range(int(first_page), int(last_page)+1))
+#        print(all_pages)
+        if int(last_page) <= 3:
+            return render_template(
+                "filter_plants_three.html", plants=plant,
+                last_page=last_page, total=total,
+                next_page=next_page, first_page=first_page,
+                all_pages=all_pages, page=page,
+                prev_page=prev_page, selfs_page=selfs_page)
+        return render_template(
+            "filter_plants.html", plants=plant,
+            last_page=last_page, total=total,
+            next_page=next_page, selfs_page=selfs_page,
+            first_page=first_page, all_pages=all_pages)
 
 
 @app.route("/get_plant_id")
@@ -554,18 +653,13 @@ def get_plant_id():
             "Api-Key": your_api_key
                 }).json()
 
-    # print(response['suggestions'])
+    print(response['suggestions'])
     for suggestion in response['suggestions']:
-#        print(suggestion["plant_name"])
-#        print(suggestion["plant_details"]["common_names"])
-        # https://en.wikipedia.org/wiki/Taraxacum_officinale
-#        print(suggestion["plant_details"]["url"])
-#        print(suggestion["similar_images"])
         plant_name = suggestion["plant_name"]
         plant_details = suggestion["plant_details"]["common_names"]
         url_plant_details = suggestion["plant_details"]["url"]
         similar_images = suggestion["similar_images"]
-        print(json.dumps(suggestion, indent=2))
+#        print(json.dumps(suggestion, indent=2))
         for similar in similar_images:
             url = similar['url']
             similarity = similar['similarity']
@@ -579,6 +673,7 @@ def get_plant_id():
             similarity=similarity)
 
 
+# get_plant_id()
 # @app.route("/upload_cloudinary_images")
 # def upload_cloudinary_images():
 #    cloudinary.uploader.upload("", width=200, height=400,
@@ -651,11 +746,12 @@ def cloudinary_resources():
 # cloudinary_resources()
 
 
-@app.route("/cloudinary_update")
+# @app.route("/cloudinary_update")
 def cloudinary_update():
     data = cloudinary.api.update(
-        'mygardenmanager/water plant',
-        tags='water lily')
+        'mygardenmanager/Sunflower',
+        tags='Flower, Yellow',
+        created_by='ricardo2')
     print(json.dumps(data, indent=2))
 
 
@@ -701,7 +797,9 @@ def cloudinary_destroy():
 
 
 def get_image():
-    response = requests.get("https://bs.floristic.org/image/o/1a03948baf0300da25558c2448f086d39b41ca30")
+    image = "https://bs.floristic.org/image/o/c6d9a5222b6ef0e3a7bdef3350278718d3097bce"
+    
+    response = requests.get(image)
 
     file = open("static/images/uploads/my_image.jpg", "wb")
     file.write(response.content)

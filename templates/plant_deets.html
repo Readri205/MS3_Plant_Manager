@@ -1,4 +1,5 @@
 {% extends 'base.html' %} {% block content %}
+
 <div class="container teal lighten-4">
 <h4 class="col s11.5 center-align teal-text text-darken-4"> Trefle Plant Details</h4>
 <div class="row">
@@ -6,7 +7,7 @@
         <div class="row">
             <div class="col s0.5"></div>
             <div>
-                <img class="col s3" src="/static/images/uploads/image_thumbnail.jpg" alt="">
+                <img class="col s3" src="/static/images/uploads/thumbnail_trefle_detail.jpg" alt="">
             </div>
             <div class="col s8.5">
                 <li><strong> Trefle ID:</strong> {{trefle_id}}</li>
@@ -109,9 +110,7 @@
     </ul>
 
 		    <div class="row">
-		        <button class="btn waves-effect waves-light" type="submit">Add Plant Details
-                    <i class="material-icons right"></i>
-                </button>
+		        <a href="{{ url_for('add_trefle_plant', id=trefle_id) }}" class="waves-effect waves-light teal  darken-2 btn">Add Plant   <i class="fas fa-edit"></i></a>
             </div>
 </div>
 </div>
