@@ -270,3 +270,4 @@ Happy coding!
 - V23.0 Switch url direction from Plant ID page
 - V23.1 Add trefle filter searches
 - V23.2 Update trefle filter search
+- V23.3 Updates to trefle filter page search
