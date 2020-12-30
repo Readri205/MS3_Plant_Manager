@@ -516,7 +516,7 @@ def get_trefle_deets(id):
     growth = the_plant['data']['growth']
     bloom_months = growth['bloom_months']
 
-    if image_url != None:
+    if image_url is not None:
         def get_image():
             response = requests.get(image_url)
 
@@ -858,7 +858,7 @@ def cloudinary_destroy():
 
 
 def get_image():
-    image = "https://bs.floristic.org/image/o/c6d9a5222b6ef0e3a7bdef3350278718d3097bce"
+    image = "https://bs.floristic.org/image/o/1a03948baf0300da25558c2448f086d39b41ca30"
 
     response = requests.get(image)
 
@@ -870,6 +870,8 @@ def get_image():
     image1.thumbnail((300, 300))
     image1.save('static/images/uploads/thumbnail.jpg')
 
+
+# get_image()
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
