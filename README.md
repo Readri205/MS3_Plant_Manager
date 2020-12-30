@@ -272,3 +272,4 @@ Happy coding!
 - V23.2 Update trefle filter search
 - V23.3 Updates to trefle filter page search
 - V23.4 Upated plant details page for no image
+- V23.5 Add tests for Shamrock wrapper for trefle

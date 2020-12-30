@@ -12,6 +12,7 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from PIL import Image
+from shamrock import Shamrock
 import urllib.request
 
 
@@ -34,6 +35,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 # Trefle API call details
 YOUR_TREFLE_TOKEN = os.environ.get("YOUR_TREFLE_TOKEN")
 headers = {'Authorization': 'Token ' + YOUR_TREFLE_TOKEN}
+api = Shamrock(YOUR_TREFLE_TOKEN)
 # Cloudinary API call details
 cloudinary_cloud_name = os.environ.get('cloud_name')
 cloudinary_api_key = os.environ.get('api_key')
@@ -554,13 +556,20 @@ def trefle_edibles():
 
 
 def trefle_filters():
+    #    include = "filter"
+    #    filters = "%5Bflower_color%5D="
+    #    query = "red"
+    #    page = 2
     include = "filter"
-    filters = "flower_color"
-    query = "red"
-    the_plant = requests.get(
-        url_all_plants + include + pre + filters
-        + after + query + "&",
-        headers=headers).json()
+    filters = "[flower_color]"
+    colors = ["red,", "yellow,", "blue"]
+    color_filter = ''.join(colors)
+    filters = {include + filters: [color_filter]}
+    the_plant = api.species(**filters)
+#    params = include + filters + query + "&" + page_url + str(page)
+#    the_plant = requests.get(
+#        url_all_plants,
+#        params=params, headers=headers).json()
     print(json.dumps(the_plant, indent=2))
 
 
@@ -568,14 +577,16 @@ def trefle_filters():
 
 
 def trefle_range():
-    ranges = "range"
-    filters = "maximum_height_cm"
-    initial = "5"
-    end_one = "20"
-    the_plant = requests.get(
-        url_all_plants + ranges + pre + filters
-        + after + initial + "%2C" + end_one + "&",
-        headers=headers).json()
+    #    ranges = "range"
+    #    filters = "maximum_height_cm"
+    #    initial = "5"
+    #    end_one = "20"
+    ranges = {"range[maximum_height_cm]": ["5", "20"]}
+    the_plant = api.species(**ranges)
+#    the_plant = requests.get(
+#        url_all_plants + ranges + pre + filters
+#        + after + initial + "%2C" + end_one + "&",
+#        headers=headers).json()
     print(json.dumps(the_plant, indent=2))
 
 
@@ -594,18 +605,20 @@ def trefle_filter():
         if request.form.get('Red') == 'on':
             colors.append('red,')
         if request.form.get('Yellow') == 'on':
-            colors.append('yellow')
+            colors.append('yellow,')
         if request.form.get('Blue') == 'on':
             colors.append('blue,')
-#        print(colors)
+        print(colors)
         include = "filter"
         filters = "flower_color"
         global color_filter
         color_filter = ''.join(colors)
-        page = request.args.get('page', 1, type=int)
+        print(color_filter)
+        page = request.args.get(
+            'page', 1, type=int)
+        params = include + pre + filters + after + color_filter + "&" + str(page)
         plants = requests.get(
-            url_all_plants + include + pre + filters
-            + after + color_filter + "&" + str(page),
+            url_all_plants, params=params,
             headers=headers).json()
         print(json.dumps(plants['links'], indent=2))
         plant = plants['data']
@@ -614,7 +627,7 @@ def trefle_filter():
         selfs = links['self']
         global adjust_page
         adjust_page = len(selfs) + 6
-        print(adjust_page)
+#        print(adjust_page)
         first_page = links['first'][int(adjust_page):]
         selfs_page = page
         prev_page = page - 1
