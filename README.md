@@ -274,3 +274,4 @@ Happy coding!
 - V23.4 Upated plant details page for no image
 - V23.5 Add tests for Shamrock wrapper for trefle
 - V23.6 Add plant_id to menu in base
+- V23.7 Update requirements file

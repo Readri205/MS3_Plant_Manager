@@ -712,17 +712,17 @@ def get_plant_id():
             "Api-Key": your_api_key
                 }).json()
 
-    print(response['suggestions'])
+#    print(response['suggestions'])
     for suggestion in response['suggestions']:
         plant_name = suggestion["plant_name"]
         plant_details = suggestion["plant_details"]["common_names"]
         url_plant_details = suggestion["plant_details"]["url"]
         similar_images = suggestion["similar_images"]
-#        print(json.dumps(suggestion, indent=2))
+        print(json.dumps(suggestion, indent=2))
         for similar in similar_images:
             url = similar['url']
             similarity = similar['similarity']
-#            print(json.dumps(url, indent=2))
+            print(json.dumps(url, indent=2))
 
     return render_template(
             "plant_id_deets.html", response=response, plant_name=plant_name,

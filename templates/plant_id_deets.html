@@ -25,10 +25,9 @@
                 {% endfor %}    
                 </li>
 				<li>Plant Details: <em>{{ suggestion["plant_name"] }}</em></li>
-                <li>Similar Images: 
-                        {% for similarity in similar_images %}
+                <li>Similar Images:
+                    
                             {{ similarity.similarity }}
-                        {% endfor %}
                 </li>
 			</ul>
 		</div>
