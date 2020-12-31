@@ -718,18 +718,19 @@ def get_plant_id():
         plant_details = suggestion["plant_details"]["common_names"]
         url_plant_details = suggestion["plant_details"]["url"]
         similar_images = suggestion["similar_images"]
-        print(json.dumps(suggestion, indent=2))
+#        print(json.dumps(suggestion["plant_name"], indent=2))
         for similar in similar_images:
-            url = similar['url']
-            similarity = similar['similarity']
-            print(json.dumps(url, indent=2))
+            url_small = similar['url_small']
+            similarity = similar['similarity']*100
+#            print(json.dumps(url_small, indent=2))
+            print(json.dumps(similarity, indent=2))
 
     return render_template(
             "plant_id_deets.html", response=response, plant_name=plant_name,
             plant_details=plant_details,
             url_plant_details=url_plant_details,
-            similar_images=similar_images, url=url,
-            similarity=similarity)
+            similar_images=similar_images,
+            url_small=url_small, similarity=similarity)
 
 
 # get_plant_id()

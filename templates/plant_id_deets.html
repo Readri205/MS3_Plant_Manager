@@ -20,14 +20,22 @@
 			<ul>
                 <li><i class="fas fa-spa teal-text text-lighten-2"></i>
                 <strong>Common Names: </strong>
-                {% for common_names in suggestion['plant_details']['common_names'] %}
+                {% for common_names in suggestion["plant_details"]["common_names"] %}
                     {{ common_names.title() }},
-                {% endfor %}    
+                {% endfor %} 
                 </li>
-				<li>Plant Details: <em>{{ suggestion["plant_name"] }}</em></li>
+				<li>Plant Name: <em>{{ suggestion["plant_name"] }}</em></li>
                 <li>Similar Images:
-                    
-                            {{ similarity.similarity }}
+                    <ul>
+                        {% for similar in suggestion["similar_images"] %}
+                        <li>
+                            <em>{{ similar.similarity*100 }}</em><br>
+                        </li>
+                        <li>
+                            <img src="{{ similar.url_small }}"> <br>
+                        </li>
+                        {% endfor %}
+                    </ul>
                 </li>
 			</ul>
 		</div>
