@@ -468,8 +468,9 @@ def next_url():
 
 @app.route("/add_trefle_plant/<id>", methods=["GET", "POST"])
 def add_trefle_plant(id):
-    the_plant = requests.get(
-        url_one_species + id, headers=headers).json()
+    the_plant = api.species(id)
+#    the_plant = requests.get(
+#        url_one_species + id, headers=headers).json()
     all_collections = mongo.db.collections.find(
         {"created_by": session["user"]})
 #    print(json.dumps(the_plant, indent=2))
@@ -494,8 +495,9 @@ def add_trefle_plant(id):
 
 @app.route("/get_trefle_deets/<id>", methods=["GET"])
 def get_trefle_deets(id):
-    the_plant = requests.get(
-        url_one_species + id, headers=headers).json()
+    the_plant = api.species(id)
+#    the_plant = requests.get(
+#        url_one_species + id, headers=headers).json()
     trefle_id = the_plant['data']['id']
     common_name = the_plant['data']['common_name']
     scientific_name = the_plant['data']['scientific_name']
@@ -519,7 +521,6 @@ def get_trefle_deets(id):
     if image_url is not None:
         def get_image():
             response = requests.get(image_url)
-
             file = open("static/images/uploads/my_image.jpg", "wb")
             file.write(response.content)
             file.close()
@@ -543,29 +544,43 @@ def get_trefle_deets(id):
 
 
 def trefle_edibles():
-    filters = "edible_part"
-    exclude_null = "null"
-    the_plant = requests.get(
-        url_all_plants + filter_not + pre + filters
-        + after + exclude_null + "&",
-        headers=headers).json()
+    #    include = "filter_not"
+    filters = {"filter_not[edible_part]": "null"}
+#    filters = {include + filters}
+#    exclude_null = "null"
+    the_plant = api.species(**filters)
+#    the_plant = requests.get(
+#        url_all_plants + filter_not + pre + filters
+#        + after + exclude_null + "&",
+#        headers=headers).json()
     print(json.dumps(the_plant, indent=2))
 
 
 # trefle_edibles()
 
-
+# @app.route("/trefle_filter", methods=["GET", "POST"])
 def trefle_filters():
+    colors = []
+    if request.method == "POST":
+        if request.form.get('Red') == 'on':
+            colors.append('red,')
+        if request.form.get('Yellow') == 'on':
+            colors.append('yellow,')
+        if request.form.get('Blue') == 'on':
+            colors.append('blue,')
+        global color_filter
+        color_filter = ''.join(colors)
+        page = request.args.get(
+            'page', 1, type=int)
     #    include = "filter"
     #    filters = "%5Bflower_color%5D="
     #    query = "red"
     #    page = 2
-    include = "filter"
-    filters = "[flower_color]"
-    colors = ["red,", "yellow,", "blue"]
-    color_filter = ''.join(colors)
-    filters = {include + filters: [color_filter]}
-    the_plant = api.species(**filters)
+    #    include = "filter"
+        filter_type = "[flower_color]"
+    #    colors = ["red,", "yellow,", "blue"]
+        filters = {"filter" + filter_type: [color_filter]}
+        the_plant = api.species(page, **filters)
 #    params = include + filters + query + "&" + page_url + str(page)
 #    the_plant = requests.get(
 #        url_all_plants,
@@ -608,19 +623,22 @@ def trefle_filter():
             colors.append('yellow,')
         if request.form.get('Blue') == 'on':
             colors.append('blue,')
-        print(colors)
+#        print(colors)
         include = "filter"
         filters = "flower_color"
         global color_filter
         color_filter = ''.join(colors)
-        print(color_filter)
+#        print(color_filter)
         page = request.args.get(
             'page', 1, type=int)
         params = include + pre + filters + after + color_filter + "&" + str(page)
         plants = requests.get(
             url_all_plants, params=params,
             headers=headers).json()
-        print(json.dumps(plants['links'], indent=2))
+#        filter_type = "[flower_color]"
+#        filters = {"filter" + filter_type: [color_filter]}
+#        plants = api.species(**filters)
+#        print(json.dumps(plants['links'], indent=2))
         plant = plants['data']
         total = plants['meta']['total']
         links = plants['links']
@@ -634,7 +652,7 @@ def trefle_filter():
         next_page = page + 1
         last_page = links['last'][int(adjust_page):]
         all_pages = list(range(int(first_page), int(last_page)+1))
-#        print(selfs_page, first_page, next_page, last_page, prev_page)
+        print(selfs_page, first_page, next_page, last_page, prev_page)
         if int(last_page) <= 3:
             return render_template(
                 "filter_plants_three.html", plants=plant,
@@ -666,15 +684,14 @@ def next_filter():
     total = plants['meta']['total']
     links = plants['links']
     print(json.dumps(links, indent=2))
-#    adjust_page = len(
-#        ALLPLANTS + include + pre + filters + after + query + page_url + "e=")
+    adjust_page = len(links['first'])-1
     selfs_page = links['self'][int(adjust_page):]
     first_page = links['first'][int(adjust_page):]
     prev_page = page - 1
     next_page = page + 1
     last_page = links['last'][int(adjust_page):]
     print(selfs_page, adjust_page, first_page, last_page)
-    all_pages = list(range(int(first_page), int(last_page)+1))
+    all_pages = list(range(int(first_page), int(last_page)))
 #    print(query, selfs_page, first_page, next_page, last_page, prev_page)
     if int(last_page) <= 3:
         return render_template(
@@ -689,6 +706,61 @@ def next_filter():
         prev_page=prev_page,
         next_page=next_page, selfs_page=selfs_page,
         first_page=first_page, all_pages=all_pages)
+
+
+# @app.route("/first_page")
+def first_page():
+    page = request.args.get('page', type=int)
+    plants = api.first(page=1)
+    plant = plants['data']
+    total = plants['meta']['total']
+#    links = plants['links']
+#    print(json.dumps(links, indent=2))
+    return render_template(
+        "filter_plants.html", plants=plant,
+        page=page, total=total)
+
+
+# first_page()
+
+
+@app.route("/next_page")
+def next_page():
+    page = request.args.get('page', type=int)
+    plants = api.next()
+    plant = plants['data']
+    total = plants['meta']['total']
+#    links = plants['links']
+    print(page)
+    return render_template(
+        "filter_plants.html", plants=plant,
+        page=page, total=total)
+
+
+@app.route("/prev_page")
+def prev_page():
+    page = request.args.get('page', type=int)
+    plants = api.prev()
+    plant = plants['data']
+    total = plants['meta']['total']
+#    links = plants['links']
+#    print(json.dumps(links, indent=2))
+    return render_template(
+        "filter_plants.html", plants=plant,
+        page=page, total=total)
+
+
+@app.route("/last_page")
+def last_page():
+    page = request.args.get('page', type=int)
+    plants = api.last()
+    plant = plants['data']
+    total = plants['meta']['total']
+#    links = plants['links']
+#    print(json.dumps(links, indent=2))
+    return render_template(
+        "filter_plants.html", plants=plant,
+        page=page, total=total)
 
 
 @app.route("/get_plant_id")
