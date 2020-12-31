@@ -29,7 +29,7 @@
                     <ul>
                         {% for similar in suggestion["similar_images"] %}
                         <li>
-                            <em>{{ similar.similarity*100 }}</em><br>
+                            <em>{{ '%0.2f'|format(similar.similarity|float*100) }}%</em><br>
                         </li>
                         <li>
                             <img src="{{ similar.url_small }}"> <br>

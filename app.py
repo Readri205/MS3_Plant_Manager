@@ -723,7 +723,7 @@ def get_plant_id():
             url_small = similar['url_small']
             similarity = similar['similarity']*100
 #            print(json.dumps(url_small, indent=2))
-            print(json.dumps(similarity, indent=2))
+#            print(json.dumps(similarity, indent=2))
 
     return render_template(
             "plant_id_deets.html", response=response, plant_name=plant_name,

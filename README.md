@@ -276,3 +276,4 @@ Happy coding!
 - V23.6 Add plant_id to menu in base
 - V23.7 Update requirements file
 - V23.8 Update detail for plant.id search
+- V23.9 Amend % for similarity in plant.id search
