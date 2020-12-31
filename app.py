@@ -712,13 +712,22 @@ def get_plant_id():
             "Api-Key": your_api_key
                 }).json()
 
-#    print(response['suggestions'])
+#    print(json.dumps(response['suggestions'], indent=2))
     for suggestion in response['suggestions']:
         plant_name = suggestion["plant_name"]
         plant_details = suggestion["plant_details"]["common_names"]
         url_plant_details = suggestion["plant_details"]["url"]
+        wiki_description = suggestion["plant_details"]["wiki_description"]
         similar_images = suggestion["similar_images"]
-#        print(json.dumps(suggestion["plant_name"], indent=2))
+        descr = wiki_description["value"]
+        license_name = wiki_description["license_name"]
+        license_url = wiki_description["license_url"]
+#        print(json.dumps(license_name, indent=2))
+#        print(json.dumps(wiki_description["value"], indent=2))
+#        for item in wiki_description:
+#            descr = wiki_description["value"]
+#            license_name = item["license_name"]
+#            license_url = item["license_url"]
         for similar in similar_images:
             url_small = similar['url_small']
             similarity = similar['similarity']*100
@@ -729,8 +738,9 @@ def get_plant_id():
             "plant_id_deets.html", response=response, plant_name=plant_name,
             plant_details=plant_details,
             url_plant_details=url_plant_details,
-            similar_images=similar_images,
-            url_small=url_small, similarity=similarity)
+            similar_images=similar_images, descr=descr,
+            url_small=url_small, similarity=similarity,
+            license_name=license_name, license_url=license_url)
 
 
 # get_plant_id()

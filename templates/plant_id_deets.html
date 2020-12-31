@@ -14,9 +14,9 @@
 <ul class="row">
     {% for suggestion in response['suggestions'] %}
     <li>
-    <div class="col s12 m4">
+    <div class="col s12 m6">
       <div class="teal lighten-4">
-		<div class="card-content">
+		<div class="plant_id">
 			<ul>
                 <li><i class="fas fa-spa teal-text text-lighten-2"></i>
                 <strong>Common Names: </strong>
@@ -24,24 +24,44 @@
                     {{ common_names.title() }},
                 {% endfor %} 
                 </li>
-				<li>Plant Name: <em>{{ suggestion["plant_name"] }}</em></li>
-                <li>Similar Images:
+                <li><strong>Plant Name:</strong><em>{{ suggestion["plant_name"] }}</em></li>
+                
+                <li><strong>Similar Images:</strong>
+                    <div class="row col s12">
                     <ul>
                         {% for similar in suggestion["similar_images"] %}
+                        <div class="col center-align s6">
                         <li>
                             <em>{{ '%0.2f'|format(similar.similarity|float*100) }}%</em><br>
                         </li>
                         <li>
                             <img src="{{ similar.url_small }}"> <br>
                         </li>
+                        </div>
                         {% endfor %}
                     </ul>
+                    </div>
                 </li>
-			</ul>
-		</div>
-        <div class="card-action teal darken-4 yellow-text text-darken-4 text-shadow">
-          <a href="{{ suggestion['plant_details']['url'] }}" target="_blank">WIKI link to {{ suggestion['plant_name'] }}</a>
+                
+            </ul>
+            <div class="">
+            <ul>
+                
+                <li><strong>Wiki Description:</strong> <em>{{ descr }}</em>
+                </li>
+                <li><strong>License Name:</strong>
+                    <a href="{{ license_url }}" target="_blank">{{ license_name }}</a>
+                </li>
+                <li>
+                   
+                </li>
+               
+            </ul>
+            <div class="">
+            <a href="{{ suggestion['plant_details']['url'] }}" target="_blank">WIKI link to "{{ suggestion['plant_name'] }}"</a>
+            </div>
         </div>
+        
       </div>
     </div>
     </li>

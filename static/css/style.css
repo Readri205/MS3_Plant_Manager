@@ -79,6 +79,10 @@
     height: 300px; /* Your height here */
     overflow: hidden;
 }
+.plant_id {
+    margin-bottom: 3rem;
+    padding: 2rem;
+}
 .wiki-text {
     border-radius:3px;
     padding: 1px;
