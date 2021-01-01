@@ -83,6 +83,9 @@
     margin-bottom: 3rem;
     padding: 2rem;
 }
+.plant_image {
+    max-width: 50%;
+}
 .wiki-text {
     border-radius:3px;
     padding: 1px;
