@@ -941,7 +941,7 @@ def cloudinary_destroy():
 
 
 def get_image():
-    image = "https://bs.floristic.org/image/o/1a03948baf0300da25558c2448f086d39b41ca30"
+    image = "https://bs.floristic.org/image/o/a733221df31a1ff99af03566841744f3b4c6cffe"
 
     response = requests.get(image)
 
@@ -954,7 +954,7 @@ def get_image():
     image1.save('static/images/uploads/thumbnail.jpg')
 
 
-# get_image()
+get_image()
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
