@@ -787,19 +787,22 @@ def get_plant_id():
 #    print(json.dumps(response['suggestions'], indent=2))
     for suggestion in response['suggestions']:
         plant_name = suggestion["plant_name"]
-        plant_details = suggestion["plant_details"]["common_names"]
-        url_plant_details = suggestion["plant_details"]["url"]
-        wiki_description = suggestion["plant_details"]["wiki_description"]
+#        common_names = suggestion["plant_details"]["common_names"]
+#        url_plant_details = suggestion["plant_details"]["url"]
+        wiki_descr = suggestion["plant_details"]["wiki_description"]
         similar_images = suggestion["similar_images"]
-        descr = wiki_description["value"]
-        license_name = wiki_description["license_name"]
-        license_url = wiki_description["license_url"]
-#        print(json.dumps(license_name, indent=2))
-#        print(json.dumps(wiki_description["value"], indent=2))
-#        for item in wiki_description:
-#            descr = wiki_description["value"]
-#            license_name = item["license_name"]
-#            license_url = item["license_url"]
+#        print(json.dumps(common_names, indent=2))
+#        if common_names is not None:
+#            for common_name in common_names:
+#                print(common_name)
+#            else:
+#                print('None')
+#        print(json.dumps(descr, indent=2))
+#        for descr in wiki_description:
+#            notes = descr["value"]
+#            license_name = descr["license_name"]
+#            license_url = descr["license_url"]
+#            print(notes)
         for similar in similar_images:
             url_small = similar['url_small']
             similarity = similar['similarity']*100
@@ -808,11 +811,8 @@ def get_plant_id():
 
     return render_template(
             "plant_id_deets.html", response=response, plant_name=plant_name,
-            plant_details=plant_details,
-            url_plant_details=url_plant_details,
-            similar_images=similar_images, descr=descr,
-            url_small=url_small, similarity=similarity,
-            license_name=license_name, license_url=license_url)
+            similar_images=similar_images, wiki_descr=wiki_descr,
+            url_small=url_small, similarity=similarity)
 
 
 # get_plant_id()
@@ -941,7 +941,7 @@ def cloudinary_destroy():
 
 
 def get_image():
-    image = "https://bs.floristic.org/image/o/a733221df31a1ff99af03566841744f3b4c6cffe"
+    image = "https://bs.floristic.org/image/o/428f40dadfa0281dc890ead17fcd07882f9efb09"
 
     response = requests.get(image)
 
