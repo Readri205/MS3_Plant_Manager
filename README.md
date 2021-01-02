@@ -282,3 +282,4 @@ Happy coding!
 - V24.2 Image upload function in plant.id page
 - V24.3 Amend image upload function
 - V24.4 Amend plant.id return for null values
+- V24.5 Update plant.id image upload script

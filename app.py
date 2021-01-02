@@ -816,6 +816,8 @@ def get_plant_id():
 
 
 # get_plant_id()
+
+
 # @app.route("/upload_cloudinary_images")
 # def upload_cloudinary_images():
 #    cloudinary.uploader.upload("", width=200, height=400,
