@@ -13,7 +13,7 @@ document.querySelector('submit').onclick = function sendIdentification() {
     })
     
     Promise.all(promises).then((base64files) => {
-    //  console.log(base64files)
+      console.log(base64files)
             
       const data = {
         api_key: "MgTIdDPkZpcC3NyLcl0wUfNYp6n24cRoKbc6MeyAIAqs4qW7EQ",
@@ -38,8 +38,8 @@ document.querySelector('submit').onclick = function sendIdentification() {
         console.log(data);
       })
       .catch((error) => {
-        console.error('Error:', error);
+     //   console.error('Error:', error);
       });
     })
-
+  
 };

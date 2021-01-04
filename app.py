@@ -13,7 +13,6 @@ from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from PIL import Image
 from shamrock import Shamrock
-import urllib.request
 
 
 if os.path.exists("env.py"):
@@ -32,6 +31,7 @@ cloudinary.config(
 app.config["MONGO_DBNAME"] = 'plant_manager'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI')
 app.secret_key = os.environ.get("SECRET_KEY")
+app.config["IMAGE_UPLOADS"] = os.getenv('IMAGE_UPLOADS')
 # Trefle API call details
 YOUR_TREFLE_TOKEN = os.environ.get("YOUR_TREFLE_TOKEN")
 headers = {'Authorization': 'Token ' + YOUR_TREFLE_TOKEN}
@@ -763,11 +763,36 @@ def last_page():
         page=page, total=total)
 
 
-@app.route("/get_plant_id")
+@app.route("/plant_id")
+def plant_id():
+    return render_template(
+            "plant_id.html")
+
+
+@app.route("/get_plant_id", methods=["GET", "POST"])
 def get_plant_id():
+
+    if request.method == "POST":
+
+        if request.files:
+
+            image = request.files["image"]
+            image.save(os.path.join(
+                app.config["IMAGE_UPLOADS"], image.filename))
+
+            print(image.filename)
+
+
+    image1 = Image.open('static/images/plant_id/Geranium.jpg')
+    image1.thumbnail((300, 300))
+    image1.save("static/images/plant_id/my_image.jpg")
+#    print(image1.size)
+
     # encode image to base64
-    with open("static/images/uploads/thumbnail.jpg", "rb") as file:
+    with open("static/images/plant_id/my_image.jpg", "rb") as file:
         images = [base64.b64encode(file.read()).decode("ascii")]
+
+#    images = request.get_json()
 
     your_api_key = os.environ.get("your_api_key")
     json_data = {
@@ -783,6 +808,8 @@ def get_plant_id():
             "Content-Type": "application/json",
             "Api-Key": your_api_key
                 }).json()
+
+#    response = request.get_json()
 
 #    print(json.dumps(response['suggestions'], indent=2))
     for suggestion in response['suggestions']:
@@ -810,7 +837,7 @@ def get_plant_id():
 #            print(json.dumps(similarity, indent=2))
 
     return render_template(
-            "plant_id_deets.html", response=response, plant_name=plant_name,
+            "plant_id.html", response=response, plant_name=plant_name,
             similar_images=similar_images, wiki_descr=wiki_descr,
             url_small=url_small, similarity=similarity)
 
@@ -943,7 +970,7 @@ def cloudinary_destroy():
 
 
 def get_image():
-    image = "https://bs.floristic.org/image/o/428f40dadfa0281dc890ead17fcd07882f9efb09"
+    image = "https://bs.floristic.org/image/o/2292b670683abdaac354389514105df0018d9ef8"
 
     response = requests.get(image)
 
