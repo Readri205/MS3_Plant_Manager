@@ -777,15 +777,15 @@ def get_plant_id():
         if request.files:
 
             image = request.files["image"]
-            image.save(os.path.join(
-                app.config["IMAGE_UPLOADS"], image.filename))
+#           image.save(os.path.join(
+#                app.config["IMAGE_UPLOADS"], image.filename))
 
             print(image.filename)
 
 
-    image1 = Image.open('static/images/plant_id/Geranium.jpg')
-    image1.thumbnail((300, 300))
-    image1.save("static/images/plant_id/my_image.jpg")
+#    image1 = Image.open('static/images/plant_id/Geranium.jpg')
+#    image1.thumbnail((300, 300))
+#    image1.save("static/images/plant_id/my_image.jpg")
 #    print(image1.size)
 
     # encode image to base64

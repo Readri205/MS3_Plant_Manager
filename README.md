@@ -284,3 +284,4 @@ Happy coding!
 - V24.4 Amend plant.id return for null values
 - V24.5 Update plant.id image upload script
 - V24.6 Add testing for plant.id images
+- V24.7 Amend testing for plant.id images
