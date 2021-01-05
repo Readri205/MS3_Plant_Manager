@@ -7,7 +7,7 @@ import cloudinary.uploader
 import cloudinary.api
 from flask import (
     Flask, flash, render_template,
-    redirect, request, session, url_for)
+    redirect, request, session, url_for, jsonify)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -772,15 +772,15 @@ def plant_id():
 @app.route("/get_plant_id", methods=["GET", "POST"])
 def get_plant_id():
 
-    if request.method == "POST":
+#    if request.method == "POST":
 
-        if request.files:
+#        if request.files:
 
-            image = request.files["image"]
+#            image = request.files["image"]
 #           image.save(os.path.join(
 #                app.config["IMAGE_UPLOADS"], image.filename))
 
-            print(image.filename)
+#            print(image.filename)
 
 
 #    image1 = Image.open('static/images/plant_id/Geranium.jpg')
@@ -837,7 +837,7 @@ def get_plant_id():
 #            print(json.dumps(similarity, indent=2))
 
     return render_template(
-            "plant_id.html", response=response, plant_name=plant_name,
+            "plant_id_deets.html", response=response, plant_name=plant_name,
             similar_images=similar_images, wiki_descr=wiki_descr,
             url_small=url_small, similarity=similarity)
 
@@ -983,7 +983,36 @@ def get_image():
     image1.save('static/images/uploads/thumbnail.jpg')
 
 
-get_image()
+# get_image()
+
+
+@app.route('/hello', methods=['GET', 'POST'])
+def hello():
+
+    # POST request
+    if request.method == 'POST':
+        response = request.get_json()
+#        print(json.dumps(response["suggestions"], indent=2))  # parse as JSON
+        for suggestion in response['suggestions']:
+            plant_name = suggestion["plant_name"]
+#            common_names = suggestion["plant_details"]["common_names"]
+#            url_plant_details = suggestion["plant_details"]["url"]
+            wiki_descr = suggestion["plant_details"]["wiki_description"]
+            similar_images = suggestion["similar_images"]
+            print(json.dumps(plant_name, indent=2))
+        for similar in similar_images:
+            url_small = similar['url_small']
+            similarity = similar['similarity']*100
+        return 'OK', 200
+    # GET request
+    else:
+        message = {'greeting': 'Hello from Flask!'}
+        return jsonify(message)  # serialize and use JSON headers
+    return render_template(
+            "plant_id_deets.html", response=response, plant_name=plant_name,
+            similar_images=similar_images, wiki_descr=wiki_descr,
+            url_small=url_small, similarity=similarity)
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

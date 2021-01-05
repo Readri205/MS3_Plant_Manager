@@ -285,3 +285,4 @@ Happy coding!
 - V24.5 Update plant.id image upload script
 - V24.6 Add testing for plant.id images
 - V24.7 Amend testing for plant.id images
+- V24.8 Amend for further plant.id testing

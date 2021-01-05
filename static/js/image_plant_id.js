@@ -1,4 +1,4 @@
-document.querySelector('submit').onclick = function sendIdentification() {
+document.querySelector('button').onclick = function sendIdentification() {
     const files = [...document.querySelector('input[type=file]').files];
     const promises = files.map((file) => {
       return new Promise((resolve, reject) => {
@@ -31,15 +31,44 @@ document.querySelector('submit').onclick = function sendIdentification() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
+        
       })
+
       .then(response => response.json())
       .then(data => {
-    //    console.log('Success:', data);
+        //    console.log('Success:', data);
+        
+        // POST
+        fetch('/hello', {
+
+            // Declare what type of data we're sending
+            headers: {
+            'Content-Type': 'application/json'
+            },
+
+            // Specify the method
+            method: 'POST',
+
+            // A JSON payload
+            body: JSON.stringify(data)
+
+        }).then(function (response) { // At this point, Flask has printed our JSON
+            return response.text();
+        }).then(function (text) {
+
+            console.log('POST response: ');
+
+            // Should be 'OK' if everything was successful
+            console.log(text);
+            });
+
         console.log(data);
-      })
+
+        })
+    
       .catch((error) => {
         console.error('Error:', error);
       });
     })
-
 };
+
