@@ -769,8 +769,8 @@ def plant_id():
             "plant_id.html")
 
 
-@app.route("/get_plant_id", methods=["GET", "POST"])
-def get_plant_id():
+@app.route("/get_plant_id_placeholder", methods=["GET", "POST"])
+def get_plant_id_placeholder():
 
     # encode image to base64
     with open("static/images/plant_id/my_image.jpg", "rb") as file:
@@ -972,12 +972,15 @@ def get_image():
 
 # get_image()
 
+response = []
+
 
 @app.route('/hello', methods=['GET', 'POST'])
 def hello():
 
     # POST request
     if request.method == 'POST':
+        global response
         response = request.get_json()
 #        print(json.dumps(response["suggestions"], indent=2))  # parse as JSON
         media = response["images"][0]["url"]
@@ -997,6 +1000,42 @@ def hello():
     else:
         message = {'greeting': 'Hello from Flask!'}
         return jsonify(message)  # serialize and use JSON headers
+    return render_template(
+            "plant_id_deets.html", response=response, plant_name=plant_name,
+            similar_images=similar_images, wiki_descr=wiki_descr,
+            url_small=url_small, similarity=similarity,
+            media=media)
+
+
+@app.route("/get_plant_id", methods=["GET", "POST"])
+def get_plant_id():
+
+    media = response["images"][0]["url"]
+    print(json.dumps(media, indent=2))
+    for suggestion in response['suggestions']:
+        plant_name = suggestion["plant_name"]
+#        common_names = suggestion["plant_details"]["common_names"]
+#        url_plant_details = suggestion["plant_details"]["url"]
+        wiki_descr = suggestion["plant_details"]["wiki_description"]
+        similar_images = suggestion["similar_images"]
+        print(json.dumps(plant_name, indent=2))
+#        if common_names is not None:
+#            for common_name in common_names:
+#                print(common_name)
+#            else:
+#                print('None')
+#        print(json.dumps(descr, indent=2))
+#        for descr in wiki_description:
+#            notes = descr["value"]
+#            license_name = descr["license_name"]
+#            license_url = descr["license_url"]
+#            print(notes)
+        for similar in similar_images:
+            url_small = similar['url_small']
+            similarity = similar['similarity']*100
+#            print(json.dumps(url_small, indent=2))
+#            print(json.dumps(similarity, indent=2))
+
     return render_template(
             "plant_id_deets.html", response=response, plant_name=plant_name,
             similar_images=similar_images, wiki_descr=wiki_descr,

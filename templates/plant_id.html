@@ -5,7 +5,7 @@
         <div class="col s3">
             <form action="{{ url_for('get_plant_id') }}" method="POST" id="myform" enctype="multipart/form-data">
                 <input type="file" id="capture" capture />
-                <button type="button">OK</button>
+                <button name="action" type="button">OK</button>
                 <button name="action" type="submit">Submit</button>
             </form>
         </div>
@@ -16,7 +16,7 @@
         </div>
         </div>
             <div class="row col s6 card-panel teal lighten-4">
-            <img class="plant-image" src="static/images/uploads/thumbnail.jpg" alt="No image"/>
+            <img class="plant-image" src="static/images/plant_id/my_image.jpg" alt="No image"/>
         </div>
 {% endblock %}
 {% block scripts %}
