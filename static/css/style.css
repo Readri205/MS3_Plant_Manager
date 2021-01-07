@@ -177,6 +177,9 @@ nav .fad {
     font-size: 1.2rem;
     margin-top: 20px;
 }
+.plant_image {
+    width: 250px;
+}
 }
 @media only screen and (max-width: 320px){
 nav .brand-logo {
@@ -185,5 +188,8 @@ nav .brand-logo {
 nav .fad {
     font-size: 1rem;
     margin-top: 22px
+}
+.plant_image {
+    width: 200px;
 }
 }

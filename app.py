@@ -772,22 +772,6 @@ def plant_id():
 @app.route("/get_plant_id", methods=["GET", "POST"])
 def get_plant_id():
 
-#    if request.method == "POST":
-
-#        if request.files:
-
-#            image = request.files["image"]
-#           image.save(os.path.join(
-#                app.config["IMAGE_UPLOADS"], image.filename))
-
-#            print(image.filename)
-
-
-#    image1 = Image.open('static/images/plant_id/Geranium.jpg')
-#    image1.thumbnail((300, 300))
-#    image1.save("static/images/plant_id/my_image.jpg")
-#    print(image1.size)
-
     # encode image to base64
     with open("static/images/plant_id/my_image.jpg", "rb") as file:
         images = [base64.b64encode(file.read()).decode("ascii")]
@@ -812,13 +796,15 @@ def get_plant_id():
 #    response = request.get_json()
 
 #    print(json.dumps(response['suggestions'], indent=2))
+    media = response["images"][0]["url"]
+    print(json.dumps(media, indent=2))
     for suggestion in response['suggestions']:
         plant_name = suggestion["plant_name"]
 #        common_names = suggestion["plant_details"]["common_names"]
 #        url_plant_details = suggestion["plant_details"]["url"]
         wiki_descr = suggestion["plant_details"]["wiki_description"]
         similar_images = suggestion["similar_images"]
-#        print(json.dumps(common_names, indent=2))
+        print(json.dumps(plant_name, indent=2))
 #        if common_names is not None:
 #            for common_name in common_names:
 #                print(common_name)
@@ -839,7 +825,8 @@ def get_plant_id():
     return render_template(
             "plant_id_deets.html", response=response, plant_name=plant_name,
             similar_images=similar_images, wiki_descr=wiki_descr,
-            url_small=url_small, similarity=similarity)
+            url_small=url_small, similarity=similarity,
+            media=media)
 
 
 # get_plant_id()
@@ -993,6 +980,8 @@ def hello():
     if request.method == 'POST':
         response = request.get_json()
 #        print(json.dumps(response["suggestions"], indent=2))  # parse as JSON
+        media = response["images"][0]["url"]
+        print(json.dumps(media, indent=2))
         for suggestion in response['suggestions']:
             plant_name = suggestion["plant_name"]
 #            common_names = suggestion["plant_details"]["common_names"]
@@ -1011,7 +1000,8 @@ def hello():
     return render_template(
             "plant_id_deets.html", response=response, plant_name=plant_name,
             similar_images=similar_images, wiki_descr=wiki_descr,
-            url_small=url_small, similarity=similarity)
+            url_small=url_small, similarity=similarity,
+            media=media)
 
 
 if __name__ == '__main__':

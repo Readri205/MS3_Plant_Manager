@@ -286,3 +286,4 @@ Happy coding!
 - V24.6 Add testing for plant.id images
 - V24.7 Amend testing for plant.id images
 - V24.8 Amend for further plant.id testing
+- V24.9 Further plant.id image testing
