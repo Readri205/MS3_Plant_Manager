@@ -288,3 +288,4 @@ Happy coding!
 - V24.8 Amend for further plant.id testing
 - V24.9 Further plant.id image testing
 - V25.0 Add image test for plant.id
+- V25.1 Update get_plant_id method

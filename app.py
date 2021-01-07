@@ -1007,7 +1007,7 @@ def hello():
             media=media)
 
 
-@app.route("/get_plant_id", methods=["GET", "POST"])
+@app.route("/get_plant_id", methods=["GET"])
 def get_plant_id():
 
     media = response["images"][0]["url"]
