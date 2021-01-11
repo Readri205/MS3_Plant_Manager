@@ -1,8 +1,8 @@
-![alt text](https://readri205.github.io/MS2_Project/assets/images/amiresponsivecamels.png "Africa")
+![alt text](https://readri205.github.io/MS3_Plant_Manager/static/images/amiresponsive.png "Africa")
 
 [View the live **GARDEN MANAGER**  :seedling:  project here.](https://plant-manager-flask-mongodb.herokuapp.com/)
 
-![alt text](https://github.com/Readri205/MS3_Plant_Manager/tree/master/static/images/perennial254287.jpg "Garden Logo")
+![alt text](https://github.com/Readri205/MS3_Plant_Manager/static/images/perennial254287.jpg "Garden Logo")
 
 # **GARDEN MANAGER :seedling:**
 
@@ -59,7 +59,7 @@
 
 * This website provides an overview of the **Africa Continent** in terms of **Land Size, Population** and **Gross Domestic Product (GDP)**. These measures have been provided in a **World** context. The website provides an ability to view similar data for each country in Africa by using a search function. The search function is provided at the bottom of the **'Home'** page and also on the bottom of the **'Country Details'** page. The search function in both locations allows for a quick search for an African country from either page.
 
-* The website is **'informative'**, allowing users to view information about **Africa** and to view information on specific countries. The site is designed to show **Africa** in a world context on the **'Home'** page and to show each country in an Africa context on the **'Country Details'** page.
+* The website is **'functional'**, allowing users to view information about **plants and gardens** and to view information on specific countries. The site is designed to show **Africa** in a world context on the **'Home'** page and to show each country in an Africa context on the **'Country Details'** page.
 * The website concept is to answer high level questions about the **African** Continent;
   * where is it?
   * what are the countries in it?
@@ -303,6 +303,7 @@
 *   [HTML5](https://en.wikipedia.org/wiki/HTML5)
 *   [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
 *   [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+*   [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
 
 ### Frameworks, Libraries & Programs Used
 
@@ -867,5 +868,6 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
     - V25.0 Add image test for plant.id
     - V25.1 Update get_plant_id method
     - V25.2 Add README update
+    - V25.3 Further README updates
 ***
 <b id="f1">1</b> **&** <b id="f2">2</b> **Future Features** in the [README.md](https://github.com/Readri205/MS2_Project/blob/master/README.md) identifies that a 'quick search' could be placed at the top of both the 'Home' page and the 'Country Details' page to facilitate regular and frequent users. Regular and frequent users may wish to immediately see the details for any particular country as soon as they come onto the site. This allows quick access to Country search rather than having to scroll down to the bottom of the page. 1[↩](#a1);2[↩](#a2)
