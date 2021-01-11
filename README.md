@@ -71,13 +71,12 @@
   * **filter** to identify **colour** characteristics for a plant; and
   * **image** using a computer or mobile device to upload a **file image**.
 
-* The website sources data from the **[World Bank Database](https://databank.worldbank.org/home.aspx)**. The website primarily makes use of Application Programming Interfaces (API's) to construct the country data, however in certain instances CSV files are used to provide summary level information. The **[Referential](https://rapidapi.com/referential/api/referential)** API via **[RapidAPI](https://rapidapi.com/)** is used to source country codes to construct country information and **[COUNTRYFLAGS](https://www.countryflags.io/)** for country flag images. **[Leaflet](https://leafletjs.com/)** is used as a javascript library for **[Mapbox](https://www.mapbox.com/)** maps with **[OpenStreetMap](https://www.openstreetmap.org)** tile data. API and other data source details are provided in the **'Application Programming Interfaces (API's) Used'** section below.
+* The website sources data from the **[Trefle.io](https://trefle.io/)** and **[Plant.id](https://plant.id/)**. The website primarily makes use of Application Programming Interfaces (API's) to construct the plant search data. The **[MongoDB](https://www.mongodb.com/cloud/atlas)** is used to store user data and allows for create, read, update and delete data for plant details and their user login data. API and other data source details are provided in the **'Application Programming Interfaces (API's) Used'** section below.
 
-* If the site is perceived as successful, it is anticipated that the site could be expanded to show as;
-  * there is a significant amount of data in the World Bank Database that can be utilised to expand the site. A number of data streams could be utilised to provide deeper insight at both the Africa level and the Country level;
+* If the site is perceived as successful, it is anticipated that the site could be expanded as;
+  * there is a significant amount of data in the Trefle database that can be utilised for more specific searches and filtering;
   * other API sources could also be utilised to expand the information set;
-  * similar information could be provided for the other remaining World regions; and
-  * each continent and its countries could be expanded with more detail.
+  * other functions could be added such as creating as a calendar for gardening jobs at a particular time of year.
 
 * The site is designed to be responsive and accessible on a range of devices, making it easy to navigate for interested users. The website was designed using **'Mobile First'** principles as the site must be perceived to be quick and easy to use and read as a reference site on a mobile device.
 
@@ -89,49 +88,49 @@
         * The first time visitor will want to;
           * easily understand the main purpose of the site;
 
-            ![alt text](https://readri205.github.io/MS2_Project/assets/images/userstories/scrolldown10025.jpg "Scroll Down")
+            ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Scroll Down")
 
           * be able to easily navigate throughout the site to find content;
 
-            ![alt text](https://readri205.github.io/MS2_Project/assets/images/userstories/africascroll10025.jpg "Scroll Down on Home Page")
+            ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Scroll Down on Home Page")
 
           * view the carousel images just beneath the header;
 
-            ![alt text](https://readri205.github.io/MS2_Project/assets/images/userstories/landingpage10025.jpg "Landing Page")
+            ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Landing Page")
 
           * scroll down through the information, read the content, view the map of Africa, then view the line graphs and the pie charts;
 
-            ![alt text](https://readri205.github.io/MS2_Project/assets/images/userstories/scrolldown210025.jpg "Scroll Down on Home Page")
+            ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Scroll Down on Home Page")
 
-            ![alt text](https://readri205.github.io/MS2_Project/assets/images/userstories/scrolldown310025.jpg "Scroll Down on Home Page")
+            ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Scroll Down on Home Page")
 
           * search the details for a specific country from the dropdown menu;
 
-            ![alt text](https://readri205.github.io/MS2_Project/assets/images/userstories/search10025.jpg "Search Menu")
+            ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Search Menu")
 
           * read the information about that country, view the map, zoom in and out on that map, review the line graphs and review the pie charts;
 
-            ![alt text](https://readri205.github.io/MS2_Project/assets/images/userstories/searchreturncapeverde10025.jpg "Search Return Cape Verde")
+            ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Search Return Cape Verde")
 
-            ![alt text](https://readri205.github.io/MS2_Project/assets/images/userstories/searchreturncapeverde210025.jpg "Cape Verde Scroll Down")
+            ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Cape Verde Scroll Down")
 
-            ![alt text](https://readri205.github.io/MS2_Project/assets/images/userstories/searchreturncapeverde310025.jpg "Cape Verde Scroll Down")
+            ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Cape Verde Scroll Down")
 
           * search for another country and read the information about that country, view the map, zoom in and out on that map, review the line graphs and review the pie charts;
 
-            ![alt text](https://readri205.github.io/MS2_Project/assets/images/userstories/newsearchreturnburundi10025.jpg "Next Country Search")
+            ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Next Country Search")
 
           * see the data points on the line graphs or pie charts possible with a mouse click on desktop/laptop, or touch screen on a mobile device.
 
-            ![alt text](https://readri205.github.io/MS2_Project/assets/images/userstories/linegraphdatapoint10025.jpg "Line Graph Data Point")
+            ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Line Graph Data Point")
 
-            ![alt text](https://readri205.github.io/MS2_Project/assets/images/userstories/piegraphdatapoint10025.jpg "Pie Graph Data Point")
+            ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Pie Graph Data Point")
 
-            ![alt text](https://readri205.github.io/MS2_Project/assets/images/userstories/piegraphlabelclick10025.jpg "Pie Graph Label Click")
+            ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Pie Graph Label Click")
 
           * navigate easily back to the 'Home' page;
 
-            ![alt text](https://readri205.github.io/MS2_Project/assets/images/userstories/menu10025.jpg "Menu Always Accessible")
+            ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Menu Always Accessible")
 
           * read the information about Africa in a World Context;
             * Per images above.
@@ -139,7 +138,7 @@
             * Per images above.
           * contact us for more information or to provide comments about the site;
 
-            ![alt text](https://readri205.github.io/MS2_Project/assets/images/userstories/contactpage10025.jpg "Contact Page")
+            ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Contact Page")
 
           * contact us to ask about data projects that they may be interested to have completed as an item of work.
             * Per images above
@@ -152,7 +151,7 @@
           * scroll down through the information, read the content, view the map of Africa, then view the line graphs and the pie charts;
         * **A returning visitor** may want to go straight to the 'Country' search function<sup id="a1">[1](#f1)</sup>;
 
-            ![alt text](https://readri205.github.io/MS2_Project/assets/images/userstories/search210025.jpg "Search Bottom of Home Paget")
+            ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Search Bottom of Home Paget")
 
           * search the details for a specific country from the dropdown menu;
           * read the information about that country, view the map, zoom in and out on that map, review the line graphs and review the pie charts;
@@ -164,7 +163,7 @@
           * contact us for more information or to provide comments about the site;
           * contact us to ask about data projects that they may be interested to have completed as an item of work.
 
-          ![alt text](https://readri205.github.io/MS2_Project/assets/images/userstories/landingpage10025.jpg "Contact in Menu Bar")
+          ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Contact in Menu Bar")
 
     *   #### Frequent User Goals
         * The frequent visitor will want to;
@@ -174,7 +173,7 @@
         * **A frequent visitor** may want to go straight to the 'Country' search function<sup id="a2">[2](#f2)</sup>;
           * Scroll down the Home page to reach the 'Search Function';
 
-            ![alt text](https://readri205.github.io/MS2_Project/assets/images/userstories/search310025.jpg "Search Bottom of Home Page")
+            ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Search Bottom of Home Page")
 
           * search the details for a specific country from the dropdown menu (the site is easy and intuitive to use for a frequent visitor);
           * read the information about that country, view the map, zoom in and out on that map, review the line graphs and review the pie charts;
@@ -184,7 +183,7 @@
           * search for another country and read the information about that country;
         * **A frequent visitor** may want to go straight to the 'Contact Us' page;
 
-            ![alt text](https://readri205.github.io/MS2_Project/assets/images/userstories/landingpage10025.jpg "Contact in Menu Bar")
+            ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Contact in Menu Bar")
 
           * contact us for more information or to provide comments about the site;
           * contact us to ask about data projects that they may be interested to have completed as an item of work.
@@ -192,11 +191,11 @@
     *   #### Mobile Menu
           * On mobile devices the menu is shown as a 'hamburger' drop down;
 
-            ![alt text](https://readri205.github.io/MS2_Project/assets/images/userstories/mobilehamburgerdropdown10025.jpg "Mobile Menu")
+            ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Menu")
 
           * On mobile devices the search function operates in the same manner as for larger screens;  
 
-            ![alt text](https://readri205.github.io/MS2_Project/assets/images/userstories/mobilesearch10025.jpg "Mobile Search")
+            ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
 
 *   ### Design
     *   #### Colour Scheme
@@ -861,5 +860,6 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
     - V25.2 Add README update
     - V25.3 Further README updates
     - V25.4 Update README for functionality
+    - V25.5 Update README for website purpose
 ***
 <b id="f1">1</b> **&** <b id="f2">2</b> **Future Features** in the [README.md](https://github.com/Readri205/MS2_Project/blob/master/README.md) identifies that a 'quick search' could be placed at the top of both the 'Home' page and the 'Country Details' page to facilitate regular and frequent users. Regular and frequent users may wish to immediately see the details for any particular country as soon as they come onto the site. This allows quick access to Country search rather than having to scroll down to the bottom of the page. 1[↩](#a1);2[↩](#a2)
