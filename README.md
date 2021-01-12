@@ -186,7 +186,7 @@
     *   #### Colour Scheme
         * The main colour is 'Teal' (#008080), designed to provide a light neutral background to highlight a 'Yellow" (#FFFF00) text. The colours have been manipulated to lighten or darken them using 'Materialize' CSS properties. The various shades of 'Teal' are used to reference the 'greenness' of the plant kingdom.
     *   #### Typography
-        * The "Roboto" font is the main font used throughout the whole website with Sans Serif as the fallback font in case the font isn't imported into the site correctly. "Roboto" is a clean font which is both attractive and appropriate.
+        * The site uses the 'Materialize' default font 'Roboto' font is the main font used throughout the whole website. 'Roboto' is a clean font which is both attractive and appropriate.
     *   #### 'Materialize' Card Structure
         * The 'Materialize' card structure is used to return search results. This structures the returns into identifiable components with an image and details for a particular return. This keeps each return distinct and independent of each other.
         * The user plant and the collections lists are not constructed in 'Materialize' cards but are shown as accordion lists that the user can access to view more details on each item.
@@ -196,21 +196,19 @@
 
             ![alt text](https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Hiroshige%2C_36_Views_of_Mount_Fuji_Series_7.jpg/340px-Hiroshige%2C_36_Views_of_Mount_Fuji_Series_7.jpg "Hiroshige")
 
-            [36 Views of Mount Fuji, By Hiroshige](https://en.wikipedia.org/wiki/Hiroshige),
-            [Licence is Public Domain](https://commons.wikimedia.org/wiki/Commons:Licensing#Material_in_the_public_domain)
+            *[36 Views of Mount Fuji, By Hiroshige](https://en.wikipedia.org/wiki/Hiroshige),*
+
+            *[Licence: Public Domain](https://commons.wikimedia.org/wiki/Commons:Licensing#Material_in_the_public_domain)*
 
 *   ### Wireframes
-    *   #### Original Wireframe Design (July 2, 2020).
+    *   #### Original Wireframe Design (October 15, 2020).
         *   The **'Home'** page includes an **'Information box'**, **'Population and GDP line graphs'**. On scroll down the page would reveal an **'Africa Map'** and an **'Information Table'** listing all 54 countries with their respective **'Population and GDP'** sizes. The **'Information Table'** is intended to be 'clickable' to search for more details on any Country. **'Country Search'** and **'Contact Us'** boxes are also included.
         *   The **'Country Search'** page includes a **Country Name** header title with an image of the **National Flag**, an image of the **Capital City**, an **'Information Table'** of historical **Population and GDP data**, **Country Map** and **Line Graphs** of the same data. **'Country Search'** and **'Contact Us'** boxes are also included.
         * Sources for data were considered as follows;
-          1. Maps - [Google Maps](https://console.cloud.google.com/google/maps-apis/)
-          1. Africa country codes - [Referential](https://rapidapi.com/referential/api/referential) API via [RapidAPI](https://rapidapi.com/)
-          1. Capital City, Population and GDP data - [World Bank Database](https://databank.worldbank.org/home.aspx)
-          1. National Flag images - [CountryFlags](https://www.countryflags.io/)
-          1. Line and Pie Chart Capability - [Chartsjs](https://www.chartjs.org/)
+          1. Trefle.io plant search - [Trefle.io](https://trefle.io/)
+          1. Plant.id for image recognition - [Plant.id](https://plant.id/)
           1. Automated Email Response - [Emailjs](https://www.emailjs.com/)
-        *   The **Original Wireframe Design** can be viewed here - [View](https://github.com/Readri205/MS2_Project/blob/master/assets/documents/wireframes/africa.pdf)
+        *   The **Original Wireframe Design** can be viewed here - [View](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/wireframes/rhcgardenmnager.pdf)
     *  #### Actual Site Design.
         * The developed site uses many of the concepts from the original Wireframe design. Variations are as follows;
           1. The main header image was switch to the 'Africa' header image which conveys a strong but not overwhelming 'Africa' theme;
@@ -231,7 +229,7 @@
       * The menu system uses the Bootstrap 'navbar' functionality for small screens using the 'toggle' capability for the 'drop down' menu list from a 'hamburger' icon.
       * The navbar is 'fixed' to the top of the screen at all times on page scroll down for easy access.
       * The navbar is coloured 'black' to make it distinctive from the site pages.
-      * The 'hamburger' is coloured 'off-white' to make it visible yet not intrusive when view the site details.
+      * The 'hamburger' is coloured 'off-white' to make it visible yet not intrusive when viewing the site details.
       * The 'drop down' site page options are coloured 'off-white' with the current page shown as 'white' and 'grey' background.
       * The header image and the carousel images are suitably sized for smaller screens.
     * Desktop / Laptop large screen size
@@ -248,7 +246,7 @@
       * The 'Search' box is found on scroll down through the 'Home' page.
       * The 'Search' box is also found on scroll down through the 'Country Details' page.
       * In each case the user can open the drop down menu and pick a country of their choice. The search will return the details for that country on the 'Country Details' page.
-      * The details from the search are returned using a various API sources. The details returned are;
+      * The details from the search are returned using various API sources. The details returned are;
         * First header text box;
           * 'Country Name' as a title;
           * 'Country Flag' as a colour image;
@@ -289,34 +287,28 @@
 
 ### Frameworks, Libraries & Programs Used
 
-* [Bootstrap 4.5.0:](https://getbootstrap.com/docs/4.0/getting-started/introduction/)
+* [Materialize 1.0.0](https://materializecss.com/)
     * Bootstrap was used to assist with the responsiveness and styling of the website.
+* [Flask](https://flask.palletsprojects.com/en/1.1.x/)
+    * Flask was used to generate the front end web page design, using python as the primary back end programming language.
+* [MongoDB](https://www.mongodb.com/cloud/atlas)
+    * MongoDb was used to store user data, user plant and collection lists for 'CRUD' purposes.
 * [Hover.css:](https://ianlunn.github.io/Hover/)
     - Hover.css was used on the contact details types and for social media icons in the footer to add the float transition while being hovered over.
-* [Google Fonts:](https://fonts.google.com/)
-    - Google fonts were used to import the 'Exo' (main content in all pages) and 'Roboto' (for footer) fonts into the style.css file which are used on all pages.
 * [Font Awesome:](https://fontawesome.com/)
     - Font Awesome was used for the website to add icons for aesthetic and UX purposes.
 * [jQuery:](https://jquery.com/)
-    - jQuery came with Bootstrap to make the navbar responsive but was also used to support JavaScript and is loaded from the [Google CDN](https://www.w3schools.com/jquery/jquery_get_started.asp).
+    - jQuery came with Materialize to make the navbar responsive but was also used to support JavaScript and is loaded from the [CDJNS](https://cdnjs.com/libraries/materialize).
 * [GitPod:](https://www.gitpod.io/)
     - Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
 * [GitHub:](https://github.com/)
     - GitHub is used to store the projects code after being pushed from Git.
 * [Atom:](https://atom.io/)
     - Atom was used as a Markdown Text Editor for README.md and Testing.md
-* [Mapbox:](https://docs.mapbox.com/mapbox-gl-js/api/)
-    - Mapbox javascript library is used to create the maps on the 'Home' and 'Country' pages.
-* [Leaflet:](https://leafletjs.com/)
-    - Leaflet provides a javascript library for Mapbox maps on the 'Home' and 'Country' pages.
-* [OpenStreetMap:](https://www.openstreetmap.org)
-    - OpenStreetMap provides the detail for Mapbox maps on the 'Home' and 'Country' pages.
-* [Chartsjs:](https://www.chartjs.org/)
-    - Chartjs is used to create the line charts and pie charts.
 * [Emailjs:](https://www.emailjs.com/)
     - Emailjs is used to send the email from the contact form on the 'Contact Us' page.
 * [Favicon.io:](https://favicon.io/)
-    - Favicon.io was used for Favicon :earth_africa: web page title images.
+    - Favicon.io was used for Favicon :seedling: web page title images.
 * [Quackit:](https://www.quackit.com/character_sets/emoji/)
     - Quackit was used for the search function emojis.
 * [Photoshop:](https://www.adobe.com/ie/products/photoshop.html)
@@ -341,7 +333,7 @@
       * The Referential API (sourced via [RapidAPI](https://rapidapi.com/)) was used to provide the country code to source all the country data in the search function. It provides the full list of countries in the drop down menu and on country selection, the country codes drive the other API's to return the required information. The Referential API is loaded with the 'Continent' denominator for the African Countries 'AF' (shown at the end of the link below). The API returns a full list of countries each with their respective two digit country codes (example: Nigeria='NG'). Please note that the API requires an Application Key so the link will not return a result. Please see the screenshot image of two countries' data, Nigeria (Key=NG) and Rwanda (Key=RW) as an example return (Note the API returns all 54 countries). The full API string is also shown below for documentation purposes.
         * [Country Code List](https://referential.p.rapidapi.com/v1/country?fields=currency%25252Ccurrency_num_code%25252Ccurrency_code%25252Ccontinent_code%25252Ccurrency%25252Ciso_a3%25252Cdial_code&continent_code=AF), **https://referential.p.rapidapi.com/v1/country?fields=currency%25252Ccurrency_num_code%25252Ccurrency_code%25252Ccontinent_code%25252Ccurrency%25252Ciso_a3%25252Cdial_code&continent_code=AF**
 
-            ![alt text](https://readri205.github.io/MS2_Project/assets/images/readmeimg/referentialcountrycode33.jpg "Country Codes from Referential API")
+            ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
   * [World Bank Database](https://databank.worldbank.org/home.aspx)
 
       * The World Bank Database was used as the primary source for the data in the site. The relevant World bank API's are requested for data once a user selects a country in the search function which drives the relevant country code. Once the country code is determined, a number of different API's are used to determine Capital City, Land Size, Population and GDP for the World sectors, Africa and the 54 African Countries listed. The World Bank uses a standard link to reach the core of its data (https://api.worldbank.org/v2/country/YY/indicator/XX.XXX.XXX.XX), where;
@@ -370,30 +362,30 @@
       * Contains the details as to the intention of the site and a how it can be used. It also contains the basic information for Africa in a high level context.
       * The data included in the information box for the **World** figures is computed using the **worldstats.js** file for each of Land Size, Population and GDP. The respective sizes for **Africa** are computed separately from the World Bank Database Excel file download located [here](XX).
       * Note that as the World Bank Database does not show any Land Size data for [Sudan](https://en.wikipedia.org/wiki/Sudan) and [South Sudan](https://en.wikipedia.org/wiki/South_Sudan), the values have been sourced from Wikipideia, and adjusted for Africa and the World Land Size Totals.
-      ![alt text](https://readri205.github.io/MS2_Project/assets/images/readmeimg/informationbox10050.jpg "INFO Box")
+      ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
     * Map
       * The Africa Map is constructed using the **africamap.js** file which uses the [Leaflet](https://leafletjs.com/) library, based on [Mapbox](https://www.mapbox.com/) Map imagery and[OpenStreetMap](https://www.openstreetmap.org) data providers. The Map is centred on Ouesso, Republic of Congo (1.6155N, 16.0464E) in the Map Box.
 
-        ![alt text](https://readri205.github.io/MS2_Project/assets/images/readmeimg/africamap10025.jpg "AFRICA Map")
+        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
     * Line Graphs and Pie Charts
       * The graphs and charts use the [Chartsjs](https://www.chartjs.org/) javascript library.
       * The Line Graphs and Pie Charts are all computed in the **totalcharts.js** file.
         * The Line Graphs reference [pop.csv](https://github.com/Readri205/MS2_Project/blob/master/assets/csv/pop.csv) and [gdp.csv](https://github.com/Readri205/MS2_Project/blob/master/assets/csv/gdp.csv) respectively to create the historical data between 1970 and 2019.
 
-          ![alt text](https://readri205.github.io/MS2_Project/assets/images/readmeimg/pop10025.jpg "Population Chart")
+          ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
 
-          ![alt text](https://readri205.github.io/MS2_Project/assets/images/readmeimg/gdp10025.jpg "GDP Chart")
+          ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
         * The Pie Charts are directly loaded with the data in the **totalcharts.js** file.
 
-          ![alt text](https://readri205.github.io/MS2_Project/assets/images/readmeimg/africaland10050.jpg "Land Pie Chart")
+          ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
 
-          ![alt text](https://readri205.github.io/MS2_Project/assets/images/readmeimg/africapop10050.jpg "Population Pie Chart")
+          ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
 
-          ![alt text](https://readri205.github.io/MS2_Project/assets/images/readmeimg/africagdp10050.jpg "GDP Pie Chart")
+          ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
     * Country Search Function
       * the Search Function is a drop down menu that references the **getcountries.js** file. The country selection made by the user will return the required information about the Country selected on the 'Country Details' page. The **getcountries.js** file will return the required two digit **countryCode** that is fed into all the relevant API's (described below in the 'Country Details' Page section) that in turn generate the required returns for the Country selected.
 
-        ![alt text](https://readri205.github.io/MS2_Project/assets/images/readmeimg/searchmenu10050.jpg "Search Function")
+        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
 * ### Country Details Page (Nigeria has been used by way of example)
     * Country Information
       * Contains the basic information for the **Country** selected.
@@ -416,15 +408,15 @@
             document.getElementById("landsize").innerHTML += ("Land Size:   " + landsize + "   Sq. Kms" + " " + " - " + perc + "% of total Africa Land Size (29.51 Mn Sq. Kms)");
           }
         ```
-        ![alt text](https://readri205.github.io/MS2_Project/assets/images/readmeimg/nigeriainfo10050.jpg "Country Information")
+        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
     * Country Map
       * The Country Map is centred on the Capital City Latitude and Longitude. The map is generated by reference to the **countrymap.js** file which uses the [Leaflet](https://leafletjs.com/) library, based on [Mapbox](https://www.mapbox.com/) Map imagery and[OpenStreetMap](https://www.openstreetmap.org) data providers.
-        ![alt text](https://readri205.github.io/MS2_Project/assets/images/readmeimg/nigeriamap10050.jpg "Country Map")
+        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
     * Country Line Graphs
       * The Country Line Graphs are returned in the **countrygraphs.js** file  from the relevant API's.
-        ![alt text](https://readri205.github.io/MS2_Project/assets/images/readmeimg/nigeriapopline10050.jpg "Country Population Line Graph")
+        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
 
-        ![alt text](https://readri205.github.io/MS2_Project/assets/images/readmeimg/nigeriagdpline10050.jpg "Country GDP Line Graph")
+        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
 
     * Country and Top 5 Pie Charts
       * The Country and Top 5 Pie charts are returned in the **piecountry.js** file  from the relevant API's.
@@ -444,24 +436,24 @@
             const roaland = (29.509744 - countland);
           }
       ```
-        ![alt text](https://readri205.github.io/MS2_Project/assets/images/readmeimg/nigerialandpie10050.jpg "Country Land Size Pie Chart")
+        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
 
-        ![alt text](https://readri205.github.io/MS2_Project/assets/images/readmeimg/nigeriapoppie10050.jpg "Country Population Pie Chart")
+        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
 
-        ![alt text](https://readri205.github.io/MS2_Project/assets/images/readmeimg/nigeriagdppie10050.jpg "Country GDP Pie Chart")
+        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
 
       * The Top 5 Pie charts are computed in the **piecountry.js** file. Each chart for Land Size, Population and GDP references CSV files; [land.csv](https://github.com/Readri205/MS2_Project/blob/master/assets/csv/land.csv), [poptotes.csv](https://github.com/Readri205/MS2_Project/blob/master/assets/csv/poptotes.csv) and [gdptotes.csv](https://github.com/Readri205/MS2_Project/blob/master/assets/csv/gdptotes.csv) respectively.
 
-        ![alt text](https://readri205.github.io/MS2_Project/assets/images/readmeimg/top5landpie10050.jpg "Top 5 Land Size")
+        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
 
-        ![alt text](https://readri205.github.io/MS2_Project/assets/images/readmeimg/totpoppie10050.jpg "Top 5 Population Pie Chart")
+        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
 
-        ![alt text](https://readri205.github.io/MS2_Project/assets/images/readmeimg/topgdppie10050.jpg "Top 5 GDP Pie Chart")
+        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
 
     * Country Search Function
 
       * The Search Function is a drop down menu that references the **getcountries.js** file. The country selection made by the user will return the required information about the Country selected on the 'Country Details' page. The **getcountries.js** file will return the required two digit **countryCode** that is fed into all the relevant API's (described above in the 'Country Details' Page section above) that in turn generates the required information return for the Country selected.
-      ![alt text](https://readri205.github.io/MS2_Project/assets/images/readmeimg/searchmenu10050.jpg " Country Search Function")
+      ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
       * Note that the [Referential API](https://rapidapi.com/referential/api/referential) does not return the list of countries in full alphabetical order (mostly, but not exclusively). To place the country list into alphabetical order, the following code is utilised after the data is called (many thanks to [W3C Schools](https://www.w3schools.com/js/js_array_sort.asp));
       ```javascript
       data.sort(function(a, b){
@@ -477,7 +469,7 @@
     * The Contacts Page contains the 'Contact Form' for a user to supply contact information and to provide comments, questions or to provide a request for some work.
     * The 'Contact Form' will generate an email by referencing the **sendemail.js** file when a user submits their information.
 
-      ![alt text](https://readri205.github.io/MS2_Project/assets/images/readmeimg/contact10025.jpg "Contact Form")
+      ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
 
 * ### Construction  Table
 
@@ -558,18 +550,15 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
 ### Code
 
 *   My Mentor (Adegbenga Adeye (email:adegbenga.adeye@outlook.com, slack:gbenga_mentor)) for providing help, guidance, inspiration and input on the challenging components particularly for the 'Country Search' Function.
-
-*   [Code Institute course](https://codeinstitute.net/5-day-coding-challenge/?utm_term=%2Bcode%20%2Binstitute%20%2Bcourses&utm_campaign=a%2526c_BR_IRL_Code_Institute&utm_source=adwords&utm_medium=ppc&hsa_net=adwords&hsa_tgt=kwd-443742237303&hsa_ad=407017470923&hsa_acc=8983321581&hsa_grp=62188641040&hsa_mt=b&hsa_cam=1578649861&hsa_kw=%2Bcode%20%2Binstitute%20%2Bcourses&hsa_ver=3&hsa_src=g&gclid=CjwKCAjw4MP5BRBtEiwASfwAL3-Oi3uDo1sBfn2KpQVAlLb07T2ndP-Q2mCFxdGgpvoBMoPIAtbg9xoCyZgQAvD_BwE&gclsrc=aw.ds) (the Star Wars example) for the API fetch function that is used extensively across all the API calls in this website.
-
-*   [Code Institute course](https://codeinstitute.net/5-day-coding-challenge/?utm_term=%2Bcode%20%2Binstitute%20%2Bcourses&utm_campaign=a%2526c_BR_IRL_Code_Institute&utm_source=adwords&utm_medium=ppc&hsa_net=adwords&hsa_tgt=kwd-443742237303&hsa_ad=407017470923&hsa_acc=8983321581&hsa_grp=62188641040&hsa_mt=b&hsa_cam=1578649861&hsa_kw=%2Bcode%20%2Binstitute%20%2Bcourses&hsa_ver=3&hsa_src=g&gclid=CjwKCAjw4MP5BRBtEiwASfwAL3-Oi3uDo1sBfn2KpQVAlLb07T2ndP-Q2mCFxdGgpvoBMoPIAtbg9xoCyZgQAvD_BwE&gclsrc=aw.ds) (the [Emailjs](https://www.emailjs.com/) example) for the 'Contact Form' email return function used in this website.
-
-*   [Bootstrap4](https://getbootstrap.com/docs/4.4/getting-started/introduction/): Bootstrap Library used throughout the project mainly to make site responsive using the Bootstrap Grid System.
-
-*   [W3C Schools](https://www.w3schools.com/) referenced for the following code;
-    * The Navbar;
-    * The Carousel;
-    * Contact Form jQuery submission confirmation; and
-    * Country list menu drop down alphabetical sort.
+*   [Code Institute course](https://codeinstitute.net/5-day-coding-challenge/?utm_term=%2Bcode%20%2Binstitute%20%2Bcourses&utm_campaign=a%2526c_BR_IRL_Code_Institute&utm_source=adwords&utm_medium=ppc&hsa_net=adwords&hsa_tgt=kwd-443742237303&hsa_ad=407017470923&hsa_acc=8983321581&hsa_grp=62188641040&hsa_mt=b&hsa_cam=1578649861&hsa_kw=%2Bcode%20%2Binstitute%20%2Bcourses&hsa_ver=3&hsa_src=g&gclid=CjwKCAjw4MP5BRBtEiwASfwAL3-Oi3uDo1sBfn2KpQVAlLb07T2ndP-Q2mCFxdGgpvoBMoPIAtbg9xoCyZgQAvD_BwE&gclsrc=aw.ds);
+    * (the Star Wars example) for the API fetch function that is used extensively across all the API calls in this website;
+    * (the [Emailjs](https://www.emailjs.com/) example) for the 'Contact Form' email return function used in this website.
+    * (the 'Task List' example) by Tim Nelson for the [Flask](https://flask.palletsprojects.com/en/1.1.x/) / [Python](https://en.wikipedia.org/wiki/Python_(programming_language) / [MongoDB](https://www.mongodb.com/cloud/atlas) / [Materialize](https://materializecss.com/) example which is used for the base construction of this website.
+*   [Materialize](https://materializecss.com/);
+    * Materialize Library used throughout the project mainly to make site responsive;
+    * the responsive Grid System;
+    * the navbar; and
+    * the card system.
 
 ### Content
 
@@ -855,5 +844,7 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
     - V25.5 Update README for website purpose
     - V25.6 Update for first time user stories
     - V25.7 Update README for Design
+    - V25.8 Update README for languages, programmes, libraries
+    - V25.9 Update README code credits
 ***
 <b id="f1">1</b> **&** <b id="f2">2</b> **Future Features** in the [README.md](https://github.com/Readri205/MS2_Project/blob/master/README.md) identifies that a 'quick search' could be placed at the top of both the 'Home' page and the 'Country Details' page to facilitate regular and frequent users. Regular and frequent users may wish to immediately see the details for any particular country as soon as they come onto the site. This allows quick access to Country search rather than having to scroll down to the bottom of the page. 1[↩](#a1);2[↩](#a2)
