@@ -114,7 +114,11 @@
             * login to the site;
             * immediately view their plants list;
             * view their collections list;
-            * scroll down through the information, read the content, view the map of Africa, then view the line graphs and the pie charts;
+            * search for plants in one of the search methods;
+              * name;
+              * filter by attribute;
+              * image upload.
+            * add a plant to users plant list and a collection.
 
           * contact us to ask about data projects that they may be interested to have completed as an item of work.
             * Per images above
@@ -124,44 +128,50 @@
           * login to the site;
           * immediately view their plants list;
           * view their collections list.
-        * **A returning visitor** may want to go straight to the 'Country' search function<sup id="a1">[1](#f1)</sup>;
-
-            ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Search Bottom of Home Paget")
-
-          * search the details for a specific country from the dropdown menu;
-          * read the information about that country, view the map, zoom in and out on that map, review the line graphs and review the pie charts;
-          * search for another country and read the information about that country, view the map, zoom in and out on that map, review the line graphs and review the pie charts;
-          * see the data points on the line graphs or pie charts possible with a mouse hover on desktop/laptop, or touch screen on a mobile device.
-          * navigate easily back to the 'Home' page;
-          * search for another country and read the information about that country;
-        * **A returning visitor** may want to go straight to the 'Contact Us' page;
-          * contact us for more information or to provide comments about the site;
-          * contact us to ask about data projects that they may be interested to have completed as an item of work.
-
-          ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Contact in Menu Bar")
-
-    *   #### Frequent User Goals
-        * The frequent visitor will want to;
-          * find any new information supplied;
-          * view the carousel images just beneath the header;
-          * scroll down through the information, read the content, view the map of Africa, then view the line graphs and the pie charts;
-        * **A frequent visitor** may want to go straight to the 'Country' search function<sup id="a2">[2](#f2)</sup>;
-          * Scroll down the Home page to reach the 'Search Function';
+        * **A returning visitor** may want to go straight to the 'Plant' search function;
 
             ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Search Bottom of Home Page")
 
-          * search the details for a specific country from the dropdown menu (the site is easy and intuitive to use for a frequent visitor);
-          * read the information about that country, view the map, zoom in and out on that map, review the line graphs and review the pie charts;
-          * see the data points on the line graphs or pie charts possible with a mouse hover on desktop/laptop, or touch screen on a mobile device.
-          * search for another country and read the information about that country, view the map, zoom in and out on that map, review the line graphs and review the pie charts;
-          * navigate easily back to the 'Home' page;
-          * search for another country and read the information about that country;
-        * **A frequent visitor** may want to go straight to the 'Contact Us' page;
+            * search for plants in one of the search methods;
+              * name;
+              * filter by attribute;
+              * image upload.
+            * on finding a plant the user in they may want to find out more details on that plant by choosing the 'plant details' button;
+              * there a number of specific details including in the return;
 
-            ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Contact in Menu Bar")
+                  ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Search Bottom of Home Paget")
 
+            * the user may want to add the plant to their plant list and a collection.
+        * **A returning visitor** may want to go straight to the 'Contact Us' page;
           * contact us for more information or to provide comments about the site;
-          * contact us to ask about data projects that they may be interested to have completed as an item of work.
+          * contact us to ask about projects that they may be interested to have completed as an item of work.
+
+              ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Contact in Menu Bar")
+
+    *   #### Frequent User Goals
+        * The frequent user will want to;
+          * login to the site;
+          * immediately view their plants list;
+          * view their collections list.
+        * **A returning visitor** may want to go straight to the 'Plant' search function;
+
+            ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Search Bottom of Home Page")
+
+            * search for plants in one of the search methods;
+              * name;
+              * filter by attribute;
+              * image upload.
+            * on finding a plant the user in they may want to find out more details on that plant by choosing the 'plant details' button;
+              * there a number of specific details including in the return;
+
+                  ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Search Bottom of Home Paget")
+
+            * the user may want to add the plant to their plant list and a collection.
+        * **A frequent visitor** may want to go straight to the 'Contact Us' page;
+          * contact us for more information or to provide comments about the site;
+          * contact us to ask about projects that they may be interested to have completed as an item of work.
+
+              ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Contact in Menu Bar")
 
     *   #### Mobile Menu
           * On mobile devices the menu is shown as a 'hamburger' drop down;
@@ -174,13 +184,20 @@
 
 *   ### Design
     *   #### Colour Scheme
-        *   The main colour is 'Ivory' (#FFFFF0), designed to provide a light neutral background to highlight dark text, line graphs, pie charts, images and the country flags.
+        * The main colour is 'Teal' (#008080), designed to provide a light neutral background to highlight a 'Yellow" (#FFFF00) text. The colours have been manipulated to lighten or darken them using 'Materialize' CSS properties. The various shades of 'Teal' are used to reference the 'greenness' of the plant kingdom.
     *   #### Typography
-        *   The "Roboto" font is the main font used throughout the whole website with Sans Serif as the fallback font in case the font isn't imported into the site correctly. "Roboto" is a clean font which is both attractive and appropriate.
-    *   #### Box Content Structure
-        *   The box content structure is used to highlight specific messages and themes through the site. This identifies the text high level summaries on the 'Home' and the 'Country Details' page. In addition the box structure is used to highlight the maps, the line graphs and pie charts on the 'Home' and 'Country Details' pages. The 'Contact Us' page uses the same box structure to present the 'contact form'. Each of the boxes has a shadow effect to lift them from the background and to provide a definitive outline for the contained information.
+        * The "Roboto" font is the main font used throughout the whole website with Sans Serif as the fallback font in case the font isn't imported into the site correctly. "Roboto" is a clean font which is both attractive and appropriate.
+    *   #### 'Materialize' Card Structure
+        * The 'Materialize' card structure is used to return search results. This structures the returns into identifiable components with an image and details for a particular return. This keeps each return distinct and independent of each other.
+        * The user plant and the collections lists are not constructed in 'Materialize' cards but are shown as accordion lists that the user can access to view more details on each item.
     *   #### Imagery
-        *   The header contains an Africa theme with a simple title. The large images in the carousel are designed to be striking and catch the user's attention and to provide some unique image themes from the African continent. To provide some context on larger screens each image has a clear title description sourced from the original image provided by the contributor. Note that on some screen sizes the titles can be difficult to read where they blend into the image. As the titles are not fundamental to the website information it has been considered 'acceptable'. On small screens the image titles are removed, due to space and readability constraints.
+        * The header contains a carousel designed to be striking and catch the user's attention and to provide some unique image themes. To provide some context on larger screens each image has a clear title description sourced from the original image provided by the contributor. Note that on some screen sizes the titles can be difficult to read where they blend into the image. As the titles are not fundamental to the website information it has been considered 'acceptable'. On small screens the image titles are removed, due to space and readability constraints.
+        * The background image is of a 'Cherry Tree', designed to provide a light neutral background yet reference the plant kingdom. The 'Cherry Tree' is significant in Japanese culture specifically for empathy and are used to create an 'ambience'. In the UK it is one of the first widely identifiable blossoms at the onset of spring.
+
+            ![alt text](https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Hiroshige%2C_36_Views_of_Mount_Fuji_Series_7.jpg/340px-Hiroshige%2C_36_Views_of_Mount_Fuji_Series_7.jpg "Hiroshige")
+
+            [36 Views of Mount Fuji, By Hiroshige](https://en.wikipedia.org/wiki/Hiroshige),
+            [Licence is Public Domain](https://commons.wikimedia.org/wiki/Commons:Licensing#Material_in_the_public_domain)
 
 *   ### Wireframes
     *   #### Original Wireframe Design (July 2, 2020).
@@ -837,5 +854,6 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
     - V25.4 Update README for functionality
     - V25.5 Update README for website purpose
     - V25.6 Update for first time user stories
+    - V25.7 Update README for Design
 ***
 <b id="f1">1</b> **&** <b id="f2">2</b> **Future Features** in the [README.md](https://github.com/Readri205/MS2_Project/blob/master/README.md) identifies that a 'quick search' could be placed at the top of both the 'Home' page and the 'Country Details' page to facilitate regular and frequent users. Regular and frequent users may wish to immediately see the details for any particular country as soon as they come onto the site. This allows quick access to Country search rather than having to scroll down to the bottom of the page. 1[↩](#a1);2[↩](#a2)
