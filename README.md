@@ -71,7 +71,7 @@
   * **filter** to identify **colour** characteristics for a plant; and
   * **image** using a computer or mobile device to upload a **file image**.
 
-* The website sources data from the **[Trefle.io](https://trefle.io/)** and **[Plant.id](https://plant.id/)**. The website primarily makes use of Application Programming Interfaces (API's) to construct the plant search data. The **[MongoDB](https://www.mongodb.com/cloud/atlas)** is used to store user data and allows for create, read, update and delete data for plant details and their user login data. API and other data source details are provided in the **'Application Programming Interfaces (API's) Used'** section below.
+* The website sources data from the **[Trefle.io](https://trefle.io/)** and **[Plant.id](https://plant.id/)**. The website primarily makes use of Application Programming Interfaces (API's) to construct the plant search data. The **[MongoDB](https://www.mongodb.com/cloud/atlas)** is used to store user data and allows for create, read, update and delete data **(CRUD)** for plant details and their user login data. API and other data source details are provided in the **'Application Programming Interfaces (API's) Used'** section below.
 
 * If the site is perceived as successful, it is anticipated that the site could be expanded as;
   * there is a significant amount of data in the Trefle database that can be utilised for more specific searches and filtering;
@@ -188,7 +188,7 @@
     *   #### Typography
         * The site uses the 'Materialize' default font 'Roboto' font is the main font used throughout the whole website. 'Roboto' is a clean font which is both attractive and appropriate.
     *   #### 'Materialize' Card Structure
-        * The 'Materialize' card structure is used to return search results. This structures the returns into identifiable components with an image and details for a particular return. This keeps each return distinct and independent of each other.
+        * The 'Materialize' card structure is used to return search results. This structures the returns into identifiable components with an image and corresponding details for a return. This keeps each return distinct and independent of each other.
         * The user plant and the collections lists are not constructed in 'Materialize' cards but are shown as accordion lists that the user can access to view more details on each item.
     *   #### Imagery
         * The header contains a carousel designed to be striking and catch the user's attention and to provide some unique image themes. To provide some context on larger screens each image has a clear title description sourced from the original image provided by the contributor. Note that on some screen sizes the titles can be difficult to read where they blend into the image. As the titles are not fundamental to the website information it has been considered 'acceptable'. On small screens the image titles are removed, due to space and readability constraints.
@@ -196,7 +196,7 @@
 
             ![alt text](https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Hiroshige%2C_36_Views_of_Mount_Fuji_Series_7.jpg/340px-Hiroshige%2C_36_Views_of_Mount_Fuji_Series_7.jpg "Hiroshige")
 
-            *[36 Views of Mount Fuji, By Hiroshige](https://en.wikipedia.org/wiki/Hiroshige),*
+            *[No.7 from '36 Views of Mount Fuji', By Hiroshige](https://en.wikipedia.org/wiki/Hiroshige),*
 
             *[Licence: Public Domain](https://commons.wikimedia.org/wiki/Commons:Licensing#Material_in_the_public_domain)*
 
@@ -222,7 +222,7 @@
           1. The **Home** page has a number of cards explaining the key features of the site, but there is no **'Calendar View'** feature;
           1. The **Calendar Feature** has proven difficult to implement as information to support this appears lacking in the plant world. Most plant and gardening information providers appear to have their own databases to support this kind of feature as a Unique Selling Product (USP). The Trefle.io database has some details such as 'bloom months' and 'sowing months'. However, this data is not complete. The feature could be added as a future feature on the site.
           1. The **'Contact Form'** has its own page. It is accessible from every page either through the main menu or from the footer;
-        * The above listed sources were utilised.
+        * The listed API sources, [Trefle.io](https://trefle.io/), [Plant.id](https://plant.id/) were utlised. [Emailjs](https://www.emailjs.com/) was utilised for email response.
 
 ## Features
 
@@ -263,9 +263,11 @@
 
 *   ### Future Features
     * If a user adds a plant to their list from the Trefle.io search , it would be useful to link directly back to the Trefle.io database in order to return more of the details on that plant.
+    * Increase the number of filter types in searches. Currently only 'colour' is provided but further filters could be included such as 'edible plants', 'soil types', 'plant height', and 'water conditions'.
+    * More complex filters could also be provided to include more than one filter type such as 'colour' and 'soil type'.
     * Improve the quality of data returns for a specific plant in searches, either from updated data submissions in the Trefle.io database or supplement the plant data returns from other available databases.
     * Directly link any search to sources for plant purchase from;
-      * local suppliers to the user based on geolocation identifiers; or
+      * local suppliers to the user based on geolocation identifiers; and/or
       * create the ability to online purchase from an identified supplier.
     * Provide an option for the user to image capture a plant in their garden which takes them directly to pertinent care details for that particular plant.
     * More sophisticated features include image identifying plants say at a garden centre and being able to compare the plant growing requirements to a users own garden conditions such as light, soil type, water, ph etc.
@@ -324,28 +326,17 @@
 
 ### Application Programming Interfaces (API's) Used
 
-* The website sources data from the **[World Bank Database](https://databank.worldbank.org/home.aspx)**. The website primarily makes use of API's to construct the country data, however in certain instances CSV files are used to provide summary level information. The **[Referential](https://rapidapi.com/referential/api/referential)** API via **[RapidAPI](https://rapidapi.com/)** is used to source country codes to construct country information and **[CountryFlags](https://www.countryflags.io/)** for country flag images. **[Leaflet](https://leafletjs.com/)** is used as a javascript library for **[Mapbox](https://www.mapbox.com/)** maps with **[OpenStreetMap](https://www.openstreetmap.org)** tile data, but use the API data to return a Country map for a specific country in the search function.
-* jQuery AJAX is used to load the API calls asynchronously.
+* The website sources data from the **[Trefle.io](https://trefle.io/)** and the **[Plant.id](https://plant.id/)** databases. The API's provide search capabilities for users to identify plants in a number of ways.
 
-  * [Referential API](https://rapidapi.com/referential/api/referential)
-      * The Referential API (sourced via [RapidAPI](https://rapidapi.com/)) was used to provide the country code to source all the country data in the search function. It provides the full list of countries in the drop down menu and on country selection, the country codes drive the other API's to return the required information. The Referential API is loaded with the 'Continent' denominator for the African Countries 'AF' (shown at the end of the link below). The API returns a full list of countries each with their respective two digit country codes (example: Nigeria='NG'). Please note that the API requires an Application Key so the link will not return a result. Please see the screenshot image of two countries' data, Nigeria (Key=NG) and Rwanda (Key=RW) as an example return (Note the API returns all 54 countries). The full API string is also shown below for documentation purposes.
-        * [Country Code List](https://referential.p.rapidapi.com/v1/country?fields=currency%25252Ccurrency_num_code%25252Ccurrency_code%25252Ccontinent_code%25252Ccurrency%25252Ciso_a3%25252Cdial_code&continent_code=AF), **https://referential.p.rapidapi.com/v1/country?fields=currency%25252Ccurrency_num_code%25252Ccurrency_code%25252Ccontinent_code%25252Ccurrency%25252Ciso_a3%25252Cdial_code&continent_code=AF**
+  * [Trefle.io](https://trefle.io/)
+    * The [Trefle.io](https://trefle.io/) database was used as the primary search database for a user;
+      * entering a 'name'; or
+      * by using a filter by 'colour'.
 
-            ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
-  * [World Bank Database](https://databank.worldbank.org/home.aspx)
+          ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
 
-      * The World Bank Database was used as the primary source for the data in the site. The relevant World bank API's are requested for data once a user selects a country in the search function which drives the relevant country code. Once the country code is determined, a number of different API's are used to determine Capital City, Land Size, Population and GDP for the World sectors, Africa and the 54 African Countries listed. The World Bank uses a standard link to reach the core of its data (https://api.worldbank.org/v2/country/YY/indicator/XX.XXX.XXX.XX), where;
-          * **'YY'** = 'Country Code' eg 'NG'; and
-          * **'XX.XXX.XXX.XX'** = 'relevant data string for land, population or GDP data' - see below.   
-      * By way of example, the list below links directly to the API 'raw' data return for 'Nigeria', with country code 'NG' in the API link. The links below are also shown in full for documentation purposes;
-        * [Capital City, Latitude and Longitude](https://api.worldbank.org/v2/country/NG), **https://api.worldbank.org/v2/country/NG**
-        * [Land Size](https://api.worldbank.org/v2/country/NG/indicator/AG.LND.TOTL.K2), **https://api.worldbank.org/v2/country/NG/indicator/AG.LND.TOTL.K2**
-        * [Population](https://api.worldbank.org/v2/country/NG/indicator/SP.POP.TOTL), **https://api.worldbank.org/v2/country/NG/indicator/SP.POP.TOTL**
-        * [GDP](https://api.worldbank.org/v2/country/NG/indicator/NY.GDP.MKTP.CD), **https://api.worldbank.org/v2/country/NG/indicator/NY.GDP.MKTP.CD**
-      * Note that not all countries have complete data in the API's either completely or for any number of years between 1970 and 2019. This will be evident in the line graph returns for any country. Sudan and South Sudan do not return any Land Size data in the land size data API. As this is the case, the Land Size numbers for [Sudan](https://en.wikipedia.org/wiki/Sudan) and [South Sudan](https://en.wikipedia.org/wiki/South_Sudan) are sourced from Wikipideia and the Land Size total for Africa has also been adjusted accordingly.
-  * [CountryFlags](https://www.countryflags.io/)
-      * The Country Flags API was used to return the national flag for the country selected in the search Function. By way of example, the list below links directly to the API return for 'Nigeria', with country code 'NG' in the API link. The link below is also shown in full for documentation purposes;
-        * [Country Flag, Nigeria](https://www.countryflags.io/ng/shiny/64.png), **https://www.countryflags.io/ng/shiny/64.png**
+  * [Plant.id](https://plant.id/)
+    * The [Plant.id](https://plant.id/) database was used as the source for plant searches based on a user uploading an image.
 
 ## Site Construction
 
@@ -837,5 +828,6 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
     - V25.8 Update README for languages, programmes, libraries
     - V25.9 Update README code credits
     - V26.0 Update README for wireframe and features
+    - V26.1 Update README for APIs
 ***
 <b id="f1">1</b> **&** <b id="f2">2</b> **Future Features** in the [README.md](https://github.com/Readri205/MS2_Project/blob/master/README.md) identifies that a 'quick search' could be placed at the top of both the 'Home' page and the 'Country Details' page to facilitate regular and frequent users. Regular and frequent users may wish to immediately see the details for any particular country as soon as they come onto the site. This allows quick access to Country search rather than having to scroll down to the bottom of the page. 1[↩](#a1);2[↩](#a2)
