@@ -1,0 +1,32 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container teal lighten-4 teal-text text-darken-4">
+<div class="contact-box">
+	<h3 class="uppercase info-box-header">Contact Details</h3>
+	<p>Please contact us to let us know your comments on the site. We are keen to know more about what you like and what you don't like. We can also provide you with regular updates as to any changes and additions to the site. The current intention is to add more details and graphs for each of the countries.</p>
+	<p>If you are interested in talking to us about any projects, let us know in the form below and we will contact you to discuss further.</p>
+	<div class="center-form">
+		<form id="myForm" method="post" name="myForm" onsubmit="return sendMail(this);"><br>
+			<input class="form-control" id="fname" name="first_name" placeholder="First Name" required="" type="text"><br>
+			<input class="form-control" id="lname" name="last_name" placeholder="Last Name" required="" type="text"><br>
+			<input class="form-control" id="email" name="email_address" placeholder="Email Address" required="" type="email"><br>
+			<input class="form-control" id="contactno" name="contactno" placeholder="+XX (0) Contact No." required="" type="text"><br> <textarea class="form-control" id="comment" name="text" placeholder="Questions, comments or suggestions!" required="" rows="5"></textarea>
+			<div class="row text-center">
+			    <div class="col"><br>
+					<button class="btn btn-secondary" type="submit">Send Contact Details!</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	</div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+	<script>
+		(function () {
+			emailjs.init("user_hdnXX8G7GshN7scwXaHR9");
+		})();
+	</script>
+	<script src="static/js/sendemail.js"></script>
+{% endblock %}

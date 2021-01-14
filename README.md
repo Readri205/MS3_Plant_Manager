@@ -435,9 +435,9 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
 * **Other students** (Slack Code Institute Workspace) on the Full Stack Developer Course, via the [Slack Communication Platform](https://slack.com/intl/en-gb/).
 * **Peer Code Review** (Slack Channel)
 The website was uploaded to the 'Peer Code Review' Slack Channel designed to receive direct inputs from other developers. This provides useful third party feedback on the website;
- * @Dante **Dante Healy** for continuous positive feedback on the site usability and design and for testing the EmailJS service;
- * @Eamonn **Eamonn Smythe** for positive feedback and suggestion to include a margin around the maps to assist page scrolling on mobile devices and for testing the EmailJS service; and
- * @Jimlynx **Jim Morel** for his review and extremely positive feedback on the site.
+  * @Dante **Dante Healy** for continuous positive feedback on the site usability and design and for testing the EmailJS service;
+  * @Eamonn **Eamonn Smythe** for positive feedback and suggestion to include a margin around the maps to assist page scrolling on mobile devices and for testing the EmailJS service; and
+  * @Jimlynx **Jim Morel** for his review and extremely positive feedback on the site.
 * **Friends and family** providing review and feedback on the site content, navigation and screen size testing. This has been invaluable with two very 'have mobile, will travel' daughters, it is often brutal but effective.
 
 ## Version Control
@@ -702,5 +702,5 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
    - V26.4 Remove old images from README
    - V26.5 Format amends on README
    - V26.6 Further format amends on README
+   - V26.7 Add contact us form
 ***
-<b id="f1">1</b> **&** <b id="f2">2</b> **Future Features** in the [README.md](https://github.com/Readri205/MS2_Project/blob/master/README.md) identifies that a 'quick search' could be placed at the top of both the 'Home' page and the 'Country Details' page to facilitate regular and frequent users. Regular and frequent users may wish to immediately see the details for any particular country as soon as they come onto the site. This allows quick access to Country search rather than having to scroll down to the bottom of the page. 1[↩](#a1);2[↩](#a2)

@@ -35,6 +35,7 @@
                         <li><a href="{{ url_for('login') }}" class="yellow-text text-darken-4">Log In</a></li>
                         <li><a href="{{ url_for('register') }}" class="yellow-text text-darken-4">Register</a></li>
                     {% endif %}
+                    <li><a href="{{ url_for('contact') }}" class="yellow-text text-darken-4">Contact Us</a></li>
 				</ul>
         </div>
 		</nav> 
@@ -52,11 +53,12 @@
 			<li><a class="dropdown-trigger yellow-text text-darken-4" href="#!"
 					data-target="dropdown9">Search<i class="fad fa-caret-down"></i></a></li>
 			<li><a class="dropdown-trigger yellow-text text-darken-4" href="#!"
-					data-target="dropdown10">My Details<i class="fad fa-caret-down"></i></a></li>
+                    data-target="dropdown10">My Details<i class="fad fa-caret-down"></i></a></li>
 			{% else %}
 			<li><a href="{{ url_for('login') }}" class="yellow-text text-darken-4">Log In</a></li>
-			<li><a href="{{ url_for('register') }}" class="yellow-text text-darken-4">Register</a></li>
-			{% endif %}
+            <li><a href="{{ url_for('register') }}" class="yellow-text text-darken-4">Register</a></li>
+            {% endif %}
+            <li><a href="{{ url_for('contact') }}" class="yellow-text text-darken-4">Contact Us</a></li>
 		</ul>
 
 		<ul id="dropdown1" class="dropdown-content teal darken-4">
@@ -68,7 +70,6 @@
 			<li><a href="{{url_for('add_collections')}}" class="yellow-text text-darken-4">Add Collections</a></li>
 		</ul>
         <ul id="dropdown3" class="dropdown-content teal darken-4">
-            
 		</ul>
 		<ul id="dropdown4" class="dropdown-content teal darken-4">
             <li><a href="{{url_for('get_trefle_many')}}" class="yellow-text text-darken-4">Trefle Search</a></li>

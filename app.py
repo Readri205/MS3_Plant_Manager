@@ -50,6 +50,11 @@ def get_home():
     return render_template("index.html")
 
 
+@app.route("/contact", methods=["GET", "POST"])
+def contact():
+    return render_template("contact.html")
+
+
 @app.route("/get_plants")
 def get_plants():
     return render_template("plants.html",
