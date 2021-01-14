@@ -55,28 +55,28 @@
 
 ## Site Goals
 
-* This website provides a functional site that allows users to create a list of plants in collections, either by entering plant details or by uploading from a search. The searches can be made in a number of ways, including by name, image or by filters. Users are able to update the details of plants and collections in their lists. Users are also able to delete plants and collections. A user can also move a plant from one collection to another if so desired. A user can also amend their personal details including email, username and telephone number. A user is also able to fully delete their login and all plants and collections listed on that login. Each users logn and details are specific to that user and cannot be viewed by any other user.
+  * This website provides a functionality for users to create a list of plants in collections, either by entering plant details or by uploading from a search. The searches can be made in a number of ways, including by name, image or by filters. Users are able to update the details of plants and collections in their lists. Users are also able to delete plants and collections. A user can also move a plant from one collection to another if so desired. A user can also amend their personal details including email, username and telephone number. A user is also able to fully delete their login and all plants and collections listed on that login. Each users logn and details are specific to that user and cannot be viewed by any other user.
 
-* The website is **'functional'**, allowing users to enter information about **Plants** and to view information on specific plants. The site is designed to show details on **Plants** where required.
-* The website concept is to provide a user with a useful list of plants;
- * what is the name of the plant?
- * what are the scientific names and details?
- * what collection do I have the plant in?
-* The structure for the **Plants** is provided by;
- * a list of **plants** entered by and for, a specific user;
- * a list of **collections** entered in which plants can be listed;
-* The plants to be entered can be made using the following methods;
- * **manual** where a user already has details for a plant, external to the application;
- * **search** to identify a **name** characteristic for a plant;
- * **filter** to identify **colour** characteristics for a plant; and
- * **image** using a computer or mobile device to upload a **file image**.
+  * The website is **'functional'**, allowing users to enter information about **Plants** and to view information on specific plants. The site is designed to show details on **Plants** where required.
+  * The website concept is to provide a user with a useful list of plants;
+    * what is the name of the plant?
+    * what are the scientific names and details?
+    * what collection do I have the plant in?
+    * The structure for the **Plants** is provided by;
+      * a list of **plants** entered by and for, a specific user;
+      * a list of **collections** entered in which plants can be listed;
+      * entering a plant can be made using the following methods;
+        * **manual** where a user already has details for a plant, external to the application;
+        * **search** to identify a **name** characteristic for a plant;
+        * **filter** to identify **colour** characteristics for a plant; and
+        * **image** using a computer or mobile device to upload a **file image**.
 
-* The website sources data from the **[Trefle.io](https://trefle.io/)** and **[Plant.id](https://plant.id/)**. The website primarily makes use of Application Programming Interfaces (API's) to construct the plant search data. The **[MongoDB](https://www.mongodb.com/cloud/atlas)** is used to store user data and allows for create, read, update and delete data **(CRUD)** for plant details and their user login data. API and other data source details are provided in the **'Application Programming Interfaces (API's) Used'** section below.
+        * The website sources data from the **[Trefle.io](https://trefle.io/)** and **[Plant.id](https://plant.id/)**. The website primarily makes use of Application Programming Interfaces (API's) to construct the plant search data. The **[MongoDB](https://www.mongodb.com/cloud/atlas)** is used to store user data and allows for create, read, update and delete data **(CRUD)** for plant details and their user login data. API and other data source details are provided in the **'Application Programming Interfaces (API's) Used'** section below.
 
-* If the site is perceived as successful, it is anticipated that the site could be expanded as;
- * there is a significant amount of data in the Trefle database that can be utilised for more specific searches and filtering;
- * other API sources could also be utilised to improve the information set;
- * other functions could be added such as creating as a calendar for gardening jobs at a particular time of year.
+  * If the site is perceived as successful, it is anticipated that the site could be expanded as;
+    * there is a significant amount of data in the Trefle database that can be utilised for more specific searches and filtering;
+    * other API sources could also be utilised to improve the information set;
+    * other functions could be added such as creating as a calendar for gardening jobs at a particular time of year.
 
 * The site is designed to be responsive and accessible on a range of devices, making it easy to navigate for interested users. The website was designed using **'Mobile First'** principles as the site must be perceived to be quick and easy to use and read as a reference site on a mobile device.
 
@@ -216,21 +216,21 @@
 
 *   ### Interactive Elements
     * The first key feature of the site is the ability for the user to;
-     * enter their own list of plants;
-     * place their listed plants into collections;
-     * define their collections.
+       * enter their own list of plants;
+       * place their listed plants into collections;
+       * define their collections.
     * The second key features of the site is the ability for a user to search for plants;
-     * by entering a 'name';
-     * by using a filter for required 'colours'; or
-     * upload an image from file.
+       * by entering a 'name';
+       * by using a filter for required 'colours'; or
+       * upload an image from file.
     * Each method returns results that the user can;
-     * review and choose to see more details on any particular return;
-     * add the plant to their list and to a collection.
-     * if the search is based on a Trefle.io search the Trefle.io plant id is also added to the list for cross reference to the database.
+       * review and choose to see more details on any particular return;
+       * add the plant to their list and to a collection.
+       * if the search is based on a Trefle.io search the Trefle.io plant id is also added to the list for cross reference to the database.
    * The user is able to contact us via the 'Contact Us' page.
-     * This page has an interactive contact form that the user can complete and submit their details through to us.
-     * There is an open text box so that the user can submit comments.
-     * When the user submits their details by clicking the 'Send Contact Details' button, a modal pops up to confirm that details have been sent.
+       * This page has an interactive contact form that the user can complete and submit their details through to us.
+       * There is an open text box so that the user can submit comments.
+       * When the user submits their details by clicking the 'Send Contact Details' button, a modal pops up to confirm that details have been sent.
 
 *   ### Future Features
     * If a user adds a plant to their list from the Trefle.io search , it would be useful to link directly back to the Trefle.io database in order to return more of the details on that plant.
@@ -238,8 +238,8 @@
     * More complex filters could also be provided to include more than one filter type such as 'colour' and 'soil type'.
     * Improve the quality of data returns for a specific plant in searches, either from updated data submissions in the Trefle.io database or supplement the plant data returns from other available databases.
     * Directly link any search to sources for plant purchase from;
-      * local suppliers to the user based on geolocation identifiers; and/or
-      * create the ability to online purchase from an identified supplier.
+        * local suppliers to the user based on geolocation identifiers; and/or
+        * create the ability to online purchase from an identified supplier.
     * Provide an option for the user to image capture a plant in their garden which takes them directly to pertinent care details for that particular plant.
     * More sophisticated features include image identifying plants say at a garden centre and being able to compare the plant growing requirements to a users own garden conditions such as light, soil type, water, ph etc.
     * The **Calendar Feature** has proven difficult to implement as information to support this appears lacking in the plant world. Most plant and gardening information providers appear to have their own databases to support this kind of feature as a Unique Selling Product (USP). The Trefle.io database has some details such as 'bloom months' and 'sowing months'. However, this data is not complete. The feature could be added as a future feature on the site.
@@ -701,5 +701,6 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
    - V26.3 Further README updates for Site Construction
    - V26.4 Remove old images from README
    - V26.5 Format amends on README
+   - V26.6 Further format amends on README
 ***
 <b id="f1">1</b> **&** <b id="f2">2</b> **Future Features** in the [README.md](https://github.com/Readri205/MS2_Project/blob/master/README.md) identifies that a 'quick search' could be placed at the top of both the 'Home' page and the 'Country Details' page to facilitate regular and frequent users. Regular and frequent users may wish to immediately see the details for any particular country as soon as they come onto the site. This allows quick access to Country search rather than having to scroll down to the bottom of the page. 1[↩](#a1);2[↩](#a2)
