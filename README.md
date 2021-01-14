@@ -703,5 +703,5 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
    - V26.5 Format amends on README
    - V26.6 Further format amends on README
    - V26.7 Add contact us form
-   - V26.8 Amend capture in plant.id image upload
+   - V26.8 Align plant.id images vertically
 ***

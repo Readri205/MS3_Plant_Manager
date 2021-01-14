@@ -18,10 +18,10 @@
             <div class="row col s6 card-panel teal lighten-4">
             <img class="plant-image" src="{{ media }}" alt="No image"/>
         </div>
-<ul class="">
+<ul class="row">
     {% for suggestion in response['suggestions'] %}
     <li>
-    <div class="col s6">
+    <div class="col s12 m6">
       <div class="teal lighten-4">
 		<div class="plant_id">
 			<ul>
@@ -29,13 +29,16 @@
                 <strong>Common Names: </strong>
                 {% if suggestion["plant_details"]["common_names"] != None %}
                     {% for common_name in suggestion["plant_details"]["common_names"] %}
+                
                         {{ common_name.title() }},
+                
                     {% endfor %}
                 {% else %}
                     None
                 {% endif %}
                 </li>
                 <li><strong>Plant Name:</strong><em>{{ suggestion["plant_name"] }}</em></li>
+                
                 <li><strong>Similar Images:</strong>
                     <div class="row col s12">
                     <ul>
@@ -54,10 +57,20 @@
                 </li>
             </ul>
             <div class="">
+            <ul>
+                <li><strong>Wiki Description:</strong> <em>{{ suggestion['plant_details']['wiki_description']['value'] }}</em>
+                </li>
+                <li><strong>License Name:</strong>
+                    <a href="{{ suggestion['plant_details']['wiki_description']['license_url'] }}" target="_blank">{{ suggestion['plant_details']['wiki_description']['license_name'] }}</a>
+                </li>
+            </ul>
+
+            <div class="">
                 <a href="{{ suggestion['plant_details']['url'] }}" target="_blank">WIKI link to "{{ suggestion['plant_name'] }}"</a>
             </div>
         </div>
       </div>
+    </div>
     </div>
     </li>
     {% endfor %}
