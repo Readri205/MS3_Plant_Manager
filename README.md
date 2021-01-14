@@ -2,7 +2,7 @@
 
 [View the live **GARDEN MANAGER**  :seedling:  project here.](https://plant-manager-flask-mongodb.herokuapp.com/)
 
-![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/perennial254287.jpg?raw= "Garden Logo")
+![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/pamela-heckel-unsplash.jpg?raw= "Garden Logo")
 
 # **GARDEN MANAGER :seedling:**
 
@@ -309,8 +309,6 @@
     - Emailjs is used to send the email from the contact form on the 'Contact Us' page.
 * [Favicon.io:](https://favicon.io/)
     - Favicon.io was used for Favicon :seedling: web page title images.
-* [Quackit:](https://www.quackit.com/character_sets/emoji/)
-    - Quackit was used for the search function emojis.
 * [Photoshop:](https://www.adobe.com/ie/products/photoshop.html)
     - Photoshop was used to resize images and edit photos for the website.
 * [dirtyMarkup:](https://www.10bestdesign.com/dirtymarkup/)
@@ -342,117 +340,23 @@
 
 * ### Consistent Page Components
     * All pages of the site contain the same 'header', 'navbar', 'carousel' and 'footer';
-      * **Header** consists of a title image with hand drawn doodles and a scripted 'Africa'.
-      * **Navbar** is a menu top bar that is fixed to the top of the screen even on scroll down. It has a black background with light coloured lettering. There is a light backdrop highlighting the page that the user is on. The menu allows for easy access to any of the three pages at all time. If a user selects the 'Country Details' page, Nigeria is the default country selected. On mobile devices, the menu becomes a 'hamburger' and muct be 'touched' in order to select any of the three pages,
-      * **Carousel** Just beneath the main 'title' header image is a carousel of five images. These images are large and designed to create visual impact, especially as they scroll through from one to the other. The images are the same for all three pages. The images have been selected to represent 'Africa' but not necessarily in a traditional sense. Images of 'animals' and portraits of 'people' have been explicitly avoided.
-      * **Footer** The footer is displayed on all three pages and is consistent. There are three sections **'About'** - describes 'us' as an organisation, **'Data Analysis and Presentation Requirements?'** - describes what we do, and **'Contact'** - describes how to contact **'us'** to discuss what we can do for **'you'**.
+      * **Header** consists of a title carousel images with titles.
+      * **Navbar** is a menu top bar dark yellow coloured lettering. There is a light backdrop highlighting the page that the user is on. The menu allows for easy access to any of the pages at all time. On mobile devices, the menu becomes a 'hamburger' and must be 'touched' in order to select any of the pages.
+      * **Carousel** The main 'title' header image is carousel images. These images are large and designed to create visual impact, especially as they scroll through from one to the other. The images are the same for all pages. The images have been selected to represent the 'Plant Kingdom'.
+      * **Footer** The footer is displayed on all pages and is consistent. There are three sections **'About'** - describes 'us' as an organisation, **'Data Analysis and Presentation Requirements?'** - describes what we do, and **'Contact'** - describes how to contact **'us'** to discuss what we can do for **'you'**.
 * ### Home Page
     * Information Box
       * Contains the details as to the intention of the site and a how it can be used. It also contains the basic information for Africa in a high level context.
-      * The data included in the information box for the **World** figures is computed using the **worldstats.js** file for each of Land Size, Population and GDP. The respective sizes for **Africa** are computed separately from the World Bank Database Excel file download located [here](XX).
-      * Note that as the World Bank Database does not show any Land Size data for [Sudan](https://en.wikipedia.org/wiki/Sudan) and [South Sudan](https://en.wikipedia.org/wiki/South_Sudan), the values have been sourced from Wikipideia, and adjusted for Africa and the World Land Size Totals.
-      ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
-    * Map
-      * The Africa Map is constructed using the **africamap.js** file which uses the [Leaflet](https://leafletjs.com/) library, based on [Mapbox](https://www.mapbox.com/) Map imagery and[OpenStreetMap](https://www.openstreetmap.org) data providers. The Map is centred on Ouesso, Republic of Congo (1.6155N, 16.0464E) in the Map Box.
-
-        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
-    * Line Graphs and Pie Charts
-      * The graphs and charts use the [Chartsjs](https://www.chartjs.org/) javascript library.
-      * The Line Graphs and Pie Charts are all computed in the **totalcharts.js** file.
-        * The Line Graphs reference [pop.csv](https://github.com/Readri205/MS2_Project/blob/master/assets/csv/pop.csv) and [gdp.csv](https://github.com/Readri205/MS2_Project/blob/master/assets/csv/gdp.csv) respectively to create the historical data between 1970 and 2019.
-
-          ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
-
-          ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
-        * The Pie Charts are directly loaded with the data in the **totalcharts.js** file.
-
-          ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
-
-          ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
-
-          ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
-    * Country Search Function
-      * the Search Function is a drop down menu that references the **getcountries.js** file. The country selection made by the user will return the required information about the Country selected on the 'Country Details' page. The **getcountries.js** file will return the required two digit **countryCode** that is fed into all the relevant API's (described below in the 'Country Details' Page section) that in turn generate the required returns for the Country selected.
-
-        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
-* ### Country Details Page (Nigeria has been used by way of example)
-    * Country Information
-      * Contains the basic information for the **Country** selected.
-      * The Country Name, National Flag and Capital City is returned in the **countrystats.js** file  from the relevant API's.
-      * The data included in the information box for the **Country** figures and percentages is computed in the **countrystats.js** file for each of Land Size, Population and GDP on returns from the relevant API's. The respective sizes for **Africa** are computed separately from the **World Bank Database** Excel file download located [here](XX).
-      * Note that as the World Bank Database does not show any Land Size data for [Sudan](https://en.wikipedia.org/wiki/Sudan) and [South Sudan](https://en.wikipedia.org/wiki/South_Sudan), the values have been sourced from Wikipideia, and adjusted for Africa and the World Land Size Totals.
-      * The following code at **line 107** in the **countrystats.js** file is used to account for Sudan and South Sudan Land Size data after the API from the search function is called;
-
-      ```JavaScript
-        function writeLandSize(data) {
-          if (countryCode == "SD") {
-              landsize = 1886068;
-            } else if (countryCode == "SS") {
-              landsize = 619745;
-            } else {
-              item = data[1];
-              landsize = item[1].value.toFixed(0);
-            }
-            perc = (landsize / 295097.44).toFixed(2);
-            document.getElementById("landsize").innerHTML += ("Land Size:   " + landsize + "   Sq. Kms" + " " + " - " + perc + "% of total Africa Land Size (29.51 Mn Sq. Kms)");
-          }
-        ```
-        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
-    * Country Map
-      * The Country Map is centred on the Capital City Latitude and Longitude. The map is generated by reference to the **countrymap.js** file which uses the [Leaflet](https://leafletjs.com/) library, based on [Mapbox](https://www.mapbox.com/) Map imagery and[OpenStreetMap](https://www.openstreetmap.org) data providers.
-        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
-    * Country Line Graphs
-      * The Country Line Graphs are returned in the **countrygraphs.js** file  from the relevant API's.
-        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
 
         ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
 
-    * Country and Top 5 Pie Charts
-      * The Country and Top 5 Pie charts are returned in the **piecountry.js** file  from the relevant API's.
-      * The following code at **line 18** in the **piecountry.js** file is used to account for Sudan and South Sudan Land Size data (in the Land Size Pie Chart) after the API from the search function is called;
-      ```javascript
-        function writeLand(data) {
-          if (countryCode == "SD") {
-            item = data[1][1];
-            countland = 1886068 / 1000000;
-            } else if (countryCode == "SS") {
-            item = data[1][1];
-            countland = 619745 / 1000000;
-            } else {
-            item = data[1][1];
-            countland = item.value / 1000000;
-            }
-            const roaland = (29.509744 - countland);
-          }
-      ```
-        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
+* ### Login Page
 
-        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
+    * Login details
 
-        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
+* ### My Details
 
-      * The Top 5 Pie charts are computed in the **piecountry.js** file. Each chart for Land Size, Population and GDP references CSV files; [land.csv](https://github.com/Readri205/MS2_Project/blob/master/assets/csv/land.csv), [poptotes.csv](https://github.com/Readri205/MS2_Project/blob/master/assets/csv/poptotes.csv) and [gdptotes.csv](https://github.com/Readri205/MS2_Project/blob/master/assets/csv/gdptotes.csv) respectively.
-
-        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
-
-        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
-
-        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
-
-    * Country Search Function
-
-      * The Search Function is a drop down menu that references the **getcountries.js** file. The country selection made by the user will return the required information about the Country selected on the 'Country Details' page. The **getcountries.js** file will return the required two digit **countryCode** that is fed into all the relevant API's (described above in the 'Country Details' Page section above) that in turn generates the required information return for the Country selected.
-      ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
-      * Note that the [Referential API](https://rapidapi.com/referential/api/referential) does not return the list of countries in full alphabetical order (mostly, but not exclusively). To place the country list into alphabetical order, the following code is utilised after the data is called (many thanks to [W3C Schools](https://www.w3schools.com/js/js_array_sort.asp));
-      ```javascript
-      data.sort(function(a, b){
-          const x = a.value.toLowerCase();
-          const y = b.value.toLowerCase();
-          if (x < y) {return -1;}
-          if (x > y) {return 1;}
-          return 0;
-        });
-      ```
+    * Login details
 * ### Contacts Page
 
     * The Contacts Page contains the 'Contact Form' for a user to supply contact information and to provide comments, questions or to provide a request for some work.
@@ -829,5 +733,6 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
     - V25.9 Update README code credits
     - V26.0 Update README for wireframe and features
     - V26.1 Update README for APIs
+    - V26.2 Update README for Site Construction
 ***
 <b id="f1">1</b> **&** <b id="f2">2</b> **Future Features** in the [README.md](https://github.com/Readri205/MS2_Project/blob/master/README.md) identifies that a 'quick search' could be placed at the top of both the 'Home' page and the 'Country Details' page to facilitate regular and frequent users. Regular and frequent users may wish to immediately see the details for any particular country as soon as they come onto the site. This allows quick access to Country search rather than having to scroll down to the bottom of the page. 1[↩](#a1);2[↩](#a2)
