@@ -88,29 +88,16 @@
        * The first time visitor will want to;
          * easily understand the main purpose of the site;
 
-           ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Scroll Down")
-
          * be able to easily navigate throughout the site to find content;
-
-           ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Scroll Down on Home Page")
 
          * view the carousel images just beneath the header;
 
-           ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Landing Page")
-
          * scroll down through the information, read the content, view each of the function cards;
-
-           ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Scroll Down on Home Page")
-
-           ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Scroll Down on Home Page")
 
          * register for the site and create login credentials;
 
-           ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Search Menu")
-
          * enter plant details for plants they are interested in;
 
-           ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Search Menu")
            * login to the site;
            * immediately view their plants list;
            * view their collections list;
@@ -130,8 +117,6 @@
          * view their collections list.
        * **A returning visitor** may want to go straight to the 'Plant' search function;
 
-           ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Search Bottom of Home Page")
-
            * search for plants in one of the search methods;
              * name;
              * filter by attribute;
@@ -139,14 +124,10 @@
            * on finding a plant the user in they may want to find out more details on that plant by choosing the 'plant details' button;
              * there a number of specific details including in the return;
 
-                 ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Search Bottom of Home Paget")
-
            * the user may want to add the plant to their plant list and a collection.
        * **A returning visitor** may want to go straight to the 'Contact Us' page;
          * contact us for more information or to provide comments about the site;
          * contact us to ask about projects that they may be interested to have completed as an item of work.
-
-             ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Contact in Menu Bar")
 
    *   #### Frequent User Goals
        * The frequent user will want to;
@@ -155,8 +136,6 @@
          * view their collections list.
        * **A returning visitor** may want to go straight to the 'Plant' search function;
 
-           ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Search Bottom of Home Page")
-
            * search for plants in one of the search methods;
              * name;
              * filter by attribute;
@@ -164,23 +143,15 @@
            * on finding a plant the user in they may want to find out more details on that plant by choosing the 'plant details' button;
              * there a number of specific details including in the return;
 
-                 ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Search Bottom of Home Paget")
-
            * the user may want to add the plant to their plant list and a collection.
        * **A frequent visitor** may want to go straight to the 'Contact Us' page;
          * contact us for more information or to provide comments about the site;
          * contact us to ask about projects that they may be interested to have completed as an item of work.
 
-             ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Contact in Menu Bar")
-
    *   #### Mobile Menu
          * On mobile devices the menu is shown as a 'hamburger' drop down;
 
-           ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Menu")
-
          * On mobile devices the search function operates in the same manner as for larger screens;  
-
-           ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
 
 *   ### Design
    *   #### Colour Scheme
@@ -275,7 +246,6 @@
    * Amend the cards to ensure appropriate rendering on screen sizes at 280px size.
    * Social media icons link to respective social media website home pages. Social media links will in future feature link directly to RMC Ltd social media connections.
 
-
 ## Technologies Used
 
 ### Languages Used
@@ -330,8 +300,6 @@
    * The [Trefle.io](https://trefle.io/) database was used as the primary search database for a user;
      * entering a 'name'; or
      * by using a filter by 'colour'.
-
-         ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/daisy.jpg?raw= "Mobile Search")
 
  * [Plant.id](https://plant.id/)
    * The [Plant.id](https://plant.id/) database was used as the source for plant searches based on a user uploading an image.
@@ -731,5 +699,6 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
    - V26.1 Update README for APIs
    - V26.2 Update README for Site Construction
    - V26.3 Further README updates for Site Construction
+   - V26.4 Remove old images from README
 ***
 <b id="f1">1</b> **&** <b id="f2">2</b> **Future Features** in the [README.md](https://github.com/Readri205/MS2_Project/blob/master/README.md) identifies that a 'quick search' could be placed at the top of both the 'Home' page and the 'Country Details' page to facilitate regular and frequent users. Regular and frequent users may wish to immediately see the details for any particular country as soon as they come onto the site. This allows quick access to Country search rather than having to scroll down to the bottom of the page. 1[↩](#a1);2[↩](#a2)
