@@ -202,77 +202,75 @@
 
 *   ### Wireframes
     *   #### Original Wireframe Design (October 15, 2020).
-        *   The **'Home'** page includes an **'Information box'**, **'Population and GDP line graphs'**. On scroll down the page would reveal an **'Africa Map'** and an **'Information Table'** listing all 54 countries with their respective **'Population and GDP'** sizes. The **'Information Table'** is intended to be 'clickable' to search for more details on any Country. **'Country Search'** and **'Contact Us'** boxes are also included.
-        *   The **'Country Search'** page includes a **Country Name** header title with an image of the **National Flag**, an image of the **Capital City**, an **'Information Table'** of historical **Population and GDP data**, **Country Map** and **Line Graphs** of the same data. **'Country Search'** and **'Contact Us'** boxes are also included.
-        * Sources for data were considered as follows;
-          1. Trefle.io plant search - [Trefle.io](https://trefle.io/)
-          1. Plant.id for image recognition - [Plant.id](https://plant.id/)
-          1. Automated Email Response - [Emailjs](https://www.emailjs.com/)
-        *   The **Original Wireframe Design** can be viewed here - [View](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/wireframes/rhcgardenmnager.pdf)
+        * The **'Home'** page includes a basic overall introduction to the purpose of the site. Cards are used to describe the main features of the site. The features are User Plant List, User Collections, Search by a Name, Filter, Image Upload and a  Year Calendar.
+        * Once the User has a login these features are accessible from the menu.
+        * The menu includes direct links to;
+          1. User plant list;
+          1. User Collection list;
+          1. Search list;
+          1. User details.
+        * The search list is considered to return name and image upload searches as detail page returns.
+        * Sources for search data were considered as follows;
+          * Trefle.io plant search - [Trefle.io](https://trefle.io/)
+          * Plant.id for image recognition - [Plant.id](https://plant.id/)
+        * The contact page uses the following source;
+          * Automated Email Response - [Emailjs](https://www.emailjs.com/)
+        * All images in the wireframe are by example only.
+        *   The **Original Wireframe Design** can be viewed here - [View](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/wireframes/rhcgardenmanager.pdf)
     *  #### Actual Site Design.
         * The developed site uses many of the concepts from the original Wireframe design. Variations are as follows;
-          1. The main header image was switch to the 'Africa' header image which conveys a strong but not overwhelming 'Africa' theme;
-          1. The **'Contact Form'** was moved to its own page to **declutter** the two main pages. It is accessible from every page either through the main menu or from the footer;
-          1. The **Capital City** images were switch to dynamic  **carousel theme** images on all the pages and placed just beneath the main header image. The images are unique and vibrant. If a desktop is left on the site, the images are eye catching due to **vivid colours** and the **carousel movement**;
-          1. The **'Information Tables'** were switched to more graphically appealing **Pie Charts** that are easy to read;
-          1. The **'Search Function'** remains at the bottom of both the 'Home' and 'Country Details' pages.
-        * The above listed sources were utilised, except for [Google Maps](https://console.cloud.google.com/google/maps-apis/). The following were used primarily to provide a learning experience for the developer;
-          1. Javascript Library - [Leaflet](https://leafletjs.com/)
-          1. Imagery - [Mapbox](https://docs.mapbox.com/mapbox-gl-js/api/)
-          1. Data - [OpenStreetMap](https://www.openstreetmap.org)
+          1. The **Home** page has a number of cards explaining the key features of the site, but there is no **'Calendar View'** feature;
+          1. The **Calendar Feature** has proven difficult to implement as information to support this appears lacking in the plant world. Most plant and gardening information providers appear to have their own databases to support this kind of feature as a Unique Selling Product (USP). The Trefle.io database has some details such as 'bloom months' and 'sowing months'. However, this data is not complete. The feature could be added as a future feature on the site.
+          1. The **'Contact Form'** has its own page. It is accessible from every page either through the main menu or from the footer;
+        * The above listed sources were utilised.
 
 ## Features
 
 *   ### Responsive for Device Size
     * Mobile / Smaller screen size
-      * The site is designed primarily for use on a mobile. The 'Box Content' structure using Bootstrap Grid System has been utilised so that the information boxes (text, maps, line graphs, pie charts) will stack vertically on small screens for readability.
-      * The menu system uses the Bootstrap 'navbar' functionality for small screens using the 'toggle' capability for the 'drop down' menu list from a 'hamburger' icon.
+      * The site is designed primarily for use on a mobile. The 'Box Content' structure using Materialize Grid System has been utilised so that the information boxes (search results) will stack vertically on small screens for readability.
+      * The menu system uses the Materialize 'navbar' functionality for small screens using the 'toggle' capability for the 'drop down' menu list from a 'hamburger' icon.
       * The navbar is 'fixed' to the top of the screen at all times on page scroll down for easy access.
-      * The navbar is coloured 'black' to make it distinctive from the site pages.
-      * The 'hamburger' is coloured 'off-white' to make it visible yet not intrusive when viewing the site details.
-      * The 'drop down' site page options are coloured 'off-white' with the current page shown as 'white' and 'grey' background.
+      * The navbar is coloured 'dark teal' to make it distinctive from the site pages.
+      * The 'hamburger' is coloured 'dark yellow' to make it visible yet not intrusive when viewing the site details.
+      * The 'drop down' site page options are coloured 'dark yellow' with the current page shown with an 'off-white' background.
       * The header image and the carousel images are suitably sized for smaller screens.
     * Desktop / Laptop large screen size
-      * The 'Box Content' is effective on wide screens. The Bootstrap Grid System allows for the 'Box Content' to align horizontally in themes that are consistent on each of the 'Home' and 'Country Details' pages.
-      * The header menu system uses the Bootstrap 'navbar' functionality with the menu option pages listed to the left.
-      * The navbar is coloured 'black' to make it distinctive from the site pages.
-      * The menu item list is coloured 'off-white' to make it visible yet not intrusive when view the site details.
-      * The 'drop down' site page options are coloured 'off-white' with the current page shown as 'white' and 'grey' background.
+      * The 'Box Content' is effective on wide screens. The Materialize Grid System allows for the 'Box Content' to align horizontally in themes that are consistent on each of the 'Home' and 'Search' pages.
+      * The header menu system uses the Materialize 'navbar' functionality with the menu option pages listed to the right.
+      * The navbar is coloured 'dark teal' to make it distinctive from the site pages.
+      * The menu item list is coloured 'dark yellow' to make it visible yet not intrusive when viewing the site details.
+      * The 'drop down' site page options are coloured 'dark yellow' with the current page shown with an 'off-white' background.
       * The header image and carousel images are designed to be larger and 'impactful' on the larger screen size.
 
 *   ### Interactive Elements
-    * The key feature of the site is the interactive search for any of the 54 African Countries details returned on the 'Country Details' page.
-      * Note that if a user goes from the 'Home' page direct to the 'Country Details' page using the 'navbar' menu, the default Country on the 'Country Details' page is Nigeria.
-      * The 'Search' box is found on scroll down through the 'Home' page.
-      * The 'Search' box is also found on scroll down through the 'Country Details' page.
-      * In each case the user can open the drop down menu and pick a country of their choice. The search will return the details for that country on the 'Country Details' page.
-      * The details from the search are returned using various API sources. The details returned are;
-        * First header text box;
-          * 'Country Name' as a title;
-          * 'Country Flag' as a colour image;
-          * Name of the Capital City; and
-          * Three text lines with information describing that country relative to the rest of Africa;
-            * Land size;
-            * population; and
-            * GDP.
-        * Second header box;
-          * returns a map of that country, centred on the capital city. Note that the default zoom level is 6. The user can zoom in to see more country detail, or out to see the country in a wider Africa context.
-        * Third and fourth boxes;
-          * return the Population and GDP growth from 1970 to 2019.
-        * Country Pie charts;
-          * return land size, population (2019) and GDP (2019) relative to the rest of Africa.
-        * Top 5 Pie charts;
-          * return visual detail about the largest 5 countries in terms of land size, Population (2019) and GDP (2019) in Africa.
+    * The first key feature of the site is the ability for the user to;
+      * enter their own list of plants;
+      * place their listed plants into collections;
+      * define their collections.
+    * The second key features of the site is the ability for a user to search for plants;
+      * by entering a 'name';
+      * by using a filter for required 'colours'; or
+      * upload an image from file.
+      Each method returns results that the user can;
+      * review and choose to see more details on any particular return;
+      * add the plant to their list and to a collection.
+      * if the search is based on a Trefle.io search the Trefle.io plant id is also added to the list for cross reference to the database.
     * The user is able to contact us via the 'Contact Us' page.
       * This page has an interactive contact form that the user can complete and submit their details through to us.
       * There is an open text box so that the user can submit comments.
       * When the user submits their details by clicking the 'Send Contact Details' button, a modal pops up to confirm that details have been sent.
 
 *   ### Future Features
-    * A 'quick search' will be placed at the top of both the 'Home' page and the 'Country Details' to facilitate regular users that wish to immediately see the details for any particular country as soon as they come onto the site.
-    * Expand the site to include more details on the countries.
-    * Update the API references for data such that the site 'maintains' itself when the World Bank Database updates the API data. Currently, some data is supplied via 'Manual Input' and 'CSV File' input which will require a manual process to update when the data is refreshed.
-    * Amend the 'Home' page pie charts to ensure appropriate rendering on screen sizes at 280px size.
+    * If a user adds a plant to their list from the Trefle.io search , it would be useful to link directly back to the Trefle.io database in order to return more of the details on that plant.
+    * Improve the quality of data returns for a specific plant in searches, either from updated data submissions in the Trefle.io database or supplement the plant data returns from other available databases.
+    * Directly link any search to sources for plant purchase from;
+      * local suppliers to the user based on geolocation identifiers; or
+      * create the ability to online purchase from an identified supplier.
+    * Provide an option for the user to image capture a plant in their garden which takes them directly to pertinent care details for that particular plant.
+    * More sophisticated features include image identifying plants say at a garden centre and being able to compare the plant growing requirements to a users own garden conditions such as light, soil type, water, ph etc.
+    * The **Calendar Feature** has proven difficult to implement as information to support this appears lacking in the plant world. Most plant and gardening information providers appear to have their own databases to support this kind of feature as a Unique Selling Product (USP). The Trefle.io database has some details such as 'bloom months' and 'sowing months'. However, this data is not complete. The feature could be added as a future feature on the site.
+    * Amend the cards to ensure appropriate rendering on screen sizes at 280px size.
     * Social media icons link to respective social media website home pages. Social media links will in future feature link directly to RMC Ltd social media connections.
 
 
@@ -549,48 +547,40 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
 
 ### Code
 
-*   My Mentor (Adegbenga Adeye (email:adegbenga.adeye@outlook.com, slack:gbenga_mentor)) for providing help, guidance, inspiration and input on the challenging components particularly for the 'Country Search' Function.
-*   [Code Institute course](https://codeinstitute.net/5-day-coding-challenge/?utm_term=%2Bcode%20%2Binstitute%20%2Bcourses&utm_campaign=a%2526c_BR_IRL_Code_Institute&utm_source=adwords&utm_medium=ppc&hsa_net=adwords&hsa_tgt=kwd-443742237303&hsa_ad=407017470923&hsa_acc=8983321581&hsa_grp=62188641040&hsa_mt=b&hsa_cam=1578649861&hsa_kw=%2Bcode%20%2Binstitute%20%2Bcourses&hsa_ver=3&hsa_src=g&gclid=CjwKCAjw4MP5BRBtEiwASfwAL3-Oi3uDo1sBfn2KpQVAlLb07T2ndP-Q2mCFxdGgpvoBMoPIAtbg9xoCyZgQAvD_BwE&gclsrc=aw.ds);
+* My Mentor (Adegbenga Adeye (email:adegbenga.adeye@outlook.com, slack:gbenga_mentor)) for providing help, guidance, inspiration and input on the more challenging components.
+* [Code Institute course](https://codeinstitute.net/5-day-coding-challenge/?utm_term=%2Bcode%20%2Binstitute%20%2Bcourses&utm_campaign=a%2526c_BR_IRL_Code_Institute&utm_source=adwords&utm_medium=ppc&hsa_net=adwords&hsa_tgt=kwd-443742237303&hsa_ad=407017470923&hsa_acc=8983321581&hsa_grp=62188641040&hsa_mt=b&hsa_cam=1578649861&hsa_kw=%2Bcode%20%2Binstitute%20%2Bcourses&hsa_ver=3&hsa_src=g&gclid=CjwKCAjw4MP5BRBtEiwASfwAL3-Oi3uDo1sBfn2KpQVAlLb07T2ndP-Q2mCFxdGgpvoBMoPIAtbg9xoCyZgQAvD_BwE&gclsrc=aw.ds);
     * (the Star Wars example) for the API fetch function that is used extensively across all the API calls in this website;
     * (the [Emailjs](https://www.emailjs.com/) example) for the 'Contact Form' email return function used in this website.
     * (the 'Task List' example) by Tim Nelson for the [Flask](https://flask.palletsprojects.com/en/1.1.x/) / [Python](https://en.wikipedia.org/wiki/Python_(programming_language) / [MongoDB](https://www.mongodb.com/cloud/atlas) / [Materialize](https://materializecss.com/) example which is used for the base construction of this website.
-*   [Materialize](https://materializecss.com/);
-    * Materialize Library used throughout the project mainly to make site responsive;
-    * the responsive Grid System;
-    * the navbar; and
-    * the card system.
+* Code for the Carousel
 
-### Content
+## Content
 
-*   All content was written by the developer.
+* All content was written by the developer.
 
 ### Media
 
-*   All images [© Unsplash.com](https://unsplash.com/) unless otherwise stated;
-    *   Header image - [Hand draw doodles of Africa word. Colorful illustration. Background with lots of objects.](https://stock.adobe.com/uk/contributor/206263469/leo-d?load_type=author&prev_url=detail) By leo_d [© stock.adobe.com](https://stock.adobe.com/uk/);
-    *   Carousel image - [Dallol, Ehiopia](https://unsplash.com/photos/UQJP4eEqRV0) By Trevor Cole [© Unsplash.com](https://unsplash.com/);
-    *   Carousel image - [Aït Benhaddou, Morocco](https://unsplash.com/photos/pcbSQTQr2-I) By Toa Heftiba [© Unsplash.com](https://unsplash.com/);
-    *   Carousel image - [Tema, Greater Accra region, Ghana](https://unsplash.com/photos/8hi9WGb4qMA) By Efe Kurnaz [© Unsplash.com](https://unsplash.com/);
-    *   Carousel image - [Colonial houses and crosswalk, pedestrian crossing in Mindelo on the island of Sao Vicente in Cape Verde,a beautiful clouded sky.](https://stock.adobe.com/fr/contributor/208162006/clara?load_type=author&prev_url=detail) By clara [© stock.adobe.com](https://stock.adobe.com/uk/);
-    *   Carousel image - [Kirche in Malawi](https://stock.adobe.com/fr/contributor/208173857/christian-horras?load_type=author&prev_url=detail) By Christian Horras [© stock.adobe.com](https://stock.adobe.com/uk/);
-
+* All images [© Unsplash.com](https://unsplash.com/) unless otherwise stated;
+  *   Header image - [Hand draw doodles of Africa word. Colorful illustration. Background with lots of objects.](https://stock.adobe.com/uk/contributor/206263469/leo-d?load_type=author&prev_url=detail) By leo_d [© stock.adobe.com](https://stock.adobe.com/uk/);
+  *   Carousel image - [Dallol, Ehiopia](https://unsplash.com/photos/UQJP4eEqRV0) By Trevor Cole [© Unsplash.com](https://unsplash.com/);
+  *   Carousel image - [Aït Benhaddou, Morocco](https://unsplash.com/photos/pcbSQTQr2-I) By Toa Heftiba [© Unsplash.com](https://unsplash.com/);
+  *   Carousel image - [Tema, Greater Accra region, Ghana](https://unsplash.com/photos/8hi9WGb4qMA) By Efe Kurnaz [© Unsplash.com](https://unsplash.com/);
+  *   Carousel image - [Colonial houses and crosswalk, pedestrian crossing in Mindelo on the island of Sao Vicente in Cape Verde,a beautiful clouded sky.](https://stock.adobe.com/fr/contributor/208162006/clara?load_type=author&prev_url=detail) By clara [© stock.adobe.com](https://stock.adobe.com/uk/);
+  *   Carousel image - [Kirche in Malawi](https://stock.adobe.com/fr/contributor/208173857/christian-horras?load_type=author&prev_url=detail) By Christian Horras [© stock.adobe.com](https://stock.adobe.com/uk/);
 
 ### Acknowledgements
 
-*   My Mentor **Adegbenga Adeye**, (email: adegbenga.adeye@outlook.com, slack:gbenga_mentor) for continuous helpful feedback. Ade has been an amazing in helping and supporting me with this site. It has proven much harder and much more work for me to develop than I ever thought (severe case of 'what you don't know when you start').
-*   **Tutor support** at Code Institute for their support. When I have requested help, it has come quickly and efficiently when needed.
-*   **Student assessment** at Code Institute. I have looked to accommodate comments back on MS1 to reduce any re-occurring issues in MS2.
-*   **Other students** (Slack Code Institute Workspace) on the Full Stack Developer Course, via the [Slack Communication Platform](https://slack.com/intl/en-gb/).
-*   **Peer Code Review** (Slack Channel)
+* My Mentor **Adegbenga Adeye**, (email: adegbenga.adeye@outlook.com, slack:gbenga_mentor) for continuous helpful feedback. Ade has been an amazing in helping and supporting me with this site. It has proven much harder and much more work for me to develop than I ever thought (severe case of 'what you don't know when you start').
+* **Tutor support** at Code Institute for their support. When I have requested help, it has come quickly and efficiently when needed.
+* **Student assessment** at Code Institute. I have looked to accommodate comments back on MS1 to reduce any re-occurring issues in MS2.
+* **Other students** (Slack Code Institute Workspace) on the Full Stack Developer Course, via the [Slack Communication Platform](https://slack.com/intl/en-gb/).
+* **Peer Code Review** (Slack Channel)
 The website was uploaded to the 'Peer Code Review' Slack Channel designed to receive direct inputs from other developers. This provides useful third party feedback on the website;
-    * @Dante **Dante Healy** for continuous positive feedback on the site usability and design and for testing the EmailJS service;
-    * @Eamonn **Eamonn Smythe** for positive feedback and suggestion to include a margin around the maps to assist page scrolling on mobile devices and for testing the EmailJS service; and
-    * @Jimlynx **Jim Morel** for his review and extremely positive feedback on the site.
-*   **Friends and family** providing review and feedback on the site content, navigation and screen size testing. This has been invaluable with two very 'have mobile, will travel' daughters, it is often brutal but effective.
+  * @Dante **Dante Healy** for continuous positive feedback on the site usability and design and for testing the EmailJS service;
+  * @Eamonn **Eamonn Smythe** for positive feedback and suggestion to include a margin around the maps to assist page scrolling on mobile devices and for testing the EmailJS service; and
+  * @Jimlynx **Jim Morel** for his review and extremely positive feedback on the site.
+* **Friends and family** providing review and feedback on the site content, navigation and screen size testing. This has been invaluable with two very 'have mobile, will travel' daughters, it is often brutal but effective.
 
-## Version Control
-
-*   All through the development phase of the project, commits have been made from the GitPod Repository to GitHub. The version control list below mirrors the GitHub Commit list. It is designed to provide a direct track on commits in the README file for easy access as to code status in GitPod. Note that feedback from MS1 Project was received on July 8th, 2020 which stated that commits should be in the imperative tense. Any commits after this date (approx. V6.4) that are not in the imperative is in error.
 ## Version Control
 
 *   All through the development phase of the project, commits have been made from the GitPod Repository to GitHub. The version control list below mirrors the GitHub Commit list. It is designed to provide a direct track on commits in the README file for easy access as to code status in GitPod.
@@ -846,5 +836,6 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
     - V25.7 Update README for Design
     - V25.8 Update README for languages, programmes, libraries
     - V25.9 Update README code credits
+    - V26.0 Update README for wireframe and features
 ***
 <b id="f1">1</b> **&** <b id="f2">2</b> **Future Features** in the [README.md](https://github.com/Readri205/MS2_Project/blob/master/README.md) identifies that a 'quick search' could be placed at the top of both the 'Home' page and the 'Country Details' page to facilitate regular and frequent users. Regular and frequent users may wish to immediately see the details for any particular country as soon as they come onto the site. This allows quick access to Country search rather than having to scroll down to the bottom of the page. 1[↩](#a1);2[↩](#a2)
