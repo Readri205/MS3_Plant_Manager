@@ -410,7 +410,7 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
 * [Code Institute course](https://codeinstitute.net/5-day-coding-challenge/?utm_term=%2Bcode%20%2Binstitute%20%2Bcourses&utm_campaign=a%2526c_BR_IRL_Code_Institute&utm_source=adwords&utm_medium=ppc&hsa_net=adwords&hsa_tgt=kwd-443742237303&hsa_ad=407017470923&hsa_acc=8983321581&hsa_grp=62188641040&hsa_mt=b&hsa_cam=1578649861&hsa_kw=%2Bcode%20%2Binstitute%20%2Bcourses&hsa_ver=3&hsa_src=g&gclid=CjwKCAjw4MP5BRBtEiwASfwAL3-Oi3uDo1sBfn2KpQVAlLb07T2ndP-Q2mCFxdGgpvoBMoPIAtbg9xoCyZgQAvD_BwE&gclsrc=aw.ds);
    * (the Star Wars example) for the API fetch function that is used extensively across all the API calls in this website;
    * (the [Emailjs](https://www.emailjs.com/) example) for the 'Contact Form' email return function used in this website.
-   * (the 'Task List' example) by Tim Nelson for the [Flask](https://flask.palletsprojects.com/en/1.1.x/) / [Python](https://en.wikipedia.org/wiki/Python_(programming_language) / [MongoDB](https://www.mongodb.com/cloud/atlas) / [Materialize](https://materializecss.com/) example which is used for the base construction of this website.
+   * (the 'Task List' example) by Tim Nelson for the [Flask](https://flask.palletsprojects.com/en/1.1.x/) / [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) / [MongoDB](https://www.mongodb.com/cloud/atlas) / [Materialize](https://materializecss.com/) example which is used for the base construction of this website.
 * Code for the Carousel
 
 ## Content
@@ -703,4 +703,5 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
    - V26.5 Format amends on README
    - V26.6 Further format amends on README
    - V26.7 Add contact us form
+   - V26.8 Amend capture in plant.id image upload
 ***
