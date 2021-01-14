@@ -198,32 +198,32 @@
 ## Features
 
 *   ### Responsive for Device Size
-   * Mobile / Smaller screen size
-     * The site is designed primarily for use on a mobile. The 'Box Content' structure using Materialize Grid System has been utilised so that the information boxes (search results) will stack vertically on small screens for readability.
-     * The menu system uses the Materialize 'navbar' functionality for small screens using the 'toggle' capability for the 'drop down' menu list from a 'hamburger' icon.
-     * The navbar is 'fixed' to the top of the screen at all times on page scroll down for easy access.
-     * The navbar is coloured 'dark teal' to make it distinctive from the site pages.
-     * The 'hamburger' is coloured 'dark yellow' to make it visible yet not intrusive when viewing the site details.
-     * The 'drop down' site page options are coloured 'dark yellow' with the current page shown with an 'off-white' background.
-     * The header image and the carousel images are suitably sized for smaller screens.
-   * Desktop / Laptop large screen size
-     * The 'Box Content' is effective on wide screens. The Materialize Grid System allows for the 'Box Content' to align horizontally in themes that are consistent on each of the 'Home' and 'Search' pages.
-     * The header menu system uses the Materialize 'navbar' functionality with the menu option pages listed to the right.
-     * The navbar is coloured 'dark teal' to make it distinctive from the site pages.
-     * The menu item list is coloured 'dark yellow' to make it visible yet not intrusive when viewing the site details.
-     * The 'drop down' site page options are coloured 'dark yellow' with the current page shown with an 'off-white' background.
-     * The header image and carousel images are designed to be larger and 'impactful' on the larger screen size.
+    * Mobile / Smaller screen size
+      * The site is designed primarily for use on a mobile. The 'Box Content' structure using Materialize Grid System has been utilised so that the information boxes (search results) will stack vertically on small screens for readability.
+      * The menu system uses the Materialize 'navbar' functionality for small screens using the 'toggle' capability for the 'drop down' menu list from a 'hamburger' icon.
+      * The navbar is 'fixed' to the top of the screen at all times on page scroll down for easy access.
+      * The navbar is coloured 'dark teal' to make it distinctive from the site pages.
+      * The 'hamburger' is coloured 'dark yellow' to make it visible yet not intrusive when viewing the site details.
+      * The 'drop down' site page options are coloured 'dark yellow' with the current page shown with an 'off-white' background.
+      * The header image and the carousel images are suitably sized for smaller screens.
+    * Desktop / Laptop large screen size
+      * The 'Box Content' is effective on wide screens. The Materialize Grid System allows for the 'Box Content' to align horizontally in themes that are consistent on each of the 'Home' and 'Search' pages.
+      * The header menu system uses the Materialize 'navbar' functionality with the menu option pages listed to the right.
+      * The navbar is coloured 'dark teal' to make it distinctive from the site pages.
+      * The menu item list is coloured 'dark yellow' to make it visible yet not intrusive when viewing the site details.
+      * The 'drop down' site page options are coloured 'dark yellow' with the current page shown with an 'off-white' background.
+      * The header image and carousel images are designed to be larger and 'impactful' on the larger screen size.
 
 *   ### Interactive Elements
-   * The first key feature of the site is the ability for the user to;
+    * The first key feature of the site is the ability for the user to;
      * enter their own list of plants;
      * place their listed plants into collections;
      * define their collections.
-   * The second key features of the site is the ability for a user to search for plants;
+    * The second key features of the site is the ability for a user to search for plants;
      * by entering a 'name';
      * by using a filter for required 'colours'; or
      * upload an image from file.
-     Each method returns results that the user can;
+    * Each method returns results that the user can;
      * review and choose to see more details on any particular return;
      * add the plant to their list and to a collection.
      * if the search is based on a Trefle.io search the Trefle.io plant id is also added to the list for cross reference to the database.
@@ -233,18 +233,18 @@
      * When the user submits their details by clicking the 'Send Contact Details' button, a modal pops up to confirm that details have been sent.
 
 *   ### Future Features
-   * If a user adds a plant to their list from the Trefle.io search , it would be useful to link directly back to the Trefle.io database in order to return more of the details on that plant.
-   * Increase the number of filter types in searches. Currently only 'colour' is provided but further filters could be included such as 'edible plants', 'soil types', 'plant height', and 'water conditions'.
-   * More complex filters could also be provided to include more than one filter type such as 'colour' and 'soil type'.
-   * Improve the quality of data returns for a specific plant in searches, either from updated data submissions in the Trefle.io database or supplement the plant data returns from other available databases.
-   * Directly link any search to sources for plant purchase from;
-     * local suppliers to the user based on geolocation identifiers; and/or
-     * create the ability to online purchase from an identified supplier.
-   * Provide an option for the user to image capture a plant in their garden which takes them directly to pertinent care details for that particular plant.
-   * More sophisticated features include image identifying plants say at a garden centre and being able to compare the plant growing requirements to a users own garden conditions such as light, soil type, water, ph etc.
-   * The **Calendar Feature** has proven difficult to implement as information to support this appears lacking in the plant world. Most plant and gardening information providers appear to have their own databases to support this kind of feature as a Unique Selling Product (USP). The Trefle.io database has some details such as 'bloom months' and 'sowing months'. However, this data is not complete. The feature could be added as a future feature on the site.
-   * Amend the cards to ensure appropriate rendering on screen sizes at 280px size.
-   * Social media icons link to respective social media website home pages. Social media links will in future feature link directly to RMC Ltd social media connections.
+    * If a user adds a plant to their list from the Trefle.io search , it would be useful to link directly back to the Trefle.io database in order to return more of the details on that plant.
+    * Increase the number of filter types in searches. Currently only 'colour' is provided but further filters could be included such as 'edible plants', 'soil types', 'plant height', and 'water conditions'.
+    * More complex filters could also be provided to include more than one filter type such as 'colour' and 'soil type'.
+    * Improve the quality of data returns for a specific plant in searches, either from updated data submissions in the Trefle.io database or supplement the plant data returns from other available databases.
+    * Directly link any search to sources for plant purchase from;
+      * local suppliers to the user based on geolocation identifiers; and/or
+      * create the ability to online purchase from an identified supplier.
+    * Provide an option for the user to image capture a plant in their garden which takes them directly to pertinent care details for that particular plant.
+    * More sophisticated features include image identifying plants say at a garden centre and being able to compare the plant growing requirements to a users own garden conditions such as light, soil type, water, ph etc.
+    * The **Calendar Feature** has proven difficult to implement as information to support this appears lacking in the plant world. Most plant and gardening information providers appear to have their own databases to support this kind of feature as a Unique Selling Product (USP). The Trefle.io database has some details such as 'bloom months' and 'sowing months'. However, this data is not complete. The feature could be added as a future feature on the site.
+    * Amend the cards to ensure appropriate rendering on screen sizes at 280px size.
+    * Social media icons link to respective social media website home pages. Social media links will in future feature link directly to RMC Ltd social media connections.
 
 ## Technologies Used
 
@@ -258,39 +258,39 @@
 ### Frameworks, Libraries & Programs Used
 
 * [Materialize 1.0.0](https://materializecss.com/)
-   * Bootstrap was used to assist with the responsiveness and styling of the website.
+  * Bootstrap was used to assist with the responsiveness and styling of the website.
 * [Flask](https://flask.palletsprojects.com/en/1.1.x/)
-   * Flask was used to generate the front end web page design, using python as the primary back end programming language.
+  * Flask was used to generate the front end web page design, using python as the primary back end programming language.
 * [MongoDB](https://www.mongodb.com/cloud/atlas)
-   * MongoDb was used to store user data, user plant and collection lists for 'CRUD' purposes.
+  * MongoDb was used to store user data, user plant and collection lists for 'CRUD' purposes.
 * [Hover.css:](https://ianlunn.github.io/Hover/)
-   - Hover.css was used on the contact details types and for social media icons in the footer to add the float transition while being hovered over.
+  * Hover.css was used on the contact details types and for social media icons in the footer to add the float transition while being hovered over.
 * [Font Awesome:](https://fontawesome.com/)
-   - Font Awesome was used for the website to add icons for aesthetic and UX purposes.
+  * Font Awesome was used for the website to add icons for aesthetic and UX purposes.
 * [jQuery:](https://jquery.com/)
-   - jQuery came with Materialize to make the navbar responsive but was also used to support JavaScript and is loaded from the [CDJNS](https://cdnjs.com/libraries/materialize).
+  * jQuery came with Materialize to make the navbar responsive but was also used to support JavaScript and is loaded from the [CDJNS](https://cdnjs.com/libraries/materialize).
 * [GitPod:](https://www.gitpod.io/)
-   - Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
+  * Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
 * [GitHub:](https://github.com/)
-   - GitHub is used to store the projects code after being pushed from Git.
+  * GitHub is used to store the projects code after being pushed from Git.
 * [Atom:](https://atom.io/)
-   - Atom was used as a Markdown Text Editor for README.md and Testing.md
+  * Atom was used as a Markdown Text Editor for README.md and Testing.md
 * [Emailjs:](https://www.emailjs.com/)
-   - Emailjs is used to send the email from the contact form on the 'Contact Us' page.
+  * Emailjs is used to send the email from the contact form on the 'Contact Us' page.
 * [Favicon.io:](https://favicon.io/)
-   - Favicon.io was used for Favicon :seedling: web page title images.
+  * Favicon.io was used for Favicon :seedling: web page title images.
 * [Photoshop:](https://www.adobe.com/ie/products/photoshop.html)
-   - Photoshop was used to resize images and edit photos for the website.
+  * Photoshop was used to resize images and edit photos for the website.
 * [dirtyMarkup:](https://www.10bestdesign.com/dirtymarkup/)
-   - dirtyMarkup was used to format HTML, CSS and JS files
+  * dirtyMarkup was used to format HTML, CSS and JS files
 * [Adobe Stock:](https://stock.adobe.com/uk/)
-   - Adobe Stock was used as a library source for images.
+  * Adobe Stock was used as a library source for images.
 * [Unsplash:](https://unsplash.com/)
-   - Unsplash was used as a library source for images.
+  * Unsplash was used as a library source for images.
 * [Balsamiq:](https://balsamiq.com/)
-   - Balsamiq was used to create the [wireframes]() during the design process.
+  * Balsamiq was used to create the [wireframes]() during the design process.
 * [Am I Responsive:](http://ami.responsivedesign.is/#)
-   - Am I Responsive was used to test the page layouts during the build process.  [Results](https://github.com/Readri205/MS2_Project/blob/master/assets/documents/testscreenshots/amiresponsive.png)
+  * Am I Responsive was used to test the page layouts during the build process.  [Results](https://github.com/Readri205/MS2_Project/blob/master/assets/documents/testscreenshots/amiresponsive.png)
 
 ### Application Programming Interfaces (API's) Used
 
@@ -700,5 +700,6 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
    - V26.2 Update README for Site Construction
    - V26.3 Further README updates for Site Construction
    - V26.4 Remove old images from README
+   - V26.5 Format amends on README
 ***
 <b id="f1">1</b> **&** <b id="f2">2</b> **Future Features** in the [README.md](https://github.com/Readri205/MS2_Project/blob/master/README.md) identifies that a 'quick search' could be placed at the top of both the 'Home' page and the 'Country Details' page to facilitate regular and frequent users. Regular and frequent users may wish to immediately see the details for any particular country as soon as they come onto the site. This allows quick access to Country search rather than having to scroll down to the bottom of the page. 1[↩](#a1);2[↩](#a2)
