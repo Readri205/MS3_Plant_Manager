@@ -708,4 +708,5 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
    - V27.0 Amend static image in plant.id page
    - V27.1 Amend contact form placeholders to light teal
    - V27.2 Amend home page for my year to search engines
+   - V27.3 Update main carousel images
 ***
