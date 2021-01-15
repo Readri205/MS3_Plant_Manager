@@ -706,4 +706,5 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
    - V26.8 Align plant.id images vertically
    - V26.9 Add margin to Trefle search buttons
    - V27.0 Amend static image in plant.id page
+   - V27.1 Amend contact form placeholders to light teal
 ***
