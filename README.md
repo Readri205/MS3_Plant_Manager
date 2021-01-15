@@ -227,7 +227,7 @@
        * review and choose to see more details on any particular return;
        * add the plant to their list and to a collection.
        * if the search is based on a Trefle.io search the Trefle.io plant id is also added to the list for cross reference to the database.
-   * The user is able to contact us via the 'Contact Us' page.
+    * The user is able to contact us via the 'Contact Us' page.
        * This page has an interactive contact form that the user can complete and submit their details through to us.
        * There is an open text box so that the user can submit comments.
        * When the user submits their details by clicking the 'Send Contact Details' button, a modal pops up to confirm that details have been sent.
@@ -704,4 +704,5 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
    - V26.6 Further format amends on README
    - V26.7 Add contact us form
    - V26.8 Align plant.id images vertically
+   - V26.9 Add margin to Trefle search buttons
 ***

@@ -95,6 +95,7 @@
     font-size: 11px;
     height: 25px;
     line-height: 25px;
+    margin: 5px;
 }
 .btn i {
     font-size: 0.9rem;
@@ -178,7 +179,7 @@ nav .fad {
     margin-top: 20px;
 }
 .plant_image {
-    width: 250px;
+    width: 200px;
 }
 }
 @media only screen and (max-width: 320px){
@@ -190,6 +191,6 @@ nav .fad {
     margin-top: 22px
 }
 .plant_image {
-    width: 200px;
+    width: 150px;
 }
 }
