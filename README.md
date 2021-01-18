@@ -710,4 +710,5 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
    - V27.2 Amend home page for my year to search engines
    - V27.3 Update main carousel images
    - V27.4 Change second carousel image and text
+   - V27.5 Update search page numbers
 ***
