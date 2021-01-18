@@ -715,4 +715,5 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
    - V27.7 Amend image search to python code from JS
    - V27.8 Amend image search to remove temporary files
    - V27.9 Update heroku for image file path
+   - V28.0 Update heroku for plant_id directory
 ***
