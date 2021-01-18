@@ -713,4 +713,5 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
    - V27.5 Update search page numbers
    - V27.6 Remove cloudinary image functions
    - V27.7 Amend image search to python code from JS
+   - V27.8 Amend image search to remove temporary files
 ***
