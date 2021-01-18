@@ -7,7 +7,9 @@ from flask import (
     redirect, request, session, url_for, jsonify)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
-from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.security import (
+    generate_password_hash, check_password_hash)
+from werkzeug.utils import secure_filename
 from PIL import Image
 from shamrock import Shamrock
 
@@ -761,42 +763,46 @@ def plant_id():
             "plant_id.html")
 
 
-@app.route("/get_plant_id_placeholder", methods=["GET", "POST"])
-def get_plant_id_placeholder():
-
+@app.route("/get_plant_id", methods=["GET", "POST"])
+def get_plant_id():
+    if request.method == 'POST':
+        file = request.files['file']
+        filename = secure_filename(file.filename)
+        filename = "my_image.jpg"
+        file.save(os.path.join(app.config['IMAGE_UPLOADS'], filename))
     # encode image to base64
-    with open("static/images/plant_id/my_image.jpg", "rb") as file:
-        images = [base64.b64encode(file.read()).decode("ascii")]
+        with open('static/images/plant_id/my_image.jpg', "rb") as file:
+            images = [base64.b64encode(file.read()).decode("ascii")]
 
 #    images = request.get_json()
 
-    your_api_key = os.environ.get("your_api_key")
-    json_data = {
-        "images": images,
-        "modifiers": ["similar_images"],
-        "plant_details": ["common_names",
-                          "url", "wiki_description", "taxonomy"]
-    }
+        your_api_key = os.environ.get("your_api_key")
+        json_data = {
+            "images": images,
+            "modifiers": ["similar_images"],
+            "plant_details": [
+                "common_names", "url", "wiki_description", "taxonomy"]
+        }
 
-    response = requests.post(
-        "https://api.plant.id/v2/identify", json=json_data,
-        headers={
-            "Content-Type": "application/json",
-            "Api-Key": your_api_key
-                }).json()
+        response = requests.post(
+            "https://api.plant.id/v2/identify", json=json_data,
+            headers={
+                "Content-Type": "application/json",
+                "Api-Key": your_api_key
+                    }).json()
 
 #    response = request.get_json()
 
 #    print(json.dumps(response['suggestions'], indent=2))
-    media = response["images"][0]["url"]
-    print(json.dumps(media, indent=2))
-    for suggestion in response['suggestions']:
-        plant_name = suggestion["plant_name"]
-#        common_names = suggestion["plant_details"]["common_names"]
-#        url_plant_details = suggestion["plant_details"]["url"]
-        wiki_descr = suggestion["plant_details"]["wiki_description"]
-        similar_images = suggestion["similar_images"]
-        print(json.dumps(plant_name, indent=2))
+        media = response["images"][0]["url"]
+        print(json.dumps(media, indent=2))
+        for suggestion in response['suggestions']:
+            plant_name = suggestion["plant_name"]
+#           common_names = suggestion["plant_details"]["common_names"]
+#           url_plant_details = suggestion["plant_details"]["url"]
+            wiki_descr = suggestion["plant_details"]["wiki_description"]
+            similar_images = suggestion["similar_images"]
+            print(json.dumps(plant_name, indent=2))
 #        if common_names is not None:
 #            for common_name in common_names:
 #                print(common_name)
@@ -808,13 +814,13 @@ def get_plant_id_placeholder():
 #            license_name = descr["license_name"]
 #            license_url = descr["license_url"]
 #            print(notes)
-        for similar in similar_images:
-            url_small = similar['url_small']
-            similarity = similar['similarity']*100
+            for similar in similar_images:
+                url_small = similar['url_small']
+                similarity = similar['similarity']*100
 #            print(json.dumps(url_small, indent=2))
 #            print(json.dumps(similarity, indent=2))
 
-    return render_template(
+        return render_template(
             "plant_id_deets.html", response=response, plant_name=plant_name,
             similar_images=similar_images, wiki_descr=wiki_descr,
             url_small=url_small, similarity=similarity,
@@ -875,8 +881,8 @@ def hello():
             media=media)
 
 
-@app.route("/get_plant_id", methods=["GET"])
-def get_plant_id():
+@app.route("/get_plant_id_placeholder", methods=["GET"])
+def get_plant_id_placeholder():
 
     media = response["images"][0]["url"]
 #    print(json.dumps(media, indent=2))
