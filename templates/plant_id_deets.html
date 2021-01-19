@@ -15,12 +15,12 @@
         </div>
         </div>
             <div class="row col s6 center-align card-panel teal lighten-4">
-            <img class="plant_image" src="{{ media }}" alt="No image"/>
+            <img class="card" src="{{ media }}" alt="No image"/>
         </div>
 <ul class="">
     {% for suggestion in response['suggestions'] %}
     <li>
-    <div class="col s6">
+    <div class="card col s6">
       <div class="teal lighten-4">
 		<div class="plant_id">
 			<ul>
@@ -44,7 +44,7 @@
                             <em>{{ '%0.2f'|format(similar.similarity|float*100) }}%</em><br>
                         </li>
                         <li>
-                            <img src="{{ similar.url_small }}"> <br>
+                            <img class="card plant_image" src="{{ similar.url }}"> <br>
                         </li>
                         </div>
                         {% endfor %}
