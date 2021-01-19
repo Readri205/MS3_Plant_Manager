@@ -544,71 +544,6 @@ def get_trefle_deets(id):
         bloom_months=bloom_months, growth=growth)
 
 
-def trefle_edibles():
-    #    include = "filter_not"
-    filters = {"filter_not[edible_part]": "null"}
-#    filters = {include + filters}
-#    exclude_null = "null"
-    the_plant = api.species(**filters)
-#    the_plant = requests.get(
-#        url_all_plants + filter_not + pre + filters
-#        + after + exclude_null + "&",
-#        headers=headers).json()
-    print(json.dumps(the_plant, indent=2))
-
-
-# trefle_edibles()
-
-# @app.route("/trefle_filter", methods=["GET", "POST"])
-def trefle_filters():
-    colors = []
-    if request.method == "POST":
-        if request.form.get('Red') == 'on':
-            colors.append('red,')
-        if request.form.get('Yellow') == 'on':
-            colors.append('yellow,')
-        if request.form.get('Blue') == 'on':
-            colors.append('blue,')
-        global color_filter
-        color_filter = ''.join(colors)
-        page = request.args.get(
-            'page', 1, type=int)
-    #    include = "filter"
-    #    filters = "%5Bflower_color%5D="
-    #    query = "red"
-    #    page = 2
-    #    include = "filter"
-        filter_type = "[flower_color]"
-    #    colors = ["red,", "yellow,", "blue"]
-        filters = {"filter" + filter_type: [color_filter]}
-        the_plant = api.species(page, **filters)
-#    params = include + filters + query + "&" + page_url + str(page)
-#    the_plant = requests.get(
-#        url_all_plants,
-#        params=params, headers=headers).json()
-    print(json.dumps(the_plant, indent=2))
-
-
-# trefle_filters()
-
-
-def trefle_range():
-    #    ranges = "range"
-    #    filters = "maximum_height_cm"
-    #    initial = "5"
-    #    end_one = "20"
-    ranges = {"range[maximum_height_cm]": ["5", "20"]}
-    the_plant = api.species(**ranges)
-#    the_plant = requests.get(
-#        url_all_plants + ranges + pre + filters
-#        + after + initial + "%2C" + end_one + "&",
-#        headers=headers).json()
-    print(json.dumps(the_plant, indent=2))
-
-
-# trefle_range()
-
-
 @app.route("/filter_search")
 def filter_search():
     return render_template("trefle_filter.html")
@@ -707,61 +642,6 @@ def next_filter():
         prev_page=prev_page,
         next_page=next_page, selfs_page=selfs_page,
         first_page=first_page, all_pages=all_pages)
-
-
-# @app.route("/first_page")
-def first_page():
-    page = request.args.get('page', type=int)
-    plants = api.first(page=1)
-    plant = plants['data']
-    total = plants['meta']['total']
-#    links = plants['links']
-#    print(json.dumps(links, indent=2))
-    return render_template(
-        "filter_plants.html", plants=plant,
-        page=page, total=total)
-
-
-# first_page()
-
-
-@app.route("/next_page")
-def next_page():
-    page = request.args.get('page', type=int)
-    plants = api.next()
-    plant = plants['data']
-    total = plants['meta']['total']
-#    links = plants['links']
-    print(page)
-    return render_template(
-        "filter_plants.html", plants=plant,
-        page=page, total=total)
-
-
-@app.route("/prev_page")
-def prev_page():
-    page = request.args.get('page', type=int)
-    plants = api.prev()
-    plant = plants['data']
-    total = plants['meta']['total']
-#    links = plants['links']
-#    print(json.dumps(links, indent=2))
-    return render_template(
-        "filter_plants.html", plants=plant,
-        page=page, total=total)
-
-
-@app.route("/last_page")
-def last_page():
-    page = request.args.get('page', type=int)
-    plants = api.last()
-    plant = plants['data']
-    total = plants['meta']['total']
-#    links = plants['links']
-#    print(json.dumps(links, indent=2))
-    return render_template(
-        "filter_plants.html", plants=plant,
-        page=page, total=total)
 
 
 @app.route("/plant_id")
