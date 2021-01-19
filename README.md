@@ -722,4 +722,5 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
    - V28.4 Update image search if statement
    - V28.5 Update css plant image sizes for media
    - V28.6 Update css styles for contact box
+   - V28.7 Update media queries with important for heroku
 ***

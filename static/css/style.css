@@ -186,33 +186,33 @@
 @media only screen and (max-width: 1100px){
 
 .card .plant_image {
-    width: 200px;
+    width: 200px !important;
 }
 }
 @media only screen and (max-width: 550px){
 
 .card .plant_image {
-    width: 150px;
+    width: 150px !important;
 }
 }
 @media only screen and (max-width: 500px){
 
 .card .plant_image {
-    width: 50px;
+    width: 50px !important;
 }
 }
 @media only screen and (max-width: 500px){
 
 .card .plant_image {
-    width: 50px;
+    width: 50px !important;
 }
 }
 @media only screen and (max-width: 320px){
 nav .brand-logo {
-    font-size: 1rem;
+    font-size: 1rem !important;
 }
 nav .fad {
-    font-size: 1rem;
-    margin-top: 22px
+    font-size: 1rem !important;
+    margin-top: 22px !important;
 }
 }
