@@ -820,8 +820,7 @@ def get_plant_id():
 #           if common_names is not None:
 #               for common_name in common_names:
 #                   print(common_name)
-            else:
-                print('None')
+
 #           print(json.dumps(descr, indent=2))
 #           for descr in wiki_description:
 #               notes = descr["value"]
@@ -833,6 +832,8 @@ def get_plant_id():
                     similarity = similar['similarity']*100
 #               print(json.dumps(url_small, indent=2))
 #               print(json.dumps(similarity, indent=2))
+            else:
+                print('None')
             if os.path.exists(
                 os.path.join(
                     app.config['IMAGE_UPLOADS'], "my_image.jpg")):
