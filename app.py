@@ -25,6 +25,7 @@ app.config["MONGO_DBNAME"] = 'plant_manager'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI')
 app.secret_key = os.environ.get("SECRET_KEY")
 app.config["IMAGE_UPLOADS"] = os.getenv('IMAGE_UPLOADS')
+app.config["IMAGE_DEETS"] = os.getenv('IMAGE_DEETS')
 # Trefle API call details
 YOUR_TREFLE_TOKEN = os.environ.get("YOUR_TREFLE_TOKEN")
 headers = {'Authorization': 'Token ' + YOUR_TREFLE_TOKEN}
@@ -520,16 +521,28 @@ def get_trefle_deets(id):
     bloom_months = growth['bloom_months']
 
     if image_url is not None:
-        def get_image():
-            response = requests.get(image_url)
-            file = open("static/images/uploads/my_image.jpg", "wb")
-            file.write(response.content)
-            file.close()
-            image1 = Image.open('static/images/uploads/my_image.jpg')
-            image1.thumbnail((300, 300))
-            image1.save('static/images/uploads/thumbnail_trefle_detail.jpg')
+        response = requests.get(image_url)
+        file = open("static/images/uploads/my_image.jpg", "wb")
+        file.write(response.content)
+        file.close()
+        image1 = Image.open(
+            os.path.join(app.config['IMAGE_DEETS'], "my_image.jpg"))
+        image1.thumbnail((300, 300))
+        image1.save(
+            os.path.join(
+                app.config['IMAGE_DEETS'], "thumbnail_trefle_detail.jpg"))
 
-        get_image()
+#    if image_url is not None:
+#        def get_image():
+#            response = requests.get(image_url)
+#            file = open("static/images/uploads/my_image.jpg", "wb")
+#            file.write(response.content)
+#            file.close()
+#            image1 = Image.open('static/images/uploads/my_image.jpg')
+#            image1.thumbnail((300, 300))
+#            image1.save('static/images/uploads/thumbnail_trefle_detail.jpg')
+
+#        get_image()
 
     return render_template(
         "plant_deets.html", plant=the_plant,
@@ -661,13 +674,11 @@ def get_plant_id():
             os.path.join(app.config['IMAGE_UPLOADS'], "my_image.jpg"))
         image1.thumbnail((300, 300))
         image1.save(os.path.join(app.config['IMAGE_UPLOADS'], "thumbnail.jpg"))
-    # encode image to base64
+        # encode image to base64
         with open(
             os.path.join(app.config[
                 'IMAGE_UPLOADS'], "thumbnail.jpg"), "rb") as file:
             images = [base64.b64encode(file.read()).decode("ascii")]
-
-#    images = request.get_json()
 
         your_api_key = os.environ.get("your_api_key")
         json_data = {
