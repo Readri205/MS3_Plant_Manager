@@ -452,6 +452,13 @@ def next_url():
             next_page=next_page, first_page=first_page,
             all_pages=all_pages, page=page,
             prev_page=prev_page, selfs_page=selfs_page)
+    if int(last_page) == int(next_page):
+        return render_template(
+            "trefle_plants_last.html", plants=plant,
+            last_page=last_page, total=total,
+            next_page=next_page, first_page=first_page,
+            all_pages=all_pages, page=page,
+            prev_page=prev_page, selfs_page=selfs_page)
     return render_template(
         "trefle_plants.html", plants=plant,
         last_page=last_page, total=total,
@@ -807,43 +814,45 @@ def get_plant_id():
 #           common_names = suggestion["plant_details"]["common_names"]
 #           url_plant_details = suggestion["plant_details"]["url"]
             wiki_descr = suggestion["plant_details"]["wiki_description"]
-            similar_images = suggestion["similar_images"]
-#            print(json.dumps(plant_name, indent=2))
-#        if common_names is not None:
-#            for common_name in common_names:
-#                print(common_name)
-#            else:
-#                print('None')
-#        print(json.dumps(descr, indent=2))
-#        for descr in wiki_description:
-#            notes = descr["value"]
-#            license_name = descr["license_name"]
-#            license_url = descr["license_url"]
-#            print(notes)
-            for similar in similar_images:
-                url_small = similar['url_small']
-                similarity = similar['similarity']*100
-#            print(json.dumps(url_small, indent=2))
-#            print(json.dumps(similarity, indent=2))
-        if os.path.exists(
-            os.path.join(
-                app.config['IMAGE_UPLOADS'], "my_image.jpg")):
-            os.remove(
-                os.path.join(app.config['IMAGE_UPLOADS'], "my_image.jpg"))
-        else:
-            print("hey, file doesn't exist!")
-        if os.path.exists(
-            os.path.join(
-                app.config['IMAGE_UPLOADS'], "thumbnail.jpg")):
-            os.remove(
-                os.path.join(app.config['IMAGE_UPLOADS'], "thumbnail.jpg"))
-        else:
-            print("hey, file doesn't exist!")
-        return render_template(
-            "plant_id_deets.html", response=response, plant_name=plant_name,
-            similar_images=similar_images, wiki_descr=wiki_descr,
-            url_small=url_small, similarity=similarity,
-            media=media)
+            if suggestion["similar_images"] is not None:
+                similar_images = suggestion["similar_images"]
+#               print(json.dumps(plant_name, indent=2))
+#           if common_names is not None:
+#               for common_name in common_names:
+#                   print(common_name)
+            else:
+                print('None')
+#           print(json.dumps(descr, indent=2))
+#           for descr in wiki_description:
+#               notes = descr["value"]
+#               license_name = descr["license_name"]
+#               license_url = descr["license_url"]
+#               print(notes)
+                for similar in similar_images:
+                    url_small = similar['url_small']
+                    similarity = similar['similarity']*100
+#               print(json.dumps(url_small, indent=2))
+#               print(json.dumps(similarity, indent=2))
+            if os.path.exists(
+                os.path.join(
+                    app.config['IMAGE_UPLOADS'], "my_image.jpg")):
+                os.remove(
+                    os.path.join(app.config['IMAGE_UPLOADS'], "my_image.jpg"))
+            else:
+                print("hey, file doesn't exist!")
+            if os.path.exists(
+                os.path.join(
+                    app.config['IMAGE_UPLOADS'], "thumbnail.jpg")):
+                os.remove(
+                    os.path.join(app.config['IMAGE_UPLOADS'], "thumbnail.jpg"))
+            else:
+                print("hey, file doesn't exist!")
+            return render_template(
+                "plant_id_deets.html", response=response,
+                plant_name=plant_name,
+                similar_images=similar_images, wiki_descr=wiki_descr,
+                url_small=url_small, similarity=similarity,
+                media=media)
 
 
 def get_image():

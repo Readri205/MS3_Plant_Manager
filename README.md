@@ -718,4 +718,5 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
    - V28.0 Update heroku for plant_id directory
    - V28.1 Amend plant details page layout
    - V28.2 Update plant details page layout
+   - V28.3 Update image search with if defence
 ***

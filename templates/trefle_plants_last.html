@@ -55,9 +55,10 @@
     </div>
     <div class="row">
         <div class="col s12">
-            {% for page in all_pages %}
-                <a href="{{url_for('next_url', page=page )}}" class="btn teal darken-4 yellow-text text-darken-4 text-shadow">{{page}}</a>
-            {% endfor %}
+            <a href="{{url_for('next_url', page=first_page )}}" class="btn teal darken-4 yellow-text text-darken-4 text-shadow">{{first_page}}</a>
+            <a href="{{url_for('next_url', page=prev_page )}}" class="btn teal darken-4 yellow-text text-darken-4 text-shadow">{{prev_page}}</a>
+            <a href="{{url_for('next_url', page=selfs_page )}}" class="btn yellow darken-4 teal-text text-darken-4 text-shadow">{{selfs_page}}</a>
+            <a href="{{url_for('next_url', page=last_page )}}" class="btn teal darken-4 yellow-text text-darken-4 text-shadow">{{last_page}}</a>
         </div>
     </div>
 </div>
