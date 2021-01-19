@@ -1,0 +1,122 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container teal lighten-4">
+<h4 class="col s11.5 center-align teal-text text-darken-4"> Trefle Plant Details</h4>
+<div class="row">
+    <ul>
+        <div class="row">
+            <!--- <div class="col s12"></div> --->
+            <div class="col s12 center-align">
+            {% if image_url != None %}    
+                <img src="/static/images/uploads/thumbnail_trefle_detail.jpg" alt="">
+            {% else %}
+            {% endif %}
+            </div>
+        <div class="row">
+            <div class="col s8.5">
+                <li><strong> Trefle ID:</strong> {{trefle_id}}</li>
+                <li><strong> Common Name:</strong> {{common_name.title() if plant.common_name != None else 'None'}}</li>
+                <li><strong> Family Common Name:</strong> {{family_common_name}}</li>
+                <li><strong> Scientific Name:</strong> {{scientific_name}}</li>
+                <li><strong> Family Name:</strong> {{family_name}}</li>
+                <li><strong> Genus:</strong> {{genus}}</li>
+                <li><strong> Flower: </strong></li>
+                <div class="col s1"></div>
+                <div class="col s11">
+                    <ul>
+                        <li>Colours:     
+                            {% if flower.color == None %}
+                                <em>{{flower.color}}</em>
+                            {% else %}
+                                {% for i in flower.color %}
+                                    <em>{{i.title()}},</em>
+                                {% endfor %}
+                            {% endif%}</li>
+                        <li>Conspicuous: <em>{{flower.conspicuous}}</em></li>
+                    </ul>
+                </div>
+                <li><strong>Bloom Months:  </strong> 
+                    {% if bloom_months == None %}
+                        <em>{{bloom_months}}</em>
+                    {% else %}
+                        {% for i in bloom_months %}
+                            <em>{{i.title()}},</em>
+                        {% endfor %}
+                    {% endif%}
+                </li>
+            </div>
+        </div>
+        <div class="row col s12">
+            <div class="col s0.5"></div>
+            <div class="col s11.5">
+            <ul>
+                <li><strong>Foliage: </strong>
+                <ul>
+                    <div class="col s1"></div>
+                    <div class="col s11">
+                    <li>Texture: <em>{{foliage.texture}}</em></li>
+                    <li>Colour: <em>{{foliage.color}}</em></li>
+                    <li>Leaf Retention: <em>{{foliage.leaf_retention}}</em></li>
+                    </div>
+                </ul>
+                </li>
+                <li><strong>Fruit or Seed: </strong> <br>
+                    <div class="col s1"></div>
+                    <div class="col s11">
+                        Conspicuous: <em>{{fruit_or_seed.conspicuous}}</em> <br>
+                        Colour: <em>{{fruit_or_seed.color}}</em> <br>
+                        Shape: <em>{{fruit_or_seed.shape}}</em> <br>
+                        Seed Persistence: <em>{{fruit_or_seed.seed_persistence}}</em> <br>
+                    </div>
+                </li>
+                <li><strong>Specifications: </strong> <br>
+                    <div class="col s1"></div>
+                    <div class="col s11">
+                        Ligneous Type: <em>{{specifications.ligneous_type}}</em><br>
+                        Growth Form: <em>{{specifications.growth_form}}</em> <br>
+                        Growth Habit: <em>{{specifications.growth_habit}}</em> <br>
+                        Growth Rate: <em>{{specifications.growth_rate}}</em> <br>
+                        Average Height <em>(cm)</em>: <em>{{specifications.average_height.cm}}</em> <br>
+                        Maximum Height <em>(cm)</em>: <em>{{specifications.maximum_height.cm}}</em> <br>
+                        Nitrogen Fixation: <em>{{specifications.nitrogen_fixation}}</em> <br>
+                        Shape and Orientation: <em>{{specifications.shape_and_orientation}}</em> <br>
+                        Toxicity: <em>{{specifications.toxicity}}</em> <br>
+                    </div>
+                </li>
+
+                <li><strong>Growth: </strong><br>
+                    <div class="col s1"></div>
+                    <div class="col s11">
+                        Description: <em>{{growth.description}}</em> <br>
+                        Sowing: <em>{{growth.sowing}}</em> <br>
+                        Days to Harvest: <em>{{growth.days_to_harvest}}</em> <br>
+                        Row Spacing <em>(cm)</em>: <em>{{growth.row_spacing.cm}}</em> <br>
+                        Spread <em>(cm)</em>: <em>{{growth.spread.cm}}</em> <br>
+                        PH maximum: <em>{{growth.ph_maximum}}</em> <br>
+                        PH minimum: <em>{{growth.ph_minimum}}</em> <br>
+                        Light: <em>{{growth.light}}</em> <br>
+                        Atmospheric Humidity: <em>{{growth.atmospheric_humidity}}</em> <br>
+                        Growth Months: <em>{{growth.growth_months}}</em> <br>
+                        Fruit Months: <em>{{growth.fruit_months}}</em> <br>
+                        Minimum Precipitation <em>(mm)</em>: <em>{{growth.minimum_precipitation.mm}}</em> <br>
+                        Maximum Precipitation<em>(mm)</em>: <em>{{growth.maximum_precipitation.mm}}</em> <br>
+                        Minimum Root Depth<em>(cm)</em>: <em>{{growth.minimum_root_depth.cm}}</em> <br>
+                        Minimum Temperature<em>(deg C)</em>: <em>{{growth.minimum_temperature.deg_c}}</em> <br>
+                        Maximum Temperature <em>(deg C)</em>: <em>{{growth.maximum_temperature.deg_c}}</em> <br>
+                        Soil Nutriments: <em>{{growth.soil_nutriments}}</em> <br>
+                        Soil Salinity:<em>{{growth.soil_salinity}}</em> <br>
+                        Soil Texture:<em>{{growth.soil_texture}}</em> <br>
+                        Soil Humidity:<em>{{growth.soil_humidity}}</em> <br>
+                    </div>
+                </li>
+            </ul>
+            </div>
+        </div>
+        </div>
+    </ul>
+		    <div class="row">
+		        <a href="{{ url_for('add_trefle_plant', id=trefle_id) }}" class="waves-effect waves-light teal  darken-2 btn">Add Plant   <i class="fas fa-edit"></i></a>
+            </div>
+</div>
+</div>
+{% endblock %}
