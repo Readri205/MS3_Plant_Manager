@@ -725,4 +725,5 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
    - V28.7 Update media queries with important for heroku
    - V28.8 Update for trefle details image auto refresh
    - V28.9 Update image in trefle plant details
+   - V29.0 Add search function to plant.id image search page
 ***

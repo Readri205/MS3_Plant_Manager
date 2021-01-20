@@ -40,7 +40,7 @@
                 <li><a class="hoverable teal-text text-darken-4 wiki-text" href="https://en.wikipedia.org/wiki/{{ plant.scientific_name}}" target="_blank">Wiki Link to {{ plant.common_name.title() if plant.common_name != None else 'None' }}</a></li>
 			</ul>
 		</div>
-        <div class="card-action btn-css">
+        <div class="center-align card-action btn-css">
                 <a href="{{ url_for('add_trefle_plant', id=plant.id) }}" class="waves-effect waves-light teal  darken-2 btn">Add Plant   <i class="fas fa-edit"></i></a>
                 <a href="{{ url_for('get_trefle_deets', id=plant.id) }}" class="waves-effect waves-light teal  darken-2 btn">Plant Details   <i class="fas fa-edit"></i></a>
         </div>

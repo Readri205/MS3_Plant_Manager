@@ -198,13 +198,7 @@
 @media only screen and (max-width: 500px){
 
 .card .plant_image {
-    width: 50px !important;
-}
-}
-@media only screen and (max-width: 500px){
-
-.card .plant_image {
-    width: 50px !important;
+    width: 100px !important;
 }
 }
 @media only screen and (max-width: 320px){

@@ -516,17 +516,17 @@ def get_trefle_deets(id):
     growth = the_plant['data']['growth']
     bloom_months = growth['bloom_months']
 
-    if image_url is not None:
-        response = requests.get(image_url)
-        file = open("static/images/uploads/my_image.jpg", "wb")
-        file.write(response.content)
-        file.close()
-        image1 = Image.open(
-            os.path.join(app.config['IMAGE_DEETS'], "my_image.jpg"))
-        image1.thumbnail((300, 300))
-        image1.save(
-            os.path.join(
-                app.config['IMAGE_DEETS'], "thumbnail_trefle_detail.jpg"))
+#    if image_url is not None:
+#        response = requests.get(image_url)
+#        file = open("static/images/uploads/my_image.jpg", "wb")
+#        file.write(response.content)
+#        file.close()
+#        image1 = Image.open(
+#            os.path.join(app.config['IMAGE_DEETS'], "my_image.jpg"))
+#        image1.thumbnail((300, 300))
+#        image1.save(
+#            os.path.join(
+#                app.config['IMAGE_DEETS'], "thumbnail_trefle_detail.jpg"))
 
     return render_template(
         "plant_deets.html", plant=the_plant,
@@ -730,18 +730,18 @@ def get_plant_id():
                 media=media)
 
 
-def get_image():
-    image = "https://bs.floristic.org/image/o/2292b670683abdaac354389514105df0018d9ef8"
+# def get_image():
+#    image = "https://bs.floristic.org/image/o/# 2292b670683abdaac354389514105df0018d9ef8"
 
-    response = requests.get(image)
+#    response = requests.get(image)
 
-    file = open("static/images/uploads/my_image.jpg", "wb")
-    file.write(response.content)
-    file.close()
+#    file = open("static/images/uploads/my_image.jpg", "wb")
+#    file.write(response.content)
+#    file.close()
 
-    image1 = Image.open('static/images/uploads/my_image.jpg')
-    image1.thumbnail((300, 300))
-    image1.save('static/images/uploads/thumbnail.jpg')
+#    image1 = Image.open('static/images/uploads/my_image.jpg')
+#    image1.thumbnail((300, 300))
+#    image1.save('static/images/uploads/thumbnail.jpg')
 
 
 # get_image()
