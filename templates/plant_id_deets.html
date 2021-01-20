@@ -60,11 +60,11 @@
                     <div class="row valign-wrapper">
                         <div class="input-field">
                             <i class="fas fa-search prefix teal-text text-darken-4"></i>
-                            <label for="query">{{ suggestion['plant_name'] }}</label>
-                            <input type="text" name="query" id="query">
+                            <label for="query"></label>
+                            <input type="text" name="query" id="query" value="{{ suggestion['plant_name'] }}">
                         </div>
                         <div class="">
-                            <button type="submit" class="teal darken-1 btn text-shadow">
+                            <button type="submit" value="Submit" class="teal darken-1 btn text-shadow">
                             <i class="fas fa-search left"></i> Trefle Search
                             </button>
                         </div>
