@@ -507,12 +507,8 @@ def get_trefle_deets(id):
     family_common_name = the_plant['data']['family_common_name']
     genus = the_plant['data']['genus']
     image_url = the_plant['data']['image_url']
-#    for id in the_plant['data']:
-#        print(id)
     flower = the_plant['data']['flower']
     color = flower['color']
-#    for i in color:
-#        print(i)
     conspicuous = flower['conspicuous']
     foliage = the_plant['data']['foliage']
     fruit_or_seed = the_plant['data']['fruit_or_seed']
@@ -531,18 +527,6 @@ def get_trefle_deets(id):
         image1.save(
             os.path.join(
                 app.config['IMAGE_DEETS'], "thumbnail_trefle_detail.jpg"))
-
-#    if image_url is not None:
-#        def get_image():
-#            response = requests.get(image_url)
-#            file = open("static/images/uploads/my_image.jpg", "wb")
-#            file.write(response.content)
-#            file.close()
-#            image1 = Image.open('static/images/uploads/my_image.jpg')
-#            image1.thumbnail((300, 300))
-#            image1.save('static/images/uploads/thumbnail_trefle_detail.jpg')
-
-#        get_image()
 
     return render_template(
         "plant_deets.html", plant=the_plant,
@@ -695,7 +679,6 @@ def get_plant_id():
                 "Api-Key": your_api_key
                     }).json()
 
-#    response = request.get_json()
 
 #    print(json.dumps(response['suggestions'], indent=2))
         media = response["images"][0]["url"]
