@@ -1,18 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
 <h3 class="yellow-text text-shadow text-darken-4 center-align">Search Plant.ID Plants</h3>
-    <div class="row col s12 card-panel teal lighten-4">
-        <div class="col s3">
+    <div class="row card-panel teal lighten-4">
+        <!-- <div class=""> -->
             <form action="{{ url_for('get_plant_id') }}" id="myform" enctype="multipart/form-data" method="POST">
                 <input type="file" id="capture" name="file"/>
-                <button name="action" type="submit">Submit</button>
-            </form>
-        </div>
-        <div class="col s9"></div>
-        <div class="row col s12 center-align">
+                <div class="">
+                    <p style="text-align: center;">
+                    <img class="card plant_image" id="img" alt=""/>
+                    </p>
+                </div>    
+                <div class="">
+                    <button name="action" type="submit">Submit</button>
+                </div>
+             </form>
+        <!-- </div> -->
+    </div>
+        <!--- <div class=""></div>
+        <div class="row center-align">
             <img class="plant_image" src="" id="img" alt=""/>
         </div>
-    </div>
+    </div> --->
     <!---<div class="row col s6 card-panel teal lighten-4">
         <img class="plant-image" src="static/images/plant_id/my_image.jpg" alt="No image"/>
     </div> --->
