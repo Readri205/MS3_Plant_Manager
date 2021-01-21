@@ -86,6 +86,9 @@
 .plant_image {
     width: 350px;
 }
+.trefle_image {
+    width: 600px;
+}
 .wiki-text {
     border-radius:3px;
     padding: 1px;
@@ -188,17 +191,26 @@
 .card .plant_image {
     width: 200px !important;
 }
+.card .trefle_image {
+    width: 400px !important;
+}
 }
 @media only screen and (max-width: 550px){
 
 .card .plant_image {
     width: 150px !important;
 }
+.card .trefle_image {
+    width: 300px !important;
+}
 }
 @media only screen and (max-width: 400px){
 
 .card .plant_image {
     width: 130px !important;
+}
+.card .trefle_image {
+    width: 260px !important;
 }
 }
 @media only screen and (max-width: 350px){
@@ -212,10 +224,16 @@ nav .fad {
 .card .plant_image {
     width: 100px !important;
 }
+.card .trefle_image {
+    width: 200px !important;
+}
 }
 @media only screen and (max-width: 280px){
 
 .card .plant_image {
     width: 80px !important;
+}
+.card .trefle_image {
+    width: 160px !important;
 }
 }
