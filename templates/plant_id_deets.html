@@ -56,22 +56,23 @@
                 </li>
             </ul>
             <div class="row">
-                <a href="{{ suggestion['plant_details']['url'] }}" target="_blank">WIKI link to "{{ suggestion['plant_name'] }}"</a>
+                <a class="hoverable teal-text text-darken-4 wiki-text" href="{{ suggestion['plant_details']['url'] }}" target="_blank">WIKI link to "{{ suggestion['plant_name'] }}"</a>
             </div>
-            <div class="row">
-                <form action="{{url_for('search_trefle')}}" method="post" class="col s12">
-                    <div class="row valign-wrapper">
+            <div class="">
+                <form action="{{url_for('search_trefle')}}" method="post">
+                    <div class="valign-wrapper">
                         <div class="input-field">
                             <i class="fas fa-search prefix teal-text text-darken-4"></i>
                             <label for="query"></label>
-                            <input type="text" name="query" id="query" value="{{ suggestion['plant_name'] }}">
+                            <input style="font-style: italic;" type="text" name="query" id="query" value="{{ suggestion['plant_name'] }}">
                         </div>
-                        <div class="">
+                    </div>
+                        <div>
                             <button type="submit" value="Submit" class="teal darken-1 btn text-shadow">
                             <i class="fas fa-search left"></i> Trefle Search
                             </button>
                         </div>
-                    </div>
+                    
                 </form>
             </div>
         </div>
