@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 
 <div class=" card teal lighten-4">
-<h4 class="col s12 center-align teal-text text-darken-4"> Trefle Plant Details</h4>
+    <h4 class="col s12 center-align teal-text text-darken-4"> Trefle Plant Details</h4>
 <div class="row">
         <div class="row">
             <!--- <div class="col s12"></div> --->
@@ -24,6 +24,7 @@
                 <li><strong> Genus:</strong> {{genus}}</li>
 
                 <li><strong> Flower: </strong></li>
+                    <div class="indent-detail">
                     <ul>
                         <li>Colours:     
                             {% if flower.color == None %}
@@ -35,6 +36,7 @@
                             {% endif%}</li>
                         <li>Conspicuous: <em>{{flower.conspicuous}}</em></li>
                     </ul>
+                    </div>
                 <li><strong>Bloom Months:  </strong> 
                     {% if bloom_months == None %}
                         <em>{{bloom_months}}</em>
@@ -46,39 +48,29 @@
                 </li>
                 <ul>
                     <li><strong>Foliage: </strong>
+                    <div class="indent-detail">
                     <ul>
                         <li>Texture: <em>{{foliage.texture}}</em></li>
                         <li>Colour: <em>{{foliage.color}}</em></li>
                         <li>Leaf Retention: <em>{{foliage.leaf_retention}}</em></li>
                     </ul>
+                    </div>
                     </li>
                     <li><strong>Fruit or Seed: </strong> <br> 
+                        <div class="indent-detail">
                             Conspicuous: <em>{{fruit_or_seed.conspicuous}}</em> <br>
                             Colour: <em>{{fruit_or_seed.color}}</em> <br>
                             Shape: <em>{{fruit_or_seed.shape}}</em> <br>
                             Seed Persistence: <em>{{fruit_or_seed.seed_persistence}}</em> <br> 
+                        </div>
                     </li>
                 </ul>
             </div>
-            <div class="col offset-l1 s11 m4 l3">
-                <ul>
-                    <li><strong>Specifications: </strong> <br>
-                            Ligneous Type: <em>{{specifications.ligneous_type}}</em><br>
-                            Growth Form: <em>{{specifications.growth_form}}</em> <br>
-                            Growth Habit: <em>{{specifications.growth_habit}}</em> <br>
-                            Growth Rate: <em>{{specifications.growth_rate}}</em> <br>
-                            Average Height <em>(cm)</em>: <em>{{specifications.average_height.cm}}</em> <br>
-                            Maximum Height <em>(cm)</em>: <em>{{specifications.maximum_height.cm}}</em> <br>
-                            Nitrogen Fixation: <em>{{specifications.nitrogen_fixation}}</em> <br>
-                            Shape and Orientation: <em>{{specifications.shape_and_orientation}}</em> <br>
-                            Toxicity: <em>{{specifications.toxicity}}</em> <br>
-                    </li>
-                </ul>
-            </div>
+
             <div class="col offset-l1 s11 m4 l3">
                 <ul>
                     <li><strong>Growth: </strong><br>
-                        
+                        <div class="indent-detail">
                             Description: <em>{{growth.description}}</em> <br>
                             Sowing: <em>{{growth.sowing}}</em> <br>
                             Days to Harvest: <em>{{growth.days_to_harvest}}</em> <br>
@@ -99,20 +91,37 @@
                             Soil Salinity:<em>{{growth.soil_salinity}}</em> <br>
                             Soil Texture:<em>{{growth.soil_texture}}</em> <br>
                             Soil Humidity:<em>{{growth.soil_humidity}}</em> <br>
-                        
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col offset-l1 s11 m4 l3">
+                <ul>
+                    <li><strong>Specifications: </strong> <br>
+                        <div class="indent-detail">
+                            Ligneous Type: <em>{{specifications.ligneous_type}}</em><br>
+                            Growth Form: <em>{{specifications.growth_form}}</em> <br>
+                            Growth Habit: <em>{{specifications.growth_habit}}</em> <br>
+                            Growth Rate: <em>{{specifications.growth_rate}}</em> <br>
+                            Average Height <em>(cm)</em>: <em>{{specifications.average_height.cm}}</em> <br>
+                            Maximum Height <em>(cm)</em>: <em>{{specifications.maximum_height.cm}}</em> <br>
+                            Nitrogen Fixation: <em>{{specifications.nitrogen_fixation}}</em> <br>
+                            Shape and Orientation: <em>{{specifications.shape_and_orientation}}</em> <br>
+                            Toxicity: <em>{{specifications.toxicity}}</em> <br>
+                        </div>
                     </li>
                 </ul>
             </div>
         </div>
     </ul>
-		    <div class="row">
-                <div class="col l6 center-align">
-                    <a href="{{ url_for('add_trefle_plant', id=trefle_id) }}" class="waves-effect waves-light teal  darken-2 btn">Add Plant   <i class="fas fa-edit"></i></a>
-                </div>
-                <div class="col l6 center-align">
-                    <a href="{{ url_for('get_trefle_many') }}" class="waves-effect waves-light teal  darken-2 btn">Back to Search<i class="fas fa-edit"></i></a>
-                 </div>
+		<div class="row">
+            <div class="col l6 center-align">
+                <a href="{{ url_for('add_trefle_plant', id=trefle_id) }}" class="waves-effect waves-light teal  darken-2 btn">Add Plant   <i class="fas fa-edit"></i></a>
             </div>
+            <div class="col l6 center-align">
+                <a href="{{ url_for('get_trefle_many') }}" class="waves-effect waves-light teal  darken-2 btn">Back to Search<i class="fas fa-edit"></i></a>
+            </div>
+        </div>
 </div>
 </div>
 {% endblock %}
