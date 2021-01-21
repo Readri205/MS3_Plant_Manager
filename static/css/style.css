@@ -195,18 +195,27 @@
     width: 150px !important;
 }
 }
-@media only screen and (max-width: 500px){
+@media only screen and (max-width: 400px){
 
 .card .plant_image {
-    width: 100px !important;
+    width: 130px !important;
 }
 }
-@media only screen and (max-width: 320px){
+@media only screen and (max-width: 350px){
 nav .brand-logo {
     font-size: 1rem !important;
 }
 nav .fad {
     font-size: 1rem !important;
     margin-top: 22px !important;
+}
+.card .plant_image {
+    width: 100px !important;
+}
+}
+@media only screen and (max-width: 280px){
+
+.card .plant_image {
+    width: 80px !important;
 }
 }

@@ -727,4 +727,5 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
    - V28.9 Update image in trefle plant details
    - V29.0 Add search function to plant.id image search page
    - V29.1 Update search function with submit value
+   - V29.2 Amend media image sizes in plant.id return
 ***
