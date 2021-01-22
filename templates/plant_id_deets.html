@@ -5,7 +5,7 @@
             <form action="{{ url_for('get_plant_id') }}" id="myform" enctype="multipart/form-data" method="POST">
                 <input type="file" id="capture" name="file"/>
                 <div class="col s12 center-align teal lighten-4">
-                    <img class="card upload_image" id="img" alt=""/>
+                    <img class="card responsive-img" id="img" alt=""/>
                 </div>
                 <div> 
                     <button name="action" type="submit">Submit</button>
@@ -13,7 +13,7 @@
             </form>
     </div>
         <div class="row col s6 center-align card-panel teal lighten-4">
-            <img class="card plant_image" src="{{ media }}" alt="No image"/>
+            <img class="card responsive-img" src="{{ media }}" alt="No image"/>
         </div>
 <ul>
     {% for suggestion in response['suggestions'] %}

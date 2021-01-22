@@ -23,7 +23,7 @@
         <span><strong>Genus: </strong></span><span> {{plant.genus}}</span> <br>
         <span><strong>Description: </strong></span><span> {{plant.description}}</span> <br>
         <span><strong>Date Added: </strong></span><span> {{plant.date_added}}</span> <br>
-        <span><img  class="card plant_image" src="{{ plant.image_url }}" alt="No image"></span><br>
+        <img  class="card responsive-img" src="{{ plant.image_url }}" alt="No image"><br>
         <span><strong>Created By: </strong></span><span> {{plant.created_by}}</span> <br>
         <div class="btn-css">
 		    <a href="{{url_for('edit_plant', plant_id=plant._id)}}" class="waves-effect waves-light btn"><i class="material-icons"></i>Edit</a>

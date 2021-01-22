@@ -84,13 +84,13 @@
     padding: 2rem;
 }
 .upload_image {
-    width: 200px;
+    width: 200px !important;
 }
 .plant_image {
-    width: 350px;
+    width: 350px !important;
 }
 .trefle_image {
-    width: 500px;
+    width: 500px !important;
 }
 .indent-detail {
     padding-left: 5px;
