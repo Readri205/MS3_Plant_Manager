@@ -83,8 +83,11 @@
     margin-bottom: 3rem;
     padding: 2rem;
 }
+.upload_image {
+    width: 200px;
+}
 .plant_image {
-    width: 350px;
+    width: 200px;
 }
 .trefle_image {
     width: 500px;
