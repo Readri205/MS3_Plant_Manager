@@ -736,4 +736,5 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
    - V29.8 Amend plant.id upload image size
    - V29.9 Further plant.id upload image sizing
    - V30.0 Change to materialize responsive image format
+   - V30.1 Test 50% max width on plant.id image upload
 ***

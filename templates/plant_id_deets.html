@@ -5,14 +5,14 @@
             <form action="{{ url_for('get_plant_id') }}" id="myform" enctype="multipart/form-data" method="POST">
                 <input type="file" id="capture" name="file"/>
                 <div class="col s12 center-align teal lighten-4">
-                    <img class="card responsive-img" id="img" alt=""/>
+                    <img style="max-width: 50%;" class="card responsive-img" id="img" alt=""/>
                 </div>
                 <div> 
                     <button name="action" type="submit">Submit</button>
                 </div>
             </form>
     </div>
-        <div class="row col s6 center-align card-panel teal lighten-4">
+        <div class="row col s12 center-align card-panel teal lighten-4">
             <img class="card responsive-img" src="{{ media }}" alt="No image"/>
         </div>
 <ul>
