@@ -55,19 +55,20 @@
             </div>
             <div class="row">
                 <form action="{{url_for('search_trefle')}}" method="post">
-                    <div class="col s12">
+                    <div class="col s12 l6">
                         <div style="margin-right: 15px;" class="input-field">
                             <i class="fas fa-search prefix teal-text text-darken-4"></i>
                             <label for="query"></label>
                             <input style="font-style: italic; font-size: 12px;" type="text" name="query" id="query" value="{{ suggestion['plant_name'] }}">
                         </div>
                     </div>
-                        <div>
+                    <div class="row">
+                        <div class="col l12">
                             <button type="submit" value="Submit" class="teal darken-1 btn text-shadow">
                             <i class="fas fa-search left"></i> Trefle Search
                             </button>
                         </div>
-                    
+                    </div>
                 </form>
             </div>
         </div>
