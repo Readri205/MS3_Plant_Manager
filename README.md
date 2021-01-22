@@ -739,4 +739,5 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
    - V30.1 Test 50% max width on plant.id image upload
    - V30.2 Style amends in plant_deets page for search bar
    - V30.3 Split search function media screen sizes
+   - V30.4 Trial dark background
 ***
