@@ -53,13 +53,13 @@
             <div class="row">
                 <a class="hoverable teal-text text-darken-4 wiki-text" href="{{ suggestion['plant_details']['url'] }}" target="_blank">WIKI link to "{{ suggestion['plant_name'] }}"</a>
             </div>
-            <div class="">
+            <div class="row">
                 <form action="{{url_for('search_trefle')}}" method="post">
-                    <div class="valign-wrapper">
-                        <div class="input-field">
+                    <div class="col s12">
+                        <div style="margin-right: 15px;" class="input-field">
                             <i class="fas fa-search prefix teal-text text-darken-4"></i>
                             <label for="query"></label>
-                            <input style="font-style: italic;" type="text" name="query" id="query" value="{{ suggestion['plant_name'] }}">
+                            <input style="font-style: italic; font-size: 12px;" type="text" name="query" id="query" value="{{ suggestion['plant_name'] }}">
                         </div>
                     </div>
                         <div>
