@@ -734,4 +734,5 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
    - V29.6 Amend styles in wiki search button position in plant.id page
    - V29.7 Amend plant.id image upload style
    - V29.8 Amend plant.id upload image size
+   - V29.9 Further plant.id upload image sizing
 ***
