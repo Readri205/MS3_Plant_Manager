@@ -2,28 +2,16 @@
 {% block content %}
 <h3 class="yellow-text text-shadow text-darken-4 center-align">Search Plant.ID Plants</h3>
     <div class="row card-panel teal lighten-4">
-        <!-- <div class=""> -->
             <form action="{{ url_for('get_plant_id') }}" id="myform" enctype="multipart/form-data" method="POST">
                 <input type="file" id="capture" name="file"/>
-                <div class="">
-                    <p style="text-align: center; margin: 20px;">
-                    <img class="card plant_image" id="img" alt=""/>
-                    </p>
-                </div>    
-                <div class="">
-                    <button name="action" type="submit">Submit</button>
+                <div class="row col s12 center-align teal lighten-4">
+                    <img class="card center-align plant_image" id="img" alt=""/>
                 </div>
-             </form>
-        <!-- </div> -->
+                <div>
+                    <button name="action" type="submit">Submit</button>
+                </div>   
+            </form>
     </div>
-        <!--- <div class=""></div>
-        <div class="row center-align">
-            <img class="plant_image" src="" id="img" alt=""/>
-        </div>
-    </div> --->
-    <!---<div class="row col s6 card-panel teal lighten-4">
-        <img class="plant-image" src="static/images/plant_id/my_image.jpg" alt="No image"/>
-    </div> --->
 {% endblock %}
 {% block scripts %}
 <script src="static/js/image_upload.js" type="text/javascript"></script>

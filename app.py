@@ -471,12 +471,8 @@ def next_url():
 @app.route("/add_trefle_plant/<id>", methods=["GET", "POST"])
 def add_trefle_plant(id):
     the_plant = api.species(id)
-#    the_plant = requests.get(
-#        url_one_species + id, headers=headers).json()
     all_collections = mongo.db.collections.find(
         {"created_by": session["user"]})
-#    print(json.dumps(the_plant, indent=2))
-#    print(json.dumps(the_plant['data'], indent=2))
     trefle_id = the_plant['data']['id']
     common_name = the_plant['data']['common_name']
     scientific_name = the_plant['data']['scientific_name']
@@ -484,8 +480,7 @@ def add_trefle_plant(id):
     family_common_name = the_plant['data']['family_common_name']
     genus = the_plant['data']['genus']
     image_url = the_plant['data']['image_url']
-#    for id in the_plant['data']:
-#        print(id)
+
     return render_template(
         "add_trefle_plant.html", plant=the_plant,
         common_name=common_name, collections=all_collections,
@@ -498,8 +493,6 @@ def add_trefle_plant(id):
 @app.route("/get_trefle_deets/<id>", methods=["GET"])
 def get_trefle_deets(id):
     the_plant = api.species(id)
-#    the_plant = requests.get(
-#        url_one_species + id, headers=headers).json()
     trefle_id = the_plant['data']['id']
     common_name = the_plant['data']['common_name']
     scientific_name = the_plant['data']['scientific_name']
@@ -515,18 +508,6 @@ def get_trefle_deets(id):
     specifications = the_plant['data']['specifications']
     growth = the_plant['data']['growth']
     bloom_months = growth['bloom_months']
-
-#    if image_url is not None:
-#        response = requests.get(image_url)
-#        file = open("static/images/uploads/my_image.jpg", "wb")
-#        file.write(response.content)
-#        file.close()
-#        image1 = Image.open(
-#            os.path.join(app.config['IMAGE_DEETS'], "my_image.jpg"))
-#        image1.thumbnail((300, 300))
-#        image1.save(
-#            os.path.join(
-#                app.config['IMAGE_DEETS'], "thumbnail_trefle_detail.jpg"))
 
     return render_template(
         "plant_deets.html", plant=the_plant,
@@ -679,28 +660,15 @@ def get_plant_id():
                 "Api-Key": your_api_key
                     }).json()
 
-
 #    print(json.dumps(response['suggestions'], indent=2))
         media = response["images"][0]["url"]
 #        print(json.dumps(media, indent=2))
         for suggestion in response['suggestions']:
             plant_name = suggestion["plant_name"]
-#           common_names = suggestion["plant_details"]["common_names"]
-#           url_plant_details = suggestion["plant_details"]["url"]
             wiki_descr = suggestion["plant_details"]["wiki_description"]
             if suggestion["similar_images"] is not None:
                 similar_images = suggestion["similar_images"]
-#               print(json.dumps(plant_name, indent=2))
-#           if common_names is not None:
-#               for common_name in common_names:
-#                   print(common_name)
 
-#           print(json.dumps(descr, indent=2))
-#           for descr in wiki_description:
-#               notes = descr["value"]
-#               license_name = descr["license_name"]
-#               license_url = descr["license_url"]
-#               print(notes)
                 for similar in similar_images:
                     url_small = similar['url_small']
                     similarity = similar['similarity']*100
@@ -728,23 +696,6 @@ def get_plant_id():
                 similar_images=similar_images, wiki_descr=wiki_descr,
                 url_small=url_small, similarity=similarity,
                 media=media)
-
-
-# def get_image():
-#    image = "https://bs.floristic.org/image/o/# 2292b670683abdaac354389514105df0018d9ef8"
-
-#    response = requests.get(image)
-
-#    file = open("static/images/uploads/my_image.jpg", "wb")
-#    file.write(response.content)
-#    file.close()
-
-#    image1 = Image.open('static/images/uploads/my_image.jpg')
-#    image1.thumbnail((300, 300))
-#    image1.save('static/images/uploads/thumbnail.jpg')
-
-
-# get_image()
 
 
 if __name__ == '__main__':
