@@ -19,15 +19,9 @@
             <span><strong>Description: </strong></span><span> {{collection.description}}</span> <br>
             <span><strong>Date Added: </strong></span><span> {{collection.date_added}}</span> <br>
             <span><strong>Created By: </strong></span><span> {{collection.created_by}}</span> <br>
-            {% for plant in plants %}
-                {% if plant.collection_name|lower == collection.collection_name|lower %}
-                    <span>{{plant.common_name}}</span> <br>
-                {% else %}
-                {% endif %}
-            {% endfor %}     
             <div class="btn-css">
                 <a href="{{url_for('edit_collection', collection_id=collection._id)}}" class="waves-effect waves-light btn"><i class="material-icons"></i>Edit</a>
-                <a href="{{url_for('collections_plants', collection_id=collection._id)}}" class="waves-effect waves-light btn"><i class="material-icons"></i>Plants</a>
+                <a href="{{url_for('collections_plants', collection_id=collection._id)}}" class="waves-effect waves-light btn"><i class="material-icons"></i>Plants in Collection</a>
 		        <a href="{{url_for('delete_collection', collection_id=collection._id)}}" class="waves-effect waves-light red darken-2 btn right"><i class="material-icons"></i>Delete</a>
             </div>
         </div>

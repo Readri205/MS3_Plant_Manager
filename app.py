@@ -73,7 +73,7 @@ def insert_plant():
         "date_added": request.form.get("date_added"),
         "image_url": request.form.get("image_url"),
         "created_by": session["user"],
-        "users": user_id
+        "users": user_id,
     }
     mongo.db.plants.insert_one(plant)
     flash("Plant Successfully Added")
@@ -99,20 +99,20 @@ def update_plant(plant_id):
     user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
     plants = mongo.db.plants
     plants.update({"_id": ObjectId(plant_id)},
-    {
-        "trefle_id": request.form.get("trefle_id"),
-        "common_name": request.form.get("common_name"),
-        "collection_name": request.form.get("collection_name"),
-        "family_common_name": request.form.get("family_common_name"),
-        "scientific_name": request.form.get("scientific_name"),
-        "family": request.form.get("family"),
-        "genus": request.form.get("genus"),
-        "description": request.form.get("description"),
-        "date_added": request.form.get("date_added"),
-        "image_url": request.form.get("image_url"),
-        "created_by": session["user"],
-        "users": user_id
-    })
+        {
+            "trefle_id": request.form.get("trefle_id"),
+            "common_name": request.form.get("common_name"),
+            "collection_name": request.form.get("collection_name"),
+            "family_common_name": request.form.get("family_common_name"),
+            "scientific_name": request.form.get("scientific_name"),
+            "family": request.form.get("family"),
+            "genus": request.form.get("genus"),
+            "description": request.form.get("description"),
+            "date_added": request.form.get("date_added"),
+            "image_url": request.form.get("image_url"),
+            "created_by": session["user"],
+            "users": user_id
+        })
     flash("Plant Successfully Edited!")
     return redirect(url_for("get_plants"))
 
@@ -135,7 +135,7 @@ def collections_plants(collection_id):
     the_collection = mongo.db.collections.find_one(
         {"_id": ObjectId(collection_id)})
     the_plants = mongo.db.plants.find()
-    print(the_plants)
+#    print(the_plants)
     return render_template("collections_plants.html",
                            collection=the_collection,
                            collections=mongo.db.collections.find(),
@@ -203,10 +203,10 @@ def delete_collection(collection_id):
 def mongo_collections():
     collections = mongo.db.collections
     for collection in collections.find():
-        print(collection['collection_name'], collection['users_id'])
+        print(collection['collection_name'], collection['_id'])
 
 
-# mongo_collections()
+mongo_collections()
 
 
 def mongo_users():

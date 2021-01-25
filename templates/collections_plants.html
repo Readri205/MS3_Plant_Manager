@@ -1,13 +1,11 @@
 {% extends 'base.html' %} {% block content %}
-
 <div class="container teal lighten-4 teal-text text-darken-4">
 <h4>Plants in Collection</h4>
-
+<h5>{{collection.collection_name}}</h5>
 <ul class="collapsible teal-text text-darken-4" data-collapsible="accordion">
     {% for plant in plants %}
     {% if plant.collection_name == collection.collection_name %}
     {% if session.user|lower == plant.created_by|lower %}
-    
     <li>
         <div class="collapsible-header cap-text teal lighten-4">
             <div class="col s9">
@@ -28,8 +26,8 @@
             <img  class="card responsive-img" src="{{ plant.image_url }}" alt="No image"><br>
             <span><strong>Created By: </strong></span><span> {{plant.created_by}}</span> <br>
             <div class="btn-css">
-		        <a href="{{url_for('edit_collection', collection_id=collection._id)}}" class="waves-effect waves-light btn"><i class="material-icons"></i>Edit</a>
-		        <a href="{{url_for('delete_collection', collection_id=collection._id)}}" class="waves-effect waves-light red darken-2 btn right"><i class="material-icons"></i>Delete</a>
+                <a href="{{url_for('edit_plant', plant_id=plant._id)}}" class="waves-effect waves-light btn"><i class="material-icons"></i>Edit Plant</a>
+		        <a href="{{url_for('delete_plant', plant_id=plant._id)}}" class="waves-effect waves-light red darken-2 btn right"><i class="material-icons"></i>Delete Plant</a>
             </div>
         </div>
     </li>
@@ -37,5 +35,10 @@
     {% endif %}
     {% endfor %}
 </ul>
+<div class="row">
+        <div class="btn-css">
+		    <a href="{{url_for('get_collections')}}" class="waves-effect waves-light btn"><i class="material-icons"></i>Back to Collections</a>
+        </div>
+    </div>
 </div>
 {% endblock %}
