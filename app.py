@@ -61,6 +61,9 @@ def add_plants():
 @app.route("/insert_plant", methods=["GET", "POST"])
 def insert_plant():
     user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
+    collection_name = request.form.get("collection_name")
+    collection_id = mongo.db.collections.find_one(
+        {"collection_name": collection_name})['_id']
     plant = {
         "trefle_id": request.form.get("trefle_id"),
         "common_name": request.form.get("common_name"),
@@ -74,6 +77,7 @@ def insert_plant():
         "image_url": request.form.get("image_url"),
         "created_by": session["user"],
         "users": user_id,
+        "collection_id": collection_id
     }
     mongo.db.plants.insert_one(plant)
     flash("Plant Successfully Added")
@@ -98,6 +102,9 @@ def edit_plant(plant_id):
 def update_plant(plant_id):
     user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
     plants = mongo.db.plants
+    collection_name = request.form.get("collection_name")
+    collection_id = mongo.db.collections.find_one(
+        {"collection_name": collection_name})['_id']
     plants.update({"_id": ObjectId(plant_id)},
         {
             "trefle_id": request.form.get("trefle_id"),
@@ -111,7 +118,8 @@ def update_plant(plant_id):
             "date_added": request.form.get("date_added"),
             "image_url": request.form.get("image_url"),
             "created_by": session["user"],
-            "users": user_id
+            "users": user_id,
+            "collection_id": collection_id
         })
     flash("Plant Successfully Edited!")
     return redirect(url_for("get_plants"))
@@ -206,7 +214,7 @@ def mongo_collections():
         print(collection['collection_name'], collection['_id'])
 
 
-mongo_collections()
+# mongo_collections()
 
 
 def mongo_users():
