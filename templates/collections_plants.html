@@ -1,0 +1,41 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container teal lighten-4 teal-text text-darken-4">
+<h4>Plants in Collection</h4>
+
+<ul class="collapsible teal-text text-darken-4" data-collapsible="accordion">
+    {% for plant in plants %}
+    {% if plant.collection_name == collection.collection_name %}
+    {% if session.user|lower == plant.created_by|lower %}
+    
+    <li>
+        <div class="collapsible-header cap-text teal lighten-4">
+            <div class="col s9">
+                <i class="fas fa-spa"></i>{{plant.common_name}}
+            </div>
+            <div class="col s3">
+                <i class="material-icons">expand_more</i>
+            </div>
+        </div>
+        <div class="collapsible-body">
+            <span><strong>Trefle ID: </strong></span><span> {{plant.trefle_id}}</span> <br>
+            <span><strong>Family Common Name: </strong></span><span> {{plant.family_common_name}}</span> <br>
+            <span><strong>Scientific Name: </strong></span><span> {{plant.scientific_name}}</span> <br>
+            <span><strong>Family Name: </strong></span><span> {{plant.family}}</span> <br>
+            <span><strong>Genus: </strong></span><span> {{plant.genus}}</span> <br>
+            <span><strong>Description: </strong></span><span> {{plant.description}}</span> <br>
+            <span><strong>Date Added: </strong></span><span> {{plant.date_added}}</span> <br>
+            <img  class="card responsive-img" src="{{ plant.image_url }}" alt="No image"><br>
+            <span><strong>Created By: </strong></span><span> {{plant.created_by}}</span> <br>
+            <div class="btn-css">
+		        <a href="{{url_for('edit_collection', collection_id=collection._id)}}" class="waves-effect waves-light btn"><i class="material-icons"></i>Edit</a>
+		        <a href="{{url_for('delete_collection', collection_id=collection._id)}}" class="waves-effect waves-light red darken-2 btn right"><i class="material-icons"></i>Delete</a>
+            </div>
+        </div>
+    </li>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+</ul>
+</div>
+{% endblock %}

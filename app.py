@@ -74,14 +74,15 @@ def insert_plant():
         "image_url": request.form.get("image_url"),
         "created_by": session["user"],
         "users": user_id
-        }
+    }
     mongo.db.plants.insert_one(plant)
     flash("Plant Successfully Added")
     return redirect(url_for("get_plants"))
 
     collections = mongo.db.collections.find(
         {"created_by": session["user"]}).sort("collection_name", 1)
-    return render_template("addplants.html", collections=collections)
+    return render_template(
+        "addplants.html", collections=collections)
 
 
 @app.route('/edit_plant/<plant_id>')
@@ -127,6 +128,18 @@ def get_collections():
     return render_template("collections.html",
                            collections=mongo.db.collections.find(),
                            plants=mongo.db.plants.find())
+
+
+@app.route("/collections_plants/<collection_id>")
+def collections_plants(collection_id):
+    the_collection = mongo.db.collections.find_one(
+        {"_id": ObjectId(collection_id)})
+    the_plants = mongo.db.plants.find()
+    print(the_plants)
+    return render_template("collections_plants.html",
+                           collection=the_collection,
+                           collections=mongo.db.collections.find(),
+                           plants=the_plants)
 
 
 @app.route("/add_collections")

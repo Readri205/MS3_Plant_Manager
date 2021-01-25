@@ -740,4 +740,5 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
    - V30.2 Style amends in plant_deets page for search bar
    - V30.3 Split search function media screen sizes
    - V30.4 Trial dark background
+   - V30.5 List plants in collections
 ***
