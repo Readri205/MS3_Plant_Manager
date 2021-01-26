@@ -743,4 +743,5 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
    - V30.5 List plants in collections
    - V30.6 Amend collections sorts for plants
    - V30.7 Add collection id to plant
+   - V30.8 Amend family_name errors
 ***

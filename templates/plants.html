@@ -19,11 +19,11 @@
         <span><strong>Trefle ID: </strong></span><span> {{plant.trefle_id}}</span> <br>
         <span><strong>Family Common Name: </strong></span><span> {{plant.family_common_name}}</span> <br>
         <span><strong>Scientific Name: </strong></span><span> {{plant.scientific_name}}</span> <br>
-        <span><strong>Family Name: </strong></span><span> {{plant.family}}</span> <br>
+        <span><strong>Family Name: </strong></span><span> {{plant.family_name}}</span> <br>
         <span><strong>Genus: </strong></span><span> {{plant.genus}}</span> <br>
         <span><strong>Description: </strong></span><span> {{plant.description}}</span> <br>
         <span><strong>Date Added: </strong></span><span> {{plant.date_added}}</span> <br>
-        <img  class="card responsive-img" src="{{ plant.image_url }}" alt="No image"><br>
+        <img  class="card responsive-img" src="{{ plant.image_url }}" alt=""><br>
         <span><strong>Created By: </strong></span><span> {{plant.created_by}}</span> <br>
         <div class="btn-css">
 		    <a href="{{url_for('edit_plant', plant_id=plant._id)}}" class="waves-effect waves-light btn"><i class="material-icons"></i>Edit</a>
