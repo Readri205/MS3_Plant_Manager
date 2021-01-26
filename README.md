@@ -745,4 +745,5 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
    - V30.7 Add collection id to plant
    - V30.8 Amend family_name errors
    - V30.9 Update main search page
+   - V31.0 Update trefle filter search
 ***

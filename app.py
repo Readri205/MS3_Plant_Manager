@@ -552,12 +552,24 @@ def filter_search():
 def trefle_filter():
     colors = []
     if request.method == "POST":
+        if request.form.get('White') == 'on':
+            colors.append('white,')
         if request.form.get('Red') == 'on':
             colors.append('red,')
         if request.form.get('Yellow') == 'on':
             colors.append('yellow,')
         if request.form.get('Blue') == 'on':
             colors.append('blue,')
+        if request.form.get('Black') == 'on':
+            colors.append('black,')
+        if request.form.get('Orange') == 'on':
+            colors.append('orange,')
+        if request.form.get('Green') == 'on':
+            colors.append('green,')
+        if request.form.get('Brown') == 'on':
+            colors.append('brown,')
+        if request.form.get('Purple') == 'on':
+            colors.append('purple,')
 #        print(colors)
         include = "filter"
         filters = "flower_color"
