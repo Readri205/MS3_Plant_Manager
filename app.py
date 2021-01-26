@@ -374,28 +374,28 @@ def get_trefle_many():
         url_all_plants + page_url + str(page), headers=headers).json()
     plant = plants['data']
     total = plants['meta']['total']
-    links = plants['links']
-    first_page = links['first'][21:]
-    selfs_page = links['self'][21:]
-    last_page = links['last'][21:]
-    prev_page = int(selfs_page) - 1
+#    links = plants['links']
+#    first_page = links['first'][21:]
+#    selfs_page = links['self'][21:]
+#    last_page = links['last'][21:]
+#    prev_page = int(selfs_page) - 1
 #    print(links)
-    if 'next' in links:
-        next_page = links['next'][21:]
+#    if 'next' in links:
+#        next_page = links['next'][21:]
 #        print(next_page)
-        return render_template(
-            "trefle_plants.html", plants=plant,
-            last_page=last_page, total=total, page=page,
-            next_page=next_page, first_page=first_page,
-            prev_page=prev_page, selfs_page=selfs_page)
-    if 'prev' in links:
-        prev_page = links['next'][21:]
-        return render_template(
-            "trefle_plants.html", plants=plant,
-            last_page=last_page, total=total, page=page,
-            prev_page=prev_page, first_page=first_page)
+#        return render_template(
+#            "trefle_search.html", plants=plant,
+#            last_page=last_page, total=total, page=page,
+#            next_page=next_page, first_page=first_page,
+#            prev_page=prev_page, selfs_page=selfs_page)
+#    if 'prev' in links:
+#        prev_page = links['next'][21:]
+#        return render_template(
+#           "trefle_search.html", plants=plant,
+#            last_page=last_page, total=total, page=page,
+#            prev_page=prev_page, first_page=first_page)
     return render_template(
-            "trefle_plants.html", plants=plant,
+            "trefle_search.html", plants=plant,
             total=total)
 
 
