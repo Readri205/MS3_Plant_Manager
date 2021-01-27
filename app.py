@@ -223,7 +223,7 @@ def mongo_users():
         print(user['_id'], user['username'])
 
 
-mongo_users()
+# mongo_users()
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -372,34 +372,18 @@ def get_trefle_many():
     page = request.args.get('page', 1, type=int)
     plants = requests.get(
         url_all_plants + page_url + str(page), headers=headers).json()
-    plant = plants['data']
-    total = plants['meta']['total']
-#    links = plants['links']
-#    first_page = links['first'][21:]
-#    selfs_page = links['self'][21:]
-#    last_page = links['last'][21:]
-#    prev_page = int(selfs_page) - 1
-#    print(links)
-#    if 'next' in links:
-#        next_page = links['next'][21:]
-#        print(next_page)
-#        return render_template(
-#            "trefle_search.html", plants=plant,
-#            last_page=last_page, total=total, page=page,
-#            next_page=next_page, first_page=first_page,
-#            prev_page=prev_page, selfs_page=selfs_page)
-#    if 'prev' in links:
-#        prev_page = links['next'][21:]
-#        return render_template(
-#           "trefle_search.html", plants=plant,
-#            last_page=last_page, total=total, page=page,
-#            prev_page=prev_page, first_page=first_page)
-    return render_template(
-            "trefle_search.html", plants=plant,
-            total=total)
+    if plants:
+        plant = plants['data']
+        total = plants['meta']['total']
+        return render_template(
+                "trefle_search.html", plants=plant,
+                total=total)
+    else:
+        return render_template(
+                "trefle_oops.html")
 
 
-@app.route("/search_trefle", methods=["GET", "POST"])
+@app.route("/search_trefle", methods=["POST"])
 def search_trefle():
     query = request.form.get("query")
     global search
@@ -407,46 +391,50 @@ def search_trefle():
     page = request.args.get('page', 1, type=int)
     plants = requests.get(
         url_page_no + page_url + str(page) + search, headers=headers).json()
-    plant = plants['data']
-    total = plants['meta']['total']
-    links = plants['links']
-    adjust = len(search)
-    first = links['first'][28:]
-    first_many = len(first)
-    first_net_adjust = first_many - adjust
-    first_page = first[:first_net_adjust]
-    selfs = links['self'][28:]
-    selfs_many = len(selfs)
-    selfs_net_adjust = selfs_many - adjust
-    selfs_page = selfs[:selfs_net_adjust]
-    prev_page = int(selfs_page) - 1
-    next_page = int(selfs_page) + 1
-    last = links['last'][28:]
-    last_many = len(last)
-    last_net_adjust = last_many - adjust
-    last_page = last[:last_net_adjust]
-    all_pages = list(range(int(first_page), int(last_page)+1))
-#    print(links)
-    if int(last_page) == 3:
+    if plants:
+        plant = plants['data']
+        total = plants['meta']['total']
+        links = plants['links']
+        adjust = len(search)
+        first = links['first'][28:]
+        first_many = len(first)
+        first_net_adjust = first_many - adjust
+        first_page = first[:first_net_adjust]
+        selfs = links['self'][28:]
+        selfs_many = len(selfs)
+        selfs_net_adjust = selfs_many - adjust
+        selfs_page = selfs[:selfs_net_adjust]
+        prev_page = int(selfs_page) - 1
+        next_page = int(selfs_page) + 1
+        last = links['last'][28:]
+        last_many = len(last)
+        last_net_adjust = last_many - adjust
+        last_page = last[:last_net_adjust]
+        all_pages = list(range(int(first_page), int(last_page)+1))
+    #     print(json.dumps(plants, indent=2))
+        if int(last_page) == 3:
+            return render_template(
+                "trefle_plants_three.html", plants=plant,
+                last_page=last_page, total=total,
+                next_page=next_page, first_page=first_page,
+                all_pages=all_pages, page=page,
+                prev_page=prev_page, selfs_page=selfs_page)
+        if int(last_page) <= 2:
+            return render_template(
+                "trefle_plants_two.html", plants=plant,
+                last_page=last_page, total=total,
+                next_page=next_page, first_page=first_page,
+                all_pages=all_pages, page=page,
+                prev_page=prev_page, selfs_page=selfs_page)
         return render_template(
-            "trefle_plants_three.html", plants=plant,
+            "trefle_plants.html", plants=plant,
             last_page=last_page, total=total,
             next_page=next_page, first_page=first_page,
             all_pages=all_pages, page=page,
-            prev_page=prev_page, selfs_page=selfs_page)
-    if int(last_page) <= 2:
+            selfs_page=selfs_page, prev_page=prev_page)
+    else:
         return render_template(
-            "trefle_plants_two.html", plants=plant,
-            last_page=last_page, total=total,
-            next_page=next_page, first_page=first_page,
-            all_pages=all_pages, page=page,
-            prev_page=prev_page, selfs_page=selfs_page)
-    return render_template(
-        "trefle_plants.html", plants=plant,
-        last_page=last_page, total=total,
-        next_page=next_page, first_page=first_page,
-        all_pages=all_pages, page=page,
-        selfs_page=selfs_page, prev_page=prev_page)
+                "trefle_oops.html")
 
 
 @app.route("/next_url")
@@ -473,7 +461,7 @@ def next_url():
     last_net_adjust = last_many - adjust
     last_page = last[:last_net_adjust]
     all_pages = list(range(int(first_page), int(last_page)+1))
-    print(next_page, last_page)
+#    print(next_page, last_page)
     if int(last_page) == 3:
         return render_template(
             "trefle_plants_three.html", plants=plant,
@@ -515,7 +503,6 @@ def add_trefle_plant(id):
     family_common_name = the_plant['data']['family_common_name']
     genus = the_plant['data']['genus']
     image_url = the_plant['data']['image_url']
-
     return render_template(
         "add_trefle_plant.html", plant=the_plant,
         common_name=common_name, collections=all_collections,
@@ -543,7 +530,6 @@ def get_trefle_deets(id):
     specifications = the_plant['data']['specifications']
     growth = the_plant['data']['growth']
     bloom_months = growth['bloom_months']
-
     return render_template(
         "plant_deets.html", plant=the_plant,
         common_name=common_name, flower=flower,
@@ -596,10 +582,6 @@ def trefle_filter():
         plants = requests.get(
             url_all_plants, params=params,
             headers=headers).json()
-#        filter_type = "[flower_color]"
-#        filters = {"filter" + filter_type: [color_filter]}
-#        plants = api.species(**filters)
-#        print(json.dumps(plants['links'], indent=2))
         plant = plants['data']
         total = plants['meta']['total']
         links = plants['links']

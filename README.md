@@ -748,4 +748,5 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
    - V31.0 Update trefle filter search
    - V31.1 Amend filter search page numbers
    - V31.2 Amend trefle search page numbers
+   - V31.3 Add defensive code for trefle API fail
 ***
