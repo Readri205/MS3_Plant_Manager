@@ -427,9 +427,16 @@ def search_trefle():
     last_page = last[:last_net_adjust]
     all_pages = list(range(int(first_page), int(last_page)+1))
 #    print(links)
-    if int(last_page) <= 3:
+    if int(last_page) == 3:
         return render_template(
             "trefle_plants_three.html", plants=plant,
+            last_page=last_page, total=total,
+            next_page=next_page, first_page=first_page,
+            all_pages=all_pages, page=page,
+            prev_page=prev_page, selfs_page=selfs_page)
+    if int(last_page) <= 2:
+        return render_template(
+            "trefle_plants_two.html", plants=plant,
             last_page=last_page, total=total,
             next_page=next_page, first_page=first_page,
             all_pages=all_pages, page=page,
@@ -467,9 +474,16 @@ def next_url():
     last_page = last[:last_net_adjust]
     all_pages = list(range(int(first_page), int(last_page)+1))
     print(next_page, last_page)
-    if int(last_page) <= 3:
+    if int(last_page) == 3:
         return render_template(
             "trefle_plants_three.html", plants=plant,
+            last_page=last_page, total=total,
+            next_page=next_page, first_page=first_page,
+            all_pages=all_pages, page=page,
+            prev_page=prev_page, selfs_page=selfs_page)
+    if int(last_page) <= 2:
+        return render_template(
+            "trefle_plants_two.html", plants=plant,
             last_page=last_page, total=total,
             next_page=next_page, first_page=first_page,
             all_pages=all_pages, page=page,
@@ -599,7 +613,7 @@ def trefle_filter():
         next_page = page + 1
         last_page = links['last'][int(adjust_page):]
         all_pages = list(range(int(first_page), int(last_page)+1))
-        print(selfs_page, first_page, next_page, last_page, prev_page)
+#        print(selfs_page, first_page, next_page, last_page, prev_page)
         if int(last_page) == 3:
             return render_template(
                 "filter_plants_three.html", plants=plant,
@@ -651,7 +665,7 @@ def next_filter():
     prev_page = page - 1
     next_page = page + 1
     last_page = links['last'][int(adjust_page):]
-    print(selfs_page, first_page, last_page)
+#    print(selfs_page, first_page, last_page)
     all_pages = list(range(int(first_page), int(last_page)))
 #    print(query, selfs_page, first_page, next_page, last_page, prev_page)
     if int(last_page) == 3:
