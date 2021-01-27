@@ -754,4 +754,5 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
    - V31.6 Amend filter page numbers for first page on next filter
    - V31.7 Add button for plant details on filter pages
    - V31.8 Add web link to trefle image on search page
+   - V31.9 Amend typo in plant id page text
 ***

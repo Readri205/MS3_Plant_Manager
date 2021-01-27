@@ -13,7 +13,7 @@
         <p class="row teal-text text-darken-4">
         Load a file or capture an image from your mobile phone of a plant you've seen and you'd like to get an idea what it is.  When you're happy with your image, submit it and the database will return suggestions to review.</p>
         <p class="row teal-text text-darken-4">
-        Please note that on some devices the loaded image will be rotated through 90%. Also note that the image is is only stored temporarily and is not retained in this application once you leave this page. The image should be retained in your own mobile.</p>
+        Please note that on some devices the loaded image will be rotated through 90%. Also note that the image is only stored temporarily and is not retained in this application once you leave this page. The image should be retained in your own mobile.</p>
         <form action="{{ url_for('get_plant_id') }}" id="myform" enctype="multipart/form-data" method="POST">
             <input type="file" id="capture" name="file"/>
             <div class="col s12 center-align teal lighten-4">
