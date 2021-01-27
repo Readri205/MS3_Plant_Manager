@@ -3,6 +3,17 @@
 <h3 class="yellow-text text-shadow text-darken-4 center-align">Search Trefle for Plants</h3>
 
     <div class="row card-panel teal lighten-5">
+        <p class="teal-text text-darken-4"> <a class="teal-text text-darken-4 wiki-text" href="https://trefle.io/about#sources" target="blank">Trefle.io</a> is an open-source database with <strong><em>{{ total }}</em></strong> listed plants from around the world. The project is currently in 'Beta' and as such the information is not 100% complete or validated, and the database can have maintenance downtimes. Nevertheless, it represents one of the most comprehensive publicly available global plant databases. It is compiled from the following sources;
+        </p>
+        <div class="row">
+            <img class=" responsive-img" src="static/images/trefle.png" alt="">
+        </div>
+        <p class="row teal-text text-darken-4">
+        Enter a name of a plant you'd like to search for and Trefle will return suggestions to review.</p>
+        <p class="row teal-text text-darken-4"> Click on 'Plant Details' to see more details and 'Add Plant' to add the plant to your list in a collection.
+        </p>
+        <p class="row teal-text text-darken-4">Examples of returns from the database are shown below. Note that details for many plants are not complete, but the database is being updated on a regular basis.
+        </p>
         <form action="{{url_for('search_trefle')}}" method="post" class="col s12">
             <div class="row valign-wrapper center-align">
                 <div class="input-field col s12 m8">
