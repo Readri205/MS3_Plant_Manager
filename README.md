@@ -751,4 +751,5 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
    - V31.3 Add defensive code for trefle API fail
    - V31.4 Add information for plant_id image loads
    - V31.5 Update Trefle information on search and filter pages
+   - V31.6 Amend filter page numbers for first page on next filter
 ***
