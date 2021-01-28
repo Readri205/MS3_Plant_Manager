@@ -568,7 +568,7 @@ def get_trefle_deets(id):
 
 @app.route("/filter_search")
 def filter_search():
-    return render_template("trefle_filter.html")
+    return render_template("filter_trefle.html")
 
 
 @app.route("/trefle_filter", methods=["GET", "POST"])
