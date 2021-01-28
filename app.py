@@ -4,7 +4,7 @@ import requests
 import base64
 from flask import (
     Flask, flash, render_template,
-    redirect, request, session, url_for, jsonify)
+    redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import (
@@ -627,7 +627,7 @@ def trefle_filter():
                     next_page=next_page, first_page=first_page,
                     all_pages=all_pages, page=page,
                     prev_page=prev_page, selfs_page=selfs_page)
-            if int(last_page) <= 2:
+            if int(last_page) == 2:
                 return render_template(
                     "filter_plants_two.html", plants=plant,
                     last_page=last_page, total=total,
