@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %}
-
-<div class="container teal-text text-darken-4">
-<h4>Edit Plants</h4>
+<div class="row yellow-text text-darken-4 center-align">
+<h4>Edit Plant</h4>
+</div>
 <div class="row teal lighten-4">
 	<form action="{{ url_for('update_plant', plant_id=plant._id) }}" method="POST" class="col s12">
 		<div class="row">

@@ -391,7 +391,7 @@ def tester_get():
         print('Oh dear! that failed!')
 
 
-tester_get()
+# tester_get()
 
 
 @app.route("/search_trefle", methods=["POST"])
@@ -561,9 +561,8 @@ def get_trefle_deets(id):
             color=color, conspicuous=conspicuous,
             specifications=specifications,
             bloom_months=bloom_months, growth=growth)
-    else:
-        return render_template(
-                "trefle_oops.html")
+    return render_template(
+        "trefle_oops.html")
 
 
 @app.route("/filter_search")

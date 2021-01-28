@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 
 <div class="container teal lighten-4 teal-text text-darken-4">
-<h4>My Collections</h4>
+<h4 class="center-align">My Collections</h4>
 <ul class="collapsible teal-text text-darken-4" data-collapsible="accordion">
     {% for collection in collections %}
     {% if session.user|lower == collection.created_by|lower %}

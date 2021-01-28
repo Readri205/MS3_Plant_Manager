@@ -1,14 +1,16 @@
 {% extends 'base.html' %} {% block content %}
 
 <div class="container teal lighten-4 teal-text text-darken-4">
-<h4>My Plants</h4>
+<h4 class="center-align">My Plants</h4>
+
+<p class="teal-text text-darken-4 center-align">Make sure you have set up a collection before entering a plant!</p>
 <ul class="collapsible" data-collapsible="accordion">
     {% for plant in plants %}
     {% if session.user|lower == plant.created_by|lower %}
     <li>
     <div class="collapsible-header teal lighten-4">
         <div class="col s9">
-            <i class="fas fa-spa"></i>{{plant.common_name}}
+            <i class="fas fa-spa"></i>{{plant.common_name.title() if plant.common_name != None else 'None'}}
         </div>
         <div class="col s3">
             <i class="material-icons">expand_more</i>
@@ -16,7 +18,7 @@
     </div>
     <div class="collapsible-body">
         <span class="cap-text"><strong> Collection: </strong></span><span class="cap-text"><strong>{{plant.collection_name}}</strong></span> <br>
-        <span><strong>Trefle ID: </strong></span><span> {{plant.trefle_id}}</span> <br>
+        <span><strong>Trefle ID: </strong></span><span> {{plant.trefle_id if plant.trefle_id != None else 'None'}}</span> <br>
         <span><strong>Family Common Name: </strong></span><span> {{plant.family_common_name}}</span> <br>
         <span><strong>Scientific Name: </strong></span><span> {{plant.scientific_name}}</span> <br>
         <span><strong>Family Name: </strong></span><span> {{plant.family_name}}</span> <br>
@@ -26,6 +28,9 @@
         <img  class="card responsive-img" src="{{ plant.image_url }}" alt=""><br>
         <span><strong>Created By: </strong></span><span> {{plant.created_by}}</span> <br>
         <div class="btn-css">
+            <!---
+            <a href="{{ url_for('get_trefle_deets', id=plant.trefle_id) }}" class="waves-effect waves-light teal  darken-2 btn">Trefle Details   <i class="fas fa-edit"></i></a>
+            -->
 		    <a href="{{url_for('edit_plant', plant_id=plant._id)}}" class="waves-effect waves-light btn"><i class="material-icons"></i>Edit</a>
 		    <a href="{{url_for('delete_plant', plant_id=plant._id)}}" class="waves-effect waves-light red darken-2 btn right"><i class="material-icons"></i>Delete</a>
         </div>
