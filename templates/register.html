@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
-
-    <h3 class="center-align teal-text text-darken-4">Register</h3>
-
+<div class="row yellow-text text-darken-4 center-align">
+<h4>Register</h4>
+</div>
     <div class="row">
         <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register') }}">
             <div class="card-panel">
@@ -33,13 +33,6 @@
                         <i class="fas fa-phone prefix teal-text text-darken-4"></i>
                         <input id="phone_number" name="phone_number" type="tel" class="validate" required>
                         <label for="phone_number">Phone Number</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="fas fa-phone prefix teal-text text-darken-4"></i>
-                        <input id="profile_image" name="profile_image" type="tel" class="validate" >
-                        <label for="profile_image">Profile Image</label>
                     </div>
                 </div>
                 <!-- username -->
