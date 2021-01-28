@@ -123,10 +123,8 @@
 		<p class="col teal darken-4 yellow-text text-darken-4 text-shadow">Total number of plants in search: <em>{{ total }}</em></p>
     </div>
     <div class="row">
-        <div class="col s2">
-            {% if first_page == last_page %}
-           
-            {% elif selfs_page == last_page %}
+        <div class="col s12">
+            {% if selfs_page == last_page %}
             <a href="{{url_for('next_filter', page=first_page )}}" class="btn teal darken-4 yellow-text text-darken-4 text-shadow">{{first_page}}</a>
             <a href="{{url_for('next_filter', page=prev_page )}}" class="btn teal darken-4 yellow-text text-darken-4 text-shadow">{{prev_page}}</a>
             <a href="{{url_for('next_filter', page=last_page )}}" class="btn yellow darken-4 teal-text text-darken-4 text-shadow">{{last_page}}</a>
