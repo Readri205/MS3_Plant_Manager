@@ -411,7 +411,7 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    * (the Star Wars example) for the API fetch function that is used extensively across all the API calls in this website;
    * (the [Emailjs](https://www.emailjs.com/) example) for the 'Contact Form' email return function used in this website.
    * (the 'Task List' example) by Tim Nelson for the [Flask](https://flask.palletsprojects.com/en/1.1.x/) / [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) / [MongoDB](https://www.mongodb.com/cloud/atlas) / [Materialize](https://materializecss.com/) example which is used for the base construction of this website.
-* Code for the Carousel
+* Code for the Carousel was from [Learning Simplified](https://youtu.be/re2W7o6IsYo), a youtube channel doing some good things with the [Materialize 1.0.0](https://materializecss.com/) Library.
 
 ## Content
 
@@ -761,4 +761,5 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
    - V32.3 Amend filter for first page
    - V32.4 Standardise all pages with yellow text header
    - V32.5 Update plants list pages with standard headers
+   - V32.6 Change header images and titles
 ***
