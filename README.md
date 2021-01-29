@@ -763,4 +763,5 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
    - V32.5 Update plants list pages with standard headers
    - V32.6 Change header images and titles
    - V32.7 Amend home page header styles
+   - V32.8 Update header images and add references to Unsplash
 ***

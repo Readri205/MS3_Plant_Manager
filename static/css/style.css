@@ -50,16 +50,22 @@
     height:55vh !important;
 }
 .cc1 {
-    background-image: url("https://images.unsplash.com/photo-1542804540-bff9557c17df?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80");
+    background-image: url("https://images.unsplash.com/photo-1559637684-693e937fc3b6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2482&q=80");
 }
 .cc2 {
-    background-image: url("https://images.unsplash.com/photo-1582893267672-d094c3cce74a?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2550&q=80");
+    background-image: url("https://images.unsplash.com/photo-1586105538956-f0fc8ec7887a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80");
 }
 .cc3 {
-    background-image: url("https://images.unsplash.com/photo-1502517787199-e68205b0c811?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2338&q=80");
+    background-image: url("https://images.unsplash.com/photo-1502517787199-e68205b0c811?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2338&q=80");
 }
 .cc4 {
-    background-image: url("https://images.unsplash.com/photo-1594708087802-bc0ecbf0766c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80");
+    background-image: url("https://images.unsplash.com/photo-1510551768116-46a5da1539dc?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2551&q=80");
+}
+.panel-text {
+    font-size: 10px;
+}
+.link-text {
+    text-decoration: underline;
 }
 .cc1, .cc2, .cc3, .cc4 {
     background-position: center;
@@ -235,7 +241,7 @@
     font-size: 10px;
 }
 .panel-text {
-    font-size: 10px;
+    font-size: 8px;
 }
 }
 @media only screen and (max-width: 400px){
@@ -269,7 +275,7 @@ nav .fad {
     font-size: 5px;
 }
 .panel-text {
-    font-size: 8px;
+    font-size: 5px;
 }
 }
 @media only screen and (max-width: 280px){
