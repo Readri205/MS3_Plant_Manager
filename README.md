@@ -771,4 +771,5 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
    - V33.3 Amend plant names in collection to title case
    - V33.4 Amend header sub title spacing
    - V33.5 Add space for header image title
+   - V33.6 Amend home page card images
 ***
