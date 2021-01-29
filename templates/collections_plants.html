@@ -1,7 +1,10 @@
 {% extends 'base.html' %} {% block content %}
+<div class="row yellow-text text-darken-4 center-align">
+<h4>Plants in Collections</h4>
+</div>
 <div class="container teal lighten-4 teal-text text-darken-4">
-<h4>Plants in Collection</h4>
-<h5>{{collection.collection_name}}</h5>
+    <div class="row panel-text"></div>
+<h5 class="center-align" >{{collection.collection_name}}</h5>
 <ul class="collapsible teal-text text-darken-4" data-collapsible="accordion">
     {% for plant in plants %}
     {% if plant.collection_name == collection.collection_name %}

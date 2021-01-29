@@ -766,4 +766,5 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
    - V32.8 Update header images and add references to Unsplash
    - V32.9 Amend all headings to standardize
    - V33.0 Amend page headers to standardize
+   - V33.1 Remove card links on home page
 ***
