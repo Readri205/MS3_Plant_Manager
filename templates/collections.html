@@ -3,7 +3,8 @@
 <h4>My Collections</h4>
 </div>
 <div class="container teal lighten-4 teal-text text-darken-4">
-    <p class="teal-text text-darken-4 center-align header-top">Set up a collection to enter a plant!</p>
+    <div class="row panel-text"></div>
+    <p class="teal-text text-darken-4 center-align header-top">Set up a collection to enter a plant</p>
 <ul class="collapsible teal-text text-darken-4" data-collapsible="accordion">
     {% for collection in collections %}
     {% if session.user|lower == collection.created_by|lower %}

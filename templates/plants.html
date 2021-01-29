@@ -4,7 +4,8 @@
 </div>
 <div class="container teal lighten-4 teal-text text-darken-4">
 <h4 class="center-align"></h4>
-<p class="teal-text text-darken-4 center-align header-top">Make sure you have set up a collection before entering a plant!</p>
+<div class="row panel-text"></div>
+<p class="teal-text text-darken-4 center-align header-top">Make sure you have set up a collection before entering a plant</p>
 <ul class="collapsible" data-collapsible="accordion">
     {% for plant in plants %}
     {% if session.user|lower == plant.created_by|lower %}
