@@ -768,4 +768,5 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
    - V33.0 Amend page headers to standardize
    - V33.1 Remove card links on home page
    - V33.2 Add header spaces
+   - V33.3 Amend plant names in collection to title case
 ***
