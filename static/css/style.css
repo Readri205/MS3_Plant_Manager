@@ -67,6 +67,9 @@
 .link-text {
     text-decoration: underline;
 }
+.header-top {
+    padding-top: 30px;
+}
 .cc1, .cc2, .cc3, .cc4 {
     background-position: center;
 	background-repeat: no-repeat;

@@ -1,7 +1,10 @@
 {% extends 'base.html' %} {% block content %}
-<div class="container teal-text text-darken-4">
+<div class="row yellow-text text-darken-4 center-align">
 <h4>Add Trefle Plant to your list</h4>
+</div>
+<div class="container teal-text text-darken-4">
 <div class="row teal lighten-4">
+    <p class="teal-text text-darken-4 center-align header-top">Make sure you have set up a collection before entering a plant!</p>
 	<form action="{{ url_for('insert_plant') }}" method="POST" class="col s12">
 		<div class="row">
 			<div class="input-field col s12">
