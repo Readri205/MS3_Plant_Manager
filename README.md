@@ -772,4 +772,5 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
    - V33.4 Amend header sub title spacing
    - V33.5 Add space for header image title
    - V33.6 Amend home page card images
+   - V33.7 Amend home page images and add artist links
 ***
