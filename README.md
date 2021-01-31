@@ -163,13 +163,12 @@
        * The user plant and the collections lists are not constructed in 'Materialize' cards but are shown as accordion lists that the user can access to view more details on each item.
    *   #### Imagery
        * The header contains a carousel designed to be striking and catch the user's attention and to provide some unique image themes. To provide some context on larger screens each image has a clear title description sourced from the original image provided by the contributor. Note that on some screen sizes the titles can be difficult to read where they blend into the image. As the titles are not fundamental to the website information it has been considered 'acceptable'. On small screens the image titles are removed, due to space and readability constraints.
-       * The background image is of a 'Cherry Tree', designed to provide a light neutral background yet reference the plant kingdom. The 'Cherry Tree' is significant in Japanese culture specifically for empathy and are used to create an 'ambience'. In the UK it is one of the first widely identifiable blossoms at the onset of spring.
+       * The background image is of 'Dark plants ...', designed to provide a dark neutral background yet reference the plant kingdom.
 
-           ![alt text](https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Hiroshige%2C_36_Views_of_Mount_Fuji_Series_7.jpg/340px-Hiroshige%2C_36_Views_of_Mount_Fuji_Series_7.jpg "Hiroshige")
+           ![alt text](https://images.unsplash.com/photo-1586990684319-40c14d005de9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1402&q=80)
 
-           *[No.7 from '36 Views of Mount Fuji', By Hiroshige](https://en.wikipedia.org/wiki/Hiroshige),*
+           *[Dark plants ..., By Amir Nyct](https://images.unsplash.com/photo-1586990684319-40c14d005de9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1402&q=80),*
 
-           *[Licence: Public Domain](https://commons.wikimedia.org/wiki/Commons:Licensing#Material_in_the_public_domain)*
 
 *   ### Wireframes
    *   #### Original Wireframe Design (October 15, 2020).
@@ -773,4 +772,5 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
    - V33.5 Add space for header image title
    - V33.6 Amend home page card images
    - V33.7 Amend home page images and add artist links
+   - V33.8 Amend main background image
 ***
