@@ -167,7 +167,9 @@
 
            ![alt text](https://images.unsplash.com/photo-1586990684319-40c14d005de9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1402&q=80)
 
-           *[Dark plants ..., By Amir Nyct](https://images.unsplash.com/photo-1586990684319-40c14d005de9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1402&q=80),*
+           *[Dark plants ..., By Amir Nyct](https://images.unsplash.com/photo-1586990684319-40c14d005de9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1402&q=80)*
+
+           *[Image via Unsplash](https://unsplash.com/)*
 
 
 *   ### Wireframes
@@ -773,4 +775,5 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
    - V33.6 Amend home page card images
    - V33.7 Amend home page images and add artist links
    - V33.8 Amend main background image
+   - V33.9 Add Unsplash reference for background image
 ***
