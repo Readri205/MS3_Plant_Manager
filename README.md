@@ -257,6 +257,7 @@
       * Directly link any search to sources for plant purchase from;
           * local suppliers to the user based on geolocation identifiers; and/or
           * create the ability to online purchase from an identified supplier.
+      * Provide an option for the user to image capture a plant and store that image in image form. Links to third party databases are possible for this feature such as AWS, Google and Cloudinary.
       * Provide an option for the user to image capture a plant in their garden which takes them directly to pertinent care details for that particular plant.
       * More sophisticated features include image identifying plants say at a garden centre and being able to compare the plant growing requirements to a users own garden conditions such as light, soil type, water, ph etc.
       * The **Calendar Feature** has proven difficult to implement as information to support this appears lacking in the plant world. Most plant and gardening information providers appear to have their own databases to support this kind of feature as a Unique Selling Product (USP). The Trefle.io database has some details such as 'bloom months' and 'sowing months'. However, this data is not complete. The feature could be added as a future feature on the site.
@@ -283,14 +284,15 @@
     1. Collections - for users to record their plant lists in their user defined collections;
 
       ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/mongodb_collection.png?raw= "Collection")
-    1. Plants - for users to record their plants as a complete list and divide these lists into their respective collections.
+    1. Plants - for users to record their plants as a complete list and divide these lists into their respective collections. Note that for any images in the database, they are referenced as an HTTP/HTTPS link only.
 
-      ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/mongo_plant.png?raw= "Plant")
+      ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/mongodb_plant.png?raw= "Plant")
 
   * All plants in the database are directly referenced with the Users ObjectId and a Collection ObjectId.
   * All collections are directly referenced to a User ObjectId.
 
   * A key feature of the site is for users to reference the [Trefle.io](https://trefle.io/) and [Plant.id](https://plant.id/) search capabilities and then upload the data from [Trefle.io](https://trefle.io/) into their plant list. However, plants can be added to the user list manually, or by utilising the [Trefle.io](https://trefle.io/) search functionality.
+  * Images can be uploaded to MongoDB but only in an HTTP/HTTPS referenced form. The database is not designed to hold large images in standard image formats such as JPEG. As such all images are 'referenced' in this way. If a user wishes to upload an image, the user can if the user references a third party website or database.
   * Note that at present there is no functionality for a user to delete their account, but will be included as a future feature.
 
 
@@ -832,4 +834,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V34.8 Update header images in readme with titles
    - V34.9 Update Github Deploy in readme
    - V35.0 Update readme for MongoDB details
+   - V35.1 Amends for mongoDB details
 ***
