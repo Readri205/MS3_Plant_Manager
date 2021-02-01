@@ -345,7 +345,7 @@
      * by using a filter by 'colour'.
 
  * [Plant.id](https://plant.id/)
-   * The [Plant.id](https://plant.id/) database was used as the source for plant searches based on a user uploading an image. Images can be captured directly from a mobile device with a camera or by a file upload.
+   * The [Plant.id](https://plant.id/) database was used as the source for plant searches based on a user image. Images can be captured directly from a mobile device or by file upload.
 
 ## Site Construction
 
@@ -836,4 +836,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V35.0 Update readme for MongoDB details
    - V35.1 Amends for mongoDB details
    - V35.2 App.py clean up
+   - V35.3 First testing.md upload
 ***
