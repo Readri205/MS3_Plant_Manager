@@ -1,8 +1,10 @@
-![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/amiresponsive_tulip.png?raw= "Garden Manager")
+![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/amiresponsive_tulip.png?raw= "Garden Manager")
 
 [View the live **GARDEN MANAGER**  :seedling:  project here.](https://plant-manager-flask-mongodb.herokuapp.com/)
 
-![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/trefle_header.png?raw= "Garden Logo")
+![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/trefle_header.png?raw= "Trefle Logo")
+
+![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/plant_id_header.png?raw= "Plant.ID Logo")
 
 # **GARDEN MANAGER :seedling:**
 
@@ -165,16 +167,17 @@
 *   ### Design
     *   #### colour Scheme
         * The main colour is 'Teal' (#008080), designed to provide a light neutral background to highlight a 'Yellow" (#FFFF00) text. The colours have been manipulated to lighten or darken them using 'Materialize' CSS properties. The various shades of 'Teal' are used to reference the the plant kingdom.
-        * The main colours, 'Yellow" (#FFFF00)on a 'Teal' (#008080) background, were potentially a concern for the 'colour blind' fraternity. Some basic tests with colout blind persons did not present any issues, however the spectrum of colour blindness is vast so there may be some issues with some persons. The colour structure is relatively easy to change if there is negative feedback.
+        * The main colours, 'Yellow" (#FFFF00)on a 'Teal' (#008080) background, were potentially a concern for the 'colour blind' fraternity. Some basic tests with colour blind persons did not present any issues, however the spectrum of colour blindness is vast so there may be some issues with some persons. The colour structure is relatively easy to change if there is negative feedback.
     *   #### Typography
-        * The site uses the 'Materialize' default font 'Roboto' font is the main font used throughout the whole website. 'Roboto' is a clean font which is both attractive and appropriate.
+        * The site uses the 'Materialize' 'Roboto' default font throughout the whole website. 'Roboto' is a clean font which is both attractive and appropriate.
     *   #### 'Materialize' Card Structure
         * The 'Materialize' card structure is used to return search results. This structures the returns into identifiable components with an image and corresponding details for a return. This keeps each return distinct and independent of each other.
         * The user plant and the collections lists are not constructed in 'Materialize' cards but are shown as accordion lists that the user can access to view more details on each item.
     *   #### Imagery
         * A 'Dark' theme has been intentionally chosen to make it distinct from other numerous 'plant' applications. The dark background provides a clear backdrop to highlight the colours and shapes of plants, and also to highlight clearly the information that is provided in the teal 'card' structure.
         * The header contains a carousel designed to be striking and catch the user's attention and to provide some unique image themes. To provide some context on larger screens each image has a clear title description sourced from the original image provided by the contributor. Note that on some screen sizes the titles can be difficult to read where they blend into the image. As the titles are not fundamental to the website information it has been considered 'acceptable'.
-         * The background image is of 'Dark plants ...', designed to provide a dark neutral background yet reference the plant kingdom. The header images are intended to blend into the background image with the 'deep black' backgrounds.
+        * Note that the background, carousel and main home page cards all reference  [© Unsplash.com](https://unsplash.com/) for the images. As this is the case there is a risk that an image could be removed from the source and so the site image would fail. Copies of images are retained in the project image folder for backup.
+        * The background image is of 'Dark plants ...', designed to provide a dark neutral background yet reference the plant kingdom. The header images are intended to blend into the background image with the 'deep black' backgrounds.
 
             ![alt text](https://images.unsplash.com/photo-1586990684319-40c14d005de9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1402&q=80)
 
@@ -274,8 +277,8 @@
     1. Users - for user registration and login;
     1. Collections - for users to record their plant lists in their user defined collections;
     1. Plants - for users to record their plants as a complete list and divide these lists into their respective collections.
-  * Plants can be added to the user list manually, or by utilising the Trefle search functionality.
-  * Note that at present there is no functionality for a user to delete their account.
+  * A key feature of the site is for users to reference the [Trefle.io](https://trefle.io/) and [Plant.id](https://plant.id/) search capabilities and then upload the data from [Trefle.io](https://trefle.io/) into their plant list. However, plants can be added to the user list manually, or by utilising the [Trefle.io](https://trefle.io/) search functionality.
+  * Note that at present there is no functionality for a user to delete their account, but will be included as a future feature.
 
 
 ### Frameworks, Databases, Libraries & Programs Used
@@ -325,7 +328,7 @@
      * by using a filter by 'colour'.
 
  * [Plant.id](https://plant.id/)
-   * The [Plant.id](https://plant.id/) database was used as the source for plant searches based on a user uploading an image.
+   * The [Plant.id](https://plant.id/) database was used as the source for plant searches based on a user uploading an image. Images can be captured directly from a mobile device with a camera or by a file upload.
 
 ## Site Construction
 
@@ -350,7 +353,7 @@
 * ### Trefle Filter
    * Filter by 'colour'
 * ### Trefle Plant Details
-   * Reurns plant details for a specific Trefle ID
+   * Returns plant details for a specific Trefle ID
 * ### Plant.id Search
    * Search by image upload
 * ### Plant.id Search
@@ -385,6 +388,7 @@ Testing information can be found in a separate [testing.md](https://github.com/R
 * Note that on a mobile device the 'collections' drop down creates a 'mobile' type drop down selection that can be confusing initially, compared to a desktop drop down. It's a bit clunky but it works.
 * Note that on a mobile, the drop down lists can prove 'sticky' on selection with touch screen and sometimes go through to the wrong selection. Again, this can be 'annoying' initially. Further review can look to resolve this for user aesthetics.
 * Note that at present there is no functionality for a user to delete their account, but would be provided as a future feature.
+* Note that the background, carousel and main home page cards all reference  [© Unsplash.com](https://unsplash.com/) for the images. As this is the case there is a risk that an image could be removed from the source and so the site image would fail. Copies of images are retained in the project image folder for backup.
 
 ## Deployment
 
@@ -807,4 +811,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V34.4 Update readme notes
    - V34.5 Update image refs in readme
    - V34.6 Update readme content for image links
+   - V34.7 Update for typos and move readme images
 ***
