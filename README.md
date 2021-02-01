@@ -164,14 +164,16 @@
 
 *   ### Design
     *   #### Colour Scheme
-        * The main colour is 'Teal' (#008080), designed to provide a light neutral background to highlight a 'Yellow" (#FFFF00) text. The colours have been manipulated to lighten or darken them using 'Materialize' CSS properties. The various shades of 'Teal' are used to reference the 'greenness' of the plant kingdom.
+        * The main colour is 'Teal' (#008080), designed to provide a light neutral background to highlight a 'Yellow" (#FFFF00) text. The colours have been manipulated to lighten or darken them using 'Materialize' CSS properties. The various shades of 'Teal' are used to reference the the plant kingdom.
+        * The main colours, 'Yellow" (#FFFF00)on a 'Teal' (#008080) background, were potentially a concern for the 'colour blind' fraternity. Some basic tests with colout blind persons did not present any issues, however the spectrum of colour blindness is vast so there may be some issues with some persons. The colour structure is relatively easy to change if there is negative feedback.
     *   #### Typography
         * The site uses the 'Materialize' default font 'Roboto' font is the main font used throughout the whole website. 'Roboto' is a clean font which is both attractive and appropriate.
     *   #### 'Materialize' Card Structure
         * The 'Materialize' card structure is used to return search results. This structures the returns into identifiable components with an image and corresponding details for a return. This keeps each return distinct and independent of each other.
         * The user plant and the collections lists are not constructed in 'Materialize' cards but are shown as accordion lists that the user can access to view more details on each item.
     *   #### Imagery
-        * The header contains a carousel designed to be striking and catch the user's attention and to provide some unique image themes. To provide some context on larger screens each image has a clear title description sourced from the original image provided by the contributor. Note that on some screen sizes the titles can be difficult to read where they blend into the image. As the titles are not fundamental to the website information it has been considered 'acceptable'. On small screens the image titles are removed, due to space and readability constraints.
+        * A 'Dark' theme has been intentionally chosen to make it distinct from other numerous 'plant' applications. The dark background provides a clear backdrop to highlight the colours and shapes of plants, and also to highlight clearly the information that is provided in the teal 'card' structure.
+        * The header contains a carousel designed to be striking and catch the user's attention and to provide some unique image themes. To provide some context on larger screens each image has a clear title description sourced from the original image provided by the contributor. Note that on some screen sizes the titles can be difficult to read where they blend into the image. As the titles are not fundamental to the website information it has been considered 'acceptable'.
          * The background image is of 'Dark plants ...', designed to provide a dark neutral background yet reference the plant kingdom.
 
             ![alt text](https://images.unsplash.com/photo-1586990684319-40c14d005de9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1402&q=80)
@@ -203,7 +205,7 @@
           1. The **Home** page has a number of cards explaining the key features of the site, but there is no **'Calendar View'** feature;
           1. The **Calendar Feature** has proven difficult to implement as information to support this appears lacking in the plant world. Most plant and gardening information providers appear to have their own databases to support this kind of feature as a Unique Selling Product (USP). The Trefle.io database has some details such as 'bloom months' and 'sowing months'. However, this data is not complete. The feature could be added as a future feature on the site.
           1. The **'Contact Form'** has its own page. It is accessible from every page either through the main menu or from the footer;
-        * The listed API sources, [Trefle.io](https://trefle.io/), [Plant.id](https://plant.id/) were utlised. [Emailjs](https://www.emailjs.com/) was utilised for email response.
+        * The listed API sources, [Trefle.io](https://trefle.io/), [Plant.id](https://plant.id/) were utilised. [Emailjs](https://www.emailjs.com/) was utilised for email response.
 
 ## Features
 
@@ -214,7 +216,8 @@
         * The navbar is 'fixed' to the top of the screen at all times on page scroll down for easy access.
         * The navbar is coloured 'dark teal' to make it distinctive from the site pages.
         * The 'hamburger' is coloured 'dark yellow' to make it visible yet not intrusive when viewing the site details.
-        * The 'drop down' site page options are coloured 'dark yellow' with the current page shown with an 'off-white' background.
+        * See comments above with regard to potential colour blindness impacts of the yellow and green colour mix.
+        * The 'drop down' site page options are coloured 'dark yellow' with the current page shown with an 'off-white' background. Note that on a mobile, the drop down lists can prove 'sticky' on selection with touch screen and sometimes go through to the wrong selection.
         * The header image and the carousel images are suitably sized for smaller screens.
       * Desktop / Laptop large screen size
         * The 'Box Content' is effective on wide screens. The Materialize Grid System allows for the 'Box Content' to align horizontally in themes that are consistent on each of the 'Home' and 'Search' pages.
@@ -366,8 +369,9 @@
 ## Testing
 Testing information can be found in a separate [testing.md](https://github.com/Readri205/MS2_Project/blob/master/testing.md) file.
 ### Known Bugs and Issues
-* On some screen sizes at 280px in portrait mode, the pie charts on the 'Home' page can become squeezed and will not render appropriately. Testing on devices such as *Galaxy Fold* (Chrome Developer Tools) evidenced this issue. Future site updates will look at other charting options to allow more flexible media query solutions for various screen sizes.
-* On some screen sizes 320px in portrait mode the search menu text box sometimes squeezes outside the frame. Whilst aesthetically, not pleasing for the user the search function still works. Due to time constraints this function will be amended in future releases.
+* On some screen sizes at 280px in portrait mode, the images can become squeezed and will not render appropriately. Testing on devices such as *Galaxy Fold* (Chrome Developer Tools) evidenced this issue. Future site updates will look at other charting options to allow more flexible media query solutions for various screen sizes.
+* Note that on a mobile device the 'collections' drop down creates a 'mobile' type drop down selection that can be confusing initially, compared to a desktop drop down.
+* Note that on a mobile, the drop down lists can prove 'sticky' on selection with touch screen and sometimes go through to the wrong selection.
 
 ## Deployment
 
@@ -789,4 +793,5 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
    - V34.1 Update amiresponsive and header readme images
    - V34.2 Update readme contents
    - V34.3 Adjust readme format
+   - V34.4 Update readme notes
 ***
