@@ -2,8 +2,10 @@
 
 [View the live **GARDEN MANAGER**  :seedling:  project here.](https://plant-manager-flask-mongodb.herokuapp.com/)
 
+### [Trefle.io](https://trefle.io/)
 ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/trefle_header.png?raw= "Trefle Logo")
 
+### [Plant.id](https://plant.id/)
 ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/plant_id_header.png?raw= "Plant.ID Logo")
 
 # **GARDEN MANAGER :seedling:**
@@ -812,4 +814,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V34.5 Update image refs in readme
    - V34.6 Update readme content for image links
    - V34.7 Update for typos and move readme images
+   - V34.8 Update header images in readme with titles
 ***
