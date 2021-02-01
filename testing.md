@@ -125,16 +125,9 @@ The following automated tools were used to test the website during development o
   - Site upload speeds for API's and image loading;
   - Device type screen size testing.
 
-- [W3C Markup Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - used to validate HTML;
+- [W3C Markup Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - used to validate HTML, resulted in highlight for Flask functions in html pages;
 - **Home Page**
-    ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/indexhtmlw3cvalidation.png "HTML Home Page W3C Validator Check")
-
-- **Country Details Page**
-    ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/countryw3chtmlcheck.png "HTML Country Details Page W3C Validator Check")
-
-- **Contact Page**
-
-    ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/contactw3chtmlcheck.png "HTML Contact Page W3C Validator Check")
+    ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/w3c_html.png?raw=  "HTML W3C Validator Check")
 
 - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - used to validate CSS;
 

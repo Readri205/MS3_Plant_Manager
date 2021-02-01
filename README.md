@@ -841,4 +841,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V35.5 Update main header image in testing.md
    - V35.6 Update with JSHint tests
    - V35.7 Update for CSS tests
+   - V35.8 Update for html base file check
 ***
