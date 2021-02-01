@@ -138,7 +138,7 @@ The following automated tools were used to test the website during development o
 
 - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - used to validate CSS;
 
-    ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/cssw3cvalidatorcheck.png "CSS W3C Validator Check")
+    ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/w3c_css.png?raw= "CSS W3C Validator Check")
 - [JSHint](https://jshint.com/) - used to validate javascript;
   - Each of the javascript files has been validated using JSHint.
 
@@ -148,6 +148,9 @@ The following automated tools were used to test the website during development o
     - **script.js**
 
     ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/jshint_image.png?raw= "Image Upload")
+
+      The missing semicolons on lines 13 and 15 do not appear to be an issue.
+
     - **sendemail.js**
 
     ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/jshint_sendemailjs.png?raw= "Image Upload")

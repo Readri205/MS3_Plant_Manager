@@ -188,19 +188,6 @@
 ::-ms-input-placeholder { /* Microsoft Edge */
   color: #73b9b9;
 }
-.cloudinary-buttons {
-    background-color: #004d40;
-    color: #f57f17;
-    text-decoration: none;
-    font-size: 14px;
-    line-height: 28px;
-    height: 28x;
-    cursor: pointer;
-    font-weight: normal;
-    display: inline-block;
-    border-radius: 4px;
-    padding: 10px 14px;
-}
 @media only screen and (max-width: 1100px){
 
 .card .plant_image {
