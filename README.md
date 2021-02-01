@@ -8,47 +8,56 @@
 
 ## Contents
 
-* [Site Goals](#site-goals)
-* [User Experience (UX)](#user-experience--ux-)
- + [User stories](#user-stories)
-   - [First Time Visitor Goals](#first-time-visitor-goals)
-   - [Returning Visitor Goals](#returning-visitor-goals)
-   - [Frequent User Goals](#frequent-user-goals)
-   - [Mobile Menu](#mobile-menu)
- + [Design](#design)
-   - [Colour Scheme](#colour-scheme)
-   - [Typography](#typography)
-   - [Box Content Structure](#box-content-structure)
-   - [Imagery](#imagery)
- + [Wireframes](#wireframes)
-   - [Original Wireframe Design (July 2, 2020).](#original-wireframe-design--july-2--2020-)
-   - [Actual Site Design.](#actual-site-design)
-* [Features](#features)
- + [Responsive for Device Size](#responsive-for-device-size)
- + [Interactive Elements](#interactive-elements)
- + [Future Features](#future-features)
-* [Technologies Used](#technologies-used)
- + [Languages Used](#languages-used)
- + [Frameworks, Libraries & Programs Used](#frameworks--libraries---programs-used)
- + [Application Programming Interfaces (API's) Used](#application-programming-interfaces--api-s--used)
-* [Site Construction](#site-construction)
- + [Consistent Page Components](#consistent-page-components)
- + [Home Page](#home-page)
- + [Country Details Page (Nigeria has been used by way of example)](#country-details-page--nigeria-has-been-used-by-way-of-example-)
- + [Contacts Page](#contacts-page)
- + [Construction  Table](#construction--table)
-* [Testing](#testing)
- + [Known Bugs and Issues](#known-bugs-and-issues)
-* [Deployment](#deployment)
- + [GitHub Pages](#github-pages)
- + [Forking the GitHub Repository](#forking-the-github-repository)
- + [Making a Local Clone](#making-a-local-clone)
-* [Credits](#credits)
- + [Code](#code)
- + [Content](#content)
- + [Media](#media)
- + [Acknowledgements](#acknowledgements)
-* [Version Control](#version-control)
+- [**GARDEN MANAGER :seedling:**](#--garden-manager--seedling---)
+  * [Contents](#contents)
+  * [Site Goals](#site-goals)
+  * [User Experience (UX)](#user-experience--ux-)
+    + [User stories](#user-stories)
+      - [First Time Visitor Goals](#first-time-visitor-goals)
+      - [Returning Visitor Goals](#returning-visitor-goals)
+      - [Frequent User Goals](#frequent-user-goals)
+      - [Mobile Menu](#mobile-menu)
+    + [Design](#design)
+      - [Colour Scheme](#colour-scheme)
+      - [Typography](#typography)
+      - ['Materialize' Card Structure](#-materialize--card-structure)
+      - [Imagery](#imagery)
+    + [Wireframes](#wireframes)
+      - [Original Wireframe Design (October 15, 2020).](#original-wireframe-design--october-15--2020-)
+      - [Actual Site Design.](#actual-site-design)
+  * [Features](#features)
+    + [Responsive for Device Size](#responsive-for-device-size)
+    + [Interactive Elements](#interactive-elements)
+    + [Future Features](#future-features)
+  * [Technologies Used](#technologies-used)
+    + [Languages Used](#languages-used)
+    + [Frameworks, Libraries & Programs Used](#frameworks--libraries---programs-used)
+    + [Application Programming Interfaces (API's) Used](#application-programming-interfaces--api-s--used)
+  * [Site Construction](#site-construction)
+    + [Consistent Page Components](#consistent-page-components)
+    + [Home Page](#home-page)
+    + [Login Page](#login-page)
+    + [Trefle Search](#trefle-search)
+    + [Trefle Filter](#trefle-filter)
+    + [Trefle Plant Details](#trefle-plant-details)
+    + [Plant.id Search](#plantid-search)
+    + [Plant.id Search](#plantid-search-1)
+    + [My Details](#my-details)
+    + [Contacts Page](#contacts-page)
+    + [Construction Table](#construction-table)
+  * [Testing](#testing)
+    + [Known Bugs and Issues](#known-bugs-and-issues)
+  * [Deployment](#deployment)
+    + [GitHub Pages](#github-pages)
+    + [Forking the GitHub Repository](#forking-the-github-repository)
+    + [Making a Local Clone](#making-a-local-clone)
+  * [Credits](#credits)
+    + [Code](#code)
+  * [Content](#content)
+    + [Media](#media)
+    + [Acknowledgements](#acknowledgements)
+  * [Version Control](#version-control)
+
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
@@ -82,170 +91,170 @@
 
 ## User Experience (UX)
 
-*   ### User stories
+  *   ### User stories
 
-   *   #### First Time Visitor Goals
-       * The first time visitor will want to;
-         * easily understand the main purpose of the site;
+     *   #### First Time Visitor Goals
+         * The first time visitor will want to;
+           * easily understand the main purpose of the site;
 
-         * be able to easily navigate throughout the site to find content;
+           * be able to easily navigate throughout the site to find content;
 
-         * view the carousel images just beneath the header;
+           * view the carousel images just beneath the header;
 
-         * scroll down through the information, read the content, view each of the function cards;
+           * scroll down through the information, read the content, view each of the function cards;
 
-         * register for the site and create login credentials;
+           * register for the site and create login credentials;
 
-         * enter plant details for plants they are interested in;
+           * enter plant details for plants they are interested in;
 
+             * login to the site;
+             * immediately view their plants list;
+             * view their collections list;
+             * search for plants in one of the search methods;
+               * name;
+               * filter by attribute;
+               * image upload.
+             * add a plant to users plant list and a collection.
+
+           * contact us to ask about data projects that they may be interested to have completed as an item of work.
+             * Per images above
+
+     *   #### Returning Visitor Goals
+         * The returning visitor will want to;
            * login to the site;
            * immediately view their plants list;
-           * view their collections list;
-           * search for plants in one of the search methods;
-             * name;
-             * filter by attribute;
-             * image upload.
-           * add a plant to users plant list and a collection.
+           * view their collections list.
+         * **A returning visitor** may want to go straight to the 'Plant' search function;
 
-         * contact us to ask about data projects that they may be interested to have completed as an item of work.
-           * Per images above
+             * search for plants in one of the search methods;
+               * name;
+               * filter by attribute;
+               * image upload.
+             * on finding a plant the user in they may want to find out more details on that plant by choosing the 'plant details' button;
+               * there a number of specific details including in the return;
 
-   *   #### Returning Visitor Goals
-       * The returning visitor will want to;
-         * login to the site;
-         * immediately view their plants list;
-         * view their collections list.
-       * **A returning visitor** may want to go straight to the 'Plant' search function;
+             * the user may want to add the plant to their plant list and a collection.
+         * **A returning visitor** may want to go straight to the 'Contact Us' page;
+           * contact us for more information or to provide comments about the site;
+           * contact us to ask about projects that they may be interested to have completed as an item of work.
 
-           * search for plants in one of the search methods;
-             * name;
-             * filter by attribute;
-             * image upload.
-           * on finding a plant the user in they may want to find out more details on that plant by choosing the 'plant details' button;
-             * there a number of specific details including in the return;
+     *   #### Frequent User Goals
+         * The frequent user will want to;
+           * login to the site;
+           * immediately view their plants list;
+           * view their collections list.
+         * **A returning visitor** may want to go straight to the 'Plant' search function;
 
-           * the user may want to add the plant to their plant list and a collection.
-       * **A returning visitor** may want to go straight to the 'Contact Us' page;
-         * contact us for more information or to provide comments about the site;
-         * contact us to ask about projects that they may be interested to have completed as an item of work.
+             * search for plants in one of the search methods;
+               * name;
+               * filter by attribute;
+               * image upload.
+             * on finding a plant the user in they may want to find out more details on that plant by choosing the 'plant details' button;
+               * there a number of specific details including in the return;
 
-   *   #### Frequent User Goals
-       * The frequent user will want to;
-         * login to the site;
-         * immediately view their plants list;
-         * view their collections list.
-       * **A returning visitor** may want to go straight to the 'Plant' search function;
+             * the user may want to add the plant to their plant list and a collection.
+         * **A frequent visitor** may want to go straight to the 'Contact Us' page;
+           * contact us for more information or to provide comments about the site;
+           * contact us to ask about projects that they may be interested to have completed as an item of work.
 
-           * search for plants in one of the search methods;
-             * name;
-             * filter by attribute;
-             * image upload.
-           * on finding a plant the user in they may want to find out more details on that plant by choosing the 'plant details' button;
-             * there a number of specific details including in the return;
+     *   #### Mobile Menu
+           * On mobile devices the menu is shown as a 'hamburger' drop down;
 
-           * the user may want to add the plant to their plant list and a collection.
-       * **A frequent visitor** may want to go straight to the 'Contact Us' page;
-         * contact us for more information or to provide comments about the site;
-         * contact us to ask about projects that they may be interested to have completed as an item of work.
+           * On mobile devices the search function operates in the same manner as for larger screens;  
 
-   *   #### Mobile Menu
-         * On mobile devices the menu is shown as a 'hamburger' drop down;
+  *   ### Design
+     *   #### Colour Scheme
+         * The main colour is 'Teal' (#008080), designed to provide a light neutral background to highlight a 'Yellow" (#FFFF00) text. The colours have been manipulated to lighten or darken them using 'Materialize' CSS properties. The various shades of 'Teal' are used to reference the 'greenness' of the plant kingdom.
+     *   #### Typography
+         * The site uses the 'Materialize' default font 'Roboto' font is the main font used throughout the whole website. 'Roboto' is a clean font which is both attractive and appropriate.
+     *   #### 'Materialize' Card Structure
+         * The 'Materialize' card structure is used to return search results. This structures the returns into identifiable components with an image and corresponding details for a return. This keeps each return distinct and independent of each other.
+         * The user plant and the collections lists are not constructed in 'Materialize' cards but are shown as accordion lists that the user can access to view more details on each item.
+     *   #### Imagery
+         * The header contains a carousel designed to be striking and catch the user's attention and to provide some unique image themes. To provide some context on larger screens each image has a clear title description sourced from the original image provided by the contributor. Note that on some screen sizes the titles can be difficult to read where they blend into the image. As the titles are not fundamental to the website information it has been considered 'acceptable'. On small screens the image titles are removed, due to space and readability constraints.
+         * The background image is of 'Dark plants ...', designed to provide a dark neutral background yet reference the plant kingdom.
 
-         * On mobile devices the search function operates in the same manner as for larger screens;  
+             ![alt text](https://images.unsplash.com/photo-1586990684319-40c14d005de9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1402&q=80)
 
-*   ### Design
-   *   #### Colour Scheme
-       * The main colour is 'Teal' (#008080), designed to provide a light neutral background to highlight a 'Yellow" (#FFFF00) text. The colours have been manipulated to lighten or darken them using 'Materialize' CSS properties. The various shades of 'Teal' are used to reference the 'greenness' of the plant kingdom.
-   *   #### Typography
-       * The site uses the 'Materialize' default font 'Roboto' font is the main font used throughout the whole website. 'Roboto' is a clean font which is both attractive and appropriate.
-   *   #### 'Materialize' Card Structure
-       * The 'Materialize' card structure is used to return search results. This structures the returns into identifiable components with an image and corresponding details for a return. This keeps each return distinct and independent of each other.
-       * The user plant and the collections lists are not constructed in 'Materialize' cards but are shown as accordion lists that the user can access to view more details on each item.
-   *   #### Imagery
-       * The header contains a carousel designed to be striking and catch the user's attention and to provide some unique image themes. To provide some context on larger screens each image has a clear title description sourced from the original image provided by the contributor. Note that on some screen sizes the titles can be difficult to read where they blend into the image. As the titles are not fundamental to the website information it has been considered 'acceptable'. On small screens the image titles are removed, due to space and readability constraints.
-       * The background image is of 'Dark plants ...', designed to provide a dark neutral background yet reference the plant kingdom.
+             *[Dark plants ..., By Amir Nyct](https://images.unsplash.com/photo-1586990684319-40c14d005de9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1402&q=80)*
 
-           ![alt text](https://images.unsplash.com/photo-1586990684319-40c14d005de9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1402&q=80)
-
-           *[Dark plants ..., By Amir Nyct](https://images.unsplash.com/photo-1586990684319-40c14d005de9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1402&q=80)*
-
-           *[Image via Unsplash](https://unsplash.com/)*
+             *[Image via Unsplash](https://unsplash.com/)*
 
 
-*   ### Wireframes
-   *   #### Original Wireframe Design (October 15, 2020).
-       * The **'Home'** page includes a basic overall introduction to the purpose of the site. Cards are used to describe the main features of the site. The features are User Plant List, User Collections, Search by a Name, Filter, Image Upload and a  Year Calendar.
-       * Once the User has a login these features are accessible from the menu.
-       * The menu includes direct links to;
-         1. User plant list;
-         1. User Collection list;
-         1. Search list;
-         1. User details.
-       * The search list is considered to return name and image upload searches as detail page returns.
-       * Sources for search data were considered as follows;
-         * Trefle.io plant search - [Trefle.io](https://trefle.io/)
-         * Plant.id for image recognition - [Plant.id](https://plant.id/)
-       * The contact page uses the following source;
-         * Automated Email Response - [Emailjs](https://www.emailjs.com/)
-       * All images in the wireframe are by example only.
-       *   The **Original Wireframe Design** can be viewed here - [View](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/wireframes/rhcgardenmanager.pdf)
-   *  #### Actual Site Design.
-       * The developed site uses many of the concepts from the original Wireframe design. Variations are as follows;
-         1. The **Home** page has a number of cards explaining the key features of the site, but there is no **'Calendar View'** feature;
-         1. The **Calendar Feature** has proven difficult to implement as information to support this appears lacking in the plant world. Most plant and gardening information providers appear to have their own databases to support this kind of feature as a Unique Selling Product (USP). The Trefle.io database has some details such as 'bloom months' and 'sowing months'. However, this data is not complete. The feature could be added as a future feature on the site.
-         1. The **'Contact Form'** has its own page. It is accessible from every page either through the main menu or from the footer;
-       * The listed API sources, [Trefle.io](https://trefle.io/), [Plant.id](https://plant.id/) were utlised. [Emailjs](https://www.emailjs.com/) was utilised for email response.
+  *   ### Wireframes
+     *   #### Original Wireframe Design (October 15, 2020).
+         * The **'Home'** page includes a basic overall introduction to the purpose of the site. Cards are used to describe the main features of the site. The features are User Plant List, User Collections, Search by a Name, Filter, Image Upload and a  Year Calendar.
+         * Once the User has a login these features are accessible from the menu.
+         * The menu includes direct links to;
+           1. User plant list;
+           1. User Collection list;
+           1. Search list;
+           1. User details.
+         * The search list is considered to return name and image upload searches as detail page returns.
+         * Sources for search data were considered as follows;
+           * Trefle.io plant search - [Trefle.io](https://trefle.io/)
+           * Plant.id for image recognition - [Plant.id](https://plant.id/)
+         * The contact page uses the following source;
+           * Automated Email Response - [Emailjs](https://www.emailjs.com/)
+         * All images in the wireframe are by example only.
+         *   The **Original Wireframe Design** can be viewed here - [View](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/wireframes/rhcgardenmanager.pdf)
+     *  #### Actual Site Design.
+         * The developed site uses many of the concepts from the original Wireframe design. Variations are as follows;
+           1. The **Home** page has a number of cards explaining the key features of the site, but there is no **'Calendar View'** feature;
+           1. The **Calendar Feature** has proven difficult to implement as information to support this appears lacking in the plant world. Most plant and gardening information providers appear to have their own databases to support this kind of feature as a Unique Selling Product (USP). The Trefle.io database has some details such as 'bloom months' and 'sowing months'. However, this data is not complete. The feature could be added as a future feature on the site.
+           1. The **'Contact Form'** has its own page. It is accessible from every page either through the main menu or from the footer;
+         * The listed API sources, [Trefle.io](https://trefle.io/), [Plant.id](https://plant.id/) were utlised. [Emailjs](https://www.emailjs.com/) was utilised for email response.
 
 ## Features
 
-*   ### Responsive for Device Size
-    * Mobile / Smaller screen size
-      * The site is designed primarily for use on a mobile. The 'Box Content' structure using Materialize Grid System has been utilised so that the information boxes (search results) will stack vertically on small screens for readability.
-      * The menu system uses the Materialize 'navbar' functionality for small screens using the 'toggle' capability for the 'drop down' menu list from a 'hamburger' icon.
-      * The navbar is 'fixed' to the top of the screen at all times on page scroll down for easy access.
-      * The navbar is coloured 'dark teal' to make it distinctive from the site pages.
-      * The 'hamburger' is coloured 'dark yellow' to make it visible yet not intrusive when viewing the site details.
-      * The 'drop down' site page options are coloured 'dark yellow' with the current page shown with an 'off-white' background.
-      * The header image and the carousel images are suitably sized for smaller screens.
-    * Desktop / Laptop large screen size
-      * The 'Box Content' is effective on wide screens. The Materialize Grid System allows for the 'Box Content' to align horizontally in themes that are consistent on each of the 'Home' and 'Search' pages.
-      * The header menu system uses the Materialize 'navbar' functionality with the menu option pages listed to the right.
-      * The navbar is coloured 'dark teal' to make it distinctive from the site pages.
-      * The menu item list is coloured 'dark yellow' to make it visible yet not intrusive when viewing the site details.
-      * The 'drop down' site page options are coloured 'dark yellow' with the current page shown with an 'off-white' background.
-      * The header image and carousel images are designed to be larger and 'impactful' on the larger screen size.
+  *   ### Responsive for Device Size
+      * Mobile / Smaller screen size
+        * The site is designed primarily for use on a mobile. The 'Box Content' structure using Materialize Grid System has been utilised so that the information boxes (search results) will stack vertically on small screens for readability.
+        * The menu system uses the Materialize 'navbar' functionality for small screens using the 'toggle' capability for the 'drop down' menu list from a 'hamburger' icon.
+        * The navbar is 'fixed' to the top of the screen at all times on page scroll down for easy access.
+        * The navbar is coloured 'dark teal' to make it distinctive from the site pages.
+        * The 'hamburger' is coloured 'dark yellow' to make it visible yet not intrusive when viewing the site details.
+        * The 'drop down' site page options are coloured 'dark yellow' with the current page shown with an 'off-white' background.
+        * The header image and the carousel images are suitably sized for smaller screens.
+      * Desktop / Laptop large screen size
+        * The 'Box Content' is effective on wide screens. The Materialize Grid System allows for the 'Box Content' to align horizontally in themes that are consistent on each of the 'Home' and 'Search' pages.
+        * The header menu system uses the Materialize 'navbar' functionality with the menu option pages listed to the right.
+        * The navbar is coloured 'dark teal' to make it distinctive from the site pages.
+        * The menu item list is coloured 'dark yellow' to make it visible yet not intrusive when viewing the site details.
+        * The 'drop down' site page options are coloured 'dark yellow' with the current page shown with an 'off-white' background.
+        * The header image and carousel images are designed to be larger and 'impactful' on the larger screen size.
 
-*   ### Interactive Elements
-    * The first key feature of the site is the ability for the user to;
-       * enter their own list of plants;
-       * place their listed plants into collections;
-       * define their collections.
-    * The second key features of the site is the ability for a user to search for plants;
-       * by entering a 'name';
-       * by using a filter for required 'colours'; or
-       * upload an image from file.
-    * Each method returns results that the user can;
-       * review and choose to see more details on any particular return;
-       * add the plant to their list and to a collection.
-       * if the search is based on a Trefle.io search the Trefle.io plant id is also added to the list for cross reference to the database.
-    * The user is able to contact us via the 'Contact Us' page.
-       * This page has an interactive contact form that the user can complete and submit their details through to us.
-       * There is an open text box so that the user can submit comments.
-       * When the user submits their details by clicking the 'Send Contact Details' button, a modal pops up to confirm that details have been sent.
+  *   ### Interactive Elements
+      * The first key feature of the site is the ability for the user to;
+         * enter their own list of plants;
+         * place their listed plants into collections;
+         * define their collections.
+      * The second key features of the site is the ability for a user to search for plants;
+         * by entering a 'name';
+         * by using a filter for required 'colours'; or
+         * upload an image from file.
+      * Each method returns results that the user can;
+         * review and choose to see more details on any particular return;
+         * add the plant to their list and to a collection.
+         * if the search is based on a Trefle.io search the Trefle.io plant id is also added to the list for cross reference to the database.
+      * The user is able to contact us via the 'Contact Us' page.
+         * This page has an interactive contact form that the user can complete and submit their details through to us.
+         * There is an open text box so that the user can submit comments.
+         * When the user submits their details by clicking the 'Send Contact Details' button, a modal pops up to confirm that details have been sent.
 
-*   ### Future Features
-    * If a user adds a plant to their list from the Trefle.io search , it would be useful to link directly back to the Trefle.io database in order to return more of the details on that plant.
-    * Increase the number of filter types in searches. Currently only 'colour' is provided but further filters could be included such as 'edible plants', 'soil types', 'plant height', and 'water conditions'.
-    * More complex filters could also be provided to include more than one filter type such as 'colour' and 'soil type'.
-    * Improve the quality of data returns for a specific plant in searches, either from updated data submissions in the Trefle.io database or supplement the plant data returns from other available databases.
-    * Directly link any search to sources for plant purchase from;
-        * local suppliers to the user based on geolocation identifiers; and/or
-        * create the ability to online purchase from an identified supplier.
-    * Provide an option for the user to image capture a plant in their garden which takes them directly to pertinent care details for that particular plant.
-    * More sophisticated features include image identifying plants say at a garden centre and being able to compare the plant growing requirements to a users own garden conditions such as light, soil type, water, ph etc.
-    * The **Calendar Feature** has proven difficult to implement as information to support this appears lacking in the plant world. Most plant and gardening information providers appear to have their own databases to support this kind of feature as a Unique Selling Product (USP). The Trefle.io database has some details such as 'bloom months' and 'sowing months'. However, this data is not complete. The feature could be added as a future feature on the site.
-    * Amend the cards to ensure appropriate rendering on screen sizes at 280px size.
-    * Social media icons link to respective social media website home pages. Social media links will in future feature link directly to RMC Ltd social media connections.
+  *   ### Future Features
+      * If a user adds a plant to their list from the Trefle.io search , it would be useful to link directly back to the Trefle.io database in order to return more of the details on that plant.
+      * Increase the number of filter types in searches. Currently only 'colour' is provided but further filters could be included such as 'edible plants', 'soil types', 'plant height', and 'water conditions'.
+      * More complex filters could also be provided to include more than one filter type such as 'colour' and 'soil type'.
+      * Improve the quality of data returns for a specific plant in searches, either from updated data submissions in the Trefle.io database or supplement the plant data returns from other available databases.
+      * Directly link any search to sources for plant purchase from;
+          * local suppliers to the user based on geolocation identifiers; and/or
+          * create the ability to online purchase from an identified supplier.
+      * Provide an option for the user to image capture a plant in their garden which takes them directly to pertinent care details for that particular plant.
+      * More sophisticated features include image identifying plants say at a garden centre and being able to compare the plant growing requirements to a users own garden conditions such as light, soil type, water, ph etc.
+      * The **Calendar Feature** has proven difficult to implement as information to support this appears lacking in the plant world. Most plant and gardening information providers appear to have their own databases to support this kind of feature as a Unique Selling Product (USP). The Trefle.io database has some details such as 'bloom months' and 'sowing months'. However, this data is not complete. The feature could be added as a future feature on the site.
+      * Amend the cards to ensure appropriate rendering on screen sizes at 280px size.
+      * Social media icons link to respective social media website home pages. Social media links will in future feature link directly to RMC Ltd social media connections.
 
 ## Technologies Used
 
@@ -778,4 +787,5 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
    - V33.9 Add Unsplash reference for background image
    - V34.0 Amend contact and trefle details header to standardize
    - V34.1 Update amiresponsive and header readme images
+   - V34.2 Update readme contents
 ***
