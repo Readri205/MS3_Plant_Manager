@@ -23,12 +23,15 @@ app = Flask(__name__)
 # MongoDb access
 app.config["MONGO_DBNAME"] = 'plant_manager'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI')
+# Secret Key Heroku
 app.secret_key = os.environ.get("SECRET_KEY")
+# paths to load images
 app.config["IMAGE_UPLOADS"] = os.getenv('IMAGE_UPLOADS')
 app.config["IMAGE_DEETS"] = os.getenv('IMAGE_DEETS')
 # Trefle API call details
 YOUR_TREFLE_TOKEN = os.environ.get("YOUR_TREFLE_TOKEN")
 headers = {'Authorization': 'Token ' + YOUR_TREFLE_TOKEN}
+# Shamrock python library for Trefle
 api = Shamrock(YOUR_TREFLE_TOKEN)
 
 mongo = PyMongo(app)
@@ -143,7 +146,6 @@ def collections_plants(collection_id):
     the_collection = mongo.db.collections.find_one(
         {"_id": ObjectId(collection_id)})
     the_plants = mongo.db.plants.find()
-#    print(the_plants)
     return render_template("collections_plants.html",
                            collection=the_collection,
                            collections=mongo.db.collections.find(),
@@ -206,24 +208,6 @@ def update_collection(collection_id):
 def delete_collection(collection_id):
     mongo.db.collections.remove({"_id": ObjectId(collection_id)})
     return redirect(url_for("get_collections"))
-
-
-def mongo_collections():
-    collections = mongo.db.collections
-    for collection in collections.find():
-        print(collection['collection_name'], collection['_id'])
-
-
-# mongo_collections()
-
-
-def mongo_users():
-    users = mongo.db.users.find()
-    for user in users:
-        print(user['_id'], user['username'])
-
-
-# mongo_users()
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -339,7 +323,8 @@ def delete_user(user_id):
     mongo.db.users.remove({"_id": ObjectId(user_id)})
     return redirect(url_for("logout"))
 
-
+# Trefle Search & Filter API
+# Global variables for Trefle API Search & Filters
 PLANTSEARCH = "/api/v1/species/search?"
 FILTER1 = "&filter"
 FILTERNOT = "&filter_not[common_name]=None"
@@ -349,7 +334,6 @@ FILTERSEARCH1 = "blue"
 RANGECRITERIA1 = "[light]="
 RANGESEARCH1 = ",9"
 FILTER = "&filter[common_name]=rose"
-
 HTTPS = "https://trefle.io"
 ALLPLANTS = "/api/v1/species?"
 ONESPECIES = "/api/v1/species/"
@@ -383,17 +367,6 @@ def get_trefle_many():
                 "trefle_oops.html")
 
 
-def tester_get():
-    response = requests.get("http://api.open-notify.org")
-    if response:
-        print('Success!')
-    else:
-        print('Oh dear! that failed!')
-
-
-# tester_get()
-
-
 @app.route("/search_trefle", methods=["POST"])
 def search_trefle():
     query = request.form.get("query")
@@ -422,7 +395,6 @@ def search_trefle():
         last_net_adjust = last_many - adjust
         last_page = last[:last_net_adjust]
         all_pages = list(range(int(first_page), int(last_page)+1))
-    #     print(json.dumps(plants, indent=2))
         if int(last_page) == 3:
             return render_template(
                 "trefle_plants_three.html", plants=plant,
@@ -473,7 +445,6 @@ def next_url():
         last_net_adjust = last_many - adjust
         last_page = last[:last_net_adjust]
         all_pages = list(range(int(first_page), int(last_page)+1))
-    #    print(next_page, last_page)
         if int(last_page) == 3:
             return render_template(
                 "trefle_plants_three.html", plants=plant,
@@ -592,12 +563,10 @@ def trefle_filter():
             colors.append('brown,')
         if request.form.get('Purple') == 'on':
             colors.append('purple,')
-#        print(colors)
         include = "filter"
         filters = "flower_color"
         global color_filter
         color_filter = ''.join(colors)
-#        print(color_filter)
         page = request.args.get(
             'page', 1, type=int)
         params = include + pre + filters + after + color_filter + "&" + str(page)
@@ -609,9 +578,8 @@ def trefle_filter():
             total = plants['meta']['total']
             links = plants['links']
             selfs = links['self']
-            global adjust_page
+#            global adjust_page
             adjust_page = len(selfs) + 6
-    #        print(adjust_page)
             first_page = links['first'][int(adjust_page):]
             selfs_page = page
             prev_page = page - 1
@@ -651,7 +619,8 @@ def trefle_filter():
                 "trefle_oops.html")
 
 
-adjust_page = []
+# Global variable for Trefle Filter
+# adjust_page = []
 
 
 @app.route("/next_filter")
@@ -668,16 +637,13 @@ def next_filter():
         plant = plants['data']
         total = plants['meta']['total']
         links = plants['links']
-    #    print(json.dumps(links, indent=2))
         adjust_page = len(links['first'])-1
         selfs_page = links['self'][int(adjust_page):]
         first_page = links['first'][int(adjust_page):]
         prev_page = page - 1
         next_page = page + 1
         last_page = links['last'][int(adjust_page):]
-    #    print(selfs_page, first_page, last_page)
         all_pages = list(range(int(first_page), int(last_page)))
-    #    print(selfs_page, first_page, next_page, last_page, prev_page)
         if int(last_page) == 3:
             return render_template(
                 "filter_plants_three.html", plants=plant,
@@ -718,6 +684,7 @@ def next_filter():
             "trefle_oops.html")
 
 
+# Plant.ID image search
 @app.route("/plant_id")
 def plant_id():
     return render_template(
@@ -755,22 +722,16 @@ def get_plant_id():
                 "Content-Type": "application/json",
                 "Api-Key": your_api_key
                     }).json()
-
-#    print(json.dumps(response['suggestions'], indent=2))
         if response:
             media = response["images"][0]["url"]
-    #        print(json.dumps(media, indent=2))
             for suggestion in response['suggestions']:
                 plant_name = suggestion["plant_name"]
                 wiki_descr = suggestion["plant_details"]["wiki_description"]
                 if suggestion["similar_images"] is not None:
                     similar_images = suggestion["similar_images"]
-
                     for similar in similar_images:
                         url_small = similar['url_small']
                         similarity = similar['similarity']*100
-    #               print(json.dumps(url_small, indent=2))
-    #               print(json.dumps(similarity, indent=2))
                 else:
                     print('None')
                 if os.path.exists(

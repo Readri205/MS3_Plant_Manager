@@ -392,7 +392,7 @@
        Trefle Search | Search by 'name' | app.py | N/A |[Trefle.io](https://trefle.io/) (Website) |
        Trefle Filter | Filter by 'colour' | app.py | N/A |[Trefle.io](https://trefle.io/) (Website) |
        Trefle Plant Details | Search / Filter Return | app.py | N/A |[Trefle.io](https://trefle.io/) (Website) |
-       Plant.id Search | Plant.id 'image upload' | app.py | image_plant_id.js image_upload.js |[Trefle.io](https://trefle.io/) (Website) |
+       Plant.id Search | Plant.id 'image upload' | app.py | image_plant_id.js image_upload.js |[Plant.id](https://plant.id/) (Website) |
        My Details | Card Box | app.py | N/A |N/A |
        Contact | Contact Form |N/A| sendemailjs.js | [Emailjs](https://www.emailjs.com/) (Website)|
 
@@ -835,4 +835,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V34.9 Update Github Deploy in readme
    - V35.0 Update readme for MongoDB details
    - V35.1 Amends for mongoDB details
+   - V35.2 App.py clean up
 ***
