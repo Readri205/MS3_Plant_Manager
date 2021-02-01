@@ -399,31 +399,34 @@ Testing information can be found in a separate [testing.md](https://github.com/R
 The project was deployed to GitHub Pages using the following process;
 
 1. The project was written in [GitPod](https://www.gitpod.io/) and pushed to GitHub Pages ready for deployment by taking the following steps;
-1. Logged in to GitHub and located the [GitHub Repository](https://github.com/Readri205/MS2_Project);
+1. Logged in to GitHub and located the [GitHub Repository](https://github.com/Readri205/MS3_Plant_Manager);
+
+### Heroku Deployment
+
 1. At the top of the Repository, the "Settings" Button was selected on the menu;
-     ![alt text](https://readri205.github.io/MS2_Project/assets/images/readmeimg/deployment10050.jpg "See Settings").
+     ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/heroku_deployment.png?raw= "Heroku Deployment").
+     ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/heroku_github_deploy.png?raw= "Github to Heroku Deploy")
 1. Scrolled down the Settings page until the "GitHub Pages" Section was located;
 1. Under "Source", the dropdown showing "None" was selected and then "Master Branch" was chosen;
 1. The selection was then saved and the page automatically refreshed; and
-1. The published site is found by scrolling back down the page to the "GitHub Pages" section to find the live site - [**GARDEN MANAGER** :seedling:](https://github.com/Readri205/MS3_Plant_Manager).
-     ![alt text](https://readri205.github.io/MS2_Project/assets/images/readmeimg/deployedgithubpages10050.jpg "Github Pages Deployed Site")
+1. The published site is found by scrolling back down the page to the "GitHub Pages" section to find the live site - [**GARDEN MANAGER** :seedling:](https://plant-manager-flask-mongodb.herokuapp.com/get_home "Heroku Deployed Site")
 
 ### Forking the GitHub Repository
 
 A copy of the GitHub Repository can be made by forking the GitHub account. This copy can be viewed and  changes can be made to the copy without affecting the original repository. Take the following steps to fork the repository;
 
-1. Log in to GitHub and locate the [GitHub Repository](https://github.com/Readri205/MS2_Project);
+1. Log in to GitHub and locate the [GitHub Repository](https://github.com/Readri205/MS3_Plant_Manager);
 1. At the top of the Repository above the "Settings" Button on the menu, locate the "Fork" Button.
-     ![alt text](https://readri205.github.io/MS2_Project/assets/images/readmeimg/forking10050.jpg "Fork Button"); and
+     ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/github_fork.png?raw= "Github Fork"); and
 1. Click to create a copy of the original repository in your own GitHub account.
 
 ### Making a Local Clone
 
-1. Log in to **GitHub** and locate the [GitHub Repository](https://github.com/Readri205/MS2_Project)
+1. Log in to **GitHub** and locate the [GitHub Repository](https://github.com/Readri205/MS3_Plant_Manager)
 1. Under the repository name, click "Code".
 1. To clone the repository using HTTPS, click the top right hand link click "Use HTTPS";
 1. Copy the link under "Clone with HTTPS";
-     ![alt text](https://readri205.github.io/MS2_Project/assets/images/readmeimg/clone10050.jpg "HTTPS Clone")
+     ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/github_clone.png?raw= "Github Clone")
 1. Open your Code Editor and access the appropriate process to paste the clone link;
 1. Change the current working directory to the location where you want to keep the cloned directory;
 1. Paste the URL you copied in step 4 above.
@@ -815,4 +818,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V34.6 Update readme content for image links
    - V34.7 Update for typos and move readme images
    - V34.8 Update header images in readme with titles
+   - V34.9 Update Github Deploy in readme
 ***
