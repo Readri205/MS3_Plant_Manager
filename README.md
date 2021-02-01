@@ -1,8 +1,8 @@
-![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/amiresponsive.png?raw= "Garden Manager")
+![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/amiresponsive_orchid.png?raw= "Garden Manager")
 
 [View the live **GARDEN MANAGER**  :seedling:  project here.](https://plant-manager-flask-mongodb.herokuapp.com/)
 
-![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/pamela-heckel-unsplash.jpg?raw= "Garden Logo")
+![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/trefle_header.png?raw= "Garden Logo")
 
 # **GARDEN MANAGER :seedling:**
 
@@ -777,4 +777,5 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
    - V33.8 Amend main background image
    - V33.9 Add Unsplash reference for background image
    - V34.0 Amend contact and trefle details header to standardize
+   - V34.1 Update amiresponsive and header readme images
 ***
