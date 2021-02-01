@@ -1,4 +1,4 @@
-![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/amiresponsive_orchid.png?raw= "Garden Manager")
+![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/amiresponsive_tulip.png?raw= "Garden Manager")
 
 [View the live **GARDEN MANAGER**  :seedling:  project here.](https://plant-manager-flask-mongodb.herokuapp.com/)
 
@@ -18,7 +18,7 @@
       - [Frequent User Goals](#frequent-user-goals)
       - [Mobile Menu](#mobile-menu)
     + [Design](#design)
-      - [Colour Scheme](#colour-scheme)
+      - [colour Scheme](#colour-scheme)
       - [Typography](#typography)
       - ['Materialize' Card Structure](#-materialize--card-structure)
       - [Imagery](#imagery)
@@ -163,7 +163,7 @@
           * On mobile devices the search function operates in the same manner as for larger screens;  
 
 *   ### Design
-    *   #### Colour Scheme
+    *   #### colour Scheme
         * The main colour is 'Teal' (#008080), designed to provide a light neutral background to highlight a 'Yellow" (#FFFF00) text. The colours have been manipulated to lighten or darken them using 'Materialize' CSS properties. The various shades of 'Teal' are used to reference the the plant kingdom.
         * The main colours, 'Yellow" (#FFFF00)on a 'Teal' (#008080) background, were potentially a concern for the 'colour blind' fraternity. Some basic tests with colout blind persons did not present any issues, however the spectrum of colour blindness is vast so there may be some issues with some persons. The colour structure is relatively easy to change if there is negative feedback.
     *   #### Typography
@@ -174,13 +174,11 @@
     *   #### Imagery
         * A 'Dark' theme has been intentionally chosen to make it distinct from other numerous 'plant' applications. The dark background provides a clear backdrop to highlight the colours and shapes of plants, and also to highlight clearly the information that is provided in the teal 'card' structure.
         * The header contains a carousel designed to be striking and catch the user's attention and to provide some unique image themes. To provide some context on larger screens each image has a clear title description sourced from the original image provided by the contributor. Note that on some screen sizes the titles can be difficult to read where they blend into the image. As the titles are not fundamental to the website information it has been considered 'acceptable'.
-         * The background image is of 'Dark plants ...', designed to provide a dark neutral background yet reference the plant kingdom.
+         * The background image is of 'Dark plants ...', designed to provide a dark neutral background yet reference the plant kingdom. The header images are intended to blend into the background image with the 'deep black' backgrounds.
 
             ![alt text](https://images.unsplash.com/photo-1586990684319-40c14d005de9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1402&q=80)
 
-            *[Dark plants ..., By Amir Nyct](https://images.unsplash.com/photo-1586990684319-40c14d005de9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1402&q=80)*
-
-            *[Image via Unsplash](https://unsplash.com/)*
+            *['Dark plants ...'](https://unsplash.com/photos/aDvrHHFGAlE)  By Amir Nyct  [© Unsplash.com](https://unsplash.com/)*
 
 
 *   ### Wireframes
@@ -258,6 +256,7 @@
       * The **Calendar Feature** has proven difficult to implement as information to support this appears lacking in the plant world. Most plant and gardening information providers appear to have their own databases to support this kind of feature as a Unique Selling Product (USP). The Trefle.io database has some details such as 'bloom months' and 'sowing months'. However, this data is not complete. The feature could be added as a future feature on the site.
       * Amend the cards to ensure appropriate rendering on screen sizes at 280px size.
       * Social media icons link to respective social media website home pages. Social media links will in future feature link directly to RMC Ltd social media connections.
+      * Note that at present there is no functionality for a user to delete their account. This can be provided as a future feature.
 
 ## Technologies Used
 
@@ -268,7 +267,18 @@
 *   [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
 *   [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
 
-### Frameworks, Libraries & Programs Used
+### Database Used
+* [MongoDB](https://www.mongodb.com/cloud/atlas)
+  * MongoDb was used to store user data, user plant and collection lists for 'CRUD' purposes.
+  * The database was planned to be as simple as possible with three MongoDB collections;
+    1. Users - for user registration and login;
+    1. Collections - for users to record their plant lists in their user defined collections;
+    1. Plants - for users to record their plants as a complete list and divide these lists into their respective collections.
+  * Plants can be added to the user list manually, or by utilising the Trefle search functionality.
+  * Note that at present there is no functionality for a user to delete their account.
+
+
+### Frameworks, Databases, Libraries & Programs Used
 
 * [Materialize 1.0.0](https://materializecss.com/)
   * Bootstrap was used to assist with the responsiveness and styling of the website.
@@ -327,7 +337,7 @@
      * **Footer** The footer is displayed on all pages and is consistent. There are three sections **'About'** - describes 'us' as an organisation, **'Data Analysis and Presentation Requirements?'** - describes what we do, and **'Contact'** - describes how to contact **'us'** to discuss what we can do for **'you'**.
 * ### Home Page
    * Information Box
-     * Contains the details as to the intention of the site and a how it can be used. It contains basci information in each card to explain the key features of the site;
+     * Contains the details as to the intention of the site and a how it can be used. It contains basic information in each card to explain the key features of the site;
        * User plant lists;
        * User defined collections lists;
        * Search functions by name, filter and image upload;
@@ -374,6 +384,7 @@ Testing information can be found in a separate [testing.md](https://github.com/R
 * Trefle search and filter functionality proved 'difficult' with reference to API pagination. The trefle database restricts returns to 20 items per page. Identifying distinct pages and presenting them proved difficult even with the 'Shamrock' library, and as such there are a number of trefle search and filter pages to accommodate pagination from the API return. As the current structure 'works' in terms of presentation (no impact to users), it was decided to submit as is and update the functionality at a later point.
 * Note that on a mobile device the 'collections' drop down creates a 'mobile' type drop down selection that can be confusing initially, compared to a desktop drop down. It's a bit clunky but it works.
 * Note that on a mobile, the drop down lists can prove 'sticky' on selection with touch screen and sometimes go through to the wrong selection. Again, this can be 'annoying' initially. Further review can look to resolve this for user aesthetics.
+* Note that at present there is no functionality for a user to delete their account, but would be provided as a future feature.
 
 ## Deployment
 
@@ -388,7 +399,7 @@ The project was deployed to GitHub Pages using the following process;
 1. Scrolled down the Settings page until the "GitHub Pages" Section was located;
 1. Under "Source", the dropdown showing "None" was selected and then "Master Branch" was chosen;
 1. The selection was then saved and the page automatically refreshed; and
-1. The published site is found by scrolling back down the page to the "GitHub Pages" section to find the live site - [**EARTH AFRICA** :earth_africa:](https://readri205.github.io/MS2_Project/).
+1. The published site is found by scrolling back down the page to the "GitHub Pages" section to find the live site - [**GARDEN MANAGER** :seedling:](https://github.com/Readri205/MS3_Plant_Manager).
      ![alt text](https://readri205.github.io/MS2_Project/assets/images/readmeimg/deployedgithubpages10050.jpg "Github Pages Deployed Site")
 
 ### Forking the GitHub Repository
@@ -436,15 +447,15 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
 ### Media
 
 * All images [© Unsplash.com](https://unsplash.com/) unless otherwise stated;
- *   Background image - [Dark plants ...](https://unsplash.com/photos/aDvrHHFGAlE) By Amir Nyct [© stock.adobe.com](https://stock.adobe.com/uk/);
- *   Carousel image - [Orchid in Bloom](https://unsplash.com/photos/1PJnrGd6K1w) By Sanni Sahil [© Unsplash.com](https://unsplash.com/);
+ *   Background image - ['Dark plants ...''](https://unsplash.com/photos/aDvrHHFGAlE) By Amir Nyct [© Unsplash.com](https://unsplash.com/);
+ *   Carousel image - ['Orchid in Bloom'](https://unsplash.com/photos/1PJnrGd6K1w) By Sanni Sahil [© Unsplash.com](https://unsplash.com/);
  *   Carousel image - ['Spring Red Tulips on Moody Background'](https://unsplash.com/photos/gH5ujsvtohE) By Michele Tardivo [© Unsplash.com](https://unsplash.com/);
  *   Carousel image - ['Floral Potrait...'](https://unsplash.com/photos/-yYaO0ioyOY) By Abhishek Dhakate [© Unsplash.com](https://unsplash.com/);
- *   Carousel image - ['Singapore Botanic Gardens, Singapore'](https://unsplash.com/photos/fQQBArliXGE) Elliot Lowe [© stock.adobe.com](https://stock.adobe.com/uk/);
- *   Home page card image - ['Hazleton, United States'](https://unsplash.com/photos/Q2dxmAzbUbk) Honey Yanibel Minaya Cruz [© stock.adobe.com](https://stock.adobe.com/uk/);
- *   Home page card image - ['Mystic Hydrangea'](https://unsplash.com/photos/FOrCwEMIgSI) Natasha Polyakova [© stock.adobe.com](https://stock.adobe.com/uk/);
- *   Home page card image - ['Deep Red Leaves'](https://unsplash.com/photos/mdNQ3R5dT6w) Jessica Fadel [© stock.adobe.com](https://stock.adobe.com/uk/);
- *   Home page card image - ['Pink Flowers'](https://unsplash.com/photos/ia1eeRnsbLg) Annie Spratt [© stock.adobe.com](https://stock.adobe.com/uk/);
+ *   Carousel image - ['Singapore Botanic Gardens, Singapore'](https://unsplash.com/photos/fQQBArliXGE) Elliot Lowe [© Unsplash.com](https://stock.adobe.com/uk/);
+ *   Home page card image - ['Hazleton, United States'](https://unsplash.com/photos/Q2dxmAzbUbk) Honey Yanibel Minaya Cruz [© Unsplash.com](https://stock.adobe.com/uk/);
+ *   Home page card image - ['Mystic Hydrangea'](https://unsplash.com/photos/FOrCwEMIgSI) Natasha Polyakova [© Unsplash.com](https://stock.adobe.com/uk/);
+ *   Home page card image - ['Deep Red Leaves'](https://unsplash.com/photos/mdNQ3R5dT6w) Jessica Fadel [© Unsplash.com](https://stock.adobe.com/uk/);
+ *   Home page card image - ['Pink Flowers'](https://unsplash.com/photos/ia1eeRnsbLg) Annie Spratt [© Unsplash.com](https://stock.adobe.com/uk/);
 
 ### Acknowledgements
 
@@ -795,4 +806,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V34.3 Adjust readme format
    - V34.4 Update readme notes
    - V34.5 Update image refs in readme
+   - V34.6 Update readme content for image links
 ***
