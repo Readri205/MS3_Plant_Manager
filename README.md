@@ -369,9 +369,11 @@
 ## Testing
 Testing information can be found in a separate [testing.md](https://github.com/Readri205/MS2_Project/blob/master/testing.md) file.
 ### Known Bugs and Issues
-* On some screen sizes at 280px in portrait mode, the images can become squeezed and will not render appropriately. Testing on devices such as *Galaxy Fold* (Chrome Developer Tools) evidenced this issue. Future site updates will look at other charting options to allow more flexible media query solutions for various screen sizes.
-* Note that on a mobile device the 'collections' drop down creates a 'mobile' type drop down selection that can be confusing initially, compared to a desktop drop down.
-* Note that on a mobile, the drop down lists can prove 'sticky' on selection with touch screen and sometimes go through to the wrong selection.
+* The python file 'app.py' could be rationalised into key functional items such as 'user, trefle search and plantid search' to make them more distinct and easier to reference specific functionality in the future.
+* Likewise the templates could be rationalised into key functional folders such as 'user, trefle search and plantid search' to make them more distinct and easier to reference specific functionality in the future.
+* Trefle search and filter functionality proved 'difficult' with reference to API pagination. The trefle database restricts returns to 20 items per page. Identifying distinct pages and presenting them proved difficult even with the 'Shamrock' library, and as such there are a number of trefle search and filter pages to accommodate pagination from the API return. As the current structure 'works' in terms of presentation (no impact to users), it was decided to submit as is and update the functionality at a later point.
+* Note that on a mobile device the 'collections' drop down creates a 'mobile' type drop down selection that can be confusing initially, compared to a desktop drop down. It's a bit clunky but it works.
+* Note that on a mobile, the drop down lists can prove 'sticky' on selection with touch screen and sometimes go through to the wrong selection. Again, this can be 'annoying' initially. Further review can look to resolve this for user aesthetics.
 
 ## Deployment
 
@@ -434,24 +436,22 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
 ### Media
 
 * All images [© Unsplash.com](https://unsplash.com/) unless otherwise stated;
- *   Header image - [Hand draw doodles of Africa word. Colorful illustration. Background with lots of objects.](https://stock.adobe.com/uk/contributor/206263469/leo-d?load_type=author&prev_url=detail) By leo_d [© stock.adobe.com](https://stock.adobe.com/uk/);
- *   Carousel image - [Dallol, Ehiopia](https://unsplash.com/photos/UQJP4eEqRV0) By Trevor Cole [© Unsplash.com](https://unsplash.com/);
- *   Carousel image - [Aït Benhaddou, Morocco](https://unsplash.com/photos/pcbSQTQr2-I) By Toa Heftiba [© Unsplash.com](https://unsplash.com/);
- *   Carousel image - [Tema, Greater Accra region, Ghana](https://unsplash.com/photos/8hi9WGb4qMA) By Efe Kurnaz [© Unsplash.com](https://unsplash.com/);
- *   Carousel image - [Colonial houses and crosswalk, pedestrian crossing in Mindelo on the island of Sao Vicente in Cape Verde,a beautiful clouded sky.](https://stock.adobe.com/fr/contributor/208162006/clara?load_type=author&prev_url=detail) By clara [© stock.adobe.com](https://stock.adobe.com/uk/);
- *   Carousel image - [Kirche in Malawi](https://stock.adobe.com/fr/contributor/208173857/christian-horras?load_type=author&prev_url=detail) By Christian Horras [© stock.adobe.com](https://stock.adobe.com/uk/);
+ *   Background image - [Dark plants ...](https://unsplash.com/photos/aDvrHHFGAlE) By Amir Nyct [© stock.adobe.com](https://stock.adobe.com/uk/);
+ *   Carousel image - [Orchid in Bloom](https://unsplash.com/photos/1PJnrGd6K1w) By Sanni Sahil [© Unsplash.com](https://unsplash.com/);
+ *   Carousel image - ['Spring Red Tulips on Moody Background'](https://unsplash.com/photos/gH5ujsvtohE) By Michele Tardivo [© Unsplash.com](https://unsplash.com/);
+ *   Carousel image - ['Floral Potrait...'](https://unsplash.com/photos/-yYaO0ioyOY) By Abhishek Dhakate [© Unsplash.com](https://unsplash.com/);
+ *   Carousel image - ['Singapore Botanic Gardens, Singapore'](https://unsplash.com/photos/fQQBArliXGE) Elliot Lowe [© stock.adobe.com](https://stock.adobe.com/uk/);
+ *   Home page card image - ['Hazleton, United States'](https://unsplash.com/photos/Q2dxmAzbUbk) Honey Yanibel Minaya Cruz [© stock.adobe.com](https://stock.adobe.com/uk/);
+ *   Home page card image - ['Mystic Hydrangea'](https://unsplash.com/photos/FOrCwEMIgSI) Natasha Polyakova [© stock.adobe.com](https://stock.adobe.com/uk/);
+ *   Home page card image - ['Deep Red Leaves'](https://unsplash.com/photos/mdNQ3R5dT6w) Jessica Fadel [© stock.adobe.com](https://stock.adobe.com/uk/);
+ *   Home page card image - ['Pink Flowers'](https://unsplash.com/photos/ia1eeRnsbLg) Annie Spratt [© stock.adobe.com](https://stock.adobe.com/uk/);
 
 ### Acknowledgements
 
 * My Mentor **Adegbenga Adeye**, (email: adegbenga.adeye@outlook.com, slack:gbenga_mentor) for continuous helpful feedback. Ade has been an amazing in helping and supporting me with this site. It has proven much harder and much more work for me to develop than I ever thought (severe case of 'what you don't know when you start').
 * **Tutor support** at Code Institute for their support. When I have requested help, it has come quickly and efficiently when needed.
-* **Student assessment** at Code Institute. I have looked to accommodate comments back on MS1 to reduce any re-occurring issues in MS2.
+* **Student assessment** at Code Institute. I have looked to accommodate comments back on MS2 to reduce any re-occurring issues in MS3.
 * **Other students** (Slack Code Institute Workspace) on the Full Stack Developer Course, via the [Slack Communication Platform](https://slack.com/intl/en-gb/).
-* **Peer Code Review** (Slack Channel)
-The website was uploaded to the 'Peer Code Review' Slack Channel designed to receive direct inputs from other developers. This provides useful third party feedback on the website;
-  * @Dante **Dante Healy** for continuous positive feedback on the site usability and design and for testing the EmailJS service;
-  * @Eamonn **Eamonn Smythe** for positive feedback and suggestion to include a margin around the maps to assist page scrolling on mobile devices and for testing the EmailJS service; and
-  * @Jimlynx **Jim Morel** for his review and extremely positive feedback on the site.
 * **Friends and family** providing review and feedback on the site content, navigation and screen size testing. This has been invaluable with two very 'have mobile, will travel' daughters, it is often brutal but effective.
 
 ## Version Control
@@ -794,4 +794,5 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
    - V34.2 Update readme contents
    - V34.3 Adjust readme format
    - V34.4 Update readme notes
+   - V34.5 Update image refs in readme
 ***
