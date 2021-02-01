@@ -82,128 +82,128 @@
 
         * The website sources data from the **[Trefle.io](https://trefle.io/)** and **[Plant.id](https://plant.id/)**. The website primarily makes use of Application Programming Interfaces (API's) to construct the plant search data. The **[MongoDB](https://www.mongodb.com/cloud/atlas)** is used to store user data and allows for create, read, update and delete data **(CRUD)** for plant details and their user login data. API and other data source details are provided in the **'Application Programming Interfaces (API's) Used'** section below.
 
-  * If the site is perceived as successful, it is anticipated that the site could be expanded as;
-    * there is a significant amount of data in the Trefle database that can be utilised for more specific searches and filtering;
-    * other API sources could also be utilised to improve the information set;
-    * other functions could be added such as creating as a calendar for gardening jobs at a particular time of year.
+* If the site is perceived as successful, it is anticipated that the site could be expanded as;
+  * there is a significant amount of data in the Trefle database that can be utilised for more specific searches and filtering;
+  * other API sources could also be utilised to improve the information set;
+  * other functions could be added such as creating as a calendar for gardening jobs at a particular time of year.
 
 * The site is designed to be responsive and accessible on a range of devices, making it easy to navigate for interested users. The website was designed using **'Mobile First'** principles as the site must be perceived to be quick and easy to use and read as a reference site on a mobile device.
 
 ## User Experience (UX)
 
-  *   ### User stories
+*   ### User stories
 
-     *   #### First Time Visitor Goals
-         * The first time visitor will want to;
-           * easily understand the main purpose of the site;
+    *   #### First Time Visitor Goals
+        * The first time visitor will want to;
+          * easily understand the main purpose of the site;
 
-           * be able to easily navigate throughout the site to find content;
+          * be able to easily navigate throughout the site to find content;
 
-           * view the carousel images just beneath the header;
+          * view the carousel images just beneath the header;
 
-           * scroll down through the information, read the content, view each of the function cards;
+          * scroll down through the information, read the content, view each of the function cards;
 
-           * register for the site and create login credentials;
+          * register for the site and create login credentials;
 
-           * enter plant details for plants they are interested in;
+          * enter plant details for plants they are interested in;
 
-             * login to the site;
-             * immediately view their plants list;
-             * view their collections list;
-             * search for plants in one of the search methods;
-               * name;
-               * filter by attribute;
-               * image upload.
-             * add a plant to users plant list and a collection.
+            * login to the site;
+            * immediately view their plants list;
+            * view their collections list;
+            * search for plants in one of the search methods;
+              * name;
+              * filter by attribute;
+              * image upload.
+            * add a plant to users plant list and a collection.
 
-           * contact us to ask about data projects that they may be interested to have completed as an item of work.
-             * Per images above
+          * contact us to ask about data projects that they may be interested to have completed as an item of work.
+            * Per images above
 
-     *   #### Returning Visitor Goals
-         * The returning visitor will want to;
-           * login to the site;
-           * immediately view their plants list;
-           * view their collections list.
-         * **A returning visitor** may want to go straight to the 'Plant' search function;
+    *   #### Returning Visitor Goals
+        * The returning visitor will want to;
+          * login to the site;
+          * immediately view their plants list;
+          * view their collections list.
+        * **A returning visitor** may want to go straight to the 'Plant' search function;
 
-             * search for plants in one of the search methods;
-               * name;
-               * filter by attribute;
-               * image upload.
-             * on finding a plant the user in they may want to find out more details on that plant by choosing the 'plant details' button;
-               * there a number of specific details including in the return;
+            * search for plants in one of the search methods;
+              * name;
+              * filter by attribute;
+              * image upload.
+            * on finding a plant the user in they may want to find out more details on that plant by choosing the 'plant details' button;
+              * there a number of specific details including in the return;
 
-             * the user may want to add the plant to their plant list and a collection.
-         * **A returning visitor** may want to go straight to the 'Contact Us' page;
-           * contact us for more information or to provide comments about the site;
-           * contact us to ask about projects that they may be interested to have completed as an item of work.
+            * the user may want to add the plant to their plant list and a collection.
+        * **A returning visitor** may want to go straight to the 'Contact Us' page;
+          * contact us for more information or to provide comments about the site;
+          * contact us to ask about projects that they may be interested to have completed as an item of work.
 
-     *   #### Frequent User Goals
-         * The frequent user will want to;
-           * login to the site;
-           * immediately view their plants list;
-           * view their collections list.
-         * **A returning visitor** may want to go straight to the 'Plant' search function;
+    *   #### Frequent User Goals
+        * The frequent user will want to;
+          * login to the site;
+          * immediately view their plants list;
+          * view their collections list.
+        * **A returning visitor** may want to go straight to the 'Plant' search function;
 
-             * search for plants in one of the search methods;
-               * name;
-               * filter by attribute;
-               * image upload.
-             * on finding a plant the user in they may want to find out more details on that plant by choosing the 'plant details' button;
-               * there a number of specific details including in the return;
+            * search for plants in one of the search methods;
+              * name;
+              * filter by attribute;
+              * image upload.
+            * on finding a plant the user in they may want to find out more details on that plant by choosing the 'plant details' button;
+              * there a number of specific details including in the return;
 
-             * the user may want to add the plant to their plant list and a collection.
-         * **A frequent visitor** may want to go straight to the 'Contact Us' page;
-           * contact us for more information or to provide comments about the site;
-           * contact us to ask about projects that they may be interested to have completed as an item of work.
+            * the user may want to add the plant to their plant list and a collection.
+        * **A frequent visitor** may want to go straight to the 'Contact Us' page;
+          * contact us for more information or to provide comments about the site;
+          * contact us to ask about projects that they may be interested to have completed as an item of work.
 
-     *   #### Mobile Menu
-           * On mobile devices the menu is shown as a 'hamburger' drop down;
+    *   #### Mobile Menu
+          * On mobile devices the menu is shown as a 'hamburger' drop down;
 
-           * On mobile devices the search function operates in the same manner as for larger screens;  
+          * On mobile devices the search function operates in the same manner as for larger screens;  
 
-  *   ### Design
-     *   #### Colour Scheme
-         * The main colour is 'Teal' (#008080), designed to provide a light neutral background to highlight a 'Yellow" (#FFFF00) text. The colours have been manipulated to lighten or darken them using 'Materialize' CSS properties. The various shades of 'Teal' are used to reference the 'greenness' of the plant kingdom.
-     *   #### Typography
-         * The site uses the 'Materialize' default font 'Roboto' font is the main font used throughout the whole website. 'Roboto' is a clean font which is both attractive and appropriate.
-     *   #### 'Materialize' Card Structure
-         * The 'Materialize' card structure is used to return search results. This structures the returns into identifiable components with an image and corresponding details for a return. This keeps each return distinct and independent of each other.
-         * The user plant and the collections lists are not constructed in 'Materialize' cards but are shown as accordion lists that the user can access to view more details on each item.
-     *   #### Imagery
-         * The header contains a carousel designed to be striking and catch the user's attention and to provide some unique image themes. To provide some context on larger screens each image has a clear title description sourced from the original image provided by the contributor. Note that on some screen sizes the titles can be difficult to read where they blend into the image. As the titles are not fundamental to the website information it has been considered 'acceptable'. On small screens the image titles are removed, due to space and readability constraints.
+*   ### Design
+    *   #### Colour Scheme
+        * The main colour is 'Teal' (#008080), designed to provide a light neutral background to highlight a 'Yellow" (#FFFF00) text. The colours have been manipulated to lighten or darken them using 'Materialize' CSS properties. The various shades of 'Teal' are used to reference the 'greenness' of the plant kingdom.
+    *   #### Typography
+        * The site uses the 'Materialize' default font 'Roboto' font is the main font used throughout the whole website. 'Roboto' is a clean font which is both attractive and appropriate.
+    *   #### 'Materialize' Card Structure
+        * The 'Materialize' card structure is used to return search results. This structures the returns into identifiable components with an image and corresponding details for a return. This keeps each return distinct and independent of each other.
+        * The user plant and the collections lists are not constructed in 'Materialize' cards but are shown as accordion lists that the user can access to view more details on each item.
+    *   #### Imagery
+        * The header contains a carousel designed to be striking and catch the user's attention and to provide some unique image themes. To provide some context on larger screens each image has a clear title description sourced from the original image provided by the contributor. Note that on some screen sizes the titles can be difficult to read where they blend into the image. As the titles are not fundamental to the website information it has been considered 'acceptable'. On small screens the image titles are removed, due to space and readability constraints.
          * The background image is of 'Dark plants ...', designed to provide a dark neutral background yet reference the plant kingdom.
 
-             ![alt text](https://images.unsplash.com/photo-1586990684319-40c14d005de9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1402&q=80)
+            ![alt text](https://images.unsplash.com/photo-1586990684319-40c14d005de9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1402&q=80)
 
-             *[Dark plants ..., By Amir Nyct](https://images.unsplash.com/photo-1586990684319-40c14d005de9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1402&q=80)*
+            *[Dark plants ..., By Amir Nyct](https://images.unsplash.com/photo-1586990684319-40c14d005de9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1402&q=80)*
 
-             *[Image via Unsplash](https://unsplash.com/)*
+            *[Image via Unsplash](https://unsplash.com/)*
 
 
-  *   ### Wireframes
-     *   #### Original Wireframe Design (October 15, 2020).
-         * The **'Home'** page includes a basic overall introduction to the purpose of the site. Cards are used to describe the main features of the site. The features are User Plant List, User Collections, Search by a Name, Filter, Image Upload and a  Year Calendar.
-         * Once the User has a login these features are accessible from the menu.
-         * The menu includes direct links to;
-           1. User plant list;
-           1. User Collection list;
-           1. Search list;
-           1. User details.
-         * The search list is considered to return name and image upload searches as detail page returns.
-         * Sources for search data were considered as follows;
-           * Trefle.io plant search - [Trefle.io](https://trefle.io/)
-           * Plant.id for image recognition - [Plant.id](https://plant.id/)
-         * The contact page uses the following source;
-           * Automated Email Response - [Emailjs](https://www.emailjs.com/)
-         * All images in the wireframe are by example only.
-         *   The **Original Wireframe Design** can be viewed here - [View](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/wireframes/rhcgardenmanager.pdf)
-     *  #### Actual Site Design.
-         * The developed site uses many of the concepts from the original Wireframe design. Variations are as follows;
-           1. The **Home** page has a number of cards explaining the key features of the site, but there is no **'Calendar View'** feature;
-           1. The **Calendar Feature** has proven difficult to implement as information to support this appears lacking in the plant world. Most plant and gardening information providers appear to have their own databases to support this kind of feature as a Unique Selling Product (USP). The Trefle.io database has some details such as 'bloom months' and 'sowing months'. However, this data is not complete. The feature could be added as a future feature on the site.
-           1. The **'Contact Form'** has its own page. It is accessible from every page either through the main menu or from the footer;
-         * The listed API sources, [Trefle.io](https://trefle.io/), [Plant.id](https://plant.id/) were utlised. [Emailjs](https://www.emailjs.com/) was utilised for email response.
+*   ### Wireframes
+    *   #### Original Wireframe Design (October 15, 2020).
+        * The **'Home'** page includes a basic overall introduction to the purpose of the site. Cards are used to describe the main features of the site. The features are User Plant List, User Collections, Search by a Name, Filter, Image Upload and a  Year Calendar.
+        * Once the User has a login these features are accessible from the menu.
+        * The menu includes direct links to;
+          1. User plant list;
+          1. User Collection list;
+          1. Search list;
+          1. User details.
+        * The search list is considered to return name and image upload searches as detail page returns.
+        * Sources for search data were considered as follows;
+          * Trefle.io plant search - [Trefle.io](https://trefle.io/)
+          * Plant.id for image recognition - [Plant.id](https://plant.id/)
+        * The contact page uses the following source;
+          * Automated Email Response - [Emailjs](https://www.emailjs.com/)
+        * All images in the wireframe are by example only.
+        *   The **Original Wireframe Design** can be viewed here - [View](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/wireframes/rhcgardenmanager.pdf)
+    *  #### Actual Site Design.
+        * The developed site uses many of the concepts from the original Wireframe design. Variations are as follows;
+          1. The **Home** page has a number of cards explaining the key features of the site, but there is no **'Calendar View'** feature;
+          1. The **Calendar Feature** has proven difficult to implement as information to support this appears lacking in the plant world. Most plant and gardening information providers appear to have their own databases to support this kind of feature as a Unique Selling Product (USP). The Trefle.io database has some details such as 'bloom months' and 'sowing months'. However, this data is not complete. The feature could be added as a future feature on the site.
+          1. The **'Contact Form'** has its own page. It is accessible from every page either through the main menu or from the footer;
+        * The listed API sources, [Trefle.io](https://trefle.io/), [Plant.id](https://plant.id/) were utlised. [Emailjs](https://www.emailjs.com/) was utilised for email response.
 
 ## Features
 
@@ -788,4 +788,5 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
    - V34.0 Amend contact and trefle details header to standardize
    - V34.1 Update amiresponsive and header readme images
    - V34.2 Update readme contents
+   - V34.3 Adjust readme format
 ***
