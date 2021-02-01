@@ -195,6 +195,7 @@
           1. User Collection list;
           1. Search list;
           1. User details.
+        * MongoDB to be used as the database core for the user, plant and collection details.
         * The search list is considered to return name and image upload searches as detail page returns.
         * Sources for search data were considered as follows;
           * Trefle.io plant search - [Trefle.io](https://trefle.io/)
@@ -277,8 +278,18 @@
   * MongoDb was used to store user data, user plant and collection lists for 'CRUD' purposes.
   * The database was planned to be as simple as possible with three MongoDB collections;
     1. Users - for user registration and login;
+
+      ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/mongodb_user.png?raw= "Users")
     1. Collections - for users to record their plant lists in their user defined collections;
+
+      ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/mongodb_collection.png?raw= "Collection")
     1. Plants - for users to record their plants as a complete list and divide these lists into their respective collections.
+
+      ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/mongo_plant.png?raw= "Plant")
+
+  * All plants in the database are directly referenced with the Users ObjectId and a Collection ObjectId.
+  * All collections are directly referenced to a User ObjectId.
+
   * A key feature of the site is for users to reference the [Trefle.io](https://trefle.io/) and [Plant.id](https://plant.id/) search capabilities and then upload the data from [Trefle.io](https://trefle.io/) into their plant list. However, plants can be added to the user list manually, or by utilising the [Trefle.io](https://trefle.io/) search functionality.
   * Note that at present there is no functionality for a user to delete their account, but will be included as a future feature.
 
@@ -301,6 +312,8 @@
   * Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
 * [GitHub:](https://github.com/)
   * GitHub is used to store the projects code after being pushed from Git.
+* [Heroku:](https://www.heroku.com/)
+    * Heroku is used to host the live site.
 * [Atom:](https://atom.io/)
   * Atom was used as a Markdown Text Editor for README.md and Testing.md
 * [Emailjs:](https://www.emailjs.com/)
@@ -444,9 +457,8 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
 
 * My Mentor (Adegbenga Adeye (email:adegbenga.adeye@outlook.com, slack:gbenga_mentor)) for providing help, guidance, inspiration and input on the more challenging components.
 * [Code Institute course](https://codeinstitute.net/5-day-coding-challenge/?utm_term=%2Bcode%20%2Binstitute%20%2Bcourses&utm_campaign=a%2526c_BR_IRL_Code_Institute&utm_source=adwords&utm_medium=ppc&hsa_net=adwords&hsa_tgt=kwd-443742237303&hsa_ad=407017470923&hsa_acc=8983321581&hsa_grp=62188641040&hsa_mt=b&hsa_cam=1578649861&hsa_kw=%2Bcode%20%2Binstitute%20%2Bcourses&hsa_ver=3&hsa_src=g&gclid=CjwKCAjw4MP5BRBtEiwASfwAL3-Oi3uDo1sBfn2KpQVAlLb07T2ndP-Q2mCFxdGgpvoBMoPIAtbg9xoCyZgQAvD_BwE&gclsrc=aw.ds);
-   * (the Star Wars example) for the API fetch function that is used extensively across all the API calls in this website;
-   * (the [Emailjs](https://www.emailjs.com/) example) for the 'Contact Form' email return function used in this website.
-   * (the 'Task List' example) by Tim Nelson for the [Flask](https://flask.palletsprojects.com/en/1.1.x/) / [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) / [MongoDB](https://www.mongodb.com/cloud/atlas) / [Materialize](https://materializecss.com/) example which is used for the base construction of this website.
+* (the [Emailjs](https://www.emailjs.com/) example) for the 'Contact Form' email return function used in this website.
+* (the 'Task List' example) by Tim Nelson for the [Flask](https://flask.palletsprojects.com/en/1.1.x/) / [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) / [MongoDB](https://www.mongodb.com/cloud/atlas) / [Materialize](https://materializecss.com/) example which is used for the base construction of this website.
 * Code for the Carousel was from [Learning Simplified](https://youtu.be/re2W7o6IsYo), a youtube channel doing some good things with the [Materialize 1.0.0](https://materializecss.com/) Library.
 
 ## Content
@@ -819,4 +831,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V34.7 Update for typos and move readme images
    - V34.8 Update header images in readme with titles
    - V34.9 Update Github Deploy in readme
+   - V35.0 Update readme for MongoDB details
 ***
