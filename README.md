@@ -776,4 +776,5 @@ The website was uploaded to the 'Peer Code Review' Slack Channel designed to rec
    - V33.7 Amend home page images and add artist links
    - V33.8 Amend main background image
    - V33.9 Add Unsplash reference for background image
+   - V34.0 Amend contact and trefle details header to standardize
 ***
