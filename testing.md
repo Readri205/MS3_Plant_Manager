@@ -21,7 +21,6 @@ View the Main [README here](https://github.com/Readri205/MS3_Plant_Manager/blob/
   - [Functional User Tests by Browser](#functional-user-tests-by-browser)
 - [Automated Testing](#automated-testing)
 - [API Fail Message Test](#api-fail-message-test)
-- [Peer Code Review (Slack Channel)](#peer-code-review--slack-channel-)
 - [Numerical Validation Testing](#numerical-validation-testing)
 - [Contact Form Testing](#contact-form-testing)
 - [Further Testing](#further-testing)
@@ -141,17 +140,17 @@ The following automated tools were used to test the website during development o
 
     ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/cssw3cvalidatorcheck.png "CSS W3C Validator Check")
 - [JSHint](https://jshint.com/) - used to validate javascript;
-  - Each of the javascript files has been validated using JSHint. The use of 'const' has returned a large number of warnings from the test. It has been used extensively for this website, and is perceived to be modern practice' per discussion with Code Institute 'Tutor Support'.
+  - Each of the javascript files has been validated using JSHint.
 
-    - **africamap.js**
+    - **image_upload.js**
 
-    ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/jshintafricamap.png "africamap.js")
-    - **countrygraphs.js**
+    ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/jshint_materialize.png?raw= "Image Upload")
+    - **script.js**
 
-    ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/jshintcountrygraphs.png "countrygraphs.js")
+    ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/jshint_image.png?raw= "Image Upload")
     - **sendemail.js**
 
-    ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/jshintsendemailjs.png "sendemail.js")
+    ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/jshint_sendemailjs.png?raw= "Image Upload")
 
 - [Autoprefixer CSS Online](https://autoprefixer.github.io/) - used to parse CSS and add vendor prefixes. This is not a test as such but allows for cross browser CSS capability. The header below has been placed at the top of the [style.css](https://github.com/Readri205/MS2_Project/blob/master/assets/css/style.css) file.
 
