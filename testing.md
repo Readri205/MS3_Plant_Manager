@@ -1,6 +1,6 @@
 # **GARDEN MANAGER :seedling: - Testing Information**
 
-![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/amiresponsive_orchid.png?raw= "Garden Manager)
+![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/amiresponsive_orchid.png?raw= "Garden Manager")
 
 [View the live **GARDEN MANAGER** :seedling: project here.](https://plant-manager-flask-mongodb.herokuapp.com/)
 
