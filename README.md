@@ -397,7 +397,7 @@
        Contact | Contact Form |N/A| sendemailjs.js | [Emailjs](https://www.emailjs.com/) (Website)|
 
 ## Testing
-Testing information can be found in a separate [testing.md](https://github.com/Readri205/MS2_Project/blob/master/testing.md) file.
+Testing information can be found in a separate [testing.md](https://github.com/Readri205/MS3_Plant_Manager/blob/master/testing.md) file.
 ### Known Bugs and Issues
 * The python file 'app.py' could be rationalised into key functional items such as 'user, trefle search and plantid search' to make them more distinct and easier to reference specific functionality in the future.
 * Likewise the templates could be rationalised into key functional folders such as 'user, trefle search and plantid search' to make them more distinct and easier to reference specific functionality in the future.
@@ -837,4 +837,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V35.1 Amends for mongoDB details
    - V35.2 App.py clean up
    - V35.3 First testing.md upload
+   - V35.4 First cleanup of testing.md file
 ***

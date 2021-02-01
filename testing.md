@@ -118,7 +118,8 @@ The user stories are annotated below to describe actual functionality. Screensho
 The following automated tools were used to test the website during development of the website;
 
 - [Chrome Developer Tools](https://developers.google.com/web/tools/chrome-devtools) used extensively **during development** to test outputs and to identify issues arising during the development phase. This tool was used to determine results for;
-  - jQuery AJAX API returns;
+  - Python Requests API returns;
+  - Shamrock Library API returns;
   - Javascript function results;
   - CORS issues and resolutions;
   - Element styling;
@@ -131,14 +132,6 @@ The following automated tools were used to test the website during development o
 
 - **Country Details Page**
     ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/countryw3chtmlcheck.png "HTML Country Details Page W3C Validator Check")
-
-    **Note:** The validator returns two warnings per above, but it is understood from tutor support that this return is acceptable for the validation check. An alternative is to turn the 'h3' and 'h4' headers into 'divs' and fully style the headers using CSS, however this was deemed 'unnecessary'.
-
-    Please see below the HTML code and the corresponding output referred to in the check;
-
-      ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/headercodecountry.png "HTML Country Page Code")
-
-      ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/headeroutput.png "HTML Country Page output")
 
 - **Contact Page**
 
@@ -156,30 +149,9 @@ The following automated tools were used to test the website during development o
     - **countrygraphs.js**
 
     ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/jshintcountrygraphs.png "countrygraphs.js")
-    - **countrymap.js**
-
-    ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/jshintcountrymap.png "countrymap.js")
-    - **countrystats.js**
-
-    ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/jshintcountrystats.png "countrystats.js")
-    - **getcountries.js**
-
-    ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/jshintgetcountries.png "getcountries.js")
-    - **piecountry.js**
-
-    ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/jshintpiecountry.png "piecountry.js")
-    - **piecountry.js Part 2**
-
-    ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/jshintpiecountrypart2.png "piecountry.js Part 2")
     - **sendemail.js**
 
     ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/jshintsendemailjs.png "sendemail.js")
-    - **totalcharts.js**
-
-    ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/jshinttotalcharts.png "totalcharts.js")
-    - **worldstats.js**
-
-    ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/jshintworldstats.png "worldstats.js")
 
 - [Autoprefixer CSS Online](https://autoprefixer.github.io/) - used to parse CSS and add vendor prefixes. This is not a test as such but allows for cross browser CSS capability. The header below has been placed at the top of the [style.css](https://github.com/Readri205/MS2_Project/blob/master/assets/css/style.css) file.
 
@@ -191,61 +163,9 @@ The website makes use of a number of API calls as described in the main README.m
 
   ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/apifail10050.jpg "API Fail Message to User")
 
-## Peer Code Review (Slack Channel)
-
-The website was uploaded to the Peer Code Review Slack Channel designed to receive direct inputs from other developers. This provides useful third party feedback on the website;
-
-- @Dante **Dante Healy** for continuous feedback on the site usability and design, and for testing the EmailJS service with success;
-- @Eamonn **Eamonn Smythe** for feedback and suggestion to include a margin around the maps to assist page scrolling on mobile devices and for testing the EmailJS service with success; and
-- @Jimlynx **Jim Morel** for his review and positive feedback on the site.
-
 ## Numerical Validation Testing
 
 The website makes use of [World Bank Database](https://databank.worldbank.org/home.aspx) API's as described in the [README.md](https://github.com/Readri205/MS2_Project/blob/master/README.md). In particular, those API's relevant to **Land Size, Population and GDP**. Adjustments have been made to reflect the more appropriate figures for the Africa continent analysis. The totals for each 'Series Code' (Land Size = AG.LND.TOTL.K2, GDP = NY.GDP.MKTP.CD, Population = SP.POP.TOTL) have been downloaded into excel files and relevant adjustments made.
-
-- The land sizes for Sudan and South Sudan are not included in the World Bank Database and so are adjusted and **confirmed** in the [landbyregion.xlsx](https://github.com/Readri205/MS2_Project/blob/master/assets/documents/excelfiles/landbyregion.xlsx) excel sheet (image below). Note that [Sudan](https://en.wikipedia.org/wiki/Sudan) (1,886,068 sq. kms) and [South Sudan](https://en.wikipedia.org/wiki/South_Sudan) (619,745 sq. kms) Land Sizes are sourced from [Wikipedia](https://www.wikipedia.org/)
-- The land size for Africa from the World Bank is adjusted to move the 6 countries in the Middle East and North Africa sector are also **confirmed** using the same excel file (image below).
-
-    ![alt text](https://readri205.github.io/MS2_Project/assets/documents/excelfiles/landbyregion10050.jpg "Land Size By Region")
-
-- The Population and GDP sectors for the World Regions and Africa are also **confirmed** in the [gdppopworldadj.xlsx](https://github.com/Readri205/MS2_Project/blob/master/assets/documents/excelfiles/gdppopworldadj.xlsx) excel file (Image below).
-
-    ![alt text](https://readri205.github.io/MS2_Project/assets/documents/excelfiles/gdppopworldadj10050.jpg "Population and GDP Adjustments")
-
-- To **confirm** the Africa country data, the following files are uploaded providing the **Land Size** by Country, **Population** by Country **times series from 1970 to 2019** and **GDP** by Country **time series from 1970 to 2019**. Note that the images below only show 2019 data in the time series. Please view the excel files for the full time series.
-
-  - [Land size by Country](https://github.com/Readri205/MS2_Project/blob/master/assets/documents/excelfiles/landareasqkm.xlsx)
-
-      ![alt text](https://readri205.github.io/MS2_Project/assets/documents/excelfiles/landbycountry10050.jpg "Land Size by Country")
-  - [Population by Country](https://github.com/Readri205/MS2_Project/blob/master/assets/documents/excelfiles/popularindicators.xlsx)
-
-      ![alt text](https://readri205.github.io/MS2_Project/assets/documents/excelfiles/popbycountry10050.jpg "Population by Country")
-  - [GDP by Country](https://github.com/Readri205/MS2_Project/blob/master/assets/documents/excelfiles/popularindicators.xlsx)
-
-      ![alt text](https://readri205.github.io/MS2_Project/assets/documents/excelfiles/gdpbycountry10050.jpg "GDP by Country")
-
-- Lists of countries in all of the World Bank Database Sectors. Note that the list for 'Africa' and 'Middle East' are adjusted to account for the 6 countries (Algeria, Egypt, Morrocco, Libya, Djibouti and Tunisia) from the World Bank Database 'Sub-Saharan Africa' and 'Middle East & North Africa' economic sectors.
-  - **Africa**
-
-      ![alt text](https://readri205.github.io/MS2_Project/assets/documents/excelfiles/africa1050.jpg "Africa")
-  - **Middle East**
-
-      ![alt text](https://readri205.github.io/MS2_Project/assets/documents/excelfiles/middleeast10050.jpg "Middle East")
-  - **Latin America & Caribbean**
-
-      ![alt text](https://readri205.github.io/MS2_Project/assets/documents/excelfiles/latinamericacaribbean10050.jpg "Latin America & Caribbean")
-  - **North America**
-
-      ![alt text](https://readri205.github.io/MS2_Project/assets/documents/excelfiles/northamerica10050.jpg "North America")
-  - **East Asia & Pacific**
-
-      ![alt text](https://readri205.github.io/MS2_Project/assets/documents/excelfiles/eastasiapacific10050.jpg "East Asia & Pacific")
-  - **Europe and Central Asia**
-
-      ![alt text](https://readri205.github.io/MS2_Project/assets/documents/excelfiles/europecentralasia10050.jpg "Europe & Central Asia")
-  - **South Asia**
-
-      ![alt text](https://readri205.github.io/MS2_Project/assets/documents/excelfiles/southasia10050.jpg "South Asia")
 
 ## Contact Form Testing
 
@@ -253,15 +173,15 @@ The website makes use of [World Bank Database](https://databank.worldbank.org/ho
 
 - Input validation
 
-      ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/contactpageinputcheck10025.jpg "Contact Form Input Required")
+    ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/contactpageinputcheck10025.jpg "Contact Form Input Required")
 
 - Submission Confirmation to User  
 
-      ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/submissionconfirmation10050.jpg "Submission Confirmation")
+    ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/submissionconfirmation10050.jpg "Submission Confirmation")
 
 - Email Receipt Confirmation
 
-      ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/emailreceipt10050.jpg "Email Receipt")
+    ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/emailreceipt10050.jpg "Email Receipt")
 
 ## Further Testing
 
@@ -277,18 +197,18 @@ The website makes use of [World Bank Database](https://databank.worldbank.org/ho
 
   - iPhone4 320px Portrait Mode Home Page Charts
 
-        ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/iphone4320px10050.jpg "iPhone 4 320px Portrait Home Page Charts")
+      ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/iphone4320px10050.jpg "iPhone 4 320px Portrait Home Page Charts")
 
   - iPhone4 320px Portrait Mode Country Details Charts
 
-        ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/iphone4320pxcountry10050.jpg "iPhone 4 320px Portrait Country Details Charts")
+      ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/iphone4320pxcountry10050.jpg "iPhone 4 320px Portrait Country Details Charts")
 
   - Galaxy Fold 280px Portrait Mode Home Page Charts
 
-        ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/galaxyfold280px10050.jpg "Galaxy Fold 280px Portrait Home Page Charts")
+      ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/galaxyfold280px10050.jpg "Galaxy Fold 280px Portrait Home Page Charts")
 
   - Galaxy Fold 653px Landscape Mode Home Page Charts
 
-        ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/galaxyfoldlandscape653px10050.jpg "Galaxy Fold 653px Landscape Home Page Charts")
+      ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/galaxyfoldlandscape653px10050.jpg "Galaxy Fold 653px Landscape Home Page Charts")
 
 ***
