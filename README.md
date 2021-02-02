@@ -2,8 +2,8 @@
 
 [View the live **GARDEN MANAGER**  :seedling:  project here.](https://plant-manager-flask-mongodb.herokuapp.com/)
 
-### [Trefle.io](https://trefle.io/)
-  ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/trefle_header.png?raw= "Trefle Logo")
+### [Trefle.io](https://Trefle.io/)
+  ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/Trefle_header.png?raw= "Trefle Logo")
 
 ### [Plant.id](https://plant.id/)
   ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/plant_id_header.png?raw= "Plant.ID Logo")
@@ -41,11 +41,11 @@
     + [Consistent Page Components](#consistent-page-components)
     + [Home Page](#home-page)
     + [Login Page](#login-page)
-    + [Trefle Search](#trefle-search)
-    + [Trefle Filter](#trefle-filter)
-    + [Trefle Plant Details](#trefle-plant-details)
-    + [Plant.id Search](#plantid-search)
-    + [Plant.id Search](#plantid-search-1)
+    + [Trefle Search](#Trefle-search)
+    + [Trefle Filter](#Trefle-filter)
+    + [Trefle Plant Details](#Trefle-plant-details)
+    + [Plant.id Search](#Plant.ID-search)
+    + [Plant.id Search](#Plant.ID-search-1)
     + [My Details](#my-details)
     + [Contacts Page](#contacts-page)
     + [Construction Table](#construction-table)
@@ -84,7 +84,7 @@
         * **filter** to identify **colour** characteristics for a plant; and
         * **image** using a computer or mobile device to upload a **file image**.
 
-        * The website sources data from the **[Trefle.io](https://trefle.io/)** and **[Plant.id](https://plant.id/)**. The website primarily makes use of Application Programming Interfaces (API's) to construct the plant search data. The **[MongoDB](https://www.mongodb.com/cloud/atlas)** is used to store user data and allows for create, read, update and delete data **(CRUD)** for plant details and their user login data. API and other data source details are provided in the **'Application Programming Interfaces (API's) Used'** section below.
+        * The website sources data from the **[Trefle.io](https://Trefle.io/)** and **[Plant.id](https://plant.id/)**. The website primarily makes use of Application Programming Interfaces (API's) to construct the plant search data. The **[MongoDB](https://www.mongodb.com/cloud/atlas)** is used to store user data and allows for create, read, update and delete data **(CRUD)** for plant details and their user login data. API and other data source details are provided in the **'Application Programming Interfaces (API's) Used'** section below.
 
 * If the site is perceived as successful, it is anticipated that the site could be expanded as;
   * there is a significant amount of data in the Trefle database that can be utilised for more specific searches and filtering;
@@ -198,7 +198,7 @@
         * MongoDB to be used as the database core for the user, plant and collection details.
         * The search list is considered to return name and image upload searches as detail page returns.
         * Sources for search data were considered as follows;
-          * Trefle.io plant search - [Trefle.io](https://trefle.io/)
+          * Trefle.io plant search - [Trefle.io](https://Trefle.io/)
           * Plant.id for image recognition - [Plant.id](https://plant.id/)
         * The contact page uses the following source;
           * Automated Email Response - [Emailjs](https://www.emailjs.com/)
@@ -209,7 +209,7 @@
           1. The **Home** page has a number of cards explaining the key features of the site, but there is no **'Calendar View'** feature;
           1. The **Calendar Feature** has proven difficult to implement as information to support this appears lacking in the plant world. Most plant and gardening information providers appear to have their own databases to support this kind of feature as a Unique Selling Product (USP). The Trefle.io database has some details such as 'bloom months' and 'sowing months'. However, this data is not complete. The feature could be added as a future feature on the site.
           1. The **'Contact Form'** has its own page. It is accessible from every page either through the main menu or from the footer;
-        * The listed API sources, [Trefle.io](https://trefle.io/), [Plant.id](https://plant.id/) were utilised. [Emailjs](https://www.emailjs.com/) was utilised for email response.
+        * The listed API sources, [Trefle.io](https://Trefle.io/), [Plant.id](https://plant.id/) were utilised. [Emailjs](https://www.emailjs.com/) was utilised for email response.
 
 ## Features
 
@@ -291,7 +291,7 @@
   * All plants in the database are directly referenced with the Users ObjectId and a Collection ObjectId.
   * All collections are directly referenced to a User ObjectId.
 
-  * A key feature of the site is for users to reference the [Trefle.io](https://trefle.io/) and [Plant.id](https://plant.id/) search capabilities and then upload the data from [Trefle.io](https://trefle.io/) into their plant list. However, plants can be added to the user list manually, or by utilising the [Trefle.io](https://trefle.io/) search functionality.
+  * A key feature of the site is for users to reference the [Trefle.io](https://Trefle.io/) and [Plant.id](https://plant.id/) search capabilities and then upload the data from [Trefle.io](https://Trefle.io/) into their plant list. However, plants can be added to the user list manually, or by utilising the [Trefle.io](https://Trefle.io/) search functionality.
   * Images can be uploaded to MongoDB but only in an HTTP/HTTPS referenced form. The database is not designed to hold large images in standard image formats such as JPEG. As such all images are 'referenced' in this way. If a user wishes to upload an image, the user can if the user references a third party website or database.
   * Note that at present there is no functionality for a user to delete their account, but will be included as a future feature.
 
@@ -337,10 +337,10 @@
 
 ### Application Programming Interfaces (API's) Used
 
-* The website sources data from the **[Trefle.io](https://trefle.io/)** and the **[Plant.id](https://plant.id/)** databases. The API's provide search capabilities for users to identify plants in a number of ways.
+* The website sources data from the **[Trefle.io](https://Trefle.io/)** and the **[Plant.id](https://plant.id/)** databases. The API's provide search capabilities for users to identify plants in a number of ways.
 
- * [Trefle.io](https://trefle.io/)
-   * The [Trefle.io](https://trefle.io/) database was used as the primary search database for a user;
+ * [Trefle.io](https://Trefle.io/)
+   * The [Trefle.io](https://Trefle.io/) database was used as the primary search database for a user;
      * entering a 'name'; or
      * by using a filter by 'colour'.
 
@@ -358,50 +358,44 @@
 * ### Home Page
    * Information Box
      * Contains the details as to the intention of the site and a how it can be used. It contains basic information in each card to explain the key features of the site;
-       * User plant lists;
+       * User defined plant lists;
        * User defined collections lists;
        * Search functions by name, filter and image upload;
        * Register function for new users;
        * Login for registered users.
-* ### Login Page
-   * Login details
-* ### Trefle Search
-   * Search by 'name'
-* ### Trefle Filter
-   * Filter by 'colour'
-* ### Trefle Plant Details
-   * Returns plant details for a specific Trefle ID
-* ### Plant.id Search
-   * Search by image upload
-* ### Plant.id Search
-   * Returns suggestions for similar images
-* ### My Details
-   * Login details
+* ### Subsequent Pages
+  * All subsequent pages follow a common theme (using Materialise CSS for font and colours);
+    * Main Header Title in yellow;
+    * Card in Teal with information in Dark Teal.
+
 * ### Contacts Page
    * The Contacts Page contains the 'Contact Form' for a user to supply contact information and to provide comments, questions or to provide a request for some work.
    * The 'Contact Form' will generate an email by referencing the **sendemail.js** file when a user submits their information.
+
 * ### Construction Table
    * The following table provides a summary of how the Site Pages and Sections are compiled;
-       Site Page | Page Section | Python File | JS File | API Reference |
+       Site Page | Page Section | Python File / Code Lines | JS File | API Reference |
        ----------|--------------|-----------------|-----------|---------|
-       Home | Card Box | app.py | script.js |N/A |
+       Home | Card Boxes | app.py / 1 -10 | N/A |N/A |
+       Register | Card Box | app.py | N/A |N/A |
+       Login | Card Box | app.py | N/A |N/A |
        Plant List | Card Box | app.py | script.js |N/A |
        Add / Update Plant | Card Box | app.py | script.js |N/A |
        Collection List | Card Box | app.py | script.js |N/A |
        Add / Update Collection | Card Box | app.py | script.js |N/A |
-       Trefle Search | Search by 'name' | app.py | N/A |[Trefle.io](https://trefle.io/) (Website) |
-       Trefle Filter | Filter by 'colour' | app.py | N/A |[Trefle.io](https://trefle.io/) (Website) |
-       Trefle Plant Details | Search / Filter Return | app.py | N/A |[Trefle.io](https://trefle.io/) (Website) |
-       Plant.id Search | Plant.id 'image upload' | app.py | image_plant_id.js image_upload.js |[Plant.id](https://plant.id/) (Website) |
+       Trefle Search | Search by 'name' | app.py | N/A |[Trefle.io](https://Trefle.io/) (Website) |
+       Trefle Filter | Filter by 'colour' | app.py | N/A |[Trefle.io](https://Trefle.io/) (Website) |
+       Trefle Plant Details | Search / Filter Return | app.py | N/A |[Trefle.io](https://Trefle.io/) (Website) |
+       Plant.id Search | Plant.id 'image upload' | app.py | image_upload.js |[Plant.id](https://plant.id/) (Website) |
        My Details | Card Box | app.py | N/A |N/A |
        Contact | Contact Form |N/A| sendemailjs.js | [Emailjs](https://www.emailjs.com/) (Website)|
 
 ## Testing
 Testing information can be found in a separate [testing.md](https://github.com/Readri205/MS3_Plant_Manager/blob/master/testing.md) file.
 ### Known Bugs and Issues
-* The python file 'app.py' could be rationalised into key functional items such as 'user, trefle search and plantid search' to make them more distinct and easier to reference specific functionality in the future.
-* Likewise the templates could be rationalised into key functional folders such as 'user, trefle search and plantid search' to make them more distinct and easier to reference specific functionality in the future.
-* Trefle search and filter functionality proved 'difficult' with reference to API pagination. The trefle database restricts returns to 20 items per page. Identifying distinct pages and presenting them proved difficult even with the 'Shamrock' library, and as such there are a number of trefle search and filter pages to accommodate pagination from the API return. As the current structure 'works' in terms of presentation (no impact to users), it was decided to submit as is and update the functionality at a later point.
+* The python file 'app.py' could be rationalised into key functional items such as 'user, Trefle search and Plant.ID search' to make them more distinct and easier to reference specific functionality in the future.
+* Likewise the templates could be rationalised into key functional folders such as 'user, Trefle search and Plant.ID search' to make them more distinct and easier to reference specific functionality in the future.
+* Trefle search and filter functionality proved 'difficult' with reference to API pagination. The Trefle database restricts returns to 20 items per page. Identifying distinct pages and presenting them proved difficult even with the 'Shamrock' library, and as such there are a number of Trefle search and filter pages to accommodate pagination from the API return. As the current structure 'works' in terms of presentation (no impact to users), it was decided to submit as is and update the functionality at a later point.
 * Note that on a mobile device the 'collections' drop down creates a 'mobile' type drop down selection that can be confusing initially, compared to a desktop drop down. It's a bit clunky but it works.
 * Note that on a mobile, the drop down lists can prove 'sticky' on selection with touch screen and sometimes go through to the wrong selection. Again, this can be 'annoying' initially. Further review can look to resolve this for user aesthetics.
 * Note that at present there is no functionality for a user to delete their account, but would be provided as a future feature.
@@ -415,6 +409,7 @@ The project was deployed to GitHub Pages using the following process;
 
 1. The project was written in [GitPod](https://www.gitpod.io/) and pushed to GitHub Pages ready for deployment by taking the following steps;
 1. Logged in to GitHub and located the [GitHub Repository](https://github.com/Readri205/MS3_Plant_Manager);
+1. From this point deployment was made linking the Github repository to Heroku;
 
 ### Heroku Deployment
 
@@ -483,9 +478,8 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
 ### Code
 
 * My Mentor (Adegbenga Adeye (email:adegbenga.adeye@outlook.com, slack:gbenga_mentor)) for providing help, guidance, inspiration and input on the more challenging components.
-* [Code Institute course](https://codeinstitute.net/5-day-coding-challenge/?utm_term=%2Bcode%20%2Binstitute%20%2Bcourses&utm_campaign=a%2526c_BR_IRL_Code_Institute&utm_source=adwords&utm_medium=ppc&hsa_net=adwords&hsa_tgt=kwd-443742237303&hsa_ad=407017470923&hsa_acc=8983321581&hsa_grp=62188641040&hsa_mt=b&hsa_cam=1578649861&hsa_kw=%2Bcode%20%2Binstitute%20%2Bcourses&hsa_ver=3&hsa_src=g&gclid=CjwKCAjw4MP5BRBtEiwASfwAL3-Oi3uDo1sBfn2KpQVAlLb07T2ndP-Q2mCFxdGgpvoBMoPIAtbg9xoCyZgQAvD_BwE&gclsrc=aw.ds);
+* [Code Institute course](https://codeinstitute.net/5-day-coding-challenge/?utm_term=%2Bcode%20%2Binstitute%20%2Bcourses&utm_campaign=a%2526c_BR_IRL_Code_Institute&utm_source=adwords&utm_medium=ppc&hsa_net=adwords&hsa_tgt=kwd-443742237303&hsa_ad=407017470923&hsa_acc=8983321581&hsa_grp=62188641040&hsa_mt=b&hsa_cam=1578649861&hsa_kw=%2Bcode%20%2Binstitute%20%2Bcourses&hsa_ver=3&hsa_src=g&gclid=CjwKCAjw4MP5BRBtEiwASfwAL3-Oi3uDo1sBfn2KpQVAlLb07T2ndP-Q2mCFxdGgpvoBMoPIAtbg9xoCyZgQAvD_BwE&gclsrc=aw.ds); (the 'Task List' example) by Tim Nelson for the [Flask](https://flask.palletsprojects.com/en/1.1.x/) / [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) / [MongoDB](https://www.mongodb.com/cloud/atlas) / [Materialize](https://materializecss.com/) example which is used for the base construction of this website.
 * (the [Emailjs](https://www.emailjs.com/) example) for the 'Contact Form' email return function used in this website.
-* (the 'Task List' example) by Tim Nelson for the [Flask](https://flask.palletsprojects.com/en/1.1.x/) / [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) / [MongoDB](https://www.mongodb.com/cloud/atlas) / [Materialize](https://materializecss.com/) example which is used for the base construction of this website.
 * Code for the Carousel was from [Learning Simplified](https://youtu.be/re2W7o6IsYo), a youtube channel doing some good things with the [Materialize 1.0.0](https://materializecss.com/) Library.
 
 ## Content
@@ -586,15 +580,15 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V7.6 Update for new requirements.txt
    - V7.7 Further update for requests module
    - V7.8 Update app.py take out print code
-   - V7.9 Amend app for get trefle search
+   - V7.9 Amend app for get Trefle search
    - V8.0 Further amend app for search
    - V8.1 Amend styles in html pages
    - V8.2 Add more styles to html pages
    - V8.3 Update Procfile for flask
    - V8.4 Revert Procfile change
-   - V8.5 Updadte get trefle search page
+   - V8.5 Updadte get Trefle search page
    - V8.6 Amend Procfile python3 to python
-   - V8.7 Add trefle token to heroku amend navbar and style
+   - V8.7 Add Trefle token to heroku amend navbar and style
    - V8.8 Amend navbar style on burger menu
    - V8.9 Redirect register page on front menu
    - V9.0 Amend style in base navbar title
@@ -606,13 +600,13 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V9.6 Redeploy to GitHub on lockup
    - V9.7 Redeploy to Heroku
    - V9.8 Add function to extract pages and total
-   - V9.9 Amend card size in trefle search
+   - V9.9 Amend card size in Trefle search
    - V10.0 Amend card size on card search large screen
-   - V10.1 Add page links and styles to trefle search page
-   - V10.2 Amend card size trefle search
+   - V10.1 Add page links and styles to Trefle search page
+   - V10.2 Amend card size Trefle search
    - V10.3 Add pagination function
-   - V10.4 Adjust to page=2 for trefle search
-   - V10.5 Amend card size for trefle search
+   - V10.4 Adjust to page=2 for Trefle search
+   - V10.5 Amend card size for Trefle search
    - V10.6 Add footer box and draft script and style
    - V10.7 Amend home card style two cards large screens
    - V10.8 Add search box and style changes
@@ -624,15 +618,15 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V11.4 Amend pagination search function
    - V11.5 Update pagination search function
    - V11.6 Amend pagination search function
-   - V11.7 Add trefle_many get function test
-   - V11.8 Add trefle searches pages htmls
+   - V11.7 Add Trefle_many get function test
+   - V11.8 Add Trefle searches pages htmls
    - V11.9 Add get_next first test
    - V12.0 Update search test
    - V12.1 Update search for first and last page
-   - V12.2 Add PlantID to search function
+   - V12.2 Add Plant.ID to search function
    - V12.3 Add target blank redirect in url wiki search
-   - V12.4 Move plantID key to env variables
-   - V12.5 Add home page content, similar images PlantID
+   - V12.4 Move Plant.ID key to env variables
+   - V12.5 Add home page content, similar images Plant.ID
    - V12.6 Update home page content
    - V12.7 Move logout to my details drop down
    - V12.8 Add carousel to user details page
@@ -709,20 +703,20 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V19.8 Adjust image height for small screens
    - V19.9 Adjust card size for small screens
    - V20.0 Amend styles for wiki links and profile page
-   - V20.1 Amend search row size on trefle search
+   - V20.1 Amend search row size on Trefle search
    - V20.2 Amend site title
    - V20.3 Amend cloudinary image upload styles
-   - V20.4 Update wiki plant links in trefle search
+   - V20.4 Update wiki plant links in Trefle search
    - V20.5 Update for cloudinary destroy method
    - V20.6 Update for next_page testing
    - V20.7 Amend wiki links to scientific names
    - V20.8 Add page iteration test code
    - V20.9 Update for page iteration test
    - V21.0 Update css styles on cards
-   - V21.1 Add direct trefle plant upload
-   - V21.2 Amend add trefle plant descriptors
+   - V21.1 Add direct Trefle plant upload
+   - V21.2 Amend add Trefle plant descriptors
    - V21.3 Add plant details search in app
-   - V21.4 Amend add trefle plant for collections input
+   - V21.4 Amend add Trefle plant for collections input
    - V21.5 Amend page numbers on search
    - V21.6 Amend page number structure for search
    - V21.7 Amend page numbers for 3 pages and less
@@ -730,7 +724,7 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V21.9 Amend cloudinary delete function syntax
    - V22.0 Update cloudinary image tags
    - V22.1 Amend cloudinary image tag style
-   - V22.2 Delete old trefle html pages
+   - V22.2 Delete old Trefle html pages
    - V22.3 Add plant details html page
    - V22.4 Add plant detail styles to html page
    - V22.5 Update plant detail styles
@@ -739,11 +733,11 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V22.8 Amend spelling and plant detail styles
    - V22.9 Amend home page image to daisy
    - V23.0 Switch url direction from Plant ID page
-   - V23.1 Add trefle filter searches
-   - V23.2 Update trefle filter search
-   - V23.3 Updates to trefle filter page search
+   - V23.1 Add Trefle filter searches
+   - V23.2 Update Trefle filter search
+   - V23.3 Updates to Trefle filter page search
    - V23.4 Updated plant details page for no image
-   - V23.5 Add tests for Shamrock wrapper for trefle
+   - V23.5 Add tests for Shamrock wrapper for Trefle
    - V23.6 Add plant_id to menu in base
    - V23.7 Update requirements file
    - V23.8 Update detail for plant.id search
@@ -796,13 +790,13 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V28.5 Update css plant image sizes for media
    - V28.6 Update css styles for contact box
    - V28.7 Update media queries with important for heroku
-   - V28.8 Update for trefle details image auto refresh
-   - V28.9 Update image in trefle plant details
+   - V28.8 Update for Trefle details image auto refresh
+   - V28.9 Update image in Trefle plant details
    - V29.0 Add search function to plant.id image search page
    - V29.1 Update search function with submit value
    - V29.2 Amend media image sizes in plant.id return
    - V29.3 Center file image upload in plant.id
-   - V29.4 Update media image size in trefle details page
+   - V29.4 Update media image size in Trefle details page
    - V29.5 Amend plant details and image upload styles
    - V29.6 Amend styles in wiki search button position in plant.id page
    - V29.7 Amend plant.id image upload style
@@ -818,17 +812,17 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V30.7 Add collection id to plant
    - V30.8 Amend family_name errors
    - V30.9 Update main search page
-   - V31.0 Update trefle filter search
+   - V31.0 Update Trefle filter search
    - V31.1 Amend filter search page numbers
-   - V31.2 Amend trefle search page numbers
-   - V31.3 Add defensive code for trefle API fail
+   - V31.2 Amend Trefle search page numbers
+   - V31.3 Add defensive code for Trefle API fail
    - V31.4 Add information for plant_id image loads
    - V31.5 Update Trefle information on search and filter pages
    - V31.6 Amend filter page numbers for first page on next filter
    - V31.7 Add button for plant details on filter pages
-   - V31.8 Add web link to trefle image on search page
+   - V31.8 Add web link to Trefle image on search page
    - V31.9 Amend typo in plant id page text
-   - V32.0 Amend trefle image web link on filter pages
+   - V32.0 Amend Trefle image web link on filter pages
    - V32.1 Amend pages in filter and search
    - V32.2 Amend filter checkbox styles
    - V32.3 Amend filter for first page
@@ -848,7 +842,7 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V33.7 Amend home page images and add artist links
    - V33.8 Amend main background image
    - V33.9 Add Unsplash reference for background image
-   - V34.0 Amend contact and trefle details header to standardize
+   - V34.0 Amend contact and Trefle details header to standardize
    - V34.1 Update amiresponsive and header readme images
    - V34.2 Update readme contents
    - V34.3 Adjust readme format
@@ -869,4 +863,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V35.8 Update for html base file check
    - V35.9 Add Heroku deployment method
    - V36.0 Update Heroku Deployment
+   - V36.1 Update readme text and github/heroku deployment
 ***
