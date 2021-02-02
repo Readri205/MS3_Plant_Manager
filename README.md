@@ -429,17 +429,17 @@ The project was deployed to GitHub Pages using the following process;
 
 1. In the 'Settings' menu, all the relevant API token, Secret Key and config files are entered individually so that the application can run with reference to these inputs;
 
-  * The application configs are set in the apap.py file for reference;
+  * The application configs are set in the app.py file for reference;
 
     ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/heroku_configs.png?raw= "Heroku Configs")
 
-  * Heroku can reference them once they are set in the Config Vars;
+  * Heroku can reference them once they are set in the Config Vars. All the tokens and secret keys are entered into an environment variable file that is referenced by the offline application and are not uploaded to Github. Any user wishing to copy the application and deploy it will need to obtain and create their own environment variables as listed below;
 
     ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/heroku_app_configs.png?raw= "Heroku App Configs")
 
 1. A requirements file must be set in the Github application which is passed to Heroku so that it knows which libraries to run;
 
-    ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/heroku_requirements.png?raw= "Heroku Deployment")
+    ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/heroku_reqv2.png?raw= "Heroku Deployment")
 
 1. A 'Proc' file must also be set in the Github application which is passed to Heroku so that it knows which programme to run the web application;
 
@@ -449,7 +449,7 @@ The project was deployed to GitHub Pages using the following process;
 
     ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/heroku_deployment.png?raw= "Heroku Deployment")
 
- - [**GARDEN MANAGER** :seedling:](https://plant-manager-flask-mongodb.herokuapp.com/get_home "Heroku Deployed Site")
+ - [Click to view site **GARDEN MANAGER** :seedling:](https://plant-manager-flask-mongodb.herokuapp.com/ "Heroku Deployed Site")
 
 ### Forking the GitHub Repository
 
@@ -868,4 +868,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V35.7 Update for CSS tests
    - V35.8 Update for html base file check
    - V35.9 Add Heroku deployment method
+   - V36.0 Update Heroku Deployment
 ***
