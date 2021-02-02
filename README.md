@@ -3,7 +3,7 @@
 [View the live **GARDEN MANAGER**  :seedling:  project here.](https://plant-manager-flask-mongodb.herokuapp.com/)
 
 ### [Trefle.io](https://Trefle.io/)
-  ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/Trefle_header.png?raw= "Trefle Logo")
+  ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/trefle_header.png?raw= "Trefle Logo")
 
 ### [Plant.id](https://plant.id/)
   ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/plant_id_header.png?raw= "Plant.ID Logo")
@@ -869,4 +869,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V36.2 Add GDPR disclaimer
    - V36.3 Amended personal details disclaimer
    - V36.4 Amended readme text
+   - V36.5 Update Trefle header image
 ***
