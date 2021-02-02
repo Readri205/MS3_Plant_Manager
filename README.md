@@ -870,4 +870,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V36.3 Amended personal details disclaimer
    - V36.4 Amended readme text
    - V36.5 Update Trefle header image
+   - V36.6 Add functional user testing in testing.md
 ***

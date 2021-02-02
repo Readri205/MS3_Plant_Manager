@@ -102,15 +102,23 @@ The user stories are annotated below to describe actual functionality. Screensho
 
 - ### Functional User Tests by Browser
 
-    * All the functional user tests have been made per the attached [Test Schedule](https://github.com/Readri205/MS2_Project/blob/master/assets/documents/excelfiles/testschedule.xlsx). All functional tests have been on different Browsers including Chrome, MS Edge, Firefox, Opera and Internet Explorer.
+    * All the functional user tests have been made per the attached [Test Schedule](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/testsheet.xls). All functional tests have been on different Browsers including Chrome, MS Edge, Firefox, Opera and Internet Explorer.
     * Note that there are functional **'fails'** returned from **Internet Explorer** for any search functionality. Internet Explorer was **NOT** tested on mobile. However, **MS Edge** was tested **successfully** on large screen and mobile. The results are shown below;
       * MacBook Pro 16" Screen;
 
-          ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/testschedulemacbook10050.jpg "Functional Test Schedule - MacBook Pro 16 Screen")
+        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/testsheet1.png "Functional Test Schedule - MacBook Pro 16 Screen")
+
+        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/testsheet2.png "Functional Test Schedule - MacBook Pro 16 Screen")
+
+        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/testsheet3.png "Functional Test Schedule - MacBook Pro 16 Screen")
 
       * iPhone X 375px screen;
 
-          ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/testscheduleiphonex10050.jpg "Functional Test Schedule - Mobile Screen")
+        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/testsheet4.png "Functional Test Schedule - MacBook Pro 16 Screen")
+
+        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/testsheet5.png "Functional Test Schedule - MacBook Pro 16 Screen")
+
+        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/testsheet6.png "Functional Test Schedule - MacBook Pro 16 Screen")
 
 ## Automated Testing
 
