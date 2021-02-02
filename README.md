@@ -70,6 +70,8 @@
 
   * This website provides a functionality for users to create a list of plants in collections, either by entering plant details or by uploading from a search. The searches can be made in a number of ways, including by name, image or by filters. Users are able to update the details of plants and collections in their lists. Users are also able to delete plants and collections. A user can also move a plant from one collection to another if so desired. A user can also amend their personal details including email, username and telephone number. A user is also able to fully delete their login and all plants and collections listed on that login. Each users logn and details are specific to that user and cannot be viewed by any other user.
 
+  * **NOTE: This site is currently entirely for educational purposes only. Whilst there is an ability to register for the site, any personal details entered are not protected by GDPR**
+
   * The website is **'functional'**, allowing users to enter information about **Plants** and to view information on specific plants. The site is designed to show details on **Plants** where required.
   * The website concept is to provide a user with a useful list of plants;
     * what is the name of the plant?
@@ -864,4 +866,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V35.9 Add Heroku deployment method
    - V36.0 Update Heroku Deployment
    - V36.1 Update readme text and github/heroku deployment
+   - V36.2 Add GDPR disclaimer
 ***
