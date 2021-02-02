@@ -16,16 +16,18 @@ View the Main [README here](https://github.com/Readri205/MS3_Plant_Manager/blob/
 ## Contents
 
 - [User stories](#user-stories)
-- [First Time Visitor Goals](#first-time-visitor-goals)
-  - [Returning Visitor Goals](#returning-visitor-goals)
-  - [Frequent User Goals](#frequent-user-goals)
-  - [Functional User Tests by Browser](#functional-user-tests-by-browser)
+    + [First Time Visitor Goals](#first-time-visitor-goals)
+    + [Returning Visitor Goals](#returning-visitor-goals)
+    + [Frequent User Goals](#frequent-user-goals)
+    + [Mobile Menu](#mobile-menu)
+  * [Functional User Tests by Browser](#functional-user-tests-by-browser)
 - [Automated Testing](#automated-testing)
 - [API Fail Message Test](#api-fail-message-test)
 - [Contact Form Testing](#contact-form-testing)
 - [Further Testing](#further-testing)
 
-[Table of contents generated with markdown-toc](http://ecotrust-canada.github.io/markdown-toc/)
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 
 ## User stories
 
@@ -102,7 +104,7 @@ The user stories are annotated below to describe actual functionality. Screensho
 
 - ### Functional User Tests by Browser
 
-    * All the functional user tests have been made per the attached [Test Schedule](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/testsheet.xls). All functional tests have been on different Browsers including Chrome, MS Edge, Firefox, Opera and Internet Explorer.
+    * All the functional user tests have been made per the attached [Test Schedule](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/testsheet.xlsx). All functional tests have been on different Browsers including Chrome, MS Edge, Firefox, Opera and Internet Explorer.
     * Note that there are functional **'fails'** returned from **Internet Explorer** for any search functionality. Internet Explorer was **NOT** tested on mobile. However, **MS Edge** was tested **successfully** on large screen and mobile. The results are shown below;
       * MacBook Pro 16" Screen;
 
@@ -114,11 +116,11 @@ The user stories are annotated below to describe actual functionality. Screensho
 
       * iPhone X 375px screen;
 
-        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/testsheet4.png "Functional Test Schedule - MacBook Pro 16 Screen")
+        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/testsheet4.png "Functional Test Schedule - iPhone X 375 Screen")
 
-        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/testsheet5.png "Functional Test Schedule - MacBook Pro 16 Screen")
+        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/testsheet5.png "Functional Test Schedule - iPhone X 375 Screen")
 
-        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/testsheet6.png "Functional Test Schedule - MacBook Pro 16 Screen")
+        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/testsheet6.png "Functional Test Schedule - iPhone X 375 Screen")
 
 ## Automated Testing
 
@@ -155,10 +157,6 @@ The following automated tools were used to test the website during development o
     - **sendemail.js**
 
     ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/jshint_sendemailjs.png?raw= "Image Upload")
-
-- [Autoprefixer CSS Online](https://autoprefixer.github.io/) - used to parse CSS and add vendor prefixes. This is not a test as such but allows for cross browser CSS capability. The header below has been placed at the top of the [style.css](https://github.com/Readri205/MS2_Project/blob/master/assets/css/style.css) file.
-
-    ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/autoprefixercssheader.png "Autoprefixer Header for Vendor Prefixes")
 
 ## API Fail Message Test
 
