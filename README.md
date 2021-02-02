@@ -2,6 +2,7 @@
 
 [View the live **GARDEN MANAGER**  :seedling:  project here.](https://plant-manager-flask-mongodb.herokuapp.com/)
 
+The project uses two key API interfaces as shown here;
 ### [Trefle.io](https://Trefle.io/)
   ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/trefle_header.png?raw= "Trefle Logo")
 
@@ -871,4 +872,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V36.4 Amended readme text
    - V36.5 Update Trefle header image
    - V36.6 Add functional user testing in testing.md
+   - V36.7 Add highlight to Trefle and Plant.ID API in readme
 ***
