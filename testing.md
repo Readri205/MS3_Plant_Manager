@@ -210,6 +210,6 @@ The website makes use of a number of API calls as described in the main README.m
 
   - Galaxy Fold 653px Landscape Mode
 
-      ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/galaxy_fold_653.png "Galaxy Fold 653px")
+      ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/galaxy_653_portrait.png "Galaxy Fold 653px Plant Details")
 
 ***
