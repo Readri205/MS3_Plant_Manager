@@ -367,8 +367,8 @@
        * Login for registered users.
 * ### Subsequent Pages
   * All subsequent pages follow a common theme (using Materialise CSS for font and colours);
-    * Main Header Title in yellow;
-    * Card in Teal with information in Dark Teal.
+    * Main Header Title in 'Yellow';
+    * Card in 'Teal' background with information text in 'Dark Teal'.
 
 * ### Contacts Page
    * The Contacts Page contains the 'Contact Form' for a user to supply contact information and to provide comments, questions or to provide a request for some work.
@@ -868,4 +868,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V36.1 Update readme text and github/heroku deployment
    - V36.2 Add GDPR disclaimer
    - V36.3 Amended personal details disclaimer
+   - V36.4 Amended readme text
 ***
