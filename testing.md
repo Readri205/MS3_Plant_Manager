@@ -184,28 +184,32 @@ The website makes use of a number of API calls as described in the main README.m
 
 - The website was tested using Google Chrome Developer Tools Responsive Design feature for small screen sizes. Screen sizes down to 320px will render the Pie Charts appropriately in Portrait Mode. Screen size of 280px in portrait mode (Galaxy Fold) will not render the Home Page Pie Charts and must be viewed in landscape mode.
 
-  - iPhone 6 375px Portrait Mode Home Page Charts
+  - iPhone 6 375px Portrait Mode
 
-      ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/iphone6375px10050.jpg "iPhone 6 375px Portrait Home Page Charts")
+      ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/iphone_6_375.png "iPhone 6 375px")
 
-  - iPhone 5SE 375px Portrait Mode Home Page Charts
+  - iPhone 5 320px Portrait Mode
 
-      ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/iphone5se320px10050.jpg "iPhone 6 375px Portrait Home Page Charts")
+      ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/iphone_5_320.png "iPhone 5 320px")
 
-  - iPhone4 320px Portrait Mode Home Page Charts
+  - iPad 768px Portrait Mode
 
-      ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/iphone4320px10050.jpg "iPhone 4 320px Portrait Home Page Charts")
+      ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/ipad_768.png "iPad 768px")
 
   - iPhone4 320px Portrait Mode Country Details Charts
 
-      ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/iphone4320pxcountry10050.jpg "iPhone 4 320px Portrait Country Details Charts")
+      ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/iphone_6_375.png "iPhone 6 375px")
 
-  - Galaxy Fold 280px Portrait Mode Home Page Charts
+  - Galaxy Fold 280px Portrait Mode
 
-      ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/galaxyfold280px10050.jpg "Galaxy Fold 280px Portrait Home Page Charts")
+      ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/galaxy_fold_280.png "Galaxy Fold 280px")
 
-  - Galaxy Fold 653px Landscape Mode Home Page Charts
+  - Galaxy Fold 280px Portrait Mode Plant Details
 
-      ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/galaxyfoldlandscape653px10050.jpg "Galaxy Fold 653px Landscape Home Page Charts")
+      ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/galaxy_fold_280_deets.png "Galaxy Fold 280px Plant Details")
+
+  - Galaxy Fold 653px Landscape Mode
+
+      ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/galaxy_fold_653.png "Galaxy Fold 653px")
 
 ***
