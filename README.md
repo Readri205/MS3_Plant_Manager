@@ -433,17 +433,18 @@ The project uses two key API interfaces as shown here;
 
 * ### Construction Table
    * The following table provides a summary of how the Site Pages and Sections are compiled;
-       Site Page | Page Section | Python File / Code Lines | JS File | API Reference |
+       Site Page | Page Section | Python File / Code Lines | JS File / Code Lines | API Reference |
        ----------|--------------|-----------------|-----------|---------|
-       All | Carousel | N/A  | script.js |N/A |
+       All | Carousel | N/A  | script.js / 7, 19 - 23 |N/A |
+       All | Navbar | N/A  | script.js / 2 - 6 |N/A |
        Home | Card Boxes | app.py / 40 - 43 | N/A |N/A |
        Register | Card Box | app.py / 213 - 237 | N/A |N/A |
        Login | Card Box | app.py / 240 - 267 | N/A |N/A |
        Logout | Card Box | app.py / 282 - 287 | N/A |N/A |
        Plant List | Card Box | app.py / 51 - 54 | N/A  |N/A |
-       Add / Update Plant | Add | app.py / 57 - 134 | script.js |N/A |
+       Add / Update Plant | Add | app.py / 57 - 134 | script.js / 11 - 18 |N/A |
        Collection List | Card Box | app.py / 137 - 152 | N/A |N/A |
-       Add / Update Collection | Add | app.py / 155 - 210 | script.js |N/A |
+       Add / Update Collection | Add | app.py / 155 - 210 | script.js / 11 - 18 |N/A |
        Trefle Search | Search by 'name' | app.py / 321 - 476 | N/A |[Trefle.io](https://Trefle.io/) (Website) |
        Trefle Filter | Filter by 'colour' | app.py / 538 - 683 | N/A |[Trefle.io](https://Trefle.io/) (Website) |
        Trefle Plant Details | Search / Filter Return | app.py / 504 - 535 | N/A |[Trefle.io](https://Trefle.io/) (Website) |
@@ -949,4 +950,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V38.2 Update construction box in readme
    - V38.3 Amend css styles, app code and readme txt
    - V38.4 Rationalise images and image folders
+   - V38.5 Update construction box for js code lines
 ***
