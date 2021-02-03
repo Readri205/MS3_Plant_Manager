@@ -223,7 +223,7 @@ The project uses two key API interfaces as shown here;
 
           * On mobile devices an image can be captured and uploaded directly;
 
-          ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/app_mobilecapture.png?raw= "Mobile Capture")
+          ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/app_capture.png?raw= "Mobile Capture")
 
 *   ### Design
     *   #### colour Scheme
@@ -941,4 +941,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - v37.7 Add more images for user stories
    - V37.8 Add further image to user stories
    - V37.9 Upload mobile images for user stories
+   - V38.0 Add mobile image upload name
 ***
