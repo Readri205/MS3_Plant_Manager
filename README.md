@@ -99,27 +99,64 @@ The project uses two key API interfaces as shown here;
         * The first time visitor will want to;
           * easily understand the main purpose of the site;
 
+          ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/app_maininfo.png?raw= "Home")
+
           * be able to easily navigate throughout the site to find content;
+
+          ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/app_mainmenu.png?raw= "Main Menu")
 
           * view the carousel images just beneath the header;
 
+          ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/app_carousel.png?raw= "Carousel")
+
           * scroll down through the information, read the content, view each of the function cards;
 
+          ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/app_maininfo.png?raw= "Cards")
+
           * register for the site and create login credentials;
+
+          ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/app_register.png?raw= "Register")
 
           * enter plant details for plants they are interested in;
 
             * login to the site;
+
+            ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/app_login.png?raw= "Login")
+
             * immediately view their plants list;
+
+            ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/app_myplants.png?raw= "My Plants")
+
             * view their collections list;
+
+            ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/app_mycollections.png?raw= "My Collections")
+
             * search for plants in one of the search methods;
               * name;
+
+              ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/app_searchname.png?raw= "Search Name")
+
               * filter by attribute;
+
+              ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/app_filter.png?raw= "search Filter")
+
               * image upload.
+
+              ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/app_image.png?raw= "Image")
+
+              ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/app_imagesuggestions.png?raw= "Image Suggestions")
+
             * add a plant to users plant list and a collection.
 
+            ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/app_addplant.png?raw= "Add Plant")
+
+          * see their user details and amend if necessary.
+
+            ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/app_mydetails.png?raw= "My Details")
+
           * contact us to ask about data projects that they may be interested to have completed as an item of work.
-            * Per images above
+
+            ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/app_contact.png?raw= "Contact")
 
     *   #### Returning Visitor Goals
         * The returning visitor will want to;
@@ -876,4 +913,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V37.3 Change int for float on mobile trefle search
    - V37.4 Remove prev_page from first search function
    - V37.5 Add prev_page and update remove ' query
+   - V37.6 Add images for user stories
 ***

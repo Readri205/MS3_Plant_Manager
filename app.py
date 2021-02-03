@@ -373,6 +373,7 @@ def search_trefle():
     query = query.replace("'", "")
     query = query.replace(".", "")
     query = query.replace("-", " ")
+    print(query)
     global search
     search = STRG + str(query)
     page = request.args.get('page', 1, type=int)
