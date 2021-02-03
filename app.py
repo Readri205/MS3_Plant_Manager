@@ -372,8 +372,7 @@ def search_trefle():
     query = request.form.get("query")
     query = query.replace("'", "")
     query = query.replace(".", "")
-    query = query.replace("-", "")
-    print(query)
+    query = query.replace("-", " ")
     global search
     search = STRG + str(query)
     page = request.args.get('page', 1, type=int)
@@ -383,6 +382,7 @@ def search_trefle():
         plant = plants['data']
         total = plants['meta']['total']
         links = plants['links']
+        print(links)
         adjust = len(search)
         first = links['first'][28:]
         first_many = len(first)
@@ -392,32 +392,33 @@ def search_trefle():
         selfs_many = len(selfs)
         selfs_net_adjust = selfs_many - adjust
         selfs_page = selfs[:selfs_net_adjust]
-        prev_page = int(selfs_page) - 1
-        next_page = int(selfs_page) + 1
+        prev_page = float(selfs_page) - 1
+        print(prev_page)
+        next_page = float(selfs_page) + 1
         last = links['last'][28:]
         last_many = len(last)
         last_net_adjust = last_many - adjust
         last_page = last[:last_net_adjust]
-        all_pages = list(range(int(first_page), int(last_page)+1))
-        if int(last_page) == 3:
+#        all_pages = list(range(int(first_page), int(last_page)+1))
+        if float(last_page) == 3:
             return render_template(
                 "trefle_plants_three.html", plants=plant,
                 last_page=last_page, total=total,
                 next_page=next_page, first_page=first_page,
-                all_pages=all_pages, page=page,
+                page=page,
                 prev_page=prev_page, selfs_page=selfs_page)
-        if int(last_page) <= 2:
+        if float(last_page) <= 2:
             return render_template(
                 "trefle_plants_two.html", plants=plant,
                 last_page=last_page, total=total,
                 next_page=next_page, first_page=first_page,
-                all_pages=all_pages, page=page,
+                page=page,
                 prev_page=prev_page, selfs_page=selfs_page)
         return render_template(
             "trefle_plants.html", plants=plant,
             last_page=last_page, total=total,
             next_page=next_page, first_page=first_page,
-            all_pages=all_pages, page=page,
+            page=page,
             selfs_page=selfs_page, prev_page=prev_page)
     else:
         return render_template(
@@ -589,35 +590,35 @@ def trefle_filter():
             prev_page = page - 1
             next_page = page + 1
             last_page = links['last'][int(adjust_page):]
-            all_pages = list(range(int(first_page), int(last_page)+1))
+#            all_pages = list(range(int(first_page), int(last_page)+1))
             print(selfs_page, first_page, next_page, last_page, prev_page)
             if int(last_page) == 3:
                 return render_template(
                     "filter_plants_three.html", plants=plant,
                     last_page=last_page, total=total,
                     next_page=next_page, first_page=first_page,
-                    all_pages=all_pages, page=page,
+                    page=page,
                     prev_page=prev_page, selfs_page=selfs_page)
             if int(last_page) == 2:
                 return render_template(
                     "filter_plants_two.html", plants=plant,
                     last_page=last_page, total=total,
                     next_page=next_page, first_page=first_page,
-                    all_pages=all_pages, page=page,
+                    page=page,
                     prev_page=prev_page, selfs_page=selfs_page)
             if int(last_page) == int(next_page):
                 return render_template(
                     "filter_plants_last.html", plants=plant,
                     last_page=last_page, total=total,
                     next_page=next_page, first_page=first_page,
-                    all_pages=all_pages, page=page,
+                    page=page,
                     prev_page=prev_page, selfs_page=selfs_page)
             else:
                 return render_template(
                     "filter_plants.html", plants=plant,
                     last_page=last_page, total=total,
                     next_page=next_page, selfs_page=selfs_page,
-                    first_page=first_page, all_pages=all_pages)
+                    first_page=first_page)
         else:
             return render_template(
                 "trefle_oops.html")
