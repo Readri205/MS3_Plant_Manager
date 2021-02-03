@@ -27,7 +27,7 @@ app.config["MONGO_URI"] = os.getenv('MONGO_URI')
 app.secret_key = os.environ.get("SECRET_KEY")
 # paths to load images
 app.config["IMAGE_UPLOADS"] = os.getenv('IMAGE_UPLOADS')
-app.config["IMAGE_DEETS"] = os.getenv('IMAGE_DEETS')
+# app.config["IMAGE_DEETS"] = os.getenv('IMAGE_DEETS')
 # Trefle API call details
 YOUR_TREFLE_TOKEN = os.environ.get("YOUR_TREFLE_TOKEN")
 headers = {'Authorization': 'Token ' + YOUR_TREFLE_TOKEN}
@@ -317,11 +317,6 @@ def update_user(user_id):
     flash("User Successfully Edited!")
     return redirect(url_for("get_users"))
 
-
-@app.route('/delete_user/<user_id>')
-def delete_user(user_id):
-    mongo.db.users.remove({"_id": ObjectId(user_id)})
-    return redirect(url_for("logout"))
 
 # Trefle Search & Filter API
 # Global variables for Trefle API Search & Filters
@@ -711,7 +706,6 @@ def get_plant_id():
             os.path.join(app.config[
                 'IMAGE_UPLOADS'], "thumbnail.jpg"), "rb") as file:
             images = [base64.b64encode(file.read()).decode("ascii")]
-
         your_api_key = os.environ.get("your_api_key")
         json_data = {
             "images": images,
@@ -719,7 +713,6 @@ def get_plant_id():
             "plant_details": [
                 "common_names", "url", "wiki_description", "taxonomy"]
         }
-
         response = requests.post(
             "https://api.plant.id/v2/identify", json=json_data,
             headers={

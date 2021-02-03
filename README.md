@@ -444,11 +444,11 @@ The project uses two key API interfaces as shown here;
        Add / Update Plant | Add | app.py / 57 - 134 | script.js |N/A |
        Collection List | Card Box | app.py / 137 - 152 | N/A |N/A |
        Add / Update Collection | Add | app.py / 155 - 210 | script.js |N/A |
-       Trefle Search | Search by 'name' | app.py / 326 - 481 | N/A |[Trefle.io](https://Trefle.io/) (Website) |
-       Trefle Filter | Filter by 'colour' | app.py / 543 - 688 | N/A |[Trefle.io](https://Trefle.io/) (Website) |
-       Trefle Plant Details | Search / Filter Return | app.py / 509 - 540 | N/A |[Trefle.io](https://Trefle.io/) (Website) |
-       Add Trefle Plant Details | Add | app.py / 484 - 506 | N/A |[Trefle.io](https://Trefle.io/) (Website) |
-       Plant.id Search | Plant.id 'image upload' | app.py / 691 - 765 | image_upload.js |[Plant.id](https://plant.id/) (Website) |
+       Trefle Search | Search by 'name' | app.py / 321 - 476 | N/A |[Trefle.io](https://Trefle.io/) (Website) |
+       Trefle Filter | Filter by 'colour' | app.py / 538 - 683 | N/A |[Trefle.io](https://Trefle.io/) (Website) |
+       Trefle Plant Details | Search / Filter Return | app.py / 504 - 535 | N/A |[Trefle.io](https://Trefle.io/) (Website) |
+       Add Trefle Plant Details | Add | app.py / 479 - 501 | N/A |[Trefle.io](https://Trefle.io/) (Website) |
+       Plant.id Search | Plant.id 'image upload' | app.py / 686 - 758 | image_upload.js |[Plant.id](https://plant.id/) (Website) |
        My Details | Card Box | N/A  | N/A |N/A |
        Contact | Contact Form |N/A| sendemailjs.js | [Emailjs](https://www.emailjs.com/) (Website)|
 
@@ -947,4 +947,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V38.0 Add mobile image upload name
    - V38.1 Add contact us email confirmation test images
    - V38.2 Update construction box in readme
+   - V38.3 Amend css styles, app code and readme txt
 ***
