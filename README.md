@@ -136,6 +136,14 @@ The project uses two key API interfaces as shown here;
 
               ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/app_searchname.png?raw= "Search Name")
 
+              * View plants returned from a search;
+
+              ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/app_return.png?raw= "Search Name")
+
+              * View individual plant details from a search return;
+
+              ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/app_plantdeets.png?raw= "Search Name")
+
               * filter by attribute;
 
               ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/app_filter.png?raw= "search Filter")
@@ -914,4 +922,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V37.4 Remove prev_page from first search function
    - V37.5 Add prev_page and update remove ' query
    - V37.6 Add images for user stories
+   - v37.7 Add more images for user stories
 ***
