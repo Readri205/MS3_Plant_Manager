@@ -392,34 +392,34 @@ def search_trefle():
         selfs_many = len(selfs)
         selfs_net_adjust = selfs_many - adjust
         selfs_page = selfs[:selfs_net_adjust]
-        prev_page = float(selfs_page) - 1
-        print(prev_page)
-        next_page = float(selfs_page) + 1
+#        prev_page = int(selfs_page) - 1
+#        print(prev_page)
+        next_page = int(selfs_page) + 1
         last = links['last'][28:]
         last_many = len(last)
         last_net_adjust = last_many - adjust
         last_page = last[:last_net_adjust]
 #        all_pages = list(range(int(first_page), int(last_page)+1))
-        if float(last_page) == 3:
+        if int(last_page) == 3:
             return render_template(
                 "trefle_plants_three.html", plants=plant,
                 last_page=last_page, total=total,
                 next_page=next_page, first_page=first_page,
                 page=page,
-                prev_page=prev_page, selfs_page=selfs_page)
-        if float(last_page) <= 2:
+                selfs_page=selfs_page)
+        if int(last_page) <= 2:
             return render_template(
                 "trefle_plants_two.html", plants=plant,
                 last_page=last_page, total=total,
                 next_page=next_page, first_page=first_page,
                 page=page,
-                prev_page=prev_page, selfs_page=selfs_page)
+                selfs_page=selfs_page)
         return render_template(
             "trefle_plants.html", plants=plant,
             last_page=last_page, total=total,
             next_page=next_page, first_page=first_page,
             page=page,
-            selfs_page=selfs_page, prev_page=prev_page)
+            selfs_page=selfs_page)
     else:
         return render_template(
                 "trefle_oops.html")
