@@ -450,7 +450,7 @@ The project uses two key API interfaces as shown here;
        Trefle Plant Details | Search / Filter Return | app.py / 504 - 535 | N/A |[Trefle.io](https://Trefle.io/) (Website) |
        Add Trefle Plant Details | Add | app.py / 479 - 501 | N/A |[Trefle.io](https://Trefle.io/) (Website) |
        Plant.id Search | Plant.id 'image upload' | app.py / 686 - 758 | image_upload.js |[Plant.id](https://plant.id/) (Website) |
-       My Details | Card Box | N/A  | N/A |N/A |
+       My Details | Card Box | app.py / 290 - 318 | N/A |N/A |
        Contact | Contact Form |N/A| sendemailjs.js | [Emailjs](https://www.emailjs.com/) (Website)|
 
 ## Testing
@@ -951,4 +951,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V38.3 Amend css styles, app code and readme txt
    - V38.4 Rationalise images and image folders
    - V38.5 Update construction box for js code lines
+   - V38.6 Update construction box for my details code lines
 ***
