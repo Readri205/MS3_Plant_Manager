@@ -127,6 +127,10 @@ The project uses two key API interfaces as shown here;
 
             ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/app_myplants.png?raw= "My Plants")
 
+            * immediately view a plant from list;
+
+            ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/app_viewplant.png?raw= "My Plants")
+
             * view their collections list;
 
             ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/app_mycollections.png?raw= "My Collections")
@@ -923,4 +927,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V37.5 Add prev_page and update remove ' query
    - V37.6 Add images for user stories
    - v37.7 Add more images for user stories
+   - V37.8 Add further image to user stories
 ***
