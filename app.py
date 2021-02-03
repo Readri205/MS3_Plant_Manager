@@ -382,7 +382,6 @@ def search_trefle():
         plant = plants['data']
         total = plants['meta']['total']
         links = plants['links']
-        print(links)
         adjust = len(search)
         first = links['first'][28:]
         first_many = len(first)
@@ -392,8 +391,7 @@ def search_trefle():
         selfs_many = len(selfs)
         selfs_net_adjust = selfs_many - adjust
         selfs_page = selfs[:selfs_net_adjust]
-#        prev_page = int(selfs_page) - 1
-#        print(prev_page)
+        prev_page = int(selfs_page) - 1
         next_page = int(selfs_page) + 1
         last = links['last'][28:]
         last_many = len(last)
@@ -405,20 +403,20 @@ def search_trefle():
                 "trefle_plants_three.html", plants=plant,
                 last_page=last_page, total=total,
                 next_page=next_page, first_page=first_page,
-                page=page,
+                page=page, prev_page=prev_page,
                 selfs_page=selfs_page)
         if int(last_page) <= 2:
             return render_template(
                 "trefle_plants_two.html", plants=plant,
                 last_page=last_page, total=total,
                 next_page=next_page, first_page=first_page,
-                page=page,
+                page=page, prev_page=prev_page,
                 selfs_page=selfs_page)
         return render_template(
             "trefle_plants.html", plants=plant,
             last_page=last_page, total=total,
             next_page=next_page, first_page=first_page,
-            page=page,
+            page=page, prev_page=prev_page,
             selfs_page=selfs_page)
     else:
         return render_template(
