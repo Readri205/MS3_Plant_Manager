@@ -435,18 +435,21 @@ The project uses two key API interfaces as shown here;
    * The following table provides a summary of how the Site Pages and Sections are compiled;
        Site Page | Page Section | Python File / Code Lines | JS File | API Reference |
        ----------|--------------|-----------------|-----------|---------|
-       Home | Card Boxes | app.py / 1 -10 | N/A |N/A |
-       Register | Card Box | app.py | N/A |N/A |
-       Login | Card Box | app.py | N/A |N/A |
-       Plant List | Card Box | app.py | script.js |N/A |
-       Add / Update Plant | Card Box | app.py | script.js |N/A |
-       Collection List | Card Box | app.py | script.js |N/A |
-       Add / Update Collection | Card Box | app.py | script.js |N/A |
-       Trefle Search | Search by 'name' | app.py | N/A |[Trefle.io](https://Trefle.io/) (Website) |
-       Trefle Filter | Filter by 'colour' | app.py | N/A |[Trefle.io](https://Trefle.io/) (Website) |
-       Trefle Plant Details | Search / Filter Return | app.py | N/A |[Trefle.io](https://Trefle.io/) (Website) |
-       Plant.id Search | Plant.id 'image upload' | app.py | image_upload.js |[Plant.id](https://plant.id/) (Website) |
-       My Details | Card Box | app.py | N/A |N/A |
+       All | Carousel | N/A  | script.js |N/A |
+       Home | Card Boxes | app.py / 40 - 43 | N/A |N/A |
+       Register | Card Box | app.py / 213 - 237 | N/A |N/A |
+       Login | Card Box | app.py / 240 - 267 | N/A |N/A |
+       Logout | Card Box | app.py / 282 - 287 | N/A |N/A |
+       Plant List | Card Box | app.py / 51 - 54 | N/A  |N/A |
+       Add / Update Plant | Add | app.py / 57 - 134 | script.js |N/A |
+       Collection List | Card Box | app.py / 137 - 152 | N/A |N/A |
+       Add / Update Collection | Add | app.py / 155 - 210 | script.js |N/A |
+       Trefle Search | Search by 'name' | app.py / 326 - 481 | N/A |[Trefle.io](https://Trefle.io/) (Website) |
+       Trefle Filter | Filter by 'colour' | app.py / 543 - 688 | N/A |[Trefle.io](https://Trefle.io/) (Website) |
+       Trefle Plant Details | Search / Filter Return | app.py / 509 - 540 | N/A |[Trefle.io](https://Trefle.io/) (Website) |
+       Add Trefle Plant Details | Add | app.py / 484 - 506 | N/A |[Trefle.io](https://Trefle.io/) (Website) |
+       Plant.id Search | Plant.id 'image upload' | app.py / 691 - 765 | image_upload.js |[Plant.id](https://plant.id/) (Website) |
+       My Details | Card Box | N/A  | N/A |N/A |
        Contact | Contact Form |N/A| sendemailjs.js | [Emailjs](https://www.emailjs.com/) (Website)|
 
 ## Testing
@@ -943,4 +946,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V37.9 Upload mobile images for user stories
    - V38.0 Add mobile image upload name
    - V38.1 Add contact us email confirmation test images
+   - V38.2 Update construction box in readme
 ***
