@@ -948,4 +948,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V38.1 Add contact us email confirmation test images
    - V38.2 Update construction box in readme
    - V38.3 Amend css styles, app code and readme txt
+   - V38.4 Rationalise images and image folders
 ***
