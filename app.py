@@ -370,6 +370,10 @@ def get_trefle_many():
 @app.route("/search_trefle", methods=["POST"])
 def search_trefle():
     query = request.form.get("query")
+    query = query.replace("'", "")
+    query = query.replace(".", "")
+    query = query.replace("-", "")
+    print(query)
     global search
     search = STRG + str(query)
     page = request.args.get('page', 1, type=int)
