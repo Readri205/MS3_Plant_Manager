@@ -952,4 +952,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V38.4 Rationalise images and image folders
    - V38.5 Update construction box for js code lines
    - V38.6 Update construction box for my details code lines
+   - V38.7 Update search field for no symbols or apostrophe's
 ***

@@ -618,8 +618,8 @@ def trefle_filter():
                 "trefle_oops.html")
 
 
-# Global variable for Trefle Filter
-# adjust_page = []
+# Trefle Filter
+# next filters
 
 
 @app.route("/next_filter")
