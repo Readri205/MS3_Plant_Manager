@@ -170,15 +170,15 @@ The website makes use of a number of API calls as described in the main README.m
 
 - Input validation
 
-    ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/contactpageinputcheck10025.jpg "Contact Form Input Required")
+    ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/app_contact.png?raw= "Contact Verify")
 
 - Submission Confirmation to User  
 
-    ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/submissionconfirmation10050.jpg "Submission Confirmation")
+    ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/app_contactconfirm.png?raw= "Contact Confirm")
 
 - Email Receipt Confirmation
 
-    ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/emailreceipt10050.jpg "Email Receipt")
+    ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/app_email.png?raw= "Email Confirm")
 
 ## Further Testing
 

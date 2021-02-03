@@ -942,4 +942,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V37.8 Add further image to user stories
    - V37.9 Upload mobile images for user stories
    - V38.0 Add mobile image upload name
+   - V38.1 Add contact us email confirmation test images
 ***
