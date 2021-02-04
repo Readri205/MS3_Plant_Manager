@@ -364,7 +364,6 @@ def get_trefle_many():
 
 @app.route("/search_trefle", methods=["POST"])
 def search_trefle():
-    query = request.form.get("query")
     query = query.replace("'", "")
     query = query.replace(".", "")
     query = query.replace("-", "")
@@ -422,7 +421,7 @@ def search_trefle():
             selfs_page=selfs_page)
     else:
         return render_template(
-                "trefle_oops.html")
+                    "trefle_oops.html")
 
 
 @app.route("/next_url")
@@ -770,6 +769,9 @@ def get_plant_id():
         else:
             return render_template(
                 "plant_id_oops.html")
+    else:
+        flash("Load an image first to submit!")
+    return redirect(url_for("plant_id"))
 
 
 if __name__ == '__main__':
