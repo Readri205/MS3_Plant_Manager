@@ -961,4 +961,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V39.3 Upload my_image in main image folder
    - V39.4 Add uploads folder and my_image in plant_id folder
    - V39.5 Format html text in IDE
+   - V39.6 Redeploy to upgrade Heroku-20 stack
 ***
