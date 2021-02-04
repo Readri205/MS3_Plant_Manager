@@ -1,151 +1,243 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <div class="row yellow-text text-darken-4 center-align">
-<h4>Filter search</h4>
+  <h4>Filter search</h4>
 </div>
 <div class="row card-panel teal lighten-4">
-    <p class="teal-text text-darken-4"> <a class="teal-text text-darken-4 wiki-text" href="https://trefle.io/about#sources"
-            target="blank">Trefle.io</a> is an open-source database with over<strong><em>400,000</em></strong> listed plants
-        from around the world. The project is currently in 'Beta' and as such the information is not 100% complete or
-        validated, and the database can have maintenance downtimes. Nevertheless, it represents one of the most
-        comprehensive publicly available global plant databases. It is compiled from the following sources;
-    </p>
-    <div class="row">
-        <a href="https://trefle.io/about#sources" target="blank">
-            <img class=" responsive-img" src="static/images/trefle.png" alt="">
-        </a>
+  <p class="teal-text text-darken-4">
+    <a
+      class="teal-text text-darken-4 wiki-text"
+      href="https://trefle.io/about#sources"
+      target="blank"
+      >Trefle.io</a
+    >
+    is an open-source database with over<strong><em>400,000</em></strong> listed
+    plants from around the world. The project is currently in 'Beta' and as such
+    the information is not 100% complete or validated, and the database can have
+    maintenance downtimes. Nevertheless, it represents one of the most
+    comprehensive publicly available global plant databases. It is compiled from
+    the following sources;
+  </p>
+  <div class="row">
+    <a href="https://trefle.io/about#sources" target="blank">
+      <img class="responsive-img" src="static/images/trefle.png" alt="" />
+    </a>
+  </div>
+  <p class="row teal-text text-darken-4">
+    Enter a name of a plant you'd like to search for and Trefle will return
+    suggestions to review.
+  </p>
+  <p class="row teal-text text-darken-4">
+    Click on 'Plant Details' to see more details and 'Add Plant' to add the
+    plant to your list in a collection.
+  </p>
+  <p class="row teal-text text-darken-4">
+    Examples of returns from the database are shown below. Note that details for
+    many plants are not complete, but the database is being updated on a regular
+    basis.
+  </p>
+  <form action="{{ url_for('trefle_filter') }}" method="POST" class="col s12">
+    <div class="col l3">
+      <div>
+        <label>
+          <input type="checkbox" name="White" id="White" />
+          <span>White </span>
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="checkbox" name="Red" id="Red" />
+          <span>Red </span>
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="checkbox" name="Yellow" id="Yellow" />
+          <span>Yellow </span>
+        </label>
+      </div>
     </div>
-    <p class="row teal-text text-darken-4">
-        Enter a name of a plant you'd like to search for and Trefle will return suggestions to review.</p>
-    <p class="row teal-text text-darken-4"> Click on 'Plant Details' to see more details and 'Add Plant' to add the plant to
-        your list in a collection.
-    </p>
-    <p class="row teal-text text-darken-4">Examples of returns from the database are shown below. Note that details for many
-        plants are not complete, but the database is being updated on a regular basis.
-    </p>
-	<form action="{{ url_for('trefle_filter') }}" method="POST" class="col s12">
-        <div class="col l3">
-            <div>
-            <label>
-                <input type="checkbox" name="White" id="White" />
-                <span>White </span>
-            </label>
-            </div>
-            <div>
-            <label>
-                <input type="checkbox" name="Red" id="Red"/>
-                <span>Red </span>
-            </label>
-            </div>
-            <div>
-            <label>
-                <input type="checkbox" name="Yellow" id="Yellow"/>
-                <span>Yellow </span>
-            </label>
-        </div>
-        </div>
-        <div class="col l3">
-            <div>
-            <label>
-                <input type="checkbox" name="Blue" id="Blue" />
-                <span>Blue </span>
-            </label>
-        </div>
-            <div>
-            <label>
-                <input type="checkbox" name="Black" id="Black" />
-                <span>Black </span>
-            </label>
-        </div>
-            <div>
-            <label>
-                <input type="checkbox" name="Orange" id="Orange" />
-                <span>Orange </span>
-            </label>
-        </div>
-        </div>
-        <div class="col l3">
-            <div>
-            <label>
-                <input type="checkbox" name="Green" id="Green" />
-                <span>Green </span>
-            </label>
-            </div>
-            <div>
-            <label>
-                <input type="checkbox" name="Brown" id="Brown" />
-                <span>Brown </span>
-            </label>
-        </div>
-            <div>
-            <label>
-                <input type="checkbox" name="Purple" id="Purple" />
-                <span>Purple </span>
-            </label>
-        </div>
-        </div>
-        <div class="row col s12">
-            <button class="waves-effect waves-light teal darken-2 btn" type="submit" name="action">Submit
-            <i class="material-icons right">send</i>
-            </button>
-            <a href="{{ url_for('filter_search') }}" class="waves-effect waves-light teal  darken-2 btn">Back to Main Filter   <i class="fas fa-edit"></i></a>
-        </div>
-	</form>
+    <div class="col l3">
+      <div>
+        <label>
+          <input type="checkbox" name="Blue" id="Blue" />
+          <span>Blue </span>
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="checkbox" name="Black" id="Black" />
+          <span>Black </span>
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="checkbox" name="Orange" id="Orange" />
+          <span>Orange </span>
+        </label>
+      </div>
+    </div>
+    <div class="col l3">
+      <div>
+        <label>
+          <input type="checkbox" name="Green" id="Green" />
+          <span>Green </span>
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="checkbox" name="Brown" id="Brown" />
+          <span>Brown </span>
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="checkbox" name="Purple" id="Purple" />
+          <span>Purple </span>
+        </label>
+      </div>
+    </div>
+    <div class="row col s12">
+      <button
+        class="waves-effect waves-light teal darken-2 btn"
+        type="submit"
+        name="action"
+      >
+        Submit
+        <i class="material-icons right">send</i>
+      </button>
+      <a
+        href="{{ url_for('filter_search') }}"
+        class="waves-effect waves-light teal darken-2 btn"
+        >Back to Main Filter <i class="fas fa-edit"></i
+      ></a>
+    </div>
+  </form>
 </div>
 
 <ul class="row">
-    {% for plant in plants %}
-    <li>
+  {% for plant in plants %}
+  <li>
     <div class="col s12 m4">
       <div class="card teal lighten-4">
         <div class="card-image">
-            <img src="{{ plant.image_url }}" alt="">
+          <img src="{{ plant.image_url }}" alt="" />
         </div>
-		<div class="card-content">
-			<ul>
-                <li><i class="fas fa-spa teal-text text-lighten-2"></i>
-                <strong>{{ plant.common_name.title() if plant.common_name != None else 'None' }} </strong>
-                <em>  id: {{ plant.id }}</em></li>
-                <li>Family Common Name: <em>{{ plant.family_common_name }}</em></li>
-                <li>Scientific Name: <em>{{ plant.scientific_name }}</em></li>
-				<li>Family Name: {{ plant.family }}</li>
-                <li>Genus: {{ plant.genus }}</li>
-                <li><a class="hoverable teal-text text-darken-4 wiki-text" href="https://en.wikipedia.org/wiki/{{ plant.scientific_name}}" target="_blank">Wiki Link to {{ plant.common_name.title() if plant.common_name != None else 'None' }}</a></li>
-			</ul>
-		</div>
+        <div class="card-content">
+          <ul>
+            <li>
+              <i class="fas fa-spa teal-text text-lighten-2"></i>
+              <strong
+                >{{ plant.common_name.title() if plant.common_name != None else
+                'None' }}
+              </strong>
+              <em> id: {{ plant.id }}</em>
+            </li>
+            <li>Family Common Name: <em>{{ plant.family_common_name }}</em></li>
+            <li>Scientific Name: <em>{{ plant.scientific_name }}</em></li>
+            <li>Family Name: {{ plant.family }}</li>
+            <li>Genus: {{ plant.genus }}</li>
+            <li>
+              <a
+                class="hoverable teal-text text-darken-4 wiki-text"
+                href="https://en.wikipedia.org/wiki/{{ plant.scientific_name}}"
+                target="_blank"
+                >Wiki Link to {{ plant.common_name.title() if plant.common_name
+                != None else 'None' }}</a
+              >
+            </li>
+          </ul>
+        </div>
         <div class="card-action btn-css">
-                <a href="{{ url_for('add_trefle_plant', id=plant.id) }}" class="waves-effect waves-light teal  darken-2 btn">Add Plant   <i class="fas fa-edit"></i></a>
-                <a href="{{ url_for('get_trefle_deets', id=plant.id) }}" class="waves-effect waves-light teal  darken-2 btn">Plant Details   <i class="fas fa-edit"></i></a>
+          <a
+            href="{{ url_for('add_trefle_plant', id=plant.id) }}"
+            class="waves-effect waves-light teal darken-2 btn"
+            >Add Plant <i class="fas fa-edit"></i
+          ></a>
+          <a
+            href="{{ url_for('get_trefle_deets', id=plant.id) }}"
+            class="waves-effect waves-light teal darken-2 btn"
+            >Plant Details <i class="fas fa-edit"></i
+          ></a>
         </div>
       </div>
     </div>
-    </li>
-    {% endfor %}
+  </li>
+  {% endfor %}
 </ul>
 <div class="page-box">
-	<div class="row">
-		<p class="col teal darken-4 yellow-text text-darken-4 text-shadow">Total number of plants in search: <em>{{ total }}</em></p>
+  <div class="row">
+    <p class="col teal darken-4 yellow-text text-darken-4 text-shadow">
+      Total number of plants in search: <em>{{ total }}</em>
+    </p>
+  </div>
+  <div class="row">
+    <div class="col s12">
+      {% if selfs_page == last_page %}
+      <a
+        href="{{url_for('next_filter', page=first_page )}}"
+        class="btn teal darken-4 yellow-text text-darken-4 text-shadow"
+        >{{first_page}}</a
+      >
+      <a
+        href="{{url_for('next_filter', page=prev_page )}}"
+        class="btn teal darken-4 yellow-text text-darken-4 text-shadow"
+        >{{prev_page}}</a
+      >
+      <a
+        href="{{url_for('next_filter', page=last_page )}}"
+        class="btn yellow darken-4 teal-text text-darken-4 text-shadow"
+        >{{last_page}}</a
+      >
+      {% elif selfs_page == first_page %}
+      <a
+        href="{{url_for('next_filter', page=first_page )}}"
+        class="btn yellow darken-4 teal-text text-darken-4 text-shadow"
+        >{{first_page}}</a
+      >
+      <a
+        href="{{url_for('next_filter', page=next_page )}}"
+        class="btn teal darken-4 yellow-text text-darken-4 text-shadow"
+        >{{next_page}}</a
+      >
+      <a
+        href="{{url_for('next_filter', page=last_page )}}"
+        class="btn teal darken-4 yellow-text text-darken-4 text-shadow"
+        >{{last_page}}</a
+      >
+      {% elif prev_page == 1 %}
+      <a
+        href="{{url_for('next_filter', page=first_page )}}"
+        class="btn teal darken-4 yellow-text text-darken-4 text-shadow"
+        >{{first_page}}</a
+      >
+      <a
+        href="{{url_for('next_filter', page=selfs_page )}}"
+        class="btn yellow darken-4 teal-text text-darken-4 text-shadow"
+        >{{selfs_page}}</a
+      >
+      <a
+        href="{{url_for('next_filter', page=last_page )}}"
+        class="btn teal darken-4 yellow-text text-darken-4 text-shadow"
+        >{{last_page}}</a
+      >
+      {% else %}
+      <a
+        href="{{url_for('next_filter', page=selfs_page )}}"
+        class="btn yellow darken-4 teal-text text-darken-4 text-shadow"
+        >{{selfs_page}}</a
+      >
+      <a
+        href="{{url_for('next_filter', page=next_page )}}"
+        class="btn teal darken-4 yellow-text text-darken-4 text-shadow"
+        >{{next_page}}</a
+      >
+      <a
+        href="{{url_for('next_filter', page=last_page )}}"
+        class="btn teal darken-4 yellow-text text-darken-4 text-shadow"
+        >{{last_page}}</a
+      >
+      {% endif %}
     </div>
-    <div class="row">
-        <div class="col s12">
-            {% if selfs_page == last_page %}
-            <a href="{{url_for('next_filter', page=first_page )}}" class="btn teal darken-4 yellow-text text-darken-4 text-shadow">{{first_page}}</a>
-            <a href="{{url_for('next_filter', page=prev_page )}}" class="btn teal darken-4 yellow-text text-darken-4 text-shadow">{{prev_page}}</a>
-            <a href="{{url_for('next_filter', page=last_page )}}" class="btn yellow darken-4 teal-text text-darken-4 text-shadow">{{last_page}}</a>
-            {% elif selfs_page == first_page %}
-            <a href="{{url_for('next_filter', page=first_page )}}" class="btn yellow darken-4 teal-text text-darken-4 text-shadow">{{first_page}}</a>
-            <a href="{{url_for('next_filter', page=next_page )}}" class="btn teal darken-4 yellow-text text-darken-4 text-shadow">{{next_page}}</a>
-            <a href="{{url_for('next_filter', page=last_page )}}" class="btn teal darken-4 yellow-text text-darken-4 text-shadow">{{last_page}}</a>
-            {% elif prev_page == 1 %} 
-            <a href="{{url_for('next_filter', page=first_page )}}" class="btn teal darken-4 yellow-text text-darken-4 text-shadow">{{first_page}}</a>
-            <a href="{{url_for('next_filter', page=selfs_page )}}" class="btn yellow darken-4 teal-text text-darken-4 text-shadow">{{selfs_page}}</a>
-            <a href="{{url_for('next_filter', page=last_page )}}" class="btn teal darken-4 yellow-text text-darken-4 text-shadow">{{last_page}}</a>
-            {% else %}
-            <a href="{{url_for('next_filter', page=selfs_page )}}" class="btn yellow darken-4 teal-text text-darken-4 text-shadow">{{selfs_page}}</a>
-            <a href="{{url_for('next_filter', page=next_page )}}" class="btn teal darken-4 yellow-text text-darken-4 text-shadow">{{next_page}}</a>
-            <a href="{{url_for('next_filter', page=last_page )}}" class="btn teal darken-4 yellow-text text-darken-4 text-shadow">{{last_page}}</a>
-            {% endif %}
-        </div>
-    </div>
+  </div>
 </div>
-  {% endblock %}
+{% endblock %}

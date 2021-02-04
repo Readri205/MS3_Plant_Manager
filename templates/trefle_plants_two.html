@@ -1,83 +1,150 @@
-{% extends "base.html" %}
-{% block content %}
-<h3 class="yellow-text text-shadow text-darken-4 center-align">Search Trefle for Plants</h3>
+{% extends "base.html" %} {% block content %}
+<h3 class="yellow-text text-shadow text-darken-4 center-align">
+  Search Trefle for Plants
+</h3>
 
-    <div class="row card-panel teal lighten-5">
-        <p class="teal-text text-darken-4"> <a class="teal-text text-darken-4 wiki-text" href="https://trefle.io/about#sources" target="blank">Trefle.io</a> is an open-source database with over<strong><em>400,000</em></strong> listed plants from around the world. The project is currently in 'Beta' and as such the information is not 100% complete or validated, and the database can have maintenance downtimes. Nevertheless, it represents one of the most comprehensive publicly available global plant databases. It is compiled from the following sources;
-        </p>
-        <div class="row">
-            <a href="https://trefle.io/about#sources" target="blank">
-            <img class=" responsive-img" src="static/images/trefle.png" alt="">
-            </a>
-        </div>
-        <p class="row teal-text text-darken-4">
-        Enter a name of a plant you'd like to search for and Trefle will return suggestions to review.</p>
-        <p class="row teal-text text-darken-4"> Click on 'Plant Details' to see more details and 'Add Plant' to add the plant to your list in a collection.
-        </p>
-        <p class="row teal-text text-darken-4">Examples of returns from the database are shown below. Note that details for many plants are not complete, but the database is being updated on a regular basis.
-        </p>
-        <form action="{{url_for('search_trefle')}}" method="post" class="col s12">
-            <div class="row valign-wrapper center-align">
-                <div class="input-field col l12">
-                    <i class="fas fa-search prefix teal-text text-darken-4"></i>
-                    <input type="text" name="query" id="query" minlength="3" class="validate" required>
-                    <label for="query">Search by name</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col s12">
-                    <a href="{{url_for('get_trefle_many')}}" class="red btn text-shadow">Main Search</a>
-                    <button type="submit" class="teal darken-1 btn text-shadow">
-                        <i class="fas fa-search left"></i> Search
-                    </button>
-                </div>
-            </div>
-        </form>
+<div class="row card-panel teal lighten-5">
+  <p class="teal-text text-darken-4">
+    <a
+      class="teal-text text-darken-4 wiki-text"
+      href="https://trefle.io/about#sources"
+      target="blank"
+      >Trefle.io</a
+    >
+    is an open-source database with over<strong><em>400,000</em></strong> listed
+    plants from around the world. The project is currently in 'Beta' and as such
+    the information is not 100% complete or validated, and the database can have
+    maintenance downtimes. Nevertheless, it represents one of the most
+    comprehensive publicly available global plant databases. It is compiled from
+    the following sources;
+  </p>
+  <div class="row">
+    <a href="https://trefle.io/about#sources" target="blank">
+      <img class="responsive-img" src="static/images/trefle.png" alt="" />
+    </a>
+  </div>
+  <p class="row teal-text text-darken-4">
+    Enter a name of a plant you'd like to search for and Trefle will return
+    suggestions to review.
+  </p>
+  <p class="row teal-text text-darken-4">
+    Click on 'Plant Details' to see more details and 'Add Plant' to add the
+    plant to your list in a collection.
+  </p>
+  <p class="row teal-text text-darken-4">
+    Examples of returns from the database are shown below. Note that details for
+    many plants are not complete, but the database is being updated on a regular
+    basis.
+  </p>
+  <form action="{{url_for('search_trefle')}}" method="post" class="col s12">
+    <div class="row valign-wrapper center-align">
+      <div class="input-field col l12">
+        <i class="fas fa-search prefix teal-text text-darken-4"></i>
+        <input
+          type="text"
+          name="query"
+          id="query"
+          minlength="3"
+          class="validate"
+          required
+        />
+        <label for="query">Search by name</label>
+      </div>
     </div>
+    <div class="row">
+      <div class="col s12">
+        <a href="{{url_for('get_trefle_many')}}" class="red btn text-shadow"
+          >Main Search</a
+        >
+        <button type="submit" class="teal darken-1 btn text-shadow">
+          <i class="fas fa-search left"></i> Search
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
 <ul class="row">
-    {% for plant in plants %}
-    <li>
+  {% for plant in plants %}
+  <li>
     <div class="col s12 m4">
       <div class="card teal lighten-4">
         <div class="card-image">
-            <img src="{{ plant.image_url }}" alt="">
+          <img src="{{ plant.image_url }}" alt="" />
         </div>
-		<div class="card-content">
-			<ul>
-                <li><i class="fas fa-spa teal-text text-lighten-2"></i>
-                <strong>{{ plant.common_name.title() if plant.common_name != None else 'None' }} </strong>
-                <em>  id: {{ plant.id }}</em></li>
-                <li>Family Common Name: <em>{{ plant.family_common_name }}</em></li>
-                <li>Scientific Name: <em>{{ plant.scientific_name }}</em></li>
-				<li>Family Name: {{ plant.family }}</li>
-                <li>Genus: {{ plant.genus }}</li>
-                <li><a class="hoverable teal-text text-darken-4 wiki-text" href="https://en.wikipedia.org/wiki/{{ plant.scientific_name}}" target="_blank">Wiki Link to {{ plant.common_name.title() if plant.common_name != None else 'None' }}</a></li>
-			</ul>
-		</div>
+        <div class="card-content">
+          <ul>
+            <li>
+              <i class="fas fa-spa teal-text text-lighten-2"></i>
+              <strong
+                >{{ plant.common_name.title() if plant.common_name != None else
+                'None' }}
+              </strong>
+              <em> id: {{ plant.id }}</em>
+            </li>
+            <li>Family Common Name: <em>{{ plant.family_common_name }}</em></li>
+            <li>Scientific Name: <em>{{ plant.scientific_name }}</em></li>
+            <li>Family Name: {{ plant.family }}</li>
+            <li>Genus: {{ plant.genus }}</li>
+            <li>
+              <a
+                class="hoverable teal-text text-darken-4 wiki-text"
+                href="https://en.wikipedia.org/wiki/{{ plant.scientific_name}}"
+                target="_blank"
+                >Wiki Link to {{ plant.common_name.title() if plant.common_name
+                != None else 'None' }}</a
+              >
+            </li>
+          </ul>
+        </div>
         <div class="center-align card-action btn-css">
-                <a href="{{ url_for('add_trefle_plant', id=plant.id) }}" class="waves-effect waves-light teal  darken-2 btn">Add Plant   <i class="fas fa-edit"></i></a>
-                <a href="{{ url_for('get_trefle_deets', id=plant.id) }}" class="waves-effect waves-light teal  darken-2 btn">Plant Details   <i class="fas fa-edit"></i></a>
+          <a
+            href="{{ url_for('add_trefle_plant', id=plant.id) }}"
+            class="waves-effect waves-light teal darken-2 btn"
+            >Add Plant <i class="fas fa-edit"></i
+          ></a>
+          <a
+            href="{{ url_for('get_trefle_deets', id=plant.id) }}"
+            class="waves-effect waves-light teal darken-2 btn"
+            >Plant Details <i class="fas fa-edit"></i
+          ></a>
         </div>
       </div>
     </div>
-    </li>
-    {% endfor %}
+  </li>
+  {% endfor %}
 </ul>
 <div class="page-box">
-	<div class="row">
-		<p class="col teal darken-4 yellow-text text-darken-4 text-shadow">Total number of plants in search: <em>{{ total }}</em></p>
+  <div class="row">
+    <p class="col teal darken-4 yellow-text text-darken-4 text-shadow">
+      Total number of plants in search: <em>{{ total }}</em>
+    </p>
+  </div>
+  <div class="row">
+    <div class="col s12">
+      {% if first_page == last_page %} {% elif selfs_page == last_page %}
+      <a
+        href="{{url_for('next_url', page=first_page )}}"
+        class="btn teal darken-4 yellow-text text-darken-4 text-shadow"
+        >{{first_page}}</a
+      >
+      <a
+        href="{{url_for('next_url', page=last_page )}}"
+        class="btn yellow darken-4 teal-text text-darken-4 text-shadow"
+        >{{last_page}}</a
+      >
+      {% else %}
+      <a
+        href="{{url_for('next_url', page=first_page )}}"
+        class="btn yellow darken-4 teal-text text-darken-4 text-shadow"
+        >{{first_page}}</a
+      >
+      <a
+        href="{{url_for('next_url', page=last_page )}}"
+        class="btn teal darken-4 yellow-text text-darken-4 text-shadow"
+        >{{last_page}}</a
+      >
+      {% endif %}
     </div>
-    <div class="row">
-        <div class="col s12">
-            {% if first_page == last_page %}
-            {% elif selfs_page == last_page %}
-            <a href="{{url_for('next_url', page=first_page )}}" class="btn teal darken-4 yellow-text text-darken-4 text-shadow">{{first_page}}</a>
-            <a href="{{url_for('next_url', page=last_page )}}" class="btn yellow darken-4 teal-text text-darken-4 text-shadow">{{last_page}}</a>
-            {% else %}
-            <a href="{{url_for('next_url', page=first_page )}}" class="btn yellow darken-4 teal-text text-darken-4 text-shadow">{{first_page}}</a>
-            <a href="{{url_for('next_url', page=last_page )}}" class="btn teal darken-4 yellow-text text-darken-4 text-shadow">{{last_page}}</a>
-            {% endif %}
-        </div>
-    </div>
+  </div>
 </div>
-  {% endblock %}
+{% endblock %}

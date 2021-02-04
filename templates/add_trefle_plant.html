@@ -1,90 +1,154 @@
 {% extends 'base.html' %} {% block content %}
 <div class="row yellow-text text-darken-4 center-align">
-<h4>Add Trefle Plant to your list</h4>
+  <h4>Add Trefle Plant to your list</h4>
 </div>
 <div class="container teal-text text-darken-4">
-<div class="row teal lighten-4">
-    <p class="teal-text text-darken-4 center-align header-top">Make sure you have set up a collection before entering a plant!</p>
-	<form action="{{ url_for('insert_plant') }}" method="POST" class="col s12">
-		<div class="row">
-			<div class="input-field col s12">
-				<i class="material-icons prefix">poll</i>
-				<select id="collections" name="collection_name" class="validate" required>
-                <option value="" disabled selected>Choose Collection Name</option>
-                {% for coll in collections %}
-                    <option value="{{coll.collection_name}}">{{coll.collection_name}}</option>
-                {% endfor %}
-                </select>
-				<label for="icon-prefix">Collection Name: </label>
-			</div>
+  <div class="row teal lighten-4">
+    <p class="teal-text text-darken-4 center-align header-top">
+      Make sure you have set up a collection before entering a plant!
+    </p>
+    <form action="{{ url_for('insert_plant') }}" method="POST" class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">poll</i>
+          <select
+            id="collections"
+            name="collection_name"
+            class="validate"
+            required
+          >
+            <option value="" disabled selected>Choose Collection Name</option>
+            {% for coll in collections %}
+            <option value="{{coll.collection_name}}"
+              >{{coll.collection_name}}</option
+            >
+            {% endfor %}
+          </select>
+          <label for="icon-prefix">Collection Name: </label>
         </div>
-		<div class="row">
-            <div class="input-field col s12">
-				<i class="fas fa-leaf prefix"></i>
-				<input id="trefle_id" name="trefle_id" type="text" class="validate" value="{{trefle_id}}">
-				<label for="trefle_id">Trefle ID: </label>
-			</div>
-			<div class="input-field col s12">
-				<i class="fas fa-leaf prefix"></i>
-				<input id="common_name" name="common_name" type="text" class="validate" value="{{common_name}}">
-				<label for="common_name">Common Name: </label>
-			</div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="fas fa-leaf prefix"></i>
+          <input
+            id="trefle_id"
+            name="trefle_id"
+            type="text"
+            class="validate"
+            value="{{trefle_id}}"
+          />
+          <label for="trefle_id">Trefle ID: </label>
         </div>
-        <div class="row">
-			<div class="input-field col s12">
-				<i class="fas fa-leaf prefix"></i>
-				<input id="family_common_name" name="family_common_name" type="text" class="validate" value="{{family_common_name}}">
-				<label for="family_common_name">Family Common Name: </label>
-			</div>
+        <div class="input-field col s12">
+          <i class="fas fa-leaf prefix"></i>
+          <input
+            id="common_name"
+            name="common_name"
+            type="text"
+            class="validate"
+            value="{{common_name}}"
+          />
+          <label for="common_name">Common Name: </label>
         </div>
-        <div class="row">
-			<div class="input-field col s12">
-				<i class="fas fa-leaf prefix"></i>
-				<input id="scientific_name" name="scientific_name" type="text" class="validate" value="{{scientific_name}}">
-				<label for="scientific_name">Scientific Name: </label>
-			</div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="fas fa-leaf prefix"></i>
+          <input
+            id="family_common_name"
+            name="family_common_name"
+            type="text"
+            class="validate"
+            value="{{family_common_name}}"
+          />
+          <label for="family_common_name">Family Common Name: </label>
         </div>
-        <div class="row">
-			<div class="input-field col s12">
-				<i class="fas fa-leaf prefix"></i>
-				<input id="family_name" name="family_name" type="text" class="validate" value="{{family_name}}">
-				<label for="family_name">Family Name: </label>
-			</div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="fas fa-leaf prefix"></i>
+          <input
+            id="scientific_name"
+            name="scientific_name"
+            type="text"
+            class="validate"
+            value="{{scientific_name}}"
+          />
+          <label for="scientific_name">Scientific Name: </label>
         </div>
-        <div class="row">
-			<div class="input-field col s12">
-				<i class="fas fa-leaf prefix"></i>
-				<input id="genus" name="genus" type="text" class="validate" value="{{genus}}">
-				<label for="genus">Genus: </label>
-			</div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="fas fa-leaf prefix"></i>
+          <input
+            id="family_name"
+            name="family_name"
+            type="text"
+            class="validate"
+            value="{{family_name}}"
+          />
+          <label for="family_name">Family Name: </label>
         </div>
-        <div class="row">
-			<div class="input-field col s12">
-				<i class="material-icons prefix">subject</i>
-				<textarea id="description" name="description" class="materialize-textarea">{{plant.description}}</textarea>
-				<label for="description">Description: </label>
-			</div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="fas fa-leaf prefix"></i>
+          <input
+            id="genus"
+            name="genus"
+            type="text"
+            class="validate"
+            value="{{genus}}"
+          />
+          <label for="genus">Genus: </label>
         </div>
-        <div class="row">
-			<div class="input-field col s12">
-				<i class="material-icons prefix">today</i>
-				<input id="date_added" name="date_added" type="text" class="datepicker" value="{{plant.date_added}}">
-				<label for="date_added">Date Added: </label>
-			</div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">subject</i>
+          <textarea
+            id="description"
+            name="description"
+            class="materialize-textarea"
+          >
+{{plant.description}}</textarea
+          >
+          <label for="description">Description: </label>
         </div>
-        <div class="row">
-			<div class="input-field col s12">
-				<i class="material-icons prefix">camera_alt</i>
-				<input id="image_url" name="image_url" type="text" class="validate" value="{{image_url}}">
-				<label for="image_url">Image URL: </label>
-			</div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">today</i>
+          <input
+            id="date_added"
+            name="date_added"
+            type="text"
+            class="datepicker"
+            value="{{plant.date_added}}"
+          />
+          <label for="date_added">Date Added: </label>
         </div>
-		    <div class="row">
-		        <button class="btn waves-effect waves-light" type="submit">Add Plant Details
-                    <i class="material-icons right"></i>
-                </button>
-            </div>
-	</form>
-</div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">camera_alt</i>
+          <input
+            id="image_url"
+            name="image_url"
+            type="text"
+            class="validate"
+            value="{{image_url}}"
+          />
+          <label for="image_url">Image URL: </label>
+        </div>
+      </div>
+      <div class="row">
+        <button class="btn waves-effect waves-light" type="submit">
+          Add Plant Details
+          <i class="material-icons right"></i>
+        </button>
+      </div>
+    </form>
+  </div>
 </div>
 {% endblock %}

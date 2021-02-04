@@ -1,219 +1,546 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta content="ie=edge" http-equiv="X-UA-Compatible">
-	<meta content="telephone=no" name="format-detection">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-		type="text/css">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
-	<link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static', filename='favicons/apple-touch-icon.png')}}">
-	<link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='favicons/favicon-32x32.png')}}">
-	<link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', filename='favicons/favicon-16x16.png')}}">
-	<link rel="manifest" href="{{url_for('static', filename='favicons/site.webmanifest')}}">
-	<title>RMC Garden Manager</title>
-</head>
-<body class="teal lighten-5 bg">
-	<header>
-        <div class="container-fluid">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta content="ie=edge" http-equiv="X-UA-Compatible" />
+    <meta content="telephone=no" name="format-detection" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/style.css')}}"
+      type="text/css"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="{{url_for('static', filename='favicons/apple-touch-icon.png')}}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="{{url_for('static', filename='favicons/favicon-32x32.png')}}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="{{url_for('static', filename='favicons/favicon-16x16.png')}}"
+    />
+    <link
+      rel="manifest"
+      href="{{url_for('static', filename='favicons/site.webmanifest')}}"
+    />
+    <title>RMC Garden Manager</title>
+  </head>
+  <body class="teal lighten-5 bg">
+    <header>
+      <div class="container-fluid">
         <div class="navbar-fixed">
-		<nav class="teal darken-4 text-shadow">
-			<div class="nav-wrapper">
-				<a href="{{url_for('get_home')}}" class="yellow-text text-darken-4"><i class="fad fa-seedling"></i> Garden Manager</a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger right yellow-text text-darken-4"><i class="flow-text fas fa-bars"></i></a>
-				<ul class="right hide-on-med-and-down menu-right">
-					<li><a href="{{url_for('get_home')}}" class="yellow-text text-darken-4">Home</a></li>
-                    {% if session.user %}
-                        <li><a class="dropdown-trigger yellow-text text-darken-4" href="#!" data-target="dropdown1">My Plants<i class="fad fa-caret-down"></i></a></li>
-                        <li><a class="dropdown-trigger yellow-text text-darken-4" href="#!" data-target="dropdown2">My Collections<i class="fad fa-caret-down"></i></a></li>
-                        <li><a class="dropdown-trigger yellow-text text-darken-4" href="#!" data-target="dropdown4">Search<i class="fad fa-caret-down"></i></a></li>
-                        <li><a class="dropdown-trigger yellow-text text-darken-4" href="#!" data-target="dropdown5">My Details<i class="fad fa-caret-down"></i></a></li>
-                    {% else %}
-                        <li><a href="{{ url_for('login') }}" class="yellow-text text-darken-4">Log In</a></li>
-                        <li><a href="{{ url_for('register') }}" class="yellow-text text-darken-4">Register</a></li>
-                    {% endif %}
-                    <li><a href="{{ url_for('contact') }}" class="yellow-text text-darken-4">Contact Us</a></li>
-				</ul>
+          <nav class="teal darken-4 text-shadow">
+            <div class="nav-wrapper">
+              <a
+                href="{{url_for('get_home')}}"
+                class="yellow-text text-darken-4"
+                ><i class="fad fa-seedling"></i> Garden Manager</a
+              >
+              <a
+                href="#"
+                data-target="mobile-demo"
+                class="sidenav-trigger right yellow-text text-darken-4"
+                ><i class="flow-text fas fa-bars"></i
+              ></a>
+              <ul class="right hide-on-med-and-down menu-right">
+                <li>
+                  <a
+                    href="{{url_for('get_home')}}"
+                    class="yellow-text text-darken-4"
+                    >Home</a
+                  >
+                </li>
+                {% if session.user %}
+                <li>
+                  <a
+                    class="dropdown-trigger yellow-text text-darken-4"
+                    href="#!"
+                    data-target="dropdown1"
+                    >My Plants<i class="fad fa-caret-down"></i
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-trigger yellow-text text-darken-4"
+                    href="#!"
+                    data-target="dropdown2"
+                    >My Collections<i class="fad fa-caret-down"></i
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-trigger yellow-text text-darken-4"
+                    href="#!"
+                    data-target="dropdown4"
+                    >Search<i class="fad fa-caret-down"></i
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-trigger yellow-text text-darken-4"
+                    href="#!"
+                    data-target="dropdown5"
+                    >My Details<i class="fad fa-caret-down"></i
+                  ></a>
+                </li>
+                {% else %}
+                <li>
+                  <a
+                    href="{{ url_for('login') }}"
+                    class="yellow-text text-darken-4"
+                    >Log In</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="{{ url_for('register') }}"
+                    class="yellow-text text-darken-4"
+                    >Register</a
+                  >
+                </li>
+                {% endif %}
+                <li>
+                  <a
+                    href="{{ url_for('contact') }}"
+                    class="yellow-text text-darken-4"
+                    >Contact Us</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </nav>
         </div>
-		</nav> 
-        </div>
-		<ul class="sidenav teal darken-4 text-shadow" id="mobile-demo">
-			<li><h4 class="center-align yellow-text text-darken-4 flow-text title1"><i class="fad fa-seedling"></i> Garden Manager</h4></li>
-			<li><a href="{{url_for('get_home')}}" class="yellow-text text-darken-4">Home</a></li>
-			{% if session.user %}
-			<li><a class="dropdown-trigger yellow-text text-darken-4" href="#!" data-target="dropdown6"><i class="fad fa-caret-down"></i>My
-					Plants</a></li>
-			<li><a class="dropdown-trigger yellow-text text-darken-4" href="#!" data-target="dropdown7">My
-					Collections<i class="fad fa-caret-down"></i></a></li>
-			<li><a class="dropdown-trigger yellow-text text-darken-4" href="#!"
-					data-target="dropdown9">Search<i class="fad fa-caret-down"></i></a></li>
-			<li><a class="dropdown-trigger yellow-text text-darken-4" href="#!"
-                    data-target="dropdown10">My Details<i class="fad fa-caret-down"></i></a></li>
-			{% else %}
-			<li><a href="{{ url_for('login') }}" class="yellow-text text-darken-4">Log In</a></li>
-            <li><a href="{{ url_for('register') }}" class="yellow-text text-darken-4">Register</a></li>
-            {% endif %}
-            <li><a href="{{ url_for('contact') }}" class="yellow-text text-darken-4">Contact Us</a></li>
-		</ul>
+        <ul class="sidenav teal darken-4 text-shadow" id="mobile-demo">
+          <li>
+            <h4 class="center-align yellow-text text-darken-4 flow-text title1">
+              <i class="fad fa-seedling"></i> Garden Manager
+            </h4>
+          </li>
+          <li>
+            <a href="{{url_for('get_home')}}" class="yellow-text text-darken-4"
+              >Home</a
+            >
+          </li>
+          {% if session.user %}
+          <li>
+            <a
+              class="dropdown-trigger yellow-text text-darken-4"
+              href="#!"
+              data-target="dropdown6"
+              ><i class="fad fa-caret-down"></i>My Plants</a
+            >
+          </li>
+          <li>
+            <a
+              class="dropdown-trigger yellow-text text-darken-4"
+              href="#!"
+              data-target="dropdown7"
+              >My Collections<i class="fad fa-caret-down"></i
+            ></a>
+          </li>
+          <li>
+            <a
+              class="dropdown-trigger yellow-text text-darken-4"
+              href="#!"
+              data-target="dropdown9"
+              >Search<i class="fad fa-caret-down"></i
+            ></a>
+          </li>
+          <li>
+            <a
+              class="dropdown-trigger yellow-text text-darken-4"
+              href="#!"
+              data-target="dropdown10"
+              >My Details<i class="fad fa-caret-down"></i
+            ></a>
+          </li>
+          {% else %}
+          <li>
+            <a href="{{ url_for('login') }}" class="yellow-text text-darken-4"
+              >Log In</a
+            >
+          </li>
+          <li>
+            <a
+              href="{{ url_for('register') }}"
+              class="yellow-text text-darken-4"
+              >Register</a
+            >
+          </li>
+          {% endif %}
+          <li>
+            <a href="{{ url_for('contact') }}" class="yellow-text text-darken-4"
+              >Contact Us</a
+            >
+          </li>
+        </ul>
 
-		<ul id="dropdown1" class="dropdown-content teal darken-4">
-			<li><a href="{{url_for('get_plants')}}" class="yellow-text text-darken-4">My Plants</a></li>
-			<li><a href="{{url_for('add_plants')}}" class="yellow-text text-darken-4">Add Plants</a></li>
-		</ul>
+        <ul id="dropdown1" class="dropdown-content teal darken-4">
+          <li>
+            <a
+              href="{{url_for('get_plants')}}"
+              class="yellow-text text-darken-4"
+              >My Plants</a
+            >
+          </li>
+          <li>
+            <a
+              href="{{url_for('add_plants')}}"
+              class="yellow-text text-darken-4"
+              >Add Plants</a
+            >
+          </li>
+        </ul>
         <ul id="dropdown2" class="dropdown-content teal darken-4">
-			<li><a href="{{url_for('get_collections')}}" class="yellow-text text-darken-4">My Collections</a></li>
-			<li><a href="{{url_for('add_collections')}}" class="yellow-text text-darken-4">Add Collections</a></li>
-		</ul>
-        <ul id="dropdown3" class="dropdown-content teal darken-4">
-		</ul>
-		<ul id="dropdown4" class="dropdown-content teal darken-4">
-            <li><a href="{{url_for('get_trefle_many')}}" class="yellow-text text-darken-4">Trefle Search</a></li>
-            <li><a href="{{url_for('filter_search')}}" class="yellow-text text-darken-4">Trefle Filter</a></li>
-            <li><a href="{{url_for('plant_id')}}" class="yellow-text text-darken-4">Plant ID Search</a></li>
-		</ul>
+          <li>
+            <a
+              href="{{url_for('get_collections')}}"
+              class="yellow-text text-darken-4"
+              >My Collections</a
+            >
+          </li>
+          <li>
+            <a
+              href="{{url_for('add_collections')}}"
+              class="yellow-text text-darken-4"
+              >Add Collections</a
+            >
+          </li>
+        </ul>
+        <ul id="dropdown3" class="dropdown-content teal darken-4"></ul>
+        <ul id="dropdown4" class="dropdown-content teal darken-4">
+          <li>
+            <a
+              href="{{url_for('get_trefle_many')}}"
+              class="yellow-text text-darken-4"
+              >Trefle Search</a
+            >
+          </li>
+          <li>
+            <a
+              href="{{url_for('filter_search')}}"
+              class="yellow-text text-darken-4"
+              >Trefle Filter</a
+            >
+          </li>
+          <li>
+            <a href="{{url_for('plant_id')}}" class="yellow-text text-darken-4"
+              >Plant ID Search</a
+            >
+          </li>
+        </ul>
         <ul id="dropdown5" class="dropdown-content teal darken-4">
-			<li><a href="{{ url_for('profile', username=session['user']) }}" class="yellow-text text-darken-4">My Profile</a></li>
-            <li><a href="{{url_for('get_users')}}" class="yellow-text text-darken-4">My Details</a></li>
-            <li><a href="{{ url_for('logout') }}" class="yellow-text text-darken-4">Logout</a></li>
-		</ul>
+          <li>
+            <a
+              href="{{ url_for('profile', username=session['user']) }}"
+              class="yellow-text text-darken-4"
+              >My Profile</a
+            >
+          </li>
+          <li>
+            <a href="{{url_for('get_users')}}" class="yellow-text text-darken-4"
+              >My Details</a
+            >
+          </li>
+          <li>
+            <a href="{{ url_for('logout') }}" class="yellow-text text-darken-4"
+              >Logout</a
+            >
+          </li>
+        </ul>
         <ul id="dropdown6" class="dropdown-content teal darken-4">
-			<li><a href="{{url_for('get_plants')}}" class="yellow-text text-darken-4">My Plants</a></li>
-			<li><a href="{{url_for('add_plants')}}" class="yellow-text text-darken-4">Add Plants</a></li>
-		</ul>
+          <li>
+            <a
+              href="{{url_for('get_plants')}}"
+              class="yellow-text text-darken-4"
+              >My Plants</a
+            >
+          </li>
+          <li>
+            <a
+              href="{{url_for('add_plants')}}"
+              class="yellow-text text-darken-4"
+              >Add Plants</a
+            >
+          </li>
+        </ul>
         <ul id="dropdown7" class="dropdown-content teal darken-4">
-			<li><a href="{{url_for('get_collections')}}" class="yellow-text text-darken-4">My Collections</a></li>
-			<li><a href="{{url_for('add_collections')}}" class="yellow-text text-darken-4">Add Collections</a></li>
-		</ul>
-        <ul id="dropdown8" class="dropdown-content teal darken-4">
-            
-		</ul>
-		<ul id="dropdown9" class="dropdown-content teal darken-4">
-            <li><a href="{{url_for('get_trefle_many')}}" class="yellow-text text-darken-4">Trefle Search</a></li>
-            <li><a href="{{url_for('filter_search')}}" class="yellow-text text-darken-4">Trefle Filter</a></li>
-            <li><a href="{{url_for('plant_id')}}" class="yellow-text text-darken-4">Plant ID Search</a></li>
-		</ul>
+          <li>
+            <a
+              href="{{url_for('get_collections')}}"
+              class="yellow-text text-darken-4"
+              >My Collections</a
+            >
+          </li>
+          <li>
+            <a
+              href="{{url_for('add_collections')}}"
+              class="yellow-text text-darken-4"
+              >Add Collections</a
+            >
+          </li>
+        </ul>
+        <ul id="dropdown8" class="dropdown-content teal darken-4"></ul>
+        <ul id="dropdown9" class="dropdown-content teal darken-4">
+          <li>
+            <a
+              href="{{url_for('get_trefle_many')}}"
+              class="yellow-text text-darken-4"
+              >Trefle Search</a
+            >
+          </li>
+          <li>
+            <a
+              href="{{url_for('filter_search')}}"
+              class="yellow-text text-darken-4"
+              >Trefle Filter</a
+            >
+          </li>
+          <li>
+            <a href="{{url_for('plant_id')}}" class="yellow-text text-darken-4"
+              >Plant ID Search</a
+            >
+          </li>
+        </ul>
         <ul id="dropdown10" class="dropdown-content teal darken-4">
-			<li><a href="{{ url_for('profile', username=session['user']) }}" class="yellow-text text-darken-4">My Profile</a></li>
-            <li><a href="{{url_for('get_users')}}" class="yellow-text text-darken-4">My Details</a></li>
-            <li><a href="{{ url_for('logout') }}" class="yellow-text text-darken-4">Logout</a></li>
-		</ul>
-        </div>
-	</header>
+          <li>
+            <a
+              href="{{ url_for('profile', username=session['user']) }}"
+              class="yellow-text text-darken-4"
+              >My Profile</a
+            >
+          </li>
+          <li>
+            <a href="{{url_for('get_users')}}" class="yellow-text text-darken-4"
+              >My Details</a
+            >
+          </li>
+          <li>
+            <a href="{{ url_for('logout') }}" class="yellow-text text-darken-4"
+              >Logout</a
+            >
+          </li>
+        </ul>
+      </div>
+    </header>
     <section>
-	<div class="main-wrapper">
-		<div class="slider-holder">
-			<div class="carousel carousel-slider center">
-                <div class="carousel-fixed-item yellow-text text-darken-4">
-					<h2 class="main-header"><i class="fad fa-seedling"></i> Garden Manager </h2>
-                    <p class="sub-header yellow-text text-darken-4">Create plant lists in collections,</p>
-                    <p class="sub-header yellow-text text-darken-4">search plants by name or upload an image!</p>
-				</div>
-				<div class="carousel-item cc1 yellow-text text-darken-4" href="#one!">
-                    <div class="container">
-                        <div class="row panel-text"></div>
-                        <div class="row panel-text"></div>
-                        <h6 class="panel-text left-align link-text"><a class="yellow-text text-darken-4"
-						href="https://unsplash.com/@sannisahil" target="blank">'Orchid in Bloom'</a></h6>
-                        <h6 class="panel-text yellow-text text-darken-4 left-align">Sanni Sahil</h6>
-                    </div>
-				</div>
-				<div class="carousel-item cc2 yellow-text text-darken-4" href="#two!">
-                    <div class="container">
-                        <div class="row panel-text"></div>
-                        <div class="row panel-text"></div>
-                        <h6 class="panel-text left-align link-text"><a class="yellow-text text-darken-4"
-						href="https://unsplash.com/@micheletardivo" target="blank">'Spring Red Tulips on Moody Background'</a></h6>
-                        <h6 class="panel-text yellow-text text-darken-4 left-align">Michele Tardivo</h6>
-                    </div>
-				</div>
-				<div class="carousel-item cc3 yellow-text text-darken-4" href="#three!">
-                    <div class="container">
-                        <div class="row panel-text"></div>
-                        <div class="row panel-text"></div>
-                        <h6 class="panel-text left-align link-text"><a class="yellow-text text-darken-4"
-						href="https://unsplash.com/@clikaholic" target="blank">'Floral Potrait...'</a></h6>
-                        <h6 class="panel-text yellow-text text-darken-4 left-align">Abhishek Dhakate</h6>
-                    </div>
-				</div>
-				<div class="carousel-item cc4 yellow-text text-darken-4" href="#four!">
-                    <div class="container">
-                        <div class="row panel-text"></div>
-                        <div class="row panel-text"></div>
-                        <h6 class="panel-text left-align link-text"><a class="yellow-text text-darken-4"
-						href="https://unsplash.com/@elbel" target="blank">'Singapore Botanic Gardens, Singapore'</a></h6>
-                        <h6 class="panel-text yellow-text text-darken-4 left-align">Elliot Lowe</h6>
-                    </div>
-                </div>
-			</div>
-		</div>
-	</div>
-        <!-- flash messages -->
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="row flashes">
-                        <h4 class="teal lighten-4 center-align">{{ message }}</h4>
-                    </div>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
+      <div class="main-wrapper">
+        <div class="slider-holder">
+          <div class="carousel carousel-slider center">
+            <div class="carousel-fixed-item yellow-text text-darken-4">
+              <h2 class="main-header">
+                <i class="fad fa-seedling"></i> Garden Manager
+              </h2>
+              <p class="sub-header yellow-text text-darken-4">
+                Create plant lists in collections,
+              </p>
+              <p class="sub-header yellow-text text-darken-4">
+                search plants by name or upload an image!
+              </p>
+            </div>
+            <div
+              class="carousel-item cc1 yellow-text text-darken-4"
+              href="#one!"
+            >
+              <div class="container">
+                <div class="row panel-text"></div>
+                <div class="row panel-text"></div>
+                <h6 class="panel-text left-align link-text">
+                  <a
+                    class="yellow-text text-darken-4"
+                    href="https://unsplash.com/@sannisahil"
+                    target="blank"
+                    >'Orchid in Bloom'</a
+                  >
+                </h6>
+                <h6 class="panel-text yellow-text text-darken-4 left-align">
+                  Sanni Sahil
+                </h6>
+              </div>
+            </div>
+            <div
+              class="carousel-item cc2 yellow-text text-darken-4"
+              href="#two!"
+            >
+              <div class="container">
+                <div class="row panel-text"></div>
+                <div class="row panel-text"></div>
+                <h6 class="panel-text left-align link-text">
+                  <a
+                    class="yellow-text text-darken-4"
+                    href="https://unsplash.com/@micheletardivo"
+                    target="blank"
+                    >'Spring Red Tulips on Moody Background'</a
+                  >
+                </h6>
+                <h6 class="panel-text yellow-text text-darken-4 left-align">
+                  Michele Tardivo
+                </h6>
+              </div>
+            </div>
+            <div
+              class="carousel-item cc3 yellow-text text-darken-4"
+              href="#three!"
+            >
+              <div class="container">
+                <div class="row panel-text"></div>
+                <div class="row panel-text"></div>
+                <h6 class="panel-text left-align link-text">
+                  <a
+                    class="yellow-text text-darken-4"
+                    href="https://unsplash.com/@clikaholic"
+                    target="blank"
+                    >'Floral Potrait...'</a
+                  >
+                </h6>
+                <h6 class="panel-text yellow-text text-darken-4 left-align">
+                  Abhishek Dhakate
+                </h6>
+              </div>
+            </div>
+            <div
+              class="carousel-item cc4 yellow-text text-darken-4"
+              href="#four!"
+            >
+              <div class="container">
+                <div class="row panel-text"></div>
+                <div class="row panel-text"></div>
+                <h6 class="panel-text left-align link-text">
+                  <a
+                    class="yellow-text text-darken-4"
+                    href="https://unsplash.com/@elbel"
+                    target="blank"
+                    >'Singapore Botanic Gardens, Singapore'</a
+                  >
+                </h6>
+                <h6 class="panel-text yellow-text text-darken-4 left-align">
+                  Elliot Lowe
+                </h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- flash messages -->
+      {% with messages = get_flashed_messages() %} {% if messages %} {% for
+      message in messages %}
+      <div class="row flashes">
+        <h4 class="teal lighten-4 center-align">{{ message }}</h4>
+      </div>
+      {% endfor %} {% endif %} {% endwith %}
     </section>
     <main class="container">
-        {% block content %}
-        {% endblock %}
+      {% block content %} {% endblock %}
     </main>
-    <footer class="page-footer yellow-text text-darken-4 text-shadow teal darken-4">
-        <div class="container-fluid">
-		<div class="row footer-margin ">
-			<!-- Footer About section starts here -->
-			<div class="col m4">
-				<h5 class="footer-header">About</h5>
-				<p class="inline-block footer-text">RMC Ltd designs and builds data analysis offerings. Our team is
-					passionate about all aspects of the data arena, from the data compilation, collection to UX
-					interactive design for presentation for both B2C and B2B.</p>
-			</div><!-- Footer About section ends here -->
-			<!-- Footer data analysis section starts here -->
-			<div class="col m4">
-				<h5 class="footer-header">Data Analysis & Presentation Requirements?</h5>
-				<p class="inline-block footer-text">Need more details of data analysis and presentation? We can design
-					and build data collection and presentation cases on a bespoke basis.</p>
-			</div><!-- Footer data analysis section ends here -->
-			<!-- Footer contact section starts here -->
-			<div class="col m4">
-				<h5 class="footer-header">Contact</h5>
-				<p class="inline-block footer-text">Certainly give us a call for a more detailed discussion <i
-                        class="fas fa-phone"></i> +44 (0) 799 133 2776, or contact us via the  
-                        <a class="contact-box yellow darken-4 hoverable teal-text text-darken-4"
-						href="{{url_for('contact')}}">Contact</a> form.</p>
-				<ul class="social-networks">
-					<li>
-						<a href="https://www.facebook.com" target="_blank"><i aria-hidden="true"
-								class="fab fa-facebook yellow-text text-darken-4"></i><span class="sr-only">Facebook</span></a>
-					</li>
-					<li>
-						<a href="https://www.twitter.com" target="_blank"><i aria-hidden="true"
-								class="fab fa-twitter-square yellow-text text-darken-4"></i><span class="sr-only">Twitter</span></a>
-					</li>
-					<li>
-						<a href="https://www.youtube.com" target="_blank"><i aria-hidden="true"
-								class="fab fa-youtube yellow-text text-darken-4"></i><span class="sr-only">Youtube</span></a>
-					</li>
-					<li>
-						<a href="https://www.instagram.com" target="_blank"><i aria-hidden="true"
-								class="fab fa-instagram yellow-text text-darken-4"></i><span class="sr-only">Instagram</span></a>
-					</li>
-				</ul>
-			</div><!-- Footer contact section ends here -->
-		</div>
+    <footer
+      class="page-footer yellow-text text-darken-4 text-shadow teal darken-4"
+    >
+      <div class="container-fluid">
+        <div class="row footer-margin">
+          <!-- Footer About section starts here -->
+          <div class="col m4">
+            <h5 class="footer-header">About</h5>
+            <p class="inline-block footer-text">
+              RMC Ltd designs and builds data analysis offerings. Our team is
+              passionate about all aspects of the data arena, from the data
+              compilation, collection to UX interactive design for presentation
+              for both B2C and B2B.
+            </p>
+          </div>
+          <!-- Footer About section ends here -->
+          <!-- Footer data analysis section starts here -->
+          <div class="col m4">
+            <h5 class="footer-header">
+              Data Analysis & Presentation Requirements?
+            </h5>
+            <p class="inline-block footer-text">
+              Need more details of data analysis and presentation? We can design
+              and build data collection and presentation cases on a bespoke
+              basis.
+            </p>
+          </div>
+          <!-- Footer data analysis section ends here -->
+          <!-- Footer contact section starts here -->
+          <div class="col m4">
+            <h5 class="footer-header">Contact</h5>
+            <p class="inline-block footer-text">
+              Certainly give us a call for a more detailed discussion
+              <i class="fas fa-phone"></i> +44 (0) 799 133 2776, or contact us
+              via the
+              <a
+                class="contact-box yellow darken-4 hoverable teal-text text-darken-4"
+                href="{{url_for('contact')}}"
+                >Contact</a
+              >
+              form.
+            </p>
+            <ul class="social-networks">
+              <li>
+                <a href="https://www.facebook.com" target="_blank"
+                  ><i
+                    aria-hidden="true"
+                    class="fab fa-facebook yellow-text text-darken-4"
+                  ></i
+                  ><span class="sr-only">Facebook</span></a
+                >
+              </li>
+              <li>
+                <a href="https://www.twitter.com" target="_blank"
+                  ><i
+                    aria-hidden="true"
+                    class="fab fa-twitter-square yellow-text text-darken-4"
+                  ></i
+                  ><span class="sr-only">Twitter</span></a
+                >
+              </li>
+              <li>
+                <a href="https://www.youtube.com" target="_blank"
+                  ><i
+                    aria-hidden="true"
+                    class="fab fa-youtube yellow-text text-darken-4"
+                  ></i
+                  ><span class="sr-only">Youtube</span></a
+                >
+              </li>
+              <li>
+                <a href="https://www.instagram.com" target="_blank"
+                  ><i
+                    aria-hidden="true"
+                    class="fab fa-instagram yellow-text text-darken-4"
+                  ></i
+                  ><span class="sr-only">Instagram</span></a
+                >
+              </li>
+            </ul>
+          </div>
+          <!-- Footer contact section ends here -->
         </div>
-	</footer>
+      </div>
+    </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="https://kit.fontawesome.com/ee9889d2bd.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/ee9889d2bd.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-    {% block scripts %}
-    {% endblock %}
-</body>
+    {% block scripts %} {% endblock %}
+  </body>
 </html>

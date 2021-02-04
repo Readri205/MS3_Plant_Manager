@@ -1,69 +1,102 @@
 {% extends 'base.html' %} {% block content %}
-
 <div class="container">
-<div class="row">
+  <div class="row">
     <h5 class="teal-text text-darken-4"></h5>
+  </div>
 </div>
-</div>
-    <div class="row">
-    <div class="col s12 m6">
-      <div class="card teal lighten-4 large">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1530738538791-8c069aac7334?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1247&q=80">
-        </div>
-        <div class="card-content">
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card teal lighten-4 large">
+      <div class="card-image">
+        <img
+          src="https://images.unsplash.com/photo-1530738538791-8c069aac7334?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1247&q=80"
+        />
+      </div>
+      <div class="card-content">
         <span class="card-title">My Plants</span>
-            <p>Login to manage all your plants here. Shows details for common names, images, scientific details, colors, activities. Add, delete, review your plants and put them in your collections!</p>
-            <div class="row"></div>
-            <a href="{{ url_for('login') }}" class="waves-effect waves-light teal darken-2 btn left">Login  <i class="fas fa-sign-in-alt"></i></a>
-            <a href="{{ url_for('register') }}" class="waves-effect waves-light teal  darken-2 btn right">Register   <i class="fas fa-edit"></i></a>
-        </div>
-        </div>
+        <p>
+          Login to manage all your plants here. Shows details for common names,
+          images, scientific details, colors, activities. Add, delete, review
+          your plants and put them in your collections!
+        </p>
+        <div class="row"></div>
+        <a
+          href="{{ url_for('login') }}"
+          class="waves-effect waves-light teal darken-2 btn left"
+          >Login <i class="fas fa-sign-in-alt"></i
+        ></a>
+        <a
+          href="{{ url_for('register') }}"
+          class="waves-effect waves-light teal darken-2 btn right"
+          >Register <i class="fas fa-edit"></i
+        ></a>
+      </div>
     </div>
- 
-    <div class="col s12 m6">
-      <div class="card teal lighten-4 large">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1572902449572-9a27e5f3fa95?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1275&q=80">
-        </div>
-        <div class="card-content">
+  </div>
+
+  <div class="col s12 m6">
+    <div class="card teal lighten-4 large">
+      <div class="card-image">
+        <img
+          src="https://images.unsplash.com/photo-1572902449572-9a27e5f3fa95?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1275&q=80"
+        />
+      </div>
+      <div class="card-content">
         <span class="card-title">My Collections</span>
-          <p>Manage your plant collections here. Organise your plants into collections; vegetable garden, border, climbers, arrange them how you'd like!</p>
-        </div>
+        <p>
+          Manage your plant collections here. Organise your plants into
+          collections; vegetable garden, border, climbers, arrange them how
+          you'd like!
+        </p>
       </div>
     </div>
-  
-    <div class="col s12 m6">
-      <div class="card teal lighten-4 large">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1537202682820-bfad6cf92fd0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1234&q=80">
-        
-        </div>
-        <div class="card-content">
+  </div>
+
+  <div class="col s12 m6">
+    <div class="card teal lighten-4 large">
+      <div class="card-image">
+        <img
+          src="https://images.unsplash.com/photo-1537202682820-bfad6cf92fd0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1234&q=80"
+        />
+      </div>
+      <div class="card-content">
         <span class="card-title">Search for Plants by Name or Colour</span>
-          <p>Search by name or color, add it to your list and collection!</p>
-        </div>
+        <p>Search by name or color, add it to your list and collection!</p>
       </div>
     </div>
+  </div>
 
-    <div class="col s12 m6">
-      <div class="card teal lighten-4 large">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1529329645405-423fa96f68a5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1390&q=80">
-        </div>
-        <div class="card-content">
+  <div class="col s12 m6">
+    <div class="card teal lighten-4 large">
+      <div class="card-image">
+        <img
+          src="https://images.unsplash.com/photo-1529329645405-423fa96f68a5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1390&q=80"
+        />
+      </div>
+      <div class="card-content">
         <span class="card-title">Search for Plants by Image</span>
-          <p>See a plant but don't know what it is? take a picture with your phone or upload an image to find some suggestions! Then add instantly to your collection!.</p>
-        </div>
+        <p>
+          See a plant but don't know what it is? take a picture with your phone
+          or upload an image to find some suggestions! Then add instantly to
+          your collection!.
+        </p>
       </div>
     </div>
+  </div>
+</div>
 
-    </div>
-
-    <div class="row">
-        <div class="btn-css">
-		    <a href="{{ url_for('register') }}" class="waves-effect waves-light teal  darken-2 btn">Register   <i class="fas fa-edit"></i></a>
-		    <a href="{{ url_for('login') }}" class="waves-effect waves-light teal darken-2 btn right">Login  <i class="fas fa-sign-in-alt"></i></a>
-        </div>
-    </div>
+<div class="row">
+  <div class="btn-css">
+    <a
+      href="{{ url_for('register') }}"
+      class="waves-effect waves-light teal darken-2 btn"
+      >Register <i class="fas fa-edit"></i
+    ></a>
+    <a
+      href="{{ url_for('login') }}"
+      class="waves-effect waves-light teal darken-2 btn right"
+      >Login <i class="fas fa-sign-in-alt"></i
+    ></a>
+  </div>
+</div>
 {% endblock %}

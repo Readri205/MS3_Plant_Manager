@@ -1,95 +1,141 @@
-{% extends "base.html" %}
-{% block content %}
-<h3 class="yellow-text text-shadow text-darken-4 center-align">Search Plant.ID Plants</h3>
-    <div class="row card-panel teal lighten-4">
-        <p class="teal-text text-darken-4"> <a class="teal-text text-darken-4 wiki-text" href="https://plant.id/" target="blank">Plant.id</a> can identify almost 11,000 plant taxons, including flowers, trees, bushes, fungi, and lichens from all over the world. Besides the Latin name, we will also give you common names, brief description, and taxonomy of your plant.
-        </p>
-        <p class="teal-text text-darken-4"></p>
-        <div class="row center-align">
-            <a href="https://plant.id/">
-            <img class="responsive-img" src="static/images/plantid.png" alt="">
-            </a>
-        </div>
-        <p class="row teal-text text-darken-4">
-        Load a file or capture an image from your mobile phone of a plant you've seen and you'd like to get an idea what it is.  When you're happy with your image, submit it and the database will return suggestions to review.</p>
-        <p class="row teal-text text-darken-4">
-        Please note that on some devices the loaded image will be rotated through 90%. Also note that the image is only stored temporarily and is not retained in this application once you leave this page. The image should be retained in your own mobile.</p>
-        <form action="{{ url_for('get_plant_id') }}" id="myform" enctype="multipart/form-data" method="POST">
-            <input type="file" id="capture" name="file"/>
-            <div class="col s12 center-align teal lighten-4">
-                <img style="max-width: 50%;" class="card responsive-img" id="img" alt=""/>
-            </div>
-            <div> 
-                <button name="action" type="submit">Submit</button>
-            </div>
-        </form>
+{% extends "base.html" %} {% block content %}
+<h3 class="yellow-text text-shadow text-darken-4 center-align">
+  Search Plant.ID Plants
+</h3>
+<div class="row card-panel teal lighten-4">
+  <p class="teal-text text-darken-4">
+    <a
+      class="teal-text text-darken-4 wiki-text"
+      href="https://plant.id/"
+      target="blank"
+      >Plant.id</a
+    >
+    can identify almost 11,000 plant taxons, including flowers, trees, bushes,
+    fungi, and lichens from all over the world. Besides the Latin name, we will
+    also give you common names, brief description, and taxonomy of your plant.
+  </p>
+  <p class="teal-text text-darken-4"></p>
+  <div class="row center-align">
+    <a href="https://plant.id/">
+      <img class="responsive-img" src="static/images/plantid.png" alt="" />
+    </a>
+  </div>
+  <p class="row teal-text text-darken-4">
+    Load a file or capture an image from your mobile phone of a plant you've
+    seen and you'd like to get an idea what it is. When you're happy with your
+    image, submit it and the database will return suggestions to review.
+  </p>
+  <p class="row teal-text text-darken-4">
+    Please note that on some devices the loaded image will be rotated through
+    90%. Also note that the image is only stored temporarily and is not retained
+    in this application once you leave this page. The image should be retained
+    in your own mobile.
+  </p>
+  <form
+    action="{{ url_for('get_plant_id') }}"
+    id="myform"
+    enctype="multipart/form-data"
+    method="POST"
+  >
+    <input type="file" id="capture" name="file" />
+    <div class="col s12 center-align teal lighten-4">
+      <img
+        style="max-width: 50%;"
+        class="card responsive-img"
+        id="img"
+        alt=""
+      />
     </div>
-        <div class="row col s12 center-align card-panel teal lighten-4">
-            <img class="card responsive-img" src="{{ media }}" alt="No image"/>
-        </div>
+    <div>
+      <button name="action" type="submit">Submit</button>
+    </div>
+  </form>
+</div>
+<div class="row col s12 center-align card-panel teal lighten-4">
+  <img class="card responsive-img" src="{{ media }}" alt="No image" />
+</div>
 <ul>
-    {% for suggestion in response['suggestions'] %}
-    <li>
+  {% for suggestion in response['suggestions'] %}
+  <li>
     <div class="card col s6">
       <div class="teal lighten-4">
-		<div class="plant_id">
-			<ul>
-                <li><i class="fas fa-spa teal-text text-lighten-2"></i>
-                <strong>Common Names: </strong>
-                {% if suggestion["plant_details"]["common_names"] != None %}
-                    {% for common_name in suggestion["plant_details"]["common_names"] %}
-                        {{ common_name.title() }},
-                    {% endfor %}
-                {% else %}
-                    None
-                {% endif %}
-                </li>
-                <li><strong>Plant Name:</strong><em>{{ suggestion["plant_name"] }}</em></li>
-                <li><strong>Similar Images:</strong>
-                    <div class="row col s12">
-                    <ul>
-                        {% for similar in suggestion["similar_images"] %}
-                        <div class="col s6 center-align">
-                        <li>
-                            <em>{{ '%0.2f'|format(similar.similarity|float*100) }}%</em><br>
-                        </li>
-                        <li>
-                            <img class="card plant_image" src="{{ similar.url }}"> <br>
-                        </li>
-                        </div>
-                        {% endfor %}
-                    </ul>
-                    </div>
-                </li>
-            </ul>
-            <div class="row">
-                <a class="hoverable teal-text text-darken-4 wiki-text" href="{{ suggestion['plant_details']['url'] }}" target="_blank">WIKI link to "{{ suggestion['plant_name'] }}"</a>
-            </div>
-            <div class="row">
-                <form action="{{url_for('search_trefle')}}" method="post">
-                    <div class="col s12 l6">
-                        <div style="margin-right: 15px;" class="input-field">
-                            <i class="fas fa-search prefix teal-text text-darken-4"></i>
-                            <label for="query"></label>
-                            <input style="font-style: italic; font-size: 12px;" type="text" name="query" id="query" value="{{ suggestion['plant_name'] }}">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col l12">
-                            <button type="submit" value="Submit" class="teal darken-1 btn text-shadow">
-                            <i class="fas fa-search left"></i> Trefle Search
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+        <div class="plant_id">
+          <ul>
+            <li>
+              <i class="fas fa-spa teal-text text-lighten-2"></i>
+              <strong>Common Names: </strong>
+              {% if suggestion["plant_details"]["common_names"] != None %} {%
+              for common_name in suggestion["plant_details"]["common_names"] %}
+              {{ common_name.title() }}, {% endfor %} {% else %} None {% endif
+              %}
+            </li>
+            <li>
+              <strong>Plant Name:</strong
+              ><em>{{ suggestion["plant_name"] }}</em>
+            </li>
+            <li>
+              <strong>Similar Images:</strong>
+              <div class="row col s12">
+                <ul>
+                  {% for similar in suggestion["similar_images"] %}
+                  <div class="col s6 center-align">
+                    <li>
+                      <em
+                        >{{ '%0.2f'|format(similar.similarity|float*100) }}%</em
+                      ><br />
+                    </li>
+                    <li>
+                      <img class="card plant_image" src="{{ similar.url }}" />
+                      <br />
+                    </li>
+                  </div>
+                  {% endfor %}
+                </ul>
+              </div>
+            </li>
+          </ul>
+          <div class="row">
+            <a
+              class="hoverable teal-text text-darken-4 wiki-text"
+              href="{{ suggestion['plant_details']['url'] }}"
+              target="_blank"
+              >WIKI link to "{{ suggestion['plant_name'] }}"</a
+            >
+          </div>
+          <div class="row">
+            <form action="{{url_for('search_trefle')}}" method="post">
+              <div class="col s12 l6">
+                <div style="margin-right: 15px;" class="input-field">
+                  <i class="fas fa-search prefix teal-text text-darken-4"></i>
+                  <label for="query"></label>
+                  <input
+                    style="font-style: italic; font-size: 12px;"
+                    type="text"
+                    name="query"
+                    id="query"
+                    value="{{ suggestion['plant_name'] }}"
+                  />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col l12">
+                  <button
+                    type="submit"
+                    value="Submit"
+                    class="teal darken-1 btn text-shadow"
+                  >
+                    <i class="fas fa-search left"></i> Trefle Search
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-    </li>
-    {% endfor %}
+  </li>
+  {% endfor %}
 </ul>
-{% endblock %}
-{% block scripts %}
+{% endblock %} {% block scripts %}
 <script src="static/js/image_upload.js" type="text/javascript"></script>
 {% endblock %}

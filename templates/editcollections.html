@@ -1,33 +1,52 @@
 {% extends 'base.html' %} {% block content %}
 
 <div class="container yellow-text text-darken-4 center-align">
-<h4>Edit Collection</h4>
-<div class="row teal lighten-4">
+  <h4>Edit Collection</h4>
+  <div class="row teal lighten-4">
     <div class="row panel-text"></div>
     <div class="row">
-       <h5 class="teal-text text-darken-4 center-align">{{collection.collection_name.title()}}</h5>
+      <h5 class="teal-text text-darken-4 center-align">
+        {{collection.collection_name.title()}}
+      </h5>
     </div>
-	<form action="{{ url_for('update_collection', collection_id=collection._id) }}" method="POST" class="col s12">
-		<div class="row">
-			<div class="input-field col s12">
-				<i class="material-icons prefix">subject</i>
-				<textarea id="description" name="description" class="materialize-textarea">{{collection.description}}</textarea>
-				<label for="description">Description: </label>
-            </div>
+    <form
+      action="{{ url_for('update_collection', collection_id=collection._id) }}"
+      method="POST"
+      class="col s12"
+    >
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">subject</i>
+          <textarea
+            id="description"
+            name="description"
+            class="materialize-textarea"
+          >
+{{collection.description}}</textarea
+          >
+          <label for="description">Description: </label>
         </div>
-        <div class="row">
-			<div class="input-field col s12">
-				<i class="material-icons prefix">today</i>
-				<input id="date_added" name="date_added" type="text" class="datepicker" value="{{collection.date_added}}">
-				<label for="date_added">Date Added: </label>
-			</div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">today</i>
+          <input
+            id="date_added"
+            name="date_added"
+            type="text"
+            class="datepicker"
+            value="{{collection.date_added}}"
+          />
+          <label for="date_added">Date Added: </label>
         </div>
-		    <div class="row">
-		        <button class="btn waves-effect waves-light" type="submit">Update Collection Details
-                    <i class="material-icons right"></i>
-                </button>
-            </div>
-	</form>
-</div>
+      </div>
+      <div class="row">
+        <button class="btn waves-effect waves-light" type="submit">
+          Update Collection Details
+          <i class="material-icons right"></i>
+        </button>
+      </div>
+    </form>
+  </div>
 </div>
 {% endblock %}
