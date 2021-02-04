@@ -364,64 +364,66 @@ def get_trefle_many():
 
 @app.route("/search_trefle", methods=["POST"])
 def search_trefle():
-    query = query.replace("'", "")
-    query = query.replace(".", "")
-    query = query.replace("-", "")
-    query = query.replace("1", "")
-#    print(query)
-    global search
-    search = STRG + str(query)
-#    print(search)
-    page = request.args.get('page', 1, type=int)
-    plants = requests.get(
-        url_page_no + page_url + str(page) + search, headers=headers).json()
-    if plants:
-        plant = plants['data']
-        total = plants['meta']['total']
-        links = plants['links']
-        adjust = len(search)
-        first = links['first'][28:]
-        first_many = len(first)
-        first_net_adjust = first_many - adjust
-        first_page = first[:first_net_adjust]
-        selfs = links['self'][28:]
-        selfs_many = len(selfs)
-        selfs_net_adjust = selfs_many - adjust
-        selfs_page = int(selfs[:selfs_net_adjust])
-#        print(selfs_page)
-#        prev_page = 0
-        prev_page = selfs_page - 1
-#        print(prev_page)
-#        next_page = 2
-        next_page = selfs_page + 1
-        last = links['last'][28:]
-        last_many = len(last)
-        last_net_adjust = last_many - adjust
-        last_page = last[:last_net_adjust]
-#        all_pages = list(range(int(first_page), int(last_page)+1))
-        if int(last_page) == 3:
+    if request.method == "POST":
+        query = request.form.get("query")
+        query = query.replace("'", "")
+        query = query.replace(".", "")
+        query = query.replace("-", "")
+        query = query.replace("1", "")
+    #    print(query)
+        global search
+        search = STRG + str(query)
+    #    print(search)
+        page = request.args.get('page', 1, type=int)
+        plants = requests.get(
+            url_page_no + page_url + str(page) + search, headers=headers).json()
+        if plants:
+            plant = plants['data']
+            total = plants['meta']['total']
+            links = plants['links']
+            adjust = len(search)
+            first = links['first'][28:]
+            first_many = len(first)
+            first_net_adjust = first_many - adjust
+            first_page = first[:first_net_adjust]
+            selfs = links['self'][28:]
+            selfs_many = len(selfs)
+            selfs_net_adjust = selfs_many - adjust
+            selfs_page = int(selfs[:selfs_net_adjust])
+    #        print(selfs_page)
+    #        prev_page = 0
+            prev_page = selfs_page - 1
+    #        print(prev_page)
+    #        next_page = 2
+            next_page = selfs_page + 1
+            last = links['last'][28:]
+            last_many = len(last)
+            last_net_adjust = last_many - adjust
+            last_page = last[:last_net_adjust]
+    #        all_pages = list(range(int(first_page), int(last_page)+1))
+            if int(last_page) == 3:
+                return render_template(
+                    "trefle_plants_three.html", plants=plant,
+                    last_page=last_page, total=total,
+                    next_page=next_page, first_page=first_page,
+                    page=page, prev_page=prev_page,
+                    selfs_page=selfs_page)
+            if int(last_page) <= 2:
+                return render_template(
+                    "trefle_plants_two.html", plants=plant,
+                    last_page=last_page, total=total,
+                    next_page=next_page, first_page=first_page,
+                    page=page, prev_page=prev_page,
+                    selfs_page=selfs_page)
             return render_template(
-                "trefle_plants_three.html", plants=plant,
+                "trefle_plants.html", plants=plant,
                 last_page=last_page, total=total,
                 next_page=next_page, first_page=first_page,
                 page=page, prev_page=prev_page,
                 selfs_page=selfs_page)
-        if int(last_page) <= 2:
+        else:
             return render_template(
-                "trefle_plants_two.html", plants=plant,
-                last_page=last_page, total=total,
-                next_page=next_page, first_page=first_page,
-                page=page, prev_page=prev_page,
-                selfs_page=selfs_page)
-        return render_template(
-            "trefle_plants.html", plants=plant,
-            last_page=last_page, total=total,
-            next_page=next_page, first_page=first_page,
-            page=page, prev_page=prev_page,
-            selfs_page=selfs_page)
-    else:
-        return render_template(
-                    "trefle_oops.html")
+                        "trefle_oops.html")
 
 
 @app.route("/next_url")
