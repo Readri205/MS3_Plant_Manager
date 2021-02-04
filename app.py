@@ -367,10 +367,11 @@ def search_trefle():
     query = request.form.get("query")
     query = query.replace("'", "")
     query = query.replace(".", "")
-    query = query.replace("-", " ")
+    query = query.replace("-", "")
     print(query)
     global search
     search = STRG + str(query)
+    print(search)
     page = request.args.get('page', 1, type=int)
     plants = requests.get(
         url_page_no + page_url + str(page) + search, headers=headers).json()
@@ -387,8 +388,12 @@ def search_trefle():
         selfs_many = len(selfs)
         selfs_net_adjust = selfs_many - adjust
         selfs_page = selfs[:selfs_net_adjust]
-        prev_page = int(selfs_page) - 1
-        next_page = int(selfs_page) + 1
+        print(selfs_page)
+        prev_page = 0
+#        prev_page = int(selfs_page) - 1
+        print(prev_page)
+        next_page = 2
+#        next_page = int(selfs_page) + 1
         last = links['last'][28:]
         last_many = len(last)
         last_net_adjust = last_many - adjust

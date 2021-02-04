@@ -964,4 +964,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V39.5 Format html text in IDE
    - V39.6 Redeploy to upgrade Heroku-20 stack
    - V39.7 Add readme text on markup HTML
+   - V39.8 Replace prev_page with 0 for mobile trefle search
 ***
