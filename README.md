@@ -392,7 +392,9 @@ The project uses two key API interfaces as shown here;
 * [Balsamiq:](https://balsamiq.com/)
   * Balsamiq was used to create the [wireframes]() during the design process.
 * [Am I Responsive:](http://ami.responsivedesign.is/#)
-  * Am I Responsive was used to test the page layouts during the build process.  [Results](https://github.com/Readri205/MS2_Project/blob/master/assets/documents/testscreenshots/amiresponsive.png)
+  * Am I Responsive was used to test the page layouts during the build process;
+
+    ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/amiresponsive_succ.png?raw= "Am I Responsive")
 
 ### Application Programming Interfaces (API's) Used
 
@@ -982,4 +984,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V40.4 Add heroku mobile search error details to readme
    - V40.5 Add trefle filter checkbox for at least one check
    - V40.6 Add scriptjs code lines to table for filter search
+   - V40.7 Add AMIResponsive image
 ***
