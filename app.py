@@ -368,10 +368,11 @@ def search_trefle():
     query = query.replace("'", "")
     query = query.replace(".", "")
     query = query.replace("-", "")
-    print(query)
+    query = query.replace("1", "")
+#    print(query)
     global search
     search = STRG + str(query)
-    print(search)
+#    print(search)
     page = request.args.get('page', 1, type=int)
     plants = requests.get(
         url_page_no + page_url + str(page) + search, headers=headers).json()
@@ -387,11 +388,11 @@ def search_trefle():
         selfs = links['self'][28:]
         selfs_many = len(selfs)
         selfs_net_adjust = selfs_many - adjust
-        selfs_page = int(selfs[:selfs_net_adjust], base=10)
-        print(selfs_page)
+        selfs_page = int(selfs[:selfs_net_adjust])
+#        print(selfs_page)
 #        prev_page = 0
         prev_page = selfs_page - 1
-        print(prev_page)
+#        print(prev_page)
 #        next_page = 2
         next_page = selfs_page + 1
         last = links['last'][28:]
@@ -470,6 +471,14 @@ def next_url():
                 next_page=next_page, first_page=first_page,
                 all_pages=all_pages, page=page,
                 prev_page=prev_page, selfs_page=selfs_page)
+        if int(selfs_page) == int(first_page):
+            return render_template(
+                "trefle_plants_first.html", plants=plant,
+                last_page=last_page, total=total,
+                next_page=next_page, first_page=first_page,
+                all_pages=all_pages, page=page,
+                prev_page=prev_page, selfs_page=selfs_page)
+        print(selfs_page)
         return render_template(
             "trefle_plants.html", plants=plant,
             last_page=last_page, total=total,
