@@ -959,4 +959,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V39.1 Update my_image and thumbnail for plantid search
    - V39.2 Reset plant_image style for plantid images
    - V39.3 Upload my_image in main image folder
+   - V39.4 Add uploads folder and my_image in plant_id folder
 ***

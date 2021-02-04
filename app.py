@@ -27,7 +27,7 @@ app.config["MONGO_URI"] = os.getenv('MONGO_URI')
 app.secret_key = os.environ.get("SECRET_KEY")
 # paths to load images
 app.config["IMAGE_UPLOADS"] = os.getenv('IMAGE_UPLOADS')
-# app.config["IMAGE_DEETS"] = os.getenv('IMAGE_DEETS')
+app.config["IMAGE_DEETS"] = os.getenv('IMAGE_DEETS')
 # Trefle API call details
 YOUR_TREFLE_TOKEN = os.environ.get("YOUR_TREFLE_TOKEN")
 headers = {'Authorization': 'Token ' + YOUR_TREFLE_TOKEN}
