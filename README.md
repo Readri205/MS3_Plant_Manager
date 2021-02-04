@@ -446,7 +446,7 @@ The project uses two key API interfaces as shown here;
        Collection List | Card Box | app.py / 137 - 152 | N/A |N/A |
        Add / Update Collection | Add | app.py / 155 - 210 | script.js / 11 - 18 |N/A |
        Trefle Search | Search by 'name' | app.py / 321 - 476 | N/A |[Trefle.io](https://Trefle.io/) (Website) |
-       Trefle Filter | Filter by 'colour' | app.py / 538 - 683 | N/A |[Trefle.io](https://Trefle.io/) (Website) |
+       Trefle Filter | Filter by 'colour' | app.py / 538 - 683 | script.js / 53 - 63  |[Trefle.io](https://Trefle.io/) (Website) |
        Trefle Plant Details | Search / Filter Return | app.py / 504 - 535 | N/A |[Trefle.io](https://Trefle.io/) (Website) |
        Add Trefle Plant Details | Add | app.py / 479 - 501 | N/A |[Trefle.io](https://Trefle.io/) (Website) |
        Plant.id Search | Plant.id 'image upload' | app.py / 686 - 758 | image_upload.js |[Plant.id](https://plant.id/) (Website) |
@@ -981,4 +981,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V40.3 Add validation and required for plantid image load
    - V40.4 Add heroku mobile search error details to readme
    - V40.5 Add trefle filter checkbox for at least one check
+   - V40.6 Add scriptjs code lines to table for filter search
 ***
