@@ -383,8 +383,8 @@ The project uses two key API interfaces as shown here;
   * Favicon.io was used for Favicon :seedling: web page title images.
 * [Photoshop:](https://www.adobe.com/ie/products/photoshop.html)
   * Photoshop was used to resize images and edit photos for the website.
-* [dirtyMarkup:](https://www.10bestdesign.com/dirtymarkup/)
-  * dirtyMarkup was used to format HTML, CSS and JS files
+* [GitPod IDE Markup:](https://www.gitpod.io/)
+  * GitPod IDE markup was used to format HTML files. This easy to use and makes the code very easy to read. I understand this to be VS Code standard.
 * [Adobe Stock:](https://stock.adobe.com/uk/)
   * Adobe Stock was used as a library source for images.
 * [Unsplash:](https://unsplash.com/)
@@ -463,6 +463,7 @@ Testing information can be found in a separate [testing.md](https://github.com/R
 * Note that on a mobile, the drop down lists can prove 'sticky' on selection with touch screen and sometimes go through to the wrong selection. Again, this can be 'annoying' initially. Further review can look to resolve this for user aesthetics.
 * Note that at present there is no functionality for a user to delete their account, but would be provided as a future feature.
 * Note that the background, carousel and main home page cards all reference  [© Unsplash.com](https://unsplash.com/) for the images. As this is the case there is a risk that an image could be removed from the source and so the site image would fail. Copies of images are retained in the project image folder for backup.
+* GitPod IDE markup was used to format HTML files. This easy to use and makes the code very easy to read. I understand this to be a VS Code standard.
 
 ## Deployment
 
@@ -962,4 +963,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V39.4 Add uploads folder and my_image in plant_id folder
    - V39.5 Format html text in IDE
    - V39.6 Redeploy to upgrade Heroku-20 stack
+   - V39.7 Add readme text on markup HTML
 ***
