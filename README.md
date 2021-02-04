@@ -464,6 +464,15 @@ Testing information can be found in a separate [testing.md](https://github.com/R
 * Note that at present there is no functionality for a user to delete their account, but would be provided as a future feature.
 * Note that the background, carousel and main home page cards all reference  [© Unsplash.com](https://unsplash.com/) for the images. As this is the case there is a risk that an image could be removed from the source and so the site image would fail. Copies of images are retained in the project image folder for backup.
 * GitPod IDE markup was used to format HTML files. This easy to use and makes the code very easy to read. I understand this to be a VS Code standard.
+* In the Heroku deployment, and on a mobile device, in the Trefle Search function, if a user enters a name with an apostrophe in it, the search with fail and report an Error (this issue is unique to Heroku deployment on a mobile device. The search will work on a desktop device or in Heroku Chrome Dev tools for mobile device screen sizes). The issue was discussed with CI Tutor Support with the suggestion to record the issue in the README.md file;
+
+  * example of type of search;
+
+    ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/problem_search.png?raw= "Mobile Problem Search")
+
+  * example of the error return;
+
+    ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/value_error.png?raw= "Mobile Device Error")
 
 ## Deployment
 
@@ -970,4 +979,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V40.1 Amend selfs for base10 integer
    - V40.2 Amend pages for first page trefle search
    - V40.3 Add validation and required for plantid image load
+   - V40.4 Add heroku mobile search error details to readme
 ***
