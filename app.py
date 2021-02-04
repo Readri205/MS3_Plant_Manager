@@ -387,13 +387,13 @@ def search_trefle():
         selfs = links['self'][28:]
         selfs_many = len(selfs)
         selfs_net_adjust = selfs_many - adjust
-        selfs_page = selfs[:selfs_net_adjust]
+        selfs_page = int(selfs[:selfs_net_adjust], base=10)
         print(selfs_page)
 #        prev_page = 0
-        prev_page = int(selfs_page) - 1
+        prev_page = selfs_page - 1
         print(prev_page)
 #        next_page = 2
-        next_page = int(selfs_page) + 1
+        next_page = selfs_page + 1
         last = links['last'][28:]
         last_many = len(last)
         last_net_adjust = last_many - adjust
@@ -406,7 +406,7 @@ def search_trefle():
                 next_page=next_page, first_page=first_page,
                 page=page, prev_page=prev_page,
                 selfs_page=selfs_page)
-        if int(float(last_page)) <= 2:
+        if int(last_page) <= 2:
             return render_template(
                 "trefle_plants_two.html", plants=plant,
                 last_page=last_page, total=total,
