@@ -966,4 +966,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V39.7 Add readme text on markup HTML
    - V39.8 Replace prev_page with 0 for mobile trefle search
    - V39.9 Replace int with int float for mobile search heroku
+   - V40.0 Revert to int only, test fail for mobile
 ***
