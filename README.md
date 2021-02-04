@@ -980,4 +980,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V40.2 Amend pages for first page trefle search
    - V40.3 Add validation and required for plantid image load
    - V40.4 Add heroku mobile search error details to readme
+   - V40.5 Add trefle filter checkbox for at least one check
 ***
