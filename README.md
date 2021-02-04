@@ -985,4 +985,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V40.5 Add trefle filter checkbox for at least one check
    - V40.6 Add scriptjs code lines to table for filter search
    - V40.7 Add AMIResponsive image
+   - V40.8 Add query back after error delete
 ***
