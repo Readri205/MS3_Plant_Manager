@@ -556,6 +556,7 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
 * [Code Institute course](https://codeinstitute.net/5-day-coding-challenge/?utm_term=%2Bcode%20%2Binstitute%20%2Bcourses&utm_campaign=a%2526c_BR_IRL_Code_Institute&utm_source=adwords&utm_medium=ppc&hsa_net=adwords&hsa_tgt=kwd-443742237303&hsa_ad=407017470923&hsa_acc=8983321581&hsa_grp=62188641040&hsa_mt=b&hsa_cam=1578649861&hsa_kw=%2Bcode%20%2Binstitute%20%2Bcourses&hsa_ver=3&hsa_src=g&gclid=CjwKCAjw4MP5BRBtEiwASfwAL3-Oi3uDo1sBfn2KpQVAlLb07T2ndP-Q2mCFxdGgpvoBMoPIAtbg9xoCyZgQAvD_BwE&gclsrc=aw.ds); (the 'Task List' example) by Tim Nelson for the [Flask](https://flask.palletsprojects.com/en/1.1.x/) / [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) / [MongoDB](https://www.mongodb.com/cloud/atlas) / [Materialize](https://materializecss.com/) example which is used for the base construction of this website.
 * (the [Emailjs](https://www.emailjs.com/) example) for the 'Contact Form' email return function used in this website.
 * Code for the Carousel was from [Learning Simplified](https://youtu.be/re2W7o6IsYo), a youtube channel doing some good things with the [Materialize 1.0.0](https://materializecss.com/) Library.
+* [Julian Nash](https://www.youtube.com/channel/UC5_oFcBFlawLcFCBmU7oNZA) provided me with lots of useful tips for Flask and Python programming. The youtube videos are easy to follow and understand and are backed up with useful documentation.
 
 ## Content
 
@@ -986,4 +987,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V40.6 Add scriptjs code lines to table for filter search
    - V40.7 Add AMIResponsive image
    - V40.8 Add query back after error delete
+   - V40.9 Add API error handles and dying plant error image
 ***

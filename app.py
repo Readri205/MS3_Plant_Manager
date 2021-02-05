@@ -4,7 +4,7 @@ import requests
 import base64
 from flask import (
     Flask, flash, render_template,
-    redirect, request, session, url_for)
+    redirect, request, session, url_for, abort)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import (
@@ -774,6 +774,30 @@ def get_plant_id():
     else:
         flash("Load an image first to submit!")
     return redirect(url_for("plant_id"))
+
+
+@app.errorhandler(403)
+def forbidden(e):
+    app.logger.error(f"Forbidden: {request.url}")
+    return render_template("api_error.html"), 403
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    app.logger.info(f"Page not found: {request.url}")
+    return render_template("api_error.html"), 404
+
+
+@app.errorhandler(500)
+def server_error(e):
+    #    email_admin(message="Server error", url=request.url, error=e)
+    app.logger.error(f"Server error: {request.url}")
+    return render_template("api_error.html"), 500
+
+
+# @app.email_admin()
+# def email_admin():
+#    print("Oops there's been a server / API problem!")
 
 
 if __name__ == '__main__':
