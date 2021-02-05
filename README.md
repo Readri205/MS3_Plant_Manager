@@ -1005,6 +1005,7 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V42.0 Amend wording for error type returns
    - V42.1 Add error message to readme
    - V42.2 Remove superflous code in trefle get_many
+   - V42.3 Update api database error template text 
 
 
 ***
