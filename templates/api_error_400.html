@@ -1,0 +1,39 @@
+{% extends "base.html" %} {% block content %}
+<h3 class="yellow-text text-shadow text-darken-4 center-align">
+  Oops!
+</h3>
+<div class="row card-panel teal lighten-5">
+  <div class="row">
+    <a
+      href="https://www.deviantart.com/florapolitis/art/Dying-Plant-Flower-689450996"
+      target="blank">
+      <img class="responsive-img" src="static/images/dying_plant.png" alt="" />
+    </a>
+    <p style="font-size: 7px;" class="teal-text text-darken-4 center-align">
+      <a
+        class="teal-text text-darken-4 wiki-text"
+        href="https://www.deviantart.com/florapolitis/art/Dying-Plant-Flower-689450996"
+        target="blank"
+        >© 2017 - 2021 florapolitis</a>
+    </p>
+  </div>
+  <p style="font-size: 20px;" class="teal-text text-darken-4 center-align">
+    Oops! Looks like there is a problem;
+  </p>
+  <p class="teal-text text-darken-4 error-text">
+    1. The database is down for maintenenance, and should be up again shortly.
+  </p>
+  <div class="row">
+      <div class="col s12">
+        <a href="{{url_for('get_trefle_many')}}" class="teal btn text-shadow"
+          >Back to Trefle Search</a>
+      </div>
+    </div>
+  <div class="row">
+      <div class="col s12">
+        <a href="{{url_for('plant_id')}}" class="teal btn text-shadow"
+          >Back to Plant.ID Search</a>
+      </div>
+    </div>
+</div>
+{% endblock %}
