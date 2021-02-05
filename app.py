@@ -348,18 +348,19 @@ after = "%5D="
 
 @app.route("/get_trefle_many")
 def get_trefle_many():
-    page = request.args.get('page', 1, type=int)
-    plants = requests.get(
-        url_all_plants + page_url + str(page), headers=headers).json()
-    if plants:
-        plant = plants['data']
-        total = plants['meta']['total']
-        return render_template(
-                "trefle_search.html", plants=plant,
-                total=total)
-    else:
-        return render_template(
-                "trefle_oops.html")
+#    page = request.args.get('page', 1, type=int)
+#    plants = requests.get(
+#        url_all_plants + page_url + str(page), headers=headers).json()
+#    if plants:
+#        plant = plants['data']
+#        total = plants['meta']['total']
+    return render_template(
+        "trefle_search.html")
+        #, plants=plant,
+        #        total=total)
+#    else:
+#        return render_template(
+#                "trefle_oops.html")
 
 
 @app.route("/search_trefle", methods=["POST"])

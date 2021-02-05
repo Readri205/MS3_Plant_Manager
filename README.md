@@ -1004,4 +1004,7 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V41.9 Split api error page types 400 500
    - V42.0 Amend wording for error type returns
    - V42.1 Add error message to readme
+   - V42.2 Remove superflous code in trefle get_many
+
+
 ***
