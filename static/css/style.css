@@ -116,6 +116,10 @@
     padding: 1px;
     text-decoration: underline;
 }
+.error-text {
+    border-radius:3px;
+    padding: 1px;
+}
 .btn {
     font-size: 11px;
     height: 25px;
