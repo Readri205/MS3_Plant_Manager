@@ -995,4 +995,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V41.4 Text amends to trefle pages and api error page
    - V41.5 Amend text styling on api error page
    - V41.6 Further amends to styles on api error page
+   - V41.7 Amend for mobile search text on trefle search page
 ***
