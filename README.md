@@ -998,4 +998,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V41.7 Amend for mobile search text on trefle search page
    - V41.8 Add mobile search text to all trefle search pages
    - V41.9 Split api error page types 400 500
+   - V42.0 Amend wording for error type returns
 ***
