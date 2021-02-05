@@ -476,6 +476,10 @@ Testing information can be found in a separate [testing.md](https://github.com/R
 
     ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/value_error.png?raw= "Mobile Device Error")
 
+  * if the user enters a search on mobile with an apostrophe in the name, the following error message is returned (HTTP 500 server error);
+
+    ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/oops_error_message.png?raw= "Error Message")
+
 ## Deployment
 
 ### GitHub Pages
@@ -999,4 +1003,5 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V41.8 Add mobile search text to all trefle search pages
    - V41.9 Split api error page types 400 500
    - V42.0 Amend wording for error type returns
+   - V42.1 Add error message to readme
 ***
