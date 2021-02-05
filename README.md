@@ -1007,6 +1007,7 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V42.2 Remove superflous code in trefle get_many
    - V42.3 Update api database error template text
    - V42.4 Update plant id pages with ° from %
+   - V42.5 Update my_image in plantid folder
 
 
 ***
