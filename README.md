@@ -438,21 +438,23 @@ The project uses two key API interfaces as shown here;
        ----------|--------------|-----------------|-----------|---------|
        All | Carousel | N/A  | script.js / 7, 19 - 23 |N/A |
        All | Navbar | N/A  | script.js / 2 - 6 |N/A |
-       Home | Card Boxes | app.py / 40 - 43 | N/A |N/A |
-       Register | Card Box | app.py / 213 - 237 | N/A |N/A |
-       Login | Card Box | app.py / 240 - 267 | N/A |N/A |
-       Logout | Card Box | app.py / 282 - 287 | N/A |N/A |
-       Plant List | Card Box | app.py / 51 - 54 | N/A  |N/A |
-       Add / Update Plant | Add | app.py / 57 - 134 | script.js / 11 - 18 |N/A |
-       Collection List | Card Box | app.py / 137 - 152 | N/A |N/A |
-       Add / Update Collection | Add | app.py / 155 - 210 | script.js / 11 - 18 |N/A |
-       Trefle Search | Search by 'name' | app.py / 321 - 476 | N/A |[Trefle.io](https://Trefle.io/) (Website) |
-       Trefle Filter | Filter by 'colour' | app.py / 538 - 683 | script.js / 53 - 63  |[Trefle.io](https://Trefle.io/) (Website) |
-       Trefle Plant Details | Search / Filter Return | app.py / 504 - 535 | N/A |[Trefle.io](https://Trefle.io/) (Website) |
-       Add Trefle Plant Details | Add | app.py / 479 - 501 | N/A |[Trefle.io](https://Trefle.io/) (Website) |
-       Plant.id Search | Plant.id 'image upload' | app.py / 686 - 758 | image_upload.js |[Plant.id](https://plant.id/) (Website) |
-       My Details | Card Box | app.py / 290 - 318 | N/A |N/A |
+       Home | Card Boxes | app.py / 39 - 43 | N/A |N/A |
+       Register | Card Box | app.py / 212 - 236 | N/A |N/A |
+       Login | Card Box | app.py / 239 - 266 | N/A |N/A |
+       Logout | Card Box | app.py / 281 - 286 | N/A |N/A |
+       Plant List | Card Box | app.py / 50 - 53 | N/A  |N/A |
+       Add / Update Plant | Add | app.py / 56 - 133 | script.js / 11 - 18 |N/A |
+       Collection List | Card Box | app.py / 136 - 151 | N/A |N/A |
+       Add / Update Collection | Add | app.py / 154 - 209 | script.js / 11 - 18 |N/A |
+       Trefle Search | Search by 'name' | app.py / 320 - 473 | N/A |[Trefle.io](https://Trefle.io/) (Website) |
+       Trefle Filter | Filter by 'colour' | app.py / 535 - 678 | script.js / 53 - 63  |[Trefle.io](https://Trefle.io/) (Website) |
+       Trefle Plant Details | Search / Filter Return | app.py / 501 - 532 | N/A |[Trefle.io](https://Trefle.io/) (Website) |
+       Add Trefle Plant Details | Add | app.py / 476 - 498 | N/A |[Trefle.io](https://Trefle.io/) (Website) |
+       Plant.id Search | Plant.id 'image upload' | app.py / 681 - 756 | image_upload.js |[Plant.id](https://plant.id/) (Website) |
+       My Details | Card Box | app.py / 289 - 317 | N/A |N/A |
        Contact | Contact Form |N/A| sendemailjs.js | [Emailjs](https://www.emailjs.com/) (Website)|
+       Error | Error Messages | app.py / 759 - 775 | N/A | N/A |
+
 
 ## Testing
 Testing information can be found in a separate [testing.md](https://github.com/Readri205/MS3_Plant_Manager/blob/master/testing.md) file.
@@ -1009,6 +1011,7 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V42.4 Update plant id pages with ° from %
    - V42.5 Update my_image in plantid folder
    - V42.6 Add error images, amend readme text and contents
+   - V42.7 Update construction box for code lines
 
 
 ***

@@ -4,7 +4,7 @@ import requests
 import base64
 from flask import (
     Flask, flash, render_template,
-    redirect, request, session, url_for, abort)
+    redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import (
@@ -27,7 +27,6 @@ app.config["MONGO_URI"] = os.getenv('MONGO_URI')
 app.secret_key = os.environ.get("SECRET_KEY")
 # paths to load images
 app.config["IMAGE_UPLOADS"] = os.getenv('IMAGE_UPLOADS')
-# app.config["IMAGE_DEETS"] = os.getenv('IMAGE_DEETS')
 # Trefle API call details
 YOUR_TREFLE_TOKEN = os.environ.get("YOUR_TREFLE_TOKEN")
 headers = {'Authorization': 'Token ' + YOUR_TREFLE_TOKEN}
