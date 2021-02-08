@@ -90,7 +90,7 @@ The following automated tools were used to test the website during development o
 
 * The website makes use of a number of API calls as described in the main README.md. If an API request fails with an error code 403 or 404, the user will be directed to an error page as illustrated below;
 
-  ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/apifail10050.jpg "API Fail Message to User")
+  ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/api_error_message.png?raw= "API Error Message")
 
 * In Heroku and on a mobile device, the application will return an error if a user places and apostrophe in the main Trefle search function to search for a plant. This error does not occur on a desktop device. A specific error page has been set up to reference this error as illustrated below;
 
