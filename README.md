@@ -61,7 +61,6 @@ The project uses two key API interfaces as shown here;
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
-
 ## Site Goals
 
   * This website provides a functionality for users to create a list of plants in collections, either by entering plant details or by uploading from a search. The searches can be made in a number of ways, including by name, image or by filters. Users are able to update the details of plants and collections in their lists. Users are also able to delete plants and collections. A user can also move a plant from one collection to another if so desired. A user can also amend their personal details including email, username and telephone number. A user is also able to fully delete their login and all plants and collections listed on that login. Each users logn and details are specific to that user and cannot be viewed by any other user.
@@ -578,6 +577,7 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
  *   Home page card image - ['Mystic Hydrangea'](https://unsplash.com/photos/FOrCwEMIgSI) Natasha Polyakova [© Unsplash.com](https://stock.adobe.com/uk/);
  *   Home page card image - ['Deep Red Leaves'](https://unsplash.com/photos/mdNQ3R5dT6w) Jessica Fadel [© Unsplash.com](https://stock.adobe.com/uk/);
  *   Home page card image - ['Pink Flowers'](https://unsplash.com/photos/ia1eeRnsbLg) Annie Spratt [© Unsplash.com](https://stock.adobe.com/uk/);
+ *   Error page image - ['Dying Plant Flower'](https://www.deviantart.com/florapolitis/art/Dying-Plant-Flower-689450996) © 2017 - 2021 florapolitis ['Florapolotis'](https://www.deviantart.com/florapolitis/art/Dying-Plant-Flower-689450996) [Deviant Art](https://www.deviantart.com/);
 
 ### Acknowledgements
 
@@ -1008,6 +1008,7 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V42.3 Update api database error template text
    - V42.4 Update plant id pages with ° from %
    - V42.5 Update my_image in plantid folder
+   - V42.6 Add error images, amend readme text and contents
 
 
 ***

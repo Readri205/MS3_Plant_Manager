@@ -27,7 +27,7 @@ app.config["MONGO_URI"] = os.getenv('MONGO_URI')
 app.secret_key = os.environ.get("SECRET_KEY")
 # paths to load images
 app.config["IMAGE_UPLOADS"] = os.getenv('IMAGE_UPLOADS')
-app.config["IMAGE_DEETS"] = os.getenv('IMAGE_DEETS')
+# app.config["IMAGE_DEETS"] = os.getenv('IMAGE_DEETS')
 # Trefle API call details
 YOUR_TREFLE_TOKEN = os.environ.get("YOUR_TREFLE_TOKEN")
 headers = {'Authorization': 'Token ' + YOUR_TREFLE_TOKEN}
@@ -348,19 +348,8 @@ after = "%5D="
 
 @app.route("/get_trefle_many")
 def get_trefle_many():
-#    page = request.args.get('page', 1, type=int)
-#    plants = requests.get(
-#        url_all_plants + page_url + str(page), headers=headers).json()
-#    if plants:
-#        plant = plants['data']
-#        total = plants['meta']['total']
     return render_template(
         "trefle_search.html")
-        #, plants=plant,
-        #        total=total)
-#    else:
-#        return render_template(
-#                "trefle_oops.html")
 
 
 @app.route("/search_trefle", methods=["POST"])
@@ -371,10 +360,8 @@ def search_trefle():
         query = query.replace(".", "")
         query = query.replace("-", "")
         query = query.replace("1", "")
-    #    print(query)
         global search
         search = STRG + str(query)
-    #    print(search)
         page = request.args.get('page', 1, type=int)
         plants = requests.get(
             url_page_no + page_url + str(page) + search, headers=headers).json()
@@ -391,17 +378,12 @@ def search_trefle():
             selfs_many = len(selfs)
             selfs_net_adjust = selfs_many - adjust
             selfs_page = int(selfs[:selfs_net_adjust])
-    #        print(selfs_page)
-    #        prev_page = 0
             prev_page = selfs_page - 1
-    #        print(prev_page)
-    #        next_page = 2
             next_page = selfs_page + 1
             last = links['last'][28:]
             last_many = len(last)
             last_net_adjust = last_many - adjust
             last_page = last[:last_net_adjust]
-    #        all_pages = list(range(int(first_page), int(last_page)+1))
             if int(last_page) == 3:
                 return render_template(
                     "trefle_plants_three.html", plants=plant,
@@ -593,14 +575,12 @@ def trefle_filter():
             total = plants['meta']['total']
             links = plants['links']
             selfs = links['self']
-#            global adjust_page
             adjust_page = len(selfs) + 6
             first_page = links['first'][int(adjust_page):]
             selfs_page = page
             prev_page = page - 1
             next_page = page + 1
             last_page = links['last'][int(adjust_page):]
-#            all_pages = list(range(int(first_page), int(last_page)+1))
             print(selfs_page, first_page, next_page, last_page, prev_page)
             if int(last_page) == 3:
                 return render_template(
@@ -804,4 +784,4 @@ def server_error(e):
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
-            debug=False)
+            debug=True)

@@ -14,17 +14,12 @@ The project uses two key API interfaces as shown here;
 View the Main [README here](https://github.com/Readri205/MS3_Plant_Manager/blob/master/README.md)
 
 ## Contents
-
-- [User stories](#user-stories)
-    + [First Time Visitor Goals](#first-time-visitor-goals)
-    + [Returning Visitor Goals](#returning-visitor-goals)
-    + [Frequent User Goals](#frequent-user-goals)
-    + [Mobile Menu](#mobile-menu)
-  * [Functional User Tests by Browser](#functional-user-tests-by-browser)
-- [Automated Testing](#automated-testing)
-- [API Fail Message Test](#api-fail-message-test)
-- [Contact Form Testing](#contact-form-testing)
-- [Further Testing](#further-testing)
+  * [User stories](#user-stories)
+    + [Functional User Tests by Browser](#functional-user-tests-by-browser)
+  * [Automated Testing](#automated-testing)
+  * [API Fail Message Test](#api-fail-message-test)
+  * [Contact Form Testing](#contact-form-testing)
+  * [Further Testing](#further-testing)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
@@ -33,94 +28,25 @@ View the Main [README here](https://github.com/Readri205/MS3_Plant_Manager/blob/
 
 The user stories are annotated below to describe actual functionality. Screenshot images of the site have been provided in the main [README.md](https://github.com/Readri205/MS3_Plant_Manager/blob/master/README.md). A [Functional User Tests by Browser](#functional-user-tests-by-browser) testing schedule has been prepared and is shown below. User functionality has been tested across four key web browsers; Chrome, Safari, MSEdge, Opera and Internet Explorer. Internet Explorer has returned 'test fails' but it is expected that any Internet Explorer users will upgrade to MS Edge or migrate to other mainstream browsers.
 
-*   #### First Time Visitor Goals
-    * The first time visitor will want to;
-      * easily understand the main purpose of the site;
+### Functional User Tests by Browser
 
-      * be able to easily navigate throughout the site to find content;
+  * All the functional user tests have been made per the attached [Test Schedule](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/testsheet.xlsx). All functional tests have been on different Browsers including Chrome, MS Edge, Firefox, Opera and Internet Explorer.
+  * Note that there are functional **'fails'** returned from **Internet Explorer** for any search functionality. Internet Explorer was **NOT** tested on mobile. However, **MS Edge** was tested **successfully** on large screen and mobile. The results are shown below;
+  * MacBook Pro 16" Screen;
 
-      * view the carousel images just beneath the header;
+    ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/testsheet1.png "Functional Test Schedule - MacBook Pro 16 Screen")
 
-      * scroll down through the information, read the content, view each of the function cards;
+    ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/testsheet2.png "Functional Test Schedule - MacBook Pro 16 Screen")
 
-      * register for the site and create login credentials;
+    ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/testsheet3.png "Functional Test Schedule - MacBook Pro 16 Screen")
 
-      * enter plant details for plants they are interested in;
+  * iPhone X 375px screen;
 
-        * login to the site;
-        * immediately view their plants list;
-        * view their collections list;
-        * search for plants in one of the search methods;
-          * name;
-          * filter by attribute;
-          * image upload.
-        * add a plant to users plant list and a collection.
+    ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/testsheet4.png "Functional Test Schedule - iPhone X 375 Screen")
 
-      * contact us to ask about data projects that they may be interested to have completed as an item of work.
-        * Per images above
+    ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/testsheet5.png "Functional Test Schedule - iPhone X 375 Screen")
 
-*   #### Returning Visitor Goals
-    * The returning visitor will want to;
-      * login to the site;
-      * immediately view their plants list;
-      * view their collections list.
-    * **A returning visitor** may want to go straight to the 'Plant' search function;
-
-        * search for plants in one of the search methods;
-          * name;
-          * filter by attribute;
-          * image upload.
-        * on finding a plant the user in they may want to find out more details on that plant by choosing the 'plant details' button;
-          * there a number of specific details including in the return;
-
-        * the user may want to add the plant to their plant list and a collection.
-    * **A returning visitor** may want to go straight to the 'Contact Us' page;
-      * contact us for more information or to provide comments about the site;
-      * contact us to ask about projects that they may be interested to have completed as an item of work.
-
-*   #### Frequent User Goals
-    * The frequent user will want to;
-      * login to the site;
-      * immediately view their plants list;
-      * view their collections list.
-    * **A returning visitor** may want to go straight to the 'Plant' search function;
-
-        * search for plants in one of the search methods;
-          * name;
-          * filter by attribute;
-          * image upload.
-        * on finding a plant the user in they may want to find out more details on that plant by choosing the 'plant details' button;
-          * there a number of specific details including in the return;
-
-        * the user may want to add the plant to their plant list and a collection.
-    * **A frequent visitor** may want to go straight to the 'Contact Us' page;
-      * contact us for more information or to provide comments about the site;
-      * contact us to ask about projects that they may be interested to have completed as an item of work.
-
-*   #### Mobile Menu
-      * On mobile devices the menu is shown as a 'hamburger' drop down;
-
-      * On mobile devices the search function operates in the same manner as for larger screens;
-
-- ### Functional User Tests by Browser
-
-    * All the functional user tests have been made per the attached [Test Schedule](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/testsheet.xlsx). All functional tests have been on different Browsers including Chrome, MS Edge, Firefox, Opera and Internet Explorer.
-    * Note that there are functional **'fails'** returned from **Internet Explorer** for any search functionality. Internet Explorer was **NOT** tested on mobile. However, **MS Edge** was tested **successfully** on large screen and mobile. The results are shown below;
-      * MacBook Pro 16" Screen;
-
-        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/testsheet1.png "Functional Test Schedule - MacBook Pro 16 Screen")
-
-        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/testsheet2.png "Functional Test Schedule - MacBook Pro 16 Screen")
-
-        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/testsheet3.png "Functional Test Schedule - MacBook Pro 16 Screen")
-
-      * iPhone X 375px screen;
-
-        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/testsheet4.png "Functional Test Schedule - iPhone X 375 Screen")
-
-        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/testsheet5.png "Functional Test Schedule - iPhone X 375 Screen")
-
-        ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/testsheet6.png "Functional Test Schedule - iPhone X 375 Screen")
+    ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/testsheet6.png "Functional Test Schedule - iPhone X 375 Screen")
 
 ## Automated Testing
 
@@ -160,9 +86,13 @@ The following automated tools were used to test the website during development o
 
 ## API Fail Message Test
 
-The website makes use of a number of API calls as described in the main README.md. If an API request fails to be returned the user will receive an error message telling the user of the error and to ask them to contact us to let us know. This function was tested on a 'local' domain that precludes the API being called. This returned the following message;
+* The website makes use of a number of API calls as described in the main README.md. If an API request fails with an error code 403 or 404, the user will be directed to an error page as illustrated below;
 
   ![alt text](https://readri205.github.io/MS2_Project/assets/images/testscreenshots/apifail10050.jpg "API Fail Message to User")
+
+* In Heroku and on a mobile device, the application will return an error if a user places and apostrophe in the main Trefle search function to search for a plant. This error does not occur on a desktop device. A specific error page has been set up to reference this error as illustrated below;
+
+  ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/oops_error_message.png?raw= "Error Message")
 
 ## Contact Form Testing
 
@@ -172,7 +102,7 @@ The website makes use of a number of API calls as described in the main README.m
 
     ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/app_contact.png?raw= "Contact Verify")
 
-- Submission Confirmation to User  
+- Submission Confirmation to User
 
     ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/app_contactconfirm.png?raw= "Contact Confirm")
 
