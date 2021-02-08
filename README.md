@@ -1012,6 +1012,7 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V42.5 Update my_image in plantid folder
    - V42.6 Add error images, amend readme text and contents
    - V42.7 Update construction box for code lines
+   - V42.8 Update testing.md text
 
 
 ***

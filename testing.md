@@ -26,7 +26,7 @@ View the Main [README here](https://github.com/Readri205/MS3_Plant_Manager/blob/
 
 ## User stories
 
-The user stories are annotated below to describe actual functionality. Screenshot images of the site have been provided in the main [README.md](https://github.com/Readri205/MS3_Plant_Manager/blob/master/README.md). A [Functional User Tests by Browser](#functional-user-tests-by-browser) testing schedule has been prepared and is shown below. User functionality has been tested across four key web browsers; Chrome, Safari, MSEdge, Opera and Internet Explorer. Internet Explorer has returned 'test fails' but it is expected that any Internet Explorer users will upgrade to MS Edge or migrate to other mainstream browsers.
+A [Functional User Tests by Browser](#functional-user-tests-by-browser) testing schedule has been prepared and is shown below. User functionality has been tested across four key web browsers; Chrome, Safari, MSEdge, Opera and Internet Explorer. Internet Explorer has returned 'test fails' but it is expected that any Internet Explorer users will upgrade to MS Edge or migrate to other mainstream browsers.
 
 ### Functional User Tests by Browser
 
@@ -41,6 +41,8 @@ The user stories are annotated below to describe actual functionality. Screensho
     ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/testsheet3.png "Functional Test Schedule - MacBook Pro 16 Screen")
 
   * iPhone X 375px screen;
+
+    * On the mobile device the Trefle Search issue with apostrpohe's is highlighted as an 'amber' issue.
 
     ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/assets/documents/testsheet4.png "Functional Test Schedule - iPhone X 375 Screen")
 
