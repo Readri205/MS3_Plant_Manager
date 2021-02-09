@@ -432,22 +432,22 @@
        ----------|--------------|-----------------|-----------|---------|
        All | Carousel | N/A  | script.js / 7, 19 - 23 |N/A |
        All | Navbar | N/A  | script.js / 2 - 6 |N/A |
-       Home | Card Boxes | app.py / 39 - 43 | N/A |N/A |
-       Register | Card Box | app.py / 212 - 236 | N/A |N/A |
-       Login | Card Box | app.py / 239 - 266 | N/A |N/A |
-       Logout | Card Box | app.py / 281 - 286 | N/A |N/A |
-       Plant List | Card Box | app.py / 50 - 53 | N/A  |N/A |
-       Add / Update Plant | Add | app.py / 56 - 133 | script.js / 11 - 18 |N/A |
-       Collection List | Card Box | app.py / 136 - 151 | N/A |N/A |
-       Add / Update Collection | Add | app.py / 154 - 209 | script.js / 11 - 18 |N/A |
-       Trefle Search | Search by 'name' | app.py / 320 - 473 | N/A |[Trefle.io](https://Trefle.io/) (Website) |
-       Trefle Filter | Filter by 'colour' | app.py / 535 - 678 | script.js / 53 - 63  |[Trefle.io](https://Trefle.io/) (Website) |
-       Trefle Plant Details | Search / Filter Return | app.py / 501 - 532 | N/A |[Trefle.io](https://Trefle.io/) (Website) |
-       Add Trefle Plant Details | Add | app.py / 476 - 498 | N/A |[Trefle.io](https://Trefle.io/) (Website) |
-       Plant.id Search | Plant.id 'image upload' | app.py / 681 - 756 | image_upload.js |[Plant.id](https://plant.id/) (Website) |
-       My Details | Card Box | app.py / 289 - 317 | N/A |N/A |
+       Home | Card Boxes | app.py / 39 - 42 | N/A |N/A |
+       Register | Card Box | app.py / 214 - 240 | N/A |N/A |
+       Login | Card Box | app.py / 243 - 270 | N/A |N/A |
+       Logout | Card Box | app.py / 285 - 290 | N/A |N/A |
+       Plant List | Card Box | app.py / 50 - 55 | N/A  |N/A |
+       Add / Update Plant | Add | app.py / 57 - 134 | script.js / 11 - 18 |N/A |
+       Collection List | Card Box | app.py / 137 - 153 | N/A |N/A |
+       Add / Update Collection | Add | app.py / 156 - 211 | script.js / 11 - 18 |N/A |
+       Trefle Search | Search by 'name' | app.py / 324 - 478 | N/A |[Trefle.io](https://Trefle.io/) (Website) |
+       Trefle Filter | Filter by 'colour' | app.py / 542 - 686 | script.js / 53 - 63  |[Trefle.io](https://Trefle.io/) (Website) |
+       Trefle Plant Details | Search / Filter Return | app.py / 507 - 539 | N/A |[Trefle.io](https://Trefle.io/) (Website) |
+       Add Trefle Plant Details | Add | app.py / 481 - 504 | N/A |[Trefle.io](https://Trefle.io/) (Website) |
+       Plant.id Search | Plant.id 'image upload' | app.py / 689 - 764 | image_upload.js |[Plant.id](https://plant.id/) (Website) |
+       My Details | Card Box | app.py / 293 - 321 | N/A |N/A |
        Contact | Contact Form |N/A| sendemailjs.js | [Emailjs](https://www.emailjs.com/) (Website)|
-       Error | Error Messages | app.py / 759 - 775 | N/A | N/A |
+       Error | Error Messages | app.py / 767 - 782 | N/A | N/A |
 
 
 ## Testing
@@ -1004,6 +1004,7 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V43.1 Update debug=False
    - V43.2 Remove edited out code
    - V43.3 Post mentor review updates
+   - V43.4 Update page numbers in construction box
 
 
 ***

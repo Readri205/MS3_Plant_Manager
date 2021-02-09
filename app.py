@@ -47,6 +47,7 @@ def contact():
     return render_template("contact.html")
 
 
+# uers plant lists and managing plant list
 @app.route("/get_plants")
 def get_plants():
     return render_template("plants.html",
@@ -133,6 +134,7 @@ def delete_plant(plant_id):
     return redirect(url_for("get_plants"))
 
 
+# user collections and managing user colelctions
 @app.route("/get_collections")
 def get_collections():
     return render_template("collections.html",
@@ -209,6 +211,7 @@ def delete_collection(collection_id):
     return redirect(url_for("get_collections"))
 
 
+# User registration and login
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -345,7 +348,7 @@ filter_not = "filter_not"
 pre = "%5B"
 after = "%5D="
 
-
+# Trefle search pages
 @app.route("/get_trefle_many")
 def get_trefle_many():
     return render_template(
@@ -409,6 +412,7 @@ def search_trefle():
                         "trefle_oops.html")
 
 
+# get next pages from Trefle search
 @app.route("/next_url")
 def next_url():
     page = request.args.get('page', type=int)
@@ -474,6 +478,7 @@ def next_url():
                 "trefle_oops.html")
 
 
+# add the Trefle plant details
 @app.route("/add_trefle_plant/<id>", methods=["GET", "POST"])
 def add_trefle_plant(id):
     the_plant = api.species(id)
@@ -499,6 +504,7 @@ def add_trefle_plant(id):
                 "trefle_oops.html")
 
 
+# get the Trefle plant details
 @app.route("/get_trefle_deets/<id>", methods=["GET"])
 def get_trefle_deets(id):
     the_plant = api.species(id)
@@ -533,6 +539,7 @@ def get_trefle_deets(id):
         "trefle_oops.html")
 
 
+# Mnaage the Trefle filter search
 @app.route("/filter_search")
 def filter_search():
     return render_template("filter_trefle.html")
