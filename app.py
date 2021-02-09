@@ -348,7 +348,7 @@ filter_not = "filter_not"
 pre = "%5B"
 after = "%5D="
 
-# Trefle search pages
+
 @app.route("/get_trefle_many")
 def get_trefle_many():
     return render_template(
