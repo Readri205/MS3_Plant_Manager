@@ -1006,6 +1006,7 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V43.3 Post mentor review updates
    - V43.4 Update page numbers in construction box
    - V43.5 Update phone no validation on registration
+   - V43.6 Redeploy for heroku connection
 
 
 ***
