@@ -770,14 +770,8 @@ def page_not_found(e):
 
 @app.errorhandler(500)
 def server_error(e):
-    #    email_admin(message="Server error", url=request.url, error=e)
     app.logger.error(f"Server error: {request.url}")
     return render_template("api_error_500.html"), 500
-
-
-# @app.email_admin()
-# def email_admin():
-#    print("Oops there's been a server / API problem!")
 
 
 if __name__ == '__main__':
