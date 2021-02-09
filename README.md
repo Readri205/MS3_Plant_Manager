@@ -2,62 +2,56 @@
 
 [View the live **GARDEN MANAGER**  :seedling:  project here.](https://plant-manager-flask-mongodb.herokuapp.com/)
 
-The project uses two key API interfaces as shown here;
-### [Trefle.io](https://Trefle.io/)
-  ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/trefle_header.png?raw= "Trefle Logo")
-
-### [Plant.id](https://plant.id/)
-  ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/plant_id_header.png?raw= "Plant.ID Logo")
-
 # **GARDEN MANAGER :seedling:**
 
 ## Contents
 
 - [**GARDEN MANAGER :seedling:**](#--garden-manager--seedling---)
 
-- [Site Goals](#site-goals)
-- [User Experience (UX)](#user-experience--ux-)
-  * [User stories](#user-stories)
-    + [First Time Visitor Goals](#first-time-visitor-goals)
-    + [Returning Visitor Goals](#returning-visitor-goals)
-    + [Frequent User Goals](#frequent-user-goals)
-    + [Mobile Menu](#mobile-menu)
-  * [Design](#design)
-    + [colour Scheme](#colour-scheme)
-    + [Typography](#typography)
-    + ['Materialize' Card Structure](#-materialize--card-structure)
-    + [Imagery](#imagery)
-  * [Wireframes](#wireframes)
-    + [Original Wireframe Design (October 15, 2020).](#original-wireframe-design--october-15--2020-)
-    + [Actual Site Design.](#actual-site-design)
-- [Features](#features)
-  * [Responsive for Device Size](#responsive-for-device-size)
-  * [Interactive Elements](#interactive-elements)
-  * [Future Features](#future-features)
-- [Technologies Used](#technologies-used)
-  * [Languages Used](#languages-used)
-  * [Database Used](#database-used)
-  * [Frameworks, Databases, Libraries & Programs Used](#frameworks--databases--libraries---programs-used)
-  * [Application Programming Interfaces (API's) Used](#application-programming-interfaces--api-s--used)
-- [Site Construction](#site-construction)
-  * [Consistent Page Components](#consistent-page-components)
-  * [Home Page](#home-page)
-  * [Subsequent Pages](#subsequent-pages)
-  * [Contacts Page](#contacts-page)
-  * [Construction Table](#construction-table)
-- [Testing](#testing)
-  * [Known Bugs and Issues](#known-bugs-and-issues)
-- [Deployment](#deployment)
-  * [GitHub Pages](#github-pages)
-  * [Heroku Deployment](#heroku-deployment)
-  * [Forking the GitHub Repository](#forking-the-github-repository)
-  * [Making a Local Clone](#making-a-local-clone)
-- [Credits](#credits)
-  * [Code](#code)
-- [Content](#content)
-  * [Media](#media)
-  * [Acknowledgements](#acknowledgements)
-- [Version Control](#version-control)
+- [**GARDEN MANAGER :seedling:**](#--garden-manager--seedling---)
+  * [Contents](#contents)
+  * [Site Goals](#site-goals)
+  * [User Experience (UX)](#user-experience--ux-)
+    + [User stories](#user-stories)
+      - [First Time Visitor Goals](#first-time-visitor-goals)
+      - [Returning Visitor Goals](#returning-visitor-goals)
+      - [Frequent User Goals](#frequent-user-goals)
+      - [Mobile Menu](#mobile-menu)
+    + [Design](#design)
+      - [colour Scheme](#colour-scheme)
+      - [Typography](#typography)
+      - ['Materialize' Card Structure](#-materialize--card-structure)
+      - [Imagery](#imagery)
+    + [Wireframes](#wireframes)
+      - [Original Wireframe Design (October 15, 2020).](#original-wireframe-design--october-15--2020-)
+      - [Actual Site Design.](#actual-site-design)
+  * [Features](#features)
+    + [Responsive for Device Size](#responsive-for-device-size)
+    + [Interactive Elements](#interactive-elements)
+    + [Future Features](#future-features)
+  * [Technologies Used](#technologies-used)
+    + [Languages Used](#languages-used)
+    + [Database Used](#database-used)
+    + [Frameworks, Databases, Libraries & Programs Used](#frameworks--databases--libraries---programs-used)
+    + [Application Programming Interfaces (API's) Used](#application-programming-interfaces--api-s--used)
+  * [Site Construction](#site-construction)
+    + [Consistent Page Components](#consistent-page-components)
+    + [Home Page](#home-page)
+    + [Subsequent Pages](#subsequent-pages)
+    + [Contacts Page](#contacts-page)
+    + [Construction Table](#construction-table)
+  * [Testing](#testing)
+    + [Known Bugs and Issues](#known-bugs-and-issues)
+  * [Deployment](#deployment)
+    + [Heroku Deployment](#heroku-deployment)
+    + [Forking the GitHub Repository](#forking-the-github-repository)
+    + [Making a Local Clone](#making-a-local-clone)
+  * [Credits](#credits)
+    + [Code](#code)
+  * [Content](#content)
+    + [Media](#media)
+    + [Acknowledgements](#acknowledgements)
+  * [Version Control](#version-control)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
@@ -482,14 +476,6 @@ Testing information can be found in a separate [testing.md](https://github.com/R
     ![alt text](https://github.com/Readri205/MS3_Plant_Manager/blob/master/static/images/readme/oops_error_message.png?raw= "Error Message")
 
 ## Deployment
-
-### GitHub Pages
-
-The project was deployed to GitHub Pages using the following process;
-
-1. The project was written in [GitPod](https://www.gitpod.io/) and pushed to GitHub Pages ready for deployment by taking the following steps;
-1. Logged in to GitHub and located the [GitHub Repository](https://github.com/Readri205/MS3_Plant_Manager);
-1. From this point deployment was made linking the Github repository to Heroku;
 
 ### Heroku Deployment
 
@@ -1017,6 +1003,7 @@ A **Zip File** clone can be downloaded from the same "Code" drop down above;
    - V43.0 Upload new test schedule and image
    - V43.1 Update debug=False
    - V43.2 Remove edited out code
+   - V43.3 Post mentor review updates
 
 
 ***

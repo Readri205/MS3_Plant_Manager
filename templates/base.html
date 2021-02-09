@@ -100,6 +100,17 @@
                     >My Details<i class="fad fa-caret-down"></i
                   ></a>
                 </li>
+                <li>
+                  <a
+                    href="{{ url_for('contact') }}"
+                    class="yellow-text text-darken-4"
+                    >Contact Us</a
+                  >
+                </li>
+                <li>
+                    <a href="{{ url_for('logout') }}" class="yellow-text text-darken-4"
+                    >Logout</a>
+                </li>
                 {% else %}
                 <li>
                   <a
@@ -115,7 +126,6 @@
                     >Register</a
                   >
                 </li>
-                {% endif %}
                 <li>
                   <a
                     href="{{ url_for('contact') }}"
@@ -123,6 +133,7 @@
                     >Contact Us</a
                   >
                 </li>
+                {% endif %}
               </ul>
             </div>
           </nav>
@@ -171,6 +182,14 @@
               >My Details<i class="fad fa-caret-down"></i
             ></a>
           </li>
+          <li>
+            <a href="{{ url_for('contact') }}" class="yellow-text text-darken-4"
+              >Contact Us</a>
+          </li>
+          <li>
+            <a href="{{ url_for('logout') }}" class="yellow-text text-darken-4"
+            >Logout</a>
+                </li>
           {% else %}
           <li>
             <a href="{{ url_for('login') }}" class="yellow-text text-darken-4"
@@ -181,15 +200,13 @@
             <a
               href="{{ url_for('register') }}"
               class="yellow-text text-darken-4"
-              >Register</a
-            >
+              >Register</a>
           </li>
-          {% endif %}
           <li>
             <a href="{{ url_for('contact') }}" class="yellow-text text-darken-4"
-              >Contact Us</a
-            >
+              >Contact Us</a>
           </li>
+          {% endif %}
         </ul>
 
         <ul id="dropdown1" class="dropdown-content teal darken-4">
@@ -259,11 +276,6 @@
               >My Details</a
             >
           </li>
-          <li>
-            <a href="{{ url_for('logout') }}" class="yellow-text text-darken-4"
-              >Logout</a
-            >
-          </li>
         </ul>
         <ul id="dropdown6" class="dropdown-content teal darken-4">
           <li>
@@ -330,11 +342,6 @@
           <li>
             <a href="{{url_for('get_users')}}" class="yellow-text text-darken-4"
               >My Details</a
-            >
-          </li>
-          <li>
-            <a href="{{ url_for('logout') }}" class="yellow-text text-darken-4"
-              >Logout</a
             >
           </li>
         </ul>
